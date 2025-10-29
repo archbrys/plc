@@ -1,0 +1,153 @@
+.data-display {
+  background-color: rgba(0, 26, 51, 0.8);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(74, 144, 226, 0.3);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.data-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #4a90e2;
+}
+
+.data-header h2 {
+  color: #a8d0ff;
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.data-controls {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.view-toggle {
+  display: flex;
+  gap: 0.25rem;
+  background-color: rgba(0, 51, 102, 0.4);
+  border-radius: 4px;
+  padding: 0.25rem;
+  border: 1px solid rgba(74, 144, 226, 0.2);
+}
+
+.view-toggle .btn {
+  padding: 0.4rem 0.8rem;
+  background-color: transparent;
+  color: #6b9bd1;
+}
+
+.view-toggle .btn.active {
+  background-color: #4a90e2;
+  color: white;
+}
+
+.data-info {
+  color: #6b9bd1;
+  font-size: 0.85rem;
+}
+
+.data-count {
+  background-color: rgba(0, 51, 102, 0.4);
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  border: 1px solid rgba(74, 144, 226, 0.2);
+}
+
+.data-content {
+  flex: 1;
+  overflow: hidden;
+  background-color: rgba(0, 51, 102, 0.3);
+  border-radius: 6px;
+  padding: 1rem;
+  border: 1px solid rgba(74, 144, 226, 0.2);
+}
+
+.table-container {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table thead {
+  position: sticky;
+  top: 0;
+  background-color: rgba(0, 51, 102, 0.6);
+  z-index: 1;
+}
+
+.data-table th {
+  padding: 0.75rem;
+  text-align: left;
+  color: #a8d0ff;
+  font-weight: 600;
+  border-bottom: 2px solid #4a90e2;
+}
+
+.data-table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid rgba(74, 144, 226, 0.2);
+}
+
+.data-table tbody tr:hover {
+  background-color: rgba(74, 144, 226, 0.1);
+}
+
+.timestamp-cell {
+  color: #6b9bd1;
+  font-family: monospace;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.data-cell {
+  color: #a8d0ff;
+  font-family: monospace;
+  font-size: 0.9rem;
+}
+
+.raw-data {
+  color: #5aa0f2;
+}
+
+.data-cell pre {
+  margin: 0;
+  color: #5aa0f2;
+  font-size: 0.85rem;
+}
+
+.raw-container {
+  height: 100%;
+  overflow: auto;
+}
+
+.raw-data-pre {
+  margin: 0;
+  color: #5aa0f2;
+  font-family: monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.no-data {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #6b9bd1;
+  font-style: italic;
+}
+
