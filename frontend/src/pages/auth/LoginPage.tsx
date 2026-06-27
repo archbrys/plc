@@ -64,7 +64,17 @@ export function LoginPage() {
 
   return (
     <div className="auth-page">
-      <form className="card auth-card" onSubmit={handleSubmit}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px', width: 'min(420px, 100%)' }}>
+        <img
+          src="/assets/logo-plc.png"
+          alt="PLC Logo"
+          style={{
+            maxWidth: '300px',
+            width: '100%',
+            height: 'auto',
+          }}
+        />
+        <form className="card auth-card" onSubmit={handleSubmit} style={{ width: '100%', margin: 0 }}>
         <h1>Login</h1>
 
         <div style={{ display: 'flex', gap: '1rem', marginBottom: '1.5rem' }}>
@@ -83,20 +93,6 @@ export function LoginPage() {
             Admin
           </button>
         </div>
-
-        {mode === 'student' && (
-          <>
-            <p className="muted">Use your Student ID and PIN.</p>
-            <p className="muted">Sample: S1001 / 1234</p>
-          </>
-        )}
-
-        {mode === 'admin' && (
-          <>
-            <p className="muted">Admin access only.</p>
-            <p className="muted">Sample: admin / admin123</p>
-          </>
-        )}
 
         {error && <p className="error-text">{error}</p>}
 
@@ -143,7 +139,8 @@ export function LoginPage() {
         <button type="submit" className="btn large" disabled={loading}>
           {loading ? 'Signing in...' : 'Login'}
         </button>
-      </form>
+        </form>
+      </div>
     </div>
   )
 }
