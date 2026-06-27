@@ -12,10 +12,24 @@
 
 body {
   margin: 0;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url('/assets/background-plc.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.6;
+  z-index: -1;
 }
 
 #root {
   min-height: 100vh;
+  position: relative;
 }
 
 .app-shell {
