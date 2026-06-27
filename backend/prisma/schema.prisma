@@ -1,0 +1,104 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+enum Role {
+  ADMIN
+  STUDENT
+}
+
+enum QuestionSetStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+enum QuestionType {
+  MULTIPLE_CHOICE
+  TRUE_FALSE
+  SHORT_ANSWER
+}
+
+model User {
+  id           String       @id @default(cuid())
+  role         Role
+  username     String?      @unique
+  studentId    String?      @unique
+  fullName     String
+  passwordHash String
+  submissions  Submission[]
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+}
+
+model QuestionSet {
+  id          String            @id @default(cuid())
+  title       String
+  description String
+  status      QuestionSetStatus @default(DRAFT)
+  questions   Question[]
+  submissions Submission[]
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+}
+
+model Question {
+  id            String          @id @default(cuid())
+  questionSetId String
+  questionSet   QuestionSet     @relation(fields: [questionSetId], references: [id], onDelete: Cascade)
+  questionText  String
+  questionType  QuestionType
+  orderNumber   Int
+  points        Int
+  required      Boolean         @default(true)
+  choices       Choice[]
+  answers       StudentAnswer[]
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+}
+
+model Choice {
+  id           String          @id @default(cuid())
+  questionId   String
+  question     Question        @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  choiceText   String
+  isCorrect    Boolean         @default(false)
+  orderNumber  Int
+  answers      StudentAnswer[] @relation("SelectedChoice")
+  createdAt    DateTime        @default(now())
+  updatedAt    DateTime        @updatedAt
+}
+
+model Submission {
+  id            String          @id @default(cuid())
+  questionSetId String
+  studentId     String
+  questionSet   QuestionSet     @relation(fields: [questionSetId], references: [id], onDelete: Restrict)
+  student       User            @relation(fields: [studentId], references: [id], onDelete: Restrict)
+  answers       StudentAnswer[]
+  totalPoints   Int
+  earnedPoints  Int
+  submittedAt   DateTime        @default(now())
+}
+
+model StudentAnswer {
+  id              String      @id @default(cuid())
+  submissionId    String
+  questionId      String
+  selectedChoiceId String?
+  selectedBoolean Boolean?
+  answerText      String?
+  awardedPoints   Int         @default(0)
+  submission      Submission  @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+  question        Question    @relation(fields: [questionId], references: [id], onDelete: Restrict)
+  selectedChoice  Choice?     @relation("SelectedChoice", fields: [selectedChoiceId], references: [id], onDelete: SetNull)
+  createdAt       DateTime    @default(now())
+
+  @@index([submissionId])
+  @@index([questionId])
+}
