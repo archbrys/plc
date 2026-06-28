@@ -35,53 +35,6 @@ async function main() {
             passwordHash: studentPinTwoHash,
         },
     });
-    const mathSet = await prisma.questionSet.create({
-        data: {
-            title: 'Math Basics',
-            description: 'Quick arithmetic and logic warm-up.',
-            status: QuestionSetStatus.PUBLISHED,
-            questions: {
-                create: [
-                    {
-                        questionText: 'What is 2 + 2?',
-                        questionType: QuestionType.MULTIPLE_CHOICE,
-                        orderNumber: 1,
-                        points: 2,
-                        required: true,
-                        choices: {
-                            create: [
-                                { choiceText: '3', isCorrect: false, orderNumber: 1 },
-                                { choiceText: '4', isCorrect: true, orderNumber: 2 },
-                            ],
-                        },
-                    },
-                    {
-                        questionText: 'True or False: 9 is an odd number.',
-                        questionType: QuestionType.TRUE_FALSE,
-                        orderNumber: 2,
-                        points: 1,
-                        required: true,
-                        choices: {
-                            create: [
-                                { choiceText: 'True', isCorrect: true, orderNumber: 1 },
-                                { choiceText: 'False', isCorrect: false, orderNumber: 2 },
-                            ],
-                        },
-                    },
-                    {
-                        questionText: 'Write a number greater than 10.',
-                        questionType: QuestionType.SHORT_ANSWER,
-                        orderNumber: 3,
-                        points: 2,
-                        required: true,
-                    },
-                ],
-            },
-        },
-        include: {
-            questions: { include: { choices: true } },
-        },
-    });
     await prisma.questionSet.create({
         data: {
             title: 'Science Draft Quiz',
@@ -101,33 +54,6 @@ async function main() {
                                 { choiceText: 'False', isCorrect: false, orderNumber: 2 },
                             ],
                         },
-                    },
-                ],
-            },
-        },
-    });
-    await prisma.submission.create({
-        data: {
-            studentId: student1.id,
-            questionSetId: mathSet.id,
-            totalPoints: 5,
-            earnedPoints: 3,
-            answers: {
-                create: [
-                    {
-                        questionId: mathSet.questions[0].id,
-                        selectedChoiceId: mathSet.questions[0].choices[1].id,
-                        awardedPoints: 2,
-                    },
-                    {
-                        questionId: mathSet.questions[1].id,
-                        selectedBoolean: true,
-                        awardedPoints: 1,
-                    },
-                    {
-                        questionId: mathSet.questions[2].id,
-                        answerText: '11',
-                        awardedPoints: 0,
                     },
                 ],
             },

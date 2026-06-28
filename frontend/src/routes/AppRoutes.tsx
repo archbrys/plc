@@ -6,8 +6,10 @@ import { AdminQuestionSetEditPage } from '../pages/admin/AdminQuestionSetEditPag
 import { AdminQuestionSetsPage } from '../pages/admin/AdminQuestionSetsPage'
 import { AdminResultsPage } from '../pages/admin/AdminResultsPage'
 import { LoginPage } from '../pages/auth/LoginPage'
+import { PLCIntroPage } from '../pages/student/PLCIntroPage'
 import { StudentQuestionSetDetailPage } from '../pages/student/StudentQuestionSetDetailPage'
 import { StudentQuestionSetsPage } from '../pages/student/StudentQuestionSetsPage'
+import { StudentQuizCompletionPage } from '../pages/student/StudentQuizCompletionPage'
 import { StudentResultPage } from '../pages/student/StudentResultPage'
 
 export function AppRoutes() {
@@ -22,7 +24,9 @@ export function AppRoutes() {
 
       <Route element={<RoleGuard allowedRole="student" />}>
         <Route path="/student/question-sets" element={<StudentQuestionSetsPage />} />
+        <Route path="/student/plc-intro" element={<PLCIntroPage />} />
         <Route path="/student/question-sets/:id" element={<StudentQuestionSetDetailPage />} />
+        <Route path="/student/completion" element={<StudentQuizCompletionPage />} />
         <Route path="/student/result" element={<StudentResultPage />} />
       </Route>
 

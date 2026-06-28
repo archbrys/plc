@@ -1,6 +1,5 @@
-import { useEffect, useMemo, useState, type FormEvent } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { AppShell } from '../../components/common/AppShell'
 import { useAuth } from '../../hooks/useAuth'
 import { questionSetService } from '../../services/questionSetService'
 import { resultService } from '../../services/resultService'
@@ -8,13 +7,14 @@ import type { QuestionSet, StudentAnswer } from '../../types/quiz'
 
 export function StudentQuestionSetDetailPage() {
   const { id } = useParams<{ id: string }>()
-  const { user } = useAuth()
+  const { user, logout } = useAuth()
   const navigate = useNavigate()
 
   const [questionSet, setQuestionSet] = useState<QuestionSet | null>(null)
   const [answers, setAnswers] = useState<Record<string, StudentAnswer>>({})
   const [error, setError] = useState('')
   const [submitting, setSubmitting] = useState(false)
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
 
   useEffect(() => {
     if (!id) {
@@ -35,11 +35,17 @@ export function StudentQuestionSetDetailPage() {
     [questionSet?.questions],
   )
 
+  const totalQuestions = orderedQuestions.length
+  const currentQuestion = orderedQuestions[currentQuestionIndex]
+  const progressPercentage = totalQuestions > 0 ? ((currentQuestionIndex + 1) / totalQuestions) * 100 : 0
+
   if (!questionSet) {
     return (
-      <AppShell title="Question Set" links={[{ label: 'Back', to: '/student/question-sets' }]}>
-        <p className="muted">Question set not found or unavailable.</p>
-      </AppShell>
+      <div className="landing-page">
+        <main className="plc-intro-content">
+          <p className="muted">Question set not found or unavailable.</p>
+        </main>
+      </div>
     )
   }
 
@@ -54,8 +60,22 @@ export function StudentQuestionSetDetailPage() {
     }))
   }
 
-  const handleSubmit = async (event: FormEvent) => {
-    event.preventDefault()
+  const handlePrevious = () => {
+    if (currentQuestionIndex > 0) {
+      setCurrentQuestionIndex(currentQuestionIndex - 1)
+    }
+  }
+
+  const handleNext = () => {
+    if (currentQuestionIndex < totalQuestions - 1) {
+      setCurrentQuestionIndex(currentQuestionIndex + 1)
+    } else {
+      // Last question - submit
+      handleSubmit()
+    }
+  }
+
+  const handleSubmit = async () => {
     setError('')
 
     if (!user || user.role !== 'student') {
@@ -73,80 +93,135 @@ export function StudentQuestionSetDetailPage() {
     }
 
     sessionStorage.setItem('quiz_last_result_id', response.result.id)
-    navigate('/student/result')
+    navigate('/student/completion')
   }
 
   return (
-    <AppShell
-      title={questionSet.title}
-      subtitle={questionSet.description}
-      links={[{ label: 'Back to Sets', to: '/student/question-sets' }]}
-    >
-      <form className="stack" onSubmit={handleSubmit}>
-        {error ? <p className="error-text">{error}</p> : null}
+    <div className="landing-page">
+      <header className="landing-header">
+        <div className="header-actions">
+          <button className="btn secondary" type="button" onClick={() => navigate('/student/question-sets')}>
+            Back
+          </button>
+          <button className="btn" type="button" onClick={logout}>
+            Logout
+          </button>
+        </div>
+      </header>
 
-        {orderedQuestions.map((question) => (
-          <section key={question.id} className="card">
-            <h3>
-              {question.orderNumber}. {question.questionText}
-            </h3>
-            <p className="muted">Points: {question.points}</p>
+      <main className="plc-quiz-content">
+        {/* Logo */}
+        <div className="plc-quiz-logo">
+          <img 
+            src="/assets/logo-plc.png" 
+            alt="Interactive Digital Learning - PLC Trainer" 
+            className="plc-logo-image" 
+          />
+        </div>
 
-            {question.questionType === 'multiple_choice'
-              ? question.choices.map((choice) => (
-                  <label key={choice.id} className="choice-row">
-                    <input
-                      type="radio"
-                      name={question.id}
-                      checked={answers[question.id]?.selectedChoiceId === choice.id}
-                      onChange={() => updateAnswer(question.id, { selectedChoiceId: choice.id })}
-                    />
-                    <span>{choice.choiceText}</span>
-                  </label>
-                ))
-              : null}
+        {/* Progress Bar */}
+        <div className="progress-bar-container">
+          <div className="progress-bar">
+            <div 
+              className="progress-bar-fill" 
+              style={{ width: `${progressPercentage}%` }}
+            />
+          </div>
+        </div>
 
-            {question.questionType === 'true_false' ? (
-              <div className="grid-two">
-                <label className="choice-row">
-                  <input
-                    type="radio"
-                    name={question.id}
-                    checked={answers[question.id]?.selectedBoolean === true}
-                    onChange={() => updateAnswer(question.id, { selectedBoolean: true })}
+        {/* Question Container */}
+        {currentQuestion && (
+          <div className="question-container">
+            {error ? <p className="error-text">{error}</p> : null}
+            
+            <div className="question-card">
+              <h2 className="question-number">
+                {currentQuestion.orderNumber}. {currentQuestion.questionText}
+              </h2>
+
+              <div className="choices-container">
+                {/* Multiple Choice */}
+                {currentQuestion.questionType === 'multiple_choice' &&
+                  currentQuestion.choices
+                    .sort((a, b) => a.orderNumber - b.orderNumber)
+                    .map((choice) => (
+                      <label key={choice.id} className="radio-choice">
+                        <input
+                          type="radio"
+                          name={currentQuestion.id}
+                          checked={answers[currentQuestion.id]?.selectedChoiceId === choice.id}
+                          onChange={() => updateAnswer(currentQuestion.id, { selectedChoiceId: choice.id })}
+                        />
+                        <span className="choice-text">{choice.choiceText}</span>
+                      </label>
+                    ))}
+
+                {/* True/False */}
+                {currentQuestion.questionType === 'true_false' && (
+                  <>
+                    <label className="radio-choice">
+                      <input
+                        type="radio"
+                        name={currentQuestion.id}
+                        checked={answers[currentQuestion.id]?.selectedBoolean === true}
+                        onChange={() => updateAnswer(currentQuestion.id, { selectedBoolean: true })}
+                      />
+                      <span className="choice-text">True</span>
+                    </label>
+                    <label className="radio-choice">
+                      <input
+                        type="radio"
+                        name={currentQuestion.id}
+                        checked={answers[currentQuestion.id]?.selectedBoolean === false}
+                        onChange={() => updateAnswer(currentQuestion.id, { selectedBoolean: false })}
+                      />
+                      <span className="choice-text">False</span>
+                    </label>
+                  </>
+                )}
+
+                {/* Short Answer */}
+                {currentQuestion.questionType === 'short_answer' && (
+                  <textarea
+                    className="short-answer-input"
+                    rows={5}
+                    value={answers[currentQuestion.id]?.answerText ?? ''}
+                    onChange={(event) =>
+                      updateAnswer(currentQuestion.id, {
+                        answerText: event.target.value,
+                      })
+                    }
                   />
-                  <span>True</span>
-                </label>
-                <label className="choice-row">
-                  <input
-                    type="radio"
-                    name={question.id}
-                    checked={answers[question.id]?.selectedBoolean === false}
-                    onChange={() => updateAnswer(question.id, { selectedBoolean: false })}
-                  />
-                  <span>False</span>
-                </label>
+                )}
               </div>
-            ) : null}
+            </div>
+          </div>
+        )}
 
-            {question.questionType === 'short_answer' ? (
-              <textarea
-                rows={3}
-                value={answers[question.id]?.answerText ?? ''}
-                onChange={(event) =>
-                  updateAnswer(question.id, {
-                    answerText: event.target.value,
-                  })
-                }
-              />
-            ) : null}
-          </section>
-        ))}
-
-        <button className="btn large" type="submit" disabled={submitting}>
-          {submitting ? 'Submitting...' : 'Submit Answers'}
-        </button>
-      </form>
-    </AppShell>
+        {/* Navigation Buttons */}
+        <div className="quiz-navigation">
+          <button 
+            className="btn-nav btn-previous" 
+            type="button" 
+            onClick={handlePrevious}
+            disabled={currentQuestionIndex === 0}
+          >
+            Previous
+          </button>
+          <button 
+            className="btn-nav btn-next" 
+            type="button" 
+            onClick={handleNext}
+            disabled={submitting}
+          >
+            {submitting 
+              ? 'Submitting...' 
+              : currentQuestionIndex === totalQuestions - 1 
+                ? 'Submit' 
+                : 'Next'}
+          </button>
+        </div>
+      </main>
+    </div>
   )
 }
