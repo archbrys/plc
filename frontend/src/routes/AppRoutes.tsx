@@ -7,6 +7,15 @@ import { AdminQuestionSetsPage } from '../pages/admin/AdminQuestionSetsPage'
 import { AdminResultsPage } from '../pages/admin/AdminResultsPage'
 import { LoginPage } from '../pages/auth/LoginPage'
 import { PLCIntroPage } from '../pages/student/PLCIntroPage'
+import { PLCWelcomePage } from '../pages/student/PLCWelcomePage'
+import { PLCChapterSelectPage } from '../pages/student/PLCChapterSelectPage'
+import { ChaptersPage } from '../pages/student/ChaptersPage'
+import { Chapter1Page } from '../pages/student/Chapter1Page'
+import { Chapter1IntroductionPage } from '../pages/student/Chapter1IntroductionPage'
+import { Chapter1Narration1Page } from '../pages/student/Chapter1Narration1Page'
+import { Chapter1NarrationPage } from '../pages/student/Chapter1NarrationPage'
+import { Chapter1Narration3Page } from '../pages/student/Chapter1Narration3Page'
+import { StudentCharactersPage } from '../pages/student/StudentCharactersPage'
 import { StudentQuestionSetDetailPage } from '../pages/student/StudentQuestionSetDetailPage'
 import { StudentQuestionSetsPage } from '../pages/student/StudentQuestionSetsPage'
 import { StudentQuizCompletionPage } from '../pages/student/StudentQuizCompletionPage'
@@ -25,6 +34,15 @@ export function AppRoutes() {
       <Route element={<RoleGuard allowedRole="student" />}>
         <Route path="/student/question-sets" element={<StudentQuestionSetsPage />} />
         <Route path="/student/plc-intro" element={<PLCIntroPage />} />
+        <Route path="/student/characters" element={<StudentCharactersPage />} />
+        <Route path="/student/plc-welcome" element={<PLCWelcomePage />} />
+        <Route path="/student/plc-chapter-select" element={<PLCChapterSelectPage />} />
+        <Route path="/student/chapters" element={<ChaptersPage />} />
+        <Route path="/student/chapter1" element={<Chapter1Page />} />
+        <Route path="/student/chapter1-introduction" element={<Chapter1IntroductionPage />} />
+        <Route path="/student/chapter1-narration1" element={<Chapter1Narration1Page />} />
+        <Route path="/student/chapter1-narration2" element={<Chapter1NarrationPage />} />
+        <Route path="/student/chapter1-narration3" element={<Chapter1Narration3Page />} />
         <Route path="/student/question-sets/:id" element={<StudentQuestionSetDetailPage />} />
         <Route path="/student/completion" element={<StudentQuizCompletionPage />} />
         <Route path="/student/result" element={<StudentResultPage />} />
