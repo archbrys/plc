@@ -59,16 +59,18 @@ export function ChaptersPage() {
 
         <div className="chapters-grid">
           <div className="chapters-column">
-            {course.chapters.map((chapter) => (
-              <button
-                key={chapter.id}
-                className="chapter-btn"
-                type="button"
-                onClick={() => handleChapterClick(chapter.id)}
-              >
-                CHAPTER {chapter.id}: {chapter.title.toUpperCase()}
-              </button>
-            ))}
+            {[...course.chapters]
+              .sort((a, b) => a.orderNumber - b.orderNumber)
+              .map((chapter) => (
+                <button
+                  key={chapter.id}
+                  className="chapter-btn"
+                  type="button"
+                  onClick={() => handleChapterClick(chapter.id)}
+                >
+                  CHAPTER {chapter.orderNumber}: {chapter.title.toUpperCase()}
+                </button>
+              ))}
           </div>
         </div>
       </main>
