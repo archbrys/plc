@@ -21,6 +21,7 @@ export function QuizPage({ config, onBack }: QuizPageProps) {
   const [submitting, setSubmitting] = useState(false)
   const [loading, setLoading] = useState(true)
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
+  const [started, setStarted] = useState(false)
 
   useEffect(() => {
     questionSetService.listPublished().then((sets) => {
@@ -111,6 +112,32 @@ export function QuizPage({ config, onBack }: QuizPageProps) {
       <div className="landing-page">
         <main className="plc-intro-content">
           <p className="muted">Quiz not found for this page.</p>
+        </main>
+      </div>
+    )
+  }
+
+  if (!started) {
+    return (
+      <div className="landing-page quiz-start-page">
+        <header className="landing-header">
+          <div className="header-actions">
+            {onBack && (
+              <button className="btn secondary" type="button" onClick={onBack}>
+                Back
+              </button>
+            )}
+            <button className="btn" type="button" onClick={logout}>
+              Logout
+            </button>
+          </div>
+        </header>
+
+        <main className="quiz-start-content">
+          <h1 className="quiz-start-title">Quiz Time!</h1>
+          <button className="btn large ready-btn quiz-start-btn" type="button" onClick={() => setStarted(true)}>
+            Begin
+          </button>
         </main>
       </div>
     )
