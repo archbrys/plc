@@ -41,6 +41,7 @@ export function AdminQuestionSetsPage() {
       title="Question Sets"
       links={[
         { label: 'Dashboard', to: '/admin/dashboard' },
+        { label: 'Course Content', to: '/admin/course-content' },
         { label: 'Create', to: '/admin/question-sets/create' },
       ]}
     >

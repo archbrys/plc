@@ -1,26 +1,38 @@
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../hooks/useAuth'
+import { getCourse } from '../../data/course'
+import type { Course } from '../../types/course'
 import './ChaptersPage.css'
 
 export function ChaptersPage() {
   const navigate = useNavigate()
   const { logout } = useAuth()
+  const [course, setCourse] = useState<Course | null>(null)
+  const [isLoading, setIsLoading] = useState(true)
 
-  const handleChapterClick = (chapter: number) => {
-    switch (chapter) {
-      case 1:
-        navigate('/student/chapter1')
-        break
-      case 2:
-        navigate('/student/chapter2-narration1')
-        break
-      case 3:
-        // Chapter 3 placeholder - navigate to question sets
-        navigate('/student/question-sets')
-        break
-      default:
-        navigate('/student/question-sets')
+  useEffect(() => {
+    getCourse()
+      .then(setCourse)
+      .catch(console.error)
+      .finally(() => setIsLoading(false))
+  }, [])
+
+  if (isLoading || !course) {
+    return <div className="chapters-page">Loading course...</div>
+  }
+
+  const handleChapterClick = (chapterId: number) => {
+    const chapter = course.chapters.find((ch) => ch.id === chapterId)
+
+    // Use dynamic flow if chapter has pages array
+    if (chapter?.pages && chapter.pages.length > 0) {
+      navigate(`/student/chapters/${chapterId}/flow`)
+      return
     }
+
+    // Otherwise use simple chapter view
+    navigate(`/student/chapters/${chapterId}`)
   }
 
   return (
@@ -47,30 +59,16 @@ export function ChaptersPage() {
 
         <div className="chapters-grid">
           <div className="chapters-column">
-            <button 
-              className="chapter-btn" 
-              type="button"
-              onClick={() => handleChapterClick(1)}
-            >
-              CHAPTER 1
-            </button>
-            <button 
-              className="chapter-btn" 
-              type="button"
-              onClick={() => handleChapterClick(2)}
-            >
-              CHAPTER 2
-            </button>
-          </div>
-
-          <div className="chapters-column">
-            <button 
-              className="chapter-btn" 
-              type="button"
-              onClick={() => handleChapterClick(3)}
-            >
-              CHAPTER 3
-            </button>
+            {course.chapters.map((chapter) => (
+              <button
+                key={chapter.id}
+                className="chapter-btn"
+                type="button"
+                onClick={() => handleChapterClick(chapter.id)}
+              >
+                CHAPTER {chapter.id}: {chapter.title.toUpperCase()}
+              </button>
+            ))}
           </div>
         </div>
       </main>

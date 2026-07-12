@@ -15,6 +15,9 @@ async function main() {
   await prisma.question.deleteMany()
   await prisma.questionSet.deleteMany()
   await prisma.user.deleteMany()
+  await prisma.chapterPage.deleteMany()
+  await prisma.courseChapter.deleteMany()
+  await prisma.course.deleteMany()
 
   const adminPasswordHash = await bcrypt.hash('admin123', 10)
   const studentPinOneHash = await bcrypt.hash('1234', 10)
@@ -700,6 +703,206 @@ async function main() {
             orderNumber: 15,
             points: 1,
             required: true,
+          },
+        ],
+      },
+    },
+  })
+
+  // Create the default course
+  await prisma.course.create({
+    data: {
+      title: 'PLC Course',
+      chapters: {
+        create: [
+          {
+            orderNumber: 1,
+            title: 'Introduction to PLC',
+            pages: {
+              create: [
+                {
+                  type: 'slideshow',
+                  orderNumber: 1,
+                  config: JSON.stringify({
+                    images: ['25.png', '26.png', '27.png', '28.png'],
+                    autoAdvanceMs: 3000,
+                  }),
+                },
+                {
+                  type: 'narration',
+                  orderNumber: 2,
+                  config: JSON.stringify({
+                    character: 'Aaron',
+                    text: 'Do you know what a Programmable Logic Controller looks like?',
+                  }),
+                },
+                {
+                  type: 'narration',
+                  orderNumber: 3,
+                  config: JSON.stringify({
+                    character: 'Aaron',
+                    text: 'Wow! So this is what a Programmable Logic Controller looks like?! It looks so cool. I wanna know the history.',
+                  }),
+                },
+                {
+                  type: 'narration',
+                  orderNumber: 4,
+                  config: JSON.stringify({
+                    character: 'Aaron',
+                    text: 'For the chapter 1, we will have to learn about the History of Programmable Logic Controller.',
+                  }),
+                },
+                {
+                  type: 'content_section',
+                  orderNumber: 5,
+                  config: JSON.stringify({
+                    sectionNumber: 1,
+                    sectionTitle: 'Introduction',
+                    chapterTitle: 'Chapter 1: Introduction to PLC and its History',
+                    contents: [
+                      `Automation plays a vital role in modern industries. Machines and processes are controlled automatically to improve efficiency, accuracy and productivity. One of the most widely used control devices in industrial automation is the Programmable Logic Controller PLC.
+
+- It's like a computer for machines that:
+- Receives inputs (buttons, sensors)
+- Processes logic (program)
+- Sends outputs (motors, lights)
+
+PLC is a computer — but a very specific kind of computer.
+
+PLC is defined by NEMA (National Electrical Manufacturers Association) as a digital electronic device with a programmable memory for storing instructions to implement specific function such as logic, sequencing, timing, counting and arithmetic to control machines and processes.
+
+PLC stands for Programmable Logic Controller, not "programmable logic computer". a PLC is a specialized industrial computer purpose-built to control machines, not a general-purpose computing device like a laptop or server.`,
+                      `Unlike a general-purpose computer (PC, laptop, server), a PLC is:
+
+• Designed to operate in harsh industrial environments (dust, vibration, temperature extremes, electrical noise)
+• Built around a deterministic scan cycle for predictable real-time behavior
+• Equipped with industrial I/O interfaces (24 V DC, 4-20 mA, digital and analog modules)
+• Certified for specific safety and regulatory standards
+• Expected to run continuously for 10-20 years without human intervention`,
+                    ],
+                  }),
+                },
+                {
+                  type: 'content_section',
+                  orderNumber: 6,
+                  config: JSON.stringify({
+                    sectionNumber: 2,
+                    sectionTitle: 'The Timeline',
+                    chapterTitle: 'Chapter 1: Introduction to PLC and its History',
+                    sideImage: '/assets/logo-plc.png',
+                    contents: [
+                      `The Pre-PLC Era: The Age of "Relay Hell" (Before 1968)
+
+• Before PLCs, industrial automation relied entirely on hardwired electromagnetic relays, timers, and counters.
+
+• The Problem: If a factory wanted to change its production line process, electricians had to physically re-wire thousands of relays. A single modification could take days or weeks.
+
+• The Footprint: Relay control rooms were massive, generated intense heat, and troubleshooting a single failed mechanical contact among miles of wire was an absolute nightmare.`,
+                      `1968: The Spark of an Idea
+
+The automotive industry, spearheaded by General Motors (GM), was hit hardest by the limitations of relay panels because they completely retooled their assembly lines every year for new car models.
+
+• The Challenge: Bill Stone, an engineer at GM's Hydramatic division, issued a design specification request for a "Standard Machine Controller."
+
+• The Criteria: It needed to be solid-state (no moving parts), easily programmable, survivable in harsh factory environments, and smaller than a massive relay panel.`,
+                      `1969: The Birth of the First PLC (The Modicon 084)
+
+A team of brilliant engineers at Bedford Associates, led by Dick Morley (widely considered the "Father of the PLC"), took on GM's challenge.
+
+• The Solution: They built a digital computer designed specifically for industrial environments. They called it the MODICON 084 (MOdular DIgital CONtroller, project #84).
+
+• The Innovation: Morley and his team intentionally avoided using standard computer programming languages of the era. Instead, they designed it to look like Ladder Logic, mimicking the schematic diagrams electricians and maintenance technicians already understood.`,
+                      `The 1970s: Microprocessors and Identity
+
+The 1970s transformed the PLC from an experimental tool into an industry standard.
+
+• 1973: Modicon introduces the Modicon 184, which becomes the first massive commercial success in the PLC market.
+
+• The Mid-1970s: The introduction of the microprocessor (like the Intel 8008) allows PLCs to perform complex arithmetic, arithmetic functions, and handle analog signals, moving far beyond simple ON/OFF control.
+
+• 1978: Allen-Bradley (now Rockwell Automation) introduces the PLC-2 and coins the acronym "PLC" (Programmable Logic Controller), which officially replaces the term "Programmable Controller."`,
+                      `The 1980s: Communication and the PC Revolution
+
+PLCs stopped operating as isolated digital islands and started talking to each other.
+
+• 1979/1980: Modicon introduces Modbus, an industrial communication protocol that allows PLCs to exchange data with other devices and computers. It quickly becomes an open industry standard.
+
+• The PC Boom: Instead of using bulky, expensive, proprietary handheld programming terminals, engineers begin using personal computers (PCs) running early software to program PLCs.`,
+                      `The 1990s: Standardization (IEC 61131-3)
+
+As the market grew, every PLC manufacturer developed their own proprietary software and programming methods. This made cross-platform engineering incredibly difficult.
+
+• 1993: The International Electrotechnical Commission releases IEC 61131-3, the global standard for PLC programming languages. It standardized five distinct languages:
+
+  - Ladder Diagram (LD)
+  - Function Block Diagram (FBD)
+  - Structured Text (ST)
+  - Instruction List (IL)
+  - Sequential Function Chart (SFC)`,
+                      `The 2000s to Present: PACs, Edge Computing, and Industry 4.0
+
+• The Rise of PACs: The line between PCs and PLCs blurred with the introduction of Programmable Automation Controllers (PACs), which offer the rugged reliability of a PLC but handle massive data processing, motion control, and IT networking.
+
+• Industrial Ethernet: High-speed Ethernet networks like EtherNet/IP, PROFINET, and EtherCAT replace old serial connections, allowing PLCs to seamlessly feed real-time data to SCADA, ERP systems, and cloud storage.
+
+• Today (Industry 4.0): Today's PLCs handle Edge Computing, feature advanced cybersecurity protocols, integrate directly with Artificial Intelligence for predictive maintenance, and can even be programmed using modern IT languages like Python or C++.`,
+                    ],
+                  }),
+                },
+                {
+                  type: 'content_section',
+                  orderNumber: 7,
+                  config: JSON.stringify({
+                    sectionNumber: 3,
+                    sectionTitle: 'Relay Logic vs. PLC',
+                    chapterTitle: 'Chapter 1: Introduction to PLC and its History',
+                    sideImage: '/assets/logo-plc.png',
+                    contents: [
+                      `Advantages of Programmable Logic Controller
+
+• Reprogrammable – A PLC can be easily reprogrammed to perform different control tasks without changing the hardware, making it flexible for various applications.
+
+• Faster Troubleshooting – PLCs have built-in diagnostic features that quickly identify faults, reducing downtime and making repairs easier.
+
+• Smaller in Size – A PLC combines multiple control functions into one compact device, saving panel space and simplifying system installation.
+
+• More Reliable – PLCs are designed to operate continuously in harsh industrial environments, providing stable and dependable performance.
+
+• Easy to Modify – Changes to the control process can be made by updating the PLC program instead of rewiring electrical circuits, saving time and effort.
+
+• Can Handle Complex Operations – PLCs can execute advanced control functions such as sequencing, timing, counting, data processing, and communication with other devices efficiently.`,
+                    ],
+                  }),
+                },
+                {
+                  type: 'narration',
+                  orderNumber: 8,
+                  config: JSON.stringify({
+                    character: 'Aaron',
+                    text: 'Chapter 1 is done, before we proceed to the next chapter. I want to know if you really learn from this chapter.',
+                  }),
+                },
+                {
+                  type: 'interactive_practice',
+                  orderNumber: 9,
+                  config: JSON.stringify({}),
+                },
+                {
+                  type: 'quiz',
+                  orderNumber: 10,
+                  config: JSON.stringify({
+                    questionSetTitle: 'Chapter 1: Introduction to PLC',
+                  }),
+                },
+              ],
+            },
+          },
+          {
+            orderNumber: 2,
+            title: 'PLC Components',
+            pages: {
+              create: [],
+            },
           },
         ],
       },

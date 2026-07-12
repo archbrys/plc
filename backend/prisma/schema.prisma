@@ -102,3 +102,37 @@ model StudentAnswer {
   @@index([submissionId])
   @@index([questionId])
 }
+
+model Course {
+  id        String          @id @default(cuid())
+  title     String          @default("PLC Course")
+  chapters  CourseChapter[]
+  createdAt DateTime        @default(now())
+  updatedAt DateTime        @updatedAt
+}
+
+model CourseChapter {
+  id          Int           @id @default(autoincrement())
+  courseId    String
+  course      Course        @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  title       String
+  orderNumber Int
+  pages       ChapterPage[]
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@index([courseId])
+}
+
+model ChapterPage {
+  id          Int           @id @default(autoincrement())
+  chapterId   Int
+  chapter     CourseChapter @relation(fields: [chapterId], references: [id], onDelete: Cascade)
+  type        String        // 'slideshow' | 'narration' | 'content_section' | 'interactive_practice' | 'quiz'
+  orderNumber Int
+  config      String        // JSON string containing the page configuration
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  @@index([chapterId])
+}

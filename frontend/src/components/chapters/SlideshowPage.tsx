@@ -1,29 +1,33 @@
 import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import './Chapter1Page.css'
+import type { SlideshowPageConfig } from '../../types/course'
+import '../../pages/student/chapter1/Chapter1Page.css'
 
-export function Chapter1Page() {
-  const navigate = useNavigate()
+interface SlideshowPageProps {
+  config: SlideshowPageConfig
+  onComplete?: () => void
+  onBack?: () => void
+}
+
+export function SlideshowPage({ config, onComplete, onBack }: SlideshowPageProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
-  
-  const images = ['25.png', '26.png', '27.png', '28.png']
+  const { images, autoAdvanceMs } = config
 
   useEffect(() => {
     if (currentImageIndex < images.length - 1) {
       const timer = setTimeout(() => {
-        setCurrentImageIndex(prev => prev + 1)
-      }, 3000)
-
-      return () => clearTimeout(timer)
-    } else {
-      // Redirect to narration page after showing the last image for 3 seconds
-      const timer = setTimeout(() => {
-        navigate('/student/chapter1-narration1')
-      }, 3000)
+        setCurrentImageIndex((prev) => prev + 1)
+      }, autoAdvanceMs)
 
       return () => clearTimeout(timer)
     }
-  }, [currentImageIndex, images.length, navigate])
+
+    // Auto-complete after showing the last image
+    const timer = setTimeout(() => {
+      onComplete?.()
+    }, autoAdvanceMs)
+
+    return () => clearTimeout(timer)
+  }, [currentImageIndex, images.length, autoAdvanceMs, onComplete])
 
   return (
     <div className="chapter1-page">
@@ -32,11 +36,11 @@ export function Chapter1Page() {
           <div className="chapter1-image-container">
             <img
               src={`/assets/${images[currentImageIndex]}`}
-              alt={`Chapter 1 - Slide ${currentImageIndex + 1}`}
+              alt={`Slide ${currentImageIndex + 1}`}
               className="chapter1-image"
             />
           </div>
-          
+
           <div className="chapter1-progress">
             <div className="progress-dots">
               {images.map((_, index) => (

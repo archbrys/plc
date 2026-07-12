@@ -1,11 +1,17 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useAuth } from '../../../hooks/useAuth'
-import { questionSetService } from '../../../services/questionSetService'
-import { resultService } from '../../../services/resultService'
-import type { QuestionSet, StudentAnswer } from '../../../types/quiz'
+import { useAuth } from '../../hooks/useAuth'
+import { questionSetService } from '../../services/questionSetService'
+import { resultService } from '../../services/resultService'
+import type { QuestionSet, StudentAnswer } from '../../types/quiz'
+import type { QuizPageConfig } from '../../types/course'
 
-export function Chapter1Quiz() {
+interface QuizPageProps {
+  config: QuizPageConfig
+  onBack?: () => void
+}
+
+export function QuizPage({ config, onBack }: QuizPageProps) {
   const navigate = useNavigate()
   const { user, logout } = useAuth()
 
@@ -18,15 +24,15 @@ export function Chapter1Quiz() {
 
   useEffect(() => {
     questionSetService.listPublished().then((sets) => {
-      const chapter1Set = sets.find((set) => set.title === 'Chapter 1: Introduction to PLC') ?? null
-      setQuestionSet(chapter1Set)
+      const targetSet = sets.find((set) => set.title === config.questionSetTitle) ?? null
+      setQuestionSet(targetSet)
       setLoading(false)
     })
-  }, [])
+  }, [config.questionSetTitle])
 
   const orderedQuestions = useMemo(
     () => [...(questionSet?.questions ?? [])].sort((a, b) => a.orderNumber - b.orderNumber),
-    [questionSet?.questions],
+    [questionSet?.questions]
   )
 
   const totalQuestions = orderedQuestions.length
@@ -104,7 +110,7 @@ export function Chapter1Quiz() {
     return (
       <div className="landing-page">
         <main className="plc-intro-content">
-          <p className="muted">Chapter 1 quiz is not available.</p>
+          <p className="muted">Quiz not found: {config.questionSetTitle}</p>
         </main>
       </div>
     )
@@ -114,9 +120,11 @@ export function Chapter1Quiz() {
     <div className="landing-page">
       <header className="landing-header">
         <div className="header-actions">
-          <button className="btn secondary" type="button" onClick={() => navigate('/student/chapter1-interactive-practice')}>
-            Back
-          </button>
+          {onBack && (
+            <button className="btn secondary" type="button" onClick={onBack}>
+              Back
+            </button>
+          )}
           <button className="btn" type="button" onClick={logout}>
             Logout
           </button>
@@ -212,7 +220,12 @@ export function Chapter1Quiz() {
           >
             Previous
           </button>
-          <button className="btn-nav btn-next" type="button" onClick={handleNext} disabled={submitting || !hasCurrentAnswer}>
+          <button
+            className="btn-nav btn-next"
+            type="button"
+            onClick={handleNext}
+            disabled={submitting || !hasCurrentAnswer}
+          >
             {submitting ? 'Submitting...' : currentQuestionIndex === totalQuestions - 1 ? 'Submit' : 'Next'}
           </button>
         </div>
@@ -220,5 +233,3 @@ export function Chapter1Quiz() {
     </div>
   )
 }
-
-export default Chapter1Quiz

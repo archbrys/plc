@@ -22,6 +22,7 @@ export function AdminDashboardPage() {
       title="Admin Dashboard"
       links={[
         { label: 'Question Sets', to: '/admin/question-sets' },
+        { label: 'Course Content', to: '/admin/course-content' },
         { label: 'Results', to: '/admin/results' },
       ]}
     >
@@ -42,6 +43,12 @@ export function AdminDashboardPage() {
           <h2>Quick Action</h2>
           <Link className="btn large" to="/admin/question-sets/create">
             Create Question Set
+          </Link>
+        </section>
+        <section className="card">
+          <h2>Course Content</h2>
+          <Link className="btn large" to="/admin/course-content">
+            View Chapters & Sections
           </Link>
         </section>
       </div>

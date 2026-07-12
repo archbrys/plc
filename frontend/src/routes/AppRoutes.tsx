@@ -5,28 +5,20 @@ import { AdminQuestionSetCreatePage } from '../pages/admin/AdminQuestionSetCreat
 import { AdminQuestionSetEditPage } from '../pages/admin/AdminQuestionSetEditPage'
 import { AdminQuestionSetsPage } from '../pages/admin/AdminQuestionSetsPage'
 import { AdminResultsPage } from '../pages/admin/AdminResultsPage'
+import { AdminCourseContentPage } from '../pages/admin/AdminCourseContentPage'
 import { LoginPage } from '../pages/auth/LoginPage'
 import { PLCIntroPage } from '../pages/student/PLCIntroPage'
 import { PLCWelcomePage } from '../pages/student/PLCWelcomePage'
 import { PLCChapterSelectPage } from '../pages/student/PLCChapterSelectPage'
 import { ChaptersPage } from '../pages/student/ChaptersPage'
-import { Chapter1Page } from '../pages/student/chapter1/Chapter1Page'
-import { Chapter1IntroductionPage } from '../pages/student/chapter1/Chapter1IntroductionPage'
-import { Chapter1Section2Page } from '../pages/student/chapter1/Chapter1Section2Page'
-import { Chapter1Section3Page } from '../pages/student/chapter1/Chapter1Section3Page'
-import { Chapter1Narration1Page } from '../pages/student/chapter1/Chapter1Narration1Page'
-import { Chapter1NarrationPage } from '../pages/student/chapter1/Chapter1NarrationPage'
-import { Chapter1Narration3Page } from '../pages/student/chapter1/Chapter1Narration3Page'
-import { Chapter1NarrationFinalPage } from '../pages/student/chapter1/Chapter1NarrationFinalPage'
-import { Chapter1InteractivePracticePage } from '../pages/student/chapter1/Chapter1InteractivePracticePage'
-import { Chapter1Quiz } from '../pages/student/chapter1/Chapter1Quiz'
-import { Chapter2Narration1Page } from '../pages/student/chapter2/Chapter2Narration1Page'
-import { Chapter2Section1Page } from '../pages/student/chapter2/Chapter2Section1Page'
+import { CourseChapterPage } from '../pages/student/CourseChapterPage'
+import { CourseSectionPage } from '../pages/student/CourseSectionPage'
 import { StudentCharactersPage } from '../pages/student/StudentCharactersPage'
 import { StudentQuestionSetDetailPage } from '../pages/student/StudentQuestionSetDetailPage'
 import { StudentQuestionSetsPage } from '../pages/student/StudentQuestionSetsPage'
 import { StudentQuizCompletionPage } from '../pages/student/StudentQuizCompletionPage'
 import { StudentResultPage } from '../pages/student/StudentResultPage'
+import { DynamicChapterPage } from '../pages/student/DynamicChapterPage'
 
 export function AppRoutes() {
   return (
@@ -45,18 +37,9 @@ export function AppRoutes() {
         <Route path="/student/plc-welcome" element={<PLCWelcomePage />} />
         <Route path="/student/plc-chapter-select" element={<PLCChapterSelectPage />} />
         <Route path="/student/chapters" element={<ChaptersPage />} />
-        <Route path="/student/chapter1" element={<Chapter1Page />} />
-        <Route path="/student/chapter1-introduction" element={<Chapter1IntroductionPage />} />
-        <Route path="/student/chapter1-section2" element={<Chapter1Section2Page />} />
-        <Route path="/student/chapter1-section3" element={<Chapter1Section3Page />} />
-        <Route path="/student/chapter1-narration1" element={<Chapter1Narration1Page />} />
-        <Route path="/student/chapter1-narration2" element={<Chapter1NarrationPage />} />
-        <Route path="/student/chapter1-narration3" element={<Chapter1Narration3Page />} />
-        <Route path="/student/chapter1-narration-final" element={<Chapter1NarrationFinalPage />} />
-        <Route path="/student/chapter1-interactive-practice" element={<Chapter1InteractivePracticePage />} />
-        <Route path="/student/chapter1-quiz" element={<Chapter1Quiz />} />
-        <Route path="/student/chapter2-narration1" element={<Chapter2Narration1Page />} />
-        <Route path="/student/chapter2-section1" element={<Chapter2Section1Page />} />
+        <Route path="/student/chapters/:chapterId/flow" element={<DynamicChapterPage />} />
+        <Route path="/student/chapters/:chapterId" element={<CourseChapterPage />} />
+        <Route path="/student/chapters/:chapterId/sections/:sectionId" element={<CourseSectionPage />} />
         <Route path="/student/question-sets/:id" element={<StudentQuestionSetDetailPage />} />
         <Route path="/student/completion" element={<StudentQuizCompletionPage />} />
         <Route path="/student/result" element={<StudentResultPage />} />
@@ -65,6 +48,7 @@ export function AppRoutes() {
       <Route element={<RoleGuard allowedRole="admin" />}>
         <Route path="/admin/dashboard" element={<AdminDashboardPage />} />
         <Route path="/admin/question-sets" element={<AdminQuestionSetsPage />} />
+        <Route path="/admin/course-content" element={<AdminCourseContentPage />} />
         <Route path="/admin/question-sets/create" element={<AdminQuestionSetCreatePage />} />
         <Route path="/admin/question-sets/:id/edit" element={<AdminQuestionSetEditPage />} />
         <Route path="/admin/results" element={<AdminResultsPage />} />
