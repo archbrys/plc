@@ -1,19 +1,19 @@
 import { useNavigate } from 'react-router-dom'
-import { useAuth } from '../../hooks/useAuth'
+import { useAuth } from '../../../hooks/useAuth'
 
-export function Chapter1Narration1Page() {
+export function Chapter1Narration3Page() {
   const navigate = useNavigate()
   const { logout } = useAuth()
 
   const handleNext = () => {
-    navigate('/student/chapter1-narration2')
+    navigate('/student/chapter1-introduction')
   }
 
   return (
     <div className="landing-page">
       <header className="landing-header">
         <div className="header-actions">
-          <button className="btn secondary" type="button" onClick={() => navigate('/student/chapter1')}>
+          <button className="btn secondary" type="button" onClick={() => navigate('/student/chapter1-narration2')}>
             Back
           </button>
           <button className="btn" type="button" onClick={logout}>
@@ -36,7 +36,7 @@ export function Chapter1Narration1Page() {
             <div className="narration-box">
               <p className="narration-text">
                 <strong>Aaron:</strong><br />
-                Do you know what a Programmable Logic Controller looks like?
+                For the chapter 1, we will have to learn about the History of Programmable Logic Controller.
               </p>
             </div>
           </div>

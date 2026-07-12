@@ -38,8 +38,8 @@ export function StudentQuizCompletionPage() {
   const handleContinue = () => {
     // Clear the session storage
     sessionStorage.removeItem('quiz_last_result_id')
-    // Navigate to characters introduction page
-    navigate('/student/characters')
+    // Navigate to chapter selection page
+    navigate('/student/chapters')
   }
 
   // Mock data for display (or use actual result data when available)

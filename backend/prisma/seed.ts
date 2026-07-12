@@ -508,6 +508,203 @@ async function main() {
       },
     },
   })
+
+  await prisma.questionSet.create({
+    data: {
+      title: 'Chapter 1: Introduction to PLC',
+      description: 'Chapter 1 assessment covering PLC history, fundamentals, and key concepts.',
+      status: QuestionSetStatus.PUBLISHED,
+      questions: {
+        create: [
+          {
+            questionText: 'What does PLC stand for?',
+            questionType: QuestionType.MULTIPLE_CHOICE,
+            orderNumber: 1,
+            points: 1,
+            required: true,
+            choices: {
+              create: [
+                { choiceText: 'Programmable Logic Computer', isCorrect: false, orderNumber: 1 },
+                { choiceText: 'Process Logic Controller', isCorrect: false, orderNumber: 2 },
+                { choiceText: 'Programmable Logic Controller', isCorrect: true, orderNumber: 3 },
+                { choiceText: 'Process Line Computer', isCorrect: false, orderNumber: 4 },
+              ],
+            },
+          },
+          {
+            questionText: 'Which of the following is a primary function of a PLC?',
+            questionType: QuestionType.MULTIPLE_CHOICE,
+            orderNumber: 2,
+            points: 1,
+            required: true,
+            choices: {
+              create: [
+                { choiceText: 'Playing multimedia files', isCorrect: false, orderNumber: 1 },
+                { choiceText: 'Controlling industrial machines and processes', isCorrect: true, orderNumber: 2 },
+                { choiceText: 'Creating spreadsheets', isCorrect: false, orderNumber: 3 },
+                { choiceText: 'Browsing the internet', isCorrect: false, orderNumber: 4 },
+              ],
+            },
+          },
+          {
+            questionText: 'Before PLCs were invented, industrial control systems mainly used:',
+            questionType: QuestionType.MULTIPLE_CHOICE,
+            orderNumber: 3,
+            points: 1,
+            required: true,
+            choices: {
+              create: [
+                { choiceText: 'Smartphones', isCorrect: false, orderNumber: 1 },
+                { choiceText: 'Microprocessors', isCorrect: false, orderNumber: 2 },
+                { choiceText: 'Relays and timers', isCorrect: true, orderNumber: 3 },
+                { choiceText: 'Cloud computing', isCorrect: false, orderNumber: 4 },
+              ],
+            },
+          },
+          {
+            questionText: 'Which company initiated the development of the first PLC?',
+            questionType: QuestionType.MULTIPLE_CHOICE,
+            orderNumber: 4,
+            points: 1,
+            required: true,
+            choices: {
+              create: [
+                { choiceText: 'Siemens', isCorrect: false, orderNumber: 1 },
+                { choiceText: 'Allen-Bradley', isCorrect: false, orderNumber: 2 },
+                { choiceText: 'General Motors', isCorrect: true, orderNumber: 3 },
+                { choiceText: 'Omron', isCorrect: false, orderNumber: 4 },
+              ],
+            },
+          },
+          {
+            questionText: 'Who is widely known as the "Father of the PLC"?',
+            questionType: QuestionType.MULTIPLE_CHOICE,
+            orderNumber: 5,
+            points: 1,
+            required: true,
+            choices: {
+              create: [
+                { choiceText: 'Bill Gates', isCorrect: false, orderNumber: 1 },
+                { choiceText: 'Dick Morley', isCorrect: true, orderNumber: 2 },
+                { choiceText: 'Steve Jobs', isCorrect: false, orderNumber: 3 },
+                { choiceText: 'Alan Turing', isCorrect: false, orderNumber: 4 },
+              ],
+            },
+          },
+          {
+            questionText: 'What was the name of the first PLC?',
+            questionType: QuestionType.MULTIPLE_CHOICE,
+            orderNumber: 6,
+            points: 1,
+            required: true,
+            choices: {
+              create: [
+                { choiceText: 'PLC-2', isCorrect: false, orderNumber: 1 },
+                { choiceText: 'CP1E', isCorrect: false, orderNumber: 2 },
+                { choiceText: 'Modicon 084', isCorrect: true, orderNumber: 3 },
+                { choiceText: 'Modbus', isCorrect: false, orderNumber: 4 },
+              ],
+            },
+          },
+          {
+            questionText: 'Why was Ladder Logic developed?',
+            questionType: QuestionType.MULTIPLE_CHOICE,
+            orderNumber: 7,
+            points: 1,
+            required: true,
+            choices: {
+              create: [
+                { choiceText: 'To increase computer speed', isCorrect: false, orderNumber: 1 },
+                { choiceText: 'To imitate electrical relay diagrams', isCorrect: true, orderNumber: 2 },
+                { choiceText: 'To replace all programming languages', isCorrect: false, orderNumber: 3 },
+                { choiceText: 'To improve internet communication', isCorrect: false, orderNumber: 4 },
+              ],
+            },
+          },
+          {
+            questionText: 'Which protocol introduced in 1979/1980 allowed PLCs to communicate with other devices?',
+            questionType: QuestionType.MULTIPLE_CHOICE,
+            orderNumber: 8,
+            points: 1,
+            required: true,
+            choices: {
+              create: [
+                { choiceText: 'Ethernet/IP', isCorrect: false, orderNumber: 1 },
+                { choiceText: 'PROFINET', isCorrect: false, orderNumber: 2 },
+                { choiceText: 'Modbus', isCorrect: true, orderNumber: 3 },
+                { choiceText: 'TCP/IP', isCorrect: false, orderNumber: 4 },
+              ],
+            },
+          },
+          {
+            questionText: 'What is one major advantage of PLCs over relay logic systems?',
+            questionType: QuestionType.MULTIPLE_CHOICE,
+            orderNumber: 9,
+            points: 1,
+            required: true,
+            choices: {
+              create: [
+                { choiceText: 'Larger size', isCorrect: false, orderNumber: 1 },
+                { choiceText: 'Difficult maintenance', isCorrect: false, orderNumber: 2 },
+                { choiceText: 'Easier modification', isCorrect: true, orderNumber: 3 },
+                { choiceText: 'More wiring required', isCorrect: false, orderNumber: 4 },
+              ],
+            },
+          },
+          {
+            questionText: 'Which programming language is included in IEC 61131-3?',
+            questionType: QuestionType.MULTIPLE_CHOICE,
+            orderNumber: 10,
+            points: 1,
+            required: true,
+            choices: {
+              create: [
+                { choiceText: 'Java', isCorrect: false, orderNumber: 1 },
+                { choiceText: 'Python', isCorrect: false, orderNumber: 2 },
+                { choiceText: 'Ladder Diagram', isCorrect: true, orderNumber: 3 },
+                { choiceText: 'C#', isCorrect: false, orderNumber: 4 },
+              ],
+            },
+          },
+          {
+            questionText: 'A specialized industrial computer used to control machines.',
+            questionType: QuestionType.SHORT_ANSWER,
+            orderNumber: 11,
+            points: 1,
+            required: true,
+          },
+          {
+            questionText: 'The engineer known as the "Father of the PLC."',
+            questionType: QuestionType.SHORT_ANSWER,
+            orderNumber: 12,
+            points: 1,
+            required: true,
+          },
+          {
+            questionText: 'The first commercially successful PLC developed by Bedford Associates.',
+            questionType: QuestionType.SHORT_ANSWER,
+            orderNumber: 13,
+            points: 1,
+            required: true,
+          },
+          {
+            questionText: 'The international standard released in 1993 for PLC programming languages.',
+            questionType: QuestionType.SHORT_ANSWER,
+            orderNumber: 14,
+            points: 1,
+            required: true,
+          },
+          {
+            questionText: 'The communication protocol introduced by Modicon for PLC networking.',
+            questionType: QuestionType.SHORT_ANSWER,
+            orderNumber: 15,
+            points: 1,
+            required: true,
+          },
+        ],
+      },
+    },
+  })
 }
 
 main()

@@ -1,0 +1,46 @@
+.typing-animation-container {
+  width: 100%;
+  min-height: 200px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.typing-animation-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: white;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.typing-cursor {
+  animation: blink 0.8s infinite;
+  margin-left: 2px;
+  font-weight: 100;
+}
+
+@keyframes blink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .typing-animation-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 480px) {
+  .typing-animation-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+}

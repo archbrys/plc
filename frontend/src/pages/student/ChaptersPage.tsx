@@ -12,8 +12,7 @@ export function ChaptersPage() {
         navigate('/student/chapter1')
         break
       case 2:
-        // Chapter 2 placeholder - navigate to question sets
-        navigate('/student/question-sets')
+        navigate('/student/chapter2-narration1')
         break
       case 3:
         // Chapter 3 placeholder - navigate to question sets

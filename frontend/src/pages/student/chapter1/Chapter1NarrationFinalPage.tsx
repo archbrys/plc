@@ -1,19 +1,23 @@
 import { useNavigate } from 'react-router-dom'
-import { useAuth } from '../../hooks/useAuth'
+import { useAuth } from '../../../hooks/useAuth'
 
-export function Chapter1Narration3Page() {
+export function Chapter1NarrationFinalPage() {
   const navigate = useNavigate()
   const { logout } = useAuth()
 
   const handleNext = () => {
-    navigate('/student/chapter1-introduction')
+    navigate('/student/chapter1-interactive-practice')
+  }
+
+  const handleBack = () => {
+    navigate('/student/chapter1-section3')
   }
 
   return (
     <div className="landing-page">
       <header className="landing-header">
         <div className="header-actions">
-          <button className="btn secondary" type="button" onClick={() => navigate('/student/chapter1-narration2')}>
+          <button className="btn secondary" type="button" onClick={handleBack}>
             Back
           </button>
           <button className="btn" type="button" onClick={logout}>
@@ -36,7 +40,7 @@ export function Chapter1Narration3Page() {
             <div className="narration-box">
               <p className="narration-text">
                 <strong>Aaron:</strong><br />
-                For the chapter 1, we will have to learn about the History of Programmable Logic Controller.
+                Chapter 1 is done, before we proceed to the next chapter. I want to know if you really learn from this chapter.
               </p>
             </div>
           </div>

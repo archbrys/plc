@@ -10,11 +10,18 @@ import { PLCIntroPage } from '../pages/student/PLCIntroPage'
 import { PLCWelcomePage } from '../pages/student/PLCWelcomePage'
 import { PLCChapterSelectPage } from '../pages/student/PLCChapterSelectPage'
 import { ChaptersPage } from '../pages/student/ChaptersPage'
-import { Chapter1Page } from '../pages/student/Chapter1Page'
-import { Chapter1IntroductionPage } from '../pages/student/Chapter1IntroductionPage'
-import { Chapter1Narration1Page } from '../pages/student/Chapter1Narration1Page'
-import { Chapter1NarrationPage } from '../pages/student/Chapter1NarrationPage'
-import { Chapter1Narration3Page } from '../pages/student/Chapter1Narration3Page'
+import { Chapter1Page } from '../pages/student/chapter1/Chapter1Page'
+import { Chapter1IntroductionPage } from '../pages/student/chapter1/Chapter1IntroductionPage'
+import { Chapter1Section2Page } from '../pages/student/chapter1/Chapter1Section2Page'
+import { Chapter1Section3Page } from '../pages/student/chapter1/Chapter1Section3Page'
+import { Chapter1Narration1Page } from '../pages/student/chapter1/Chapter1Narration1Page'
+import { Chapter1NarrationPage } from '../pages/student/chapter1/Chapter1NarrationPage'
+import { Chapter1Narration3Page } from '../pages/student/chapter1/Chapter1Narration3Page'
+import { Chapter1NarrationFinalPage } from '../pages/student/chapter1/Chapter1NarrationFinalPage'
+import { Chapter1InteractivePracticePage } from '../pages/student/chapter1/Chapter1InteractivePracticePage'
+import { Chapter1Quiz } from '../pages/student/chapter1/Chapter1Quiz'
+import { Chapter2Narration1Page } from '../pages/student/chapter2/Chapter2Narration1Page'
+import { Chapter2Section1Page } from '../pages/student/chapter2/Chapter2Section1Page'
 import { StudentCharactersPage } from '../pages/student/StudentCharactersPage'
 import { StudentQuestionSetDetailPage } from '../pages/student/StudentQuestionSetDetailPage'
 import { StudentQuestionSetsPage } from '../pages/student/StudentQuestionSetsPage'
@@ -40,9 +47,16 @@ export function AppRoutes() {
         <Route path="/student/chapters" element={<ChaptersPage />} />
         <Route path="/student/chapter1" element={<Chapter1Page />} />
         <Route path="/student/chapter1-introduction" element={<Chapter1IntroductionPage />} />
+        <Route path="/student/chapter1-section2" element={<Chapter1Section2Page />} />
+        <Route path="/student/chapter1-section3" element={<Chapter1Section3Page />} />
         <Route path="/student/chapter1-narration1" element={<Chapter1Narration1Page />} />
         <Route path="/student/chapter1-narration2" element={<Chapter1NarrationPage />} />
         <Route path="/student/chapter1-narration3" element={<Chapter1Narration3Page />} />
+        <Route path="/student/chapter1-narration-final" element={<Chapter1NarrationFinalPage />} />
+        <Route path="/student/chapter1-interactive-practice" element={<Chapter1InteractivePracticePage />} />
+        <Route path="/student/chapter1-quiz" element={<Chapter1Quiz />} />
+        <Route path="/student/chapter2-narration1" element={<Chapter2Narration1Page />} />
+        <Route path="/student/chapter2-section1" element={<Chapter2Section1Page />} />
         <Route path="/student/question-sets/:id" element={<StudentQuestionSetDetailPage />} />
         <Route path="/student/completion" element={<StudentQuizCompletionPage />} />
         <Route path="/student/result" element={<StudentResultPage />} />

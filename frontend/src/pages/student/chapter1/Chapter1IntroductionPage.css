@@ -133,6 +133,15 @@
   padding: 1rem 2.5rem;
 }
 
+.chapter-intro-typing-section {
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  min-height: 300px;
+  display: flex;
+  align-items: flex-start;
+}
+
 /* Responsive design */
 @media (max-width: 968px) {
   .chapter-intro-card {
@@ -177,6 +186,11 @@
     font-size: 0.95rem;
   }
 
+  .chapter-intro-typing-section {
+    padding: 1.5rem;
+    min-height: 250px;
+  }
+
   .chapter-intro-actions .ready-btn {
     width: 100%;
     min-width: unset;
@@ -199,6 +213,11 @@
 
   .chapter-intro-title {
     font-size: 1.2rem;
+  }
+
+  .chapter-intro-typing-section {
+    padding: 1rem;
+    min-height: 200px;
   }
 
   .chapter-intro-actions .ready-btn {
