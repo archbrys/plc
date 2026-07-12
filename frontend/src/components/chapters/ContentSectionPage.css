@@ -84,17 +84,35 @@
   opacity: 0.9;
 }
 
-/* Two-column layout */
+/* Two-column layout: content 65% / image 35% */
 .chapter-section2-body-wrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 65% 35%;
   gap: 3rem;
   align-items: start;
+}
+
+.chapter-section2-body-wrapper--text-only {
+  display: block;
+}
+
+.chapter-section2-body-wrapper--image-only {
+  display: flex;
+  justify-content: center;
+}
+
+.chapter-section2-body-wrapper--image-only .chapter-section2-image-column {
+  width: 100%;
+  max-width: 600px;
 }
 
 .chapter-section2-text-column {
   font-size: 1.1rem;
   line-height: 1.8;
+}
+
+.chapter-section2-text-column--hidden {
+  display: none;
 }
 
 .chapter-section2-text-column p {

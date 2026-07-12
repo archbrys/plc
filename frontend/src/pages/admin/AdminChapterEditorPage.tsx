@@ -4,9 +4,11 @@ import { AppShell } from '../../components/common/AppShell'
 import { courseApiService, type UpsertPagePayload } from '../../services/courseApiService'
 import { invalidateCourseCache } from '../../data/course'
 import { questionSetService } from '../../services/questionSetService'
+import { resolveAssetSrc } from '../../utils/assets'
 import type {
   ChapterPage,
   ChapterPageType,
+  ContentBlock,
   ContentSectionPageConfig,
   CourseChapter,
   NarrationPageConfig,
@@ -30,7 +32,7 @@ function defaultConfigFor(type: ChapterPageType, chapterTitle: string): UpsertPa
     case 'narration':
       return { type, config: { character: '', text: '' } }
     case 'content_section':
-      return { type, config: { sectionNumber: 1, sectionTitle: '', chapterTitle, contents: [''] } }
+      return { type, config: { sectionNumber: 1, sectionTitle: '', chapterTitle, contents: [{ text: '' }] } }
     case 'interactive_practice':
       return { type, config: {} }
     case 'quiz':
@@ -43,11 +45,13 @@ function StringListEditor({
   onChange,
   placeholder,
   rows,
+  minItems = 1,
 }: {
   values: string[]
   onChange: (values: string[]) => void
   placeholder: string
   rows?: number
+  minItems?: number
 }) {
   return (
     <div className="stack">
@@ -81,7 +85,7 @@ function StringListEditor({
             className="btn secondary small"
             type="button"
             onClick={() => onChange(values.filter((_, i) => i !== index))}
-            disabled={values.length <= 1}
+            disabled={values.length <= minItems}
           >
             Remove
           </button>
@@ -139,6 +143,68 @@ function NarrationForm({ config, onChange }: { config: NarrationPageConfig; onCh
   )
 }
 
+function ContentBlockListEditor({
+  blocks,
+  onChange,
+}: {
+  blocks: ContentBlock[]
+  onChange: (blocks: ContentBlock[]) => void
+}) {
+  const updateBlock = (index: number, patch: Partial<ContentBlock>) => {
+    const next = [...blocks]
+    next[index] = { ...next[index], ...patch }
+    onChange(next)
+  }
+
+  return (
+    <div className="stack">
+      {blocks.map((block, index) => (
+        <div key={index} className="card stack" style={{ padding: '1rem' }}>
+          <div className="row-between" style={{ alignItems: 'center' }}>
+            <strong>Block {index + 1}</strong>
+            <button
+              className="btn secondary small"
+              type="button"
+              onClick={() => onChange(blocks.filter((_, i) => i !== index))}
+              disabled={blocks.length <= 1}
+            >
+              Remove Block
+            </button>
+          </div>
+          <div className="grid-two" style={{ gridTemplateColumns: '65% 35%', alignItems: 'start' }}>
+            <label className="field">
+              <span>Text</span>
+              <textarea
+                rows={4}
+                value={block.text}
+                placeholder="Content block text"
+                onChange={(event) => updateBlock(index, { text: event.target.value })}
+              />
+            </label>
+            <label className="field">
+              <span>Image (filename under /assets/ or full URL)</span>
+              <input
+                value={block.image ?? ''}
+                onChange={(event) => updateBlock(index, { image: event.target.value || undefined })}
+              />
+              {block.image && (
+                <img
+                  src={resolveAssetSrc(block.image)}
+                  alt={`Block ${index + 1} preview`}
+                  style={{ maxWidth: '100%', marginTop: '0.5rem', borderRadius: '8px' }}
+                />
+              )}
+            </label>
+          </div>
+        </div>
+      ))}
+      <button className="btn secondary small" type="button" onClick={() => onChange([...blocks, { text: '' }])}>
+        Add Block
+      </button>
+    </div>
+  )
+}
+
 function ContentSectionForm({
   config,
   onChange,
@@ -166,20 +232,13 @@ function ContentSectionForm({
       </label>
       <label className="field">
         <span>Content Blocks</span>
-        <StringListEditor
-          values={config.contents}
-          placeholder="Content block text"
-          rows={4}
-          onChange={(contents) => onChange({ ...config, contents })}
-        />
+        <ContentBlockListEditor blocks={config.contents} onChange={(contents) => onChange({ ...config, contents })} />
       </label>
-      <label className="field">
-        <span>Side Image (optional URL)</span>
-        <input
-          value={config.sideImage ?? ''}
-          onChange={(event) => onChange({ ...config, sideImage: event.target.value || undefined })}
-        />
-      </label>
+      <p className="muted">
+        Each block types out its text and shows its own image beside it (65% text / 35% image). Leave a block's text
+        empty to show only its centered image; leave its image empty to show only text. A block needs text, an image,
+        or both.
+      </p>
     </div>
   )
 }
@@ -298,7 +357,15 @@ export function AdminChapterEditorPage() {
   }
 
   const newPageIsValid =
-    newPageDraft.type !== 'quiz' || Boolean((newPageDraft.config as QuizPageConfig).questionSetId)
+    (newPageDraft.type !== 'quiz' || Boolean((newPageDraft.config as QuizPageConfig).questionSetId)) &&
+    (newPageDraft.type !== 'content_section' ||
+      (() => {
+        const config = newPageDraft.config as ContentSectionPageConfig
+        return (
+          config.contents.length > 0 &&
+          config.contents.every((block) => block.text.trim().length > 0 || Boolean(block.image))
+        )
+      })())
 
   const handleAddPage = async () => {
     if (!newPageIsValid) return

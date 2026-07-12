@@ -11,12 +11,21 @@ const narrationConfigSchema = z.object({
   backgroundImage: z.string().optional(),
 })
 
+const contentBlockSchema = z
+  .object({
+    text: z.string().default(''),
+    image: z.string().optional(),
+  })
+  .refine((block) => block.text.trim().length > 0 || Boolean(block.image), {
+    message: 'Provide text or an image for this content block',
+    path: ['text'],
+  })
+
 const contentSectionConfigSchema = z.object({
   sectionNumber: z.number().int().positive(),
   sectionTitle: z.string().min(1),
   chapterTitle: z.string().min(1),
-  contents: z.array(z.string().min(1)).min(1),
-  sideImage: z.string().optional(),
+  contents: z.array(contentBlockSchema).min(1),
 })
 
 const interactivePracticeConfigSchema = z.object({}).strict()

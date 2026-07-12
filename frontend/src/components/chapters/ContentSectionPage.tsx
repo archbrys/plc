@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useAuth } from '../../hooks/useAuth'
 import { TypingAnimation } from '../common/TypingAnimation'
 import type { ContentSectionPageConfig } from '../../types/course'
+import { resolveAssetSrc } from '../../utils/assets'
 import './ContentSectionPage.css'
 
 interface ContentSectionPageProps {
@@ -13,7 +14,11 @@ interface ContentSectionPageProps {
 export function ContentSectionPage({ config, onNext, onBack }: ContentSectionPageProps) {
   const { logout } = useAuth()
   const [showNextButton, setShowNextButton] = useState(false)
-  const { sectionNumber, sectionTitle, chapterTitle, contents, sideImage } = config
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const { sectionNumber, sectionTitle, chapterTitle, contents } = config
+  const currentBlock = contents[currentIndex] ?? contents[0]
+  const hasText = Boolean(currentBlock?.text?.trim())
+  const hasImage = Boolean(currentBlock?.image)
 
   return (
     <div className="chapter-section2-page">
@@ -40,21 +45,38 @@ export function ContentSectionPage({ config, onNext, onBack }: ContentSectionPag
               </p>
             </div>
 
-            <div className="chapter-section2-body-wrapper">
-              <div className="chapter-section2-text-column">
+            <div
+              className={`chapter-section2-body-wrapper${
+                !hasImage
+                  ? ' chapter-section2-body-wrapper--text-only'
+                  : !hasText
+                    ? ' chapter-section2-body-wrapper--image-only'
+                    : ''
+              }`}
+            >
+              <div
+                className={`chapter-section2-text-column${
+                  hasText ? '' : ' chapter-section2-text-column--hidden'
+                }`}
+              >
                 <TypingAnimation
-                  contents={contents}
+                  contents={contents.map((block) => block.text)}
                   typingSpeed={30}
                   displayDuration={5000}
                   clearSpeed={10}
                   loop={false}
                   onComplete={() => setShowNextButton(true)}
+                  onIndexChange={setCurrentIndex}
                 />
               </div>
 
-              {sideImage && (
+              {hasImage && (
                 <div className="chapter-section2-image-column">
-                  <img src={sideImage} alt="Section Illustration" className="chapter-section2-image" />
+                  <img
+                    src={resolveAssetSrc(currentBlock.image!)}
+                    alt="Section Illustration"
+                    className="chapter-section2-image"
+                  />
                 </div>
               )}
             </div>

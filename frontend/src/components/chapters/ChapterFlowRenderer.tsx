@@ -37,7 +37,12 @@ export function ChapterFlowRenderer({ page, onComplete, onNext, onBack }: Chapte
       return <NarrationPage key={page.id} config={page.config} onNext={onNext} onBack={onBack} />
 
     case 'content_section':
-      if (!page.config.sectionTitle || !Array.isArray(page.config.contents)) {
+      if (
+        !page.config.sectionTitle ||
+        !Array.isArray(page.config.contents) ||
+        page.config.contents.length === 0 ||
+        page.config.contents.some((block) => !block.text?.trim() && !block.image)
+      ) {
         return <MisconfiguredPage type={page.type} />
       }
       return <ContentSectionPage key={page.id} config={page.config} onNext={onNext} onBack={onBack} />

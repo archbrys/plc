@@ -13,12 +13,16 @@ export interface NarrationPageConfig {
   backgroundImage?: string
 }
 
+export interface ContentBlock {
+  text: string
+  image?: string
+}
+
 export interface ContentSectionPageConfig {
   sectionNumber: number
   sectionTitle: string
   chapterTitle: string
-  contents: string[]
-  sideImage?: string
+  contents: ContentBlock[]
 }
 
 // Uses PLCSimulator component - no additional config needed

@@ -8,20 +8,27 @@ interface TypingAnimationProps {
   clearSpeed?: number
   loop?: boolean
   onComplete?: () => void
+  onIndexChange?: (index: number) => void
 }
 
-export function TypingAnimation({ 
-  contents, 
-  typingSpeed = 30, 
+export function TypingAnimation({
+  contents,
+  typingSpeed = 30,
   displayDuration = 5000,
   clearSpeed = 10,
   loop = true,
-  onComplete
+  onComplete,
+  onIndexChange
 }: TypingAnimationProps) {
   const [currentContentIndex, setCurrentContentIndex] = useState(0)
   const [displayedText, setDisplayedText] = useState('')
   const [isTyping, setIsTyping] = useState(true)
   const [isClearing, setIsClearing] = useState(false)
+
+  useEffect(() => {
+    onIndexChange?.(currentContentIndex)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentContentIndex])
 
   useEffect(() => {
     const currentContent = contents[currentContentIndex]
