@@ -24,11 +24,11 @@ export function QuizPage({ config, onBack }: QuizPageProps) {
 
   useEffect(() => {
     questionSetService.listPublished().then((sets) => {
-      const targetSet = sets.find((set) => set.title === config.questionSetTitle) ?? null
+      const targetSet = sets.find((set) => set.id === config.questionSetId) ?? null
       setQuestionSet(targetSet)
       setLoading(false)
     })
-  }, [config.questionSetTitle])
+  }, [config.questionSetId])
 
   const orderedQuestions = useMemo(
     () => [...(questionSet?.questions ?? [])].sort((a, b) => a.orderNumber - b.orderNumber),
@@ -110,7 +110,7 @@ export function QuizPage({ config, onBack }: QuizPageProps) {
     return (
       <div className="landing-page">
         <main className="plc-intro-content">
-          <p className="muted">Quiz not found: {config.questionSetTitle}</p>
+          <p className="muted">Quiz not found for this page.</p>
         </main>
       </div>
     )

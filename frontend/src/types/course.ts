@@ -1,16 +1,3 @@
-export interface CourseContentItem {
-  id: number
-  title: string
-  text: string
-  image: string
-}
-
-export interface CourseSection {
-  id: number
-  title: string
-  contents: CourseContentItem[]
-}
-
 // Page types for rich chapter flows
 export type ChapterPageType = 'slideshow' | 'narration' | 'content_section' | 'interactive_practice' | 'quiz'
 
@@ -34,12 +21,11 @@ export interface ContentSectionPageConfig {
   sideImage?: string
 }
 
-export interface InteractivePracticePageConfig {
-  // Uses PLCSimulator component - no additional config needed
-}
+// Uses PLCSimulator component - no additional config needed
+export type InteractivePracticePageConfig = Record<string, never>
 
 export interface QuizPageConfig {
-  questionSetTitle: string
+  questionSetId: string
 }
 
 export type ChapterPageConfig =
@@ -49,18 +35,18 @@ export type ChapterPageConfig =
   | InteractivePracticePageConfig
   | QuizPageConfig
 
-export interface ChapterPage {
-  id: number
-  type: ChapterPageType
-  orderNumber: number
-  config: ChapterPageConfig
-}
+export type ChapterPage =
+  | { id: number; type: 'slideshow'; orderNumber: number; config: SlideshowPageConfig }
+  | { id: number; type: 'narration'; orderNumber: number; config: NarrationPageConfig }
+  | { id: number; type: 'content_section'; orderNumber: number; config: ContentSectionPageConfig }
+  | { id: number; type: 'interactive_practice'; orderNumber: number; config: InteractivePracticePageConfig }
+  | { id: number; type: 'quiz'; orderNumber: number; config: QuizPageConfig }
 
 export interface CourseChapter {
   id: number
   title: string
-  sections: CourseSection[]
-  pages?: ChapterPage[] // Optional: for rich chapter flows
+  orderNumber: number
+  pages: ChapterPage[]
 }
 
 export interface Course {

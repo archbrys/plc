@@ -512,7 +512,7 @@ async function main() {
     },
   })
 
-  await prisma.questionSet.create({
+  const chapter1QuestionSet = await prisma.questionSet.create({
     data: {
       title: 'Chapter 1: Introduction to PLC',
       description: 'Chapter 1 assessment covering PLC history, fundamentals, and key concepts.',
@@ -891,7 +891,7 @@ As the market grew, every PLC manufacturer developed their own proprietary softw
                   type: 'quiz',
                   orderNumber: 10,
                   config: JSON.stringify({
-                    questionSetTitle: 'Chapter 1: Introduction to PLC',
+                    questionSetId: chapter1QuestionSet.id,
                   }),
                 },
               ],

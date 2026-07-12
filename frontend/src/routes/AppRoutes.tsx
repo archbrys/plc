@@ -6,13 +6,12 @@ import { AdminQuestionSetEditPage } from '../pages/admin/AdminQuestionSetEditPag
 import { AdminQuestionSetsPage } from '../pages/admin/AdminQuestionSetsPage'
 import { AdminResultsPage } from '../pages/admin/AdminResultsPage'
 import { AdminCourseContentPage } from '../pages/admin/AdminCourseContentPage'
+import { AdminChapterEditorPage } from '../pages/admin/AdminChapterEditorPage'
 import { LoginPage } from '../pages/auth/LoginPage'
 import { PLCIntroPage } from '../pages/student/PLCIntroPage'
 import { PLCWelcomePage } from '../pages/student/PLCWelcomePage'
 import { PLCChapterSelectPage } from '../pages/student/PLCChapterSelectPage'
 import { ChaptersPage } from '../pages/student/ChaptersPage'
-import { CourseChapterPage } from '../pages/student/CourseChapterPage'
-import { CourseSectionPage } from '../pages/student/CourseSectionPage'
 import { StudentCharactersPage } from '../pages/student/StudentCharactersPage'
 import { StudentQuestionSetDetailPage } from '../pages/student/StudentQuestionSetDetailPage'
 import { StudentQuestionSetsPage } from '../pages/student/StudentQuestionSetsPage'
@@ -38,8 +37,6 @@ export function AppRoutes() {
         <Route path="/student/plc-chapter-select" element={<PLCChapterSelectPage />} />
         <Route path="/student/chapters" element={<ChaptersPage />} />
         <Route path="/student/chapters/:chapterId/flow" element={<DynamicChapterPage />} />
-        <Route path="/student/chapters/:chapterId" element={<CourseChapterPage />} />
-        <Route path="/student/chapters/:chapterId/sections/:sectionId" element={<CourseSectionPage />} />
         <Route path="/student/question-sets/:id" element={<StudentQuestionSetDetailPage />} />
         <Route path="/student/completion" element={<StudentQuizCompletionPage />} />
         <Route path="/student/result" element={<StudentResultPage />} />
@@ -49,6 +46,7 @@ export function AppRoutes() {
         <Route path="/admin/dashboard" element={<AdminDashboardPage />} />
         <Route path="/admin/question-sets" element={<AdminQuestionSetsPage />} />
         <Route path="/admin/course-content" element={<AdminCourseContentPage />} />
+        <Route path="/admin/course-content/:chapterId" element={<AdminChapterEditorPage />} />
         <Route path="/admin/question-sets/create" element={<AdminQuestionSetCreatePage />} />
         <Route path="/admin/question-sets/:id/edit" element={<AdminQuestionSetEditPage />} />
         <Route path="/admin/results" element={<AdminResultsPage />} />

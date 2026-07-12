@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Navigate, useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useAuth } from '../../hooks/useAuth'
 import { getCourse } from '../../data/course'
 import type { CourseChapter } from '../../types/course'
@@ -31,9 +31,26 @@ export function DynamicChapterPage() {
     return <div className="landing-page">Loading chapter...</div>
   }
 
-  // Redirect to simple chapter view if no pages array
-  if (!chapter || !chapter.pages || chapter.pages.length === 0) {
-    return <Navigate to={`/student/chapters/${chapterId}`} replace />
+  if (!chapter || chapter.pages.length === 0) {
+    return (
+      <div className="landing-page">
+        <header className="landing-header">
+          <div className="header-actions">
+            <button className="btn secondary" type="button" onClick={() => navigate('/student/chapters')}>
+              Back to Chapters
+            </button>
+            <button className="btn" type="button" onClick={logout}>
+              Logout
+            </button>
+          </div>
+        </header>
+        <main className="plc-intro-content">
+          <p className="error-message">
+            {chapter ? 'This chapter has no content yet.' : 'Chapter not found.'}
+          </p>
+        </main>
+      </div>
+    )
   }
 
   const pages = [...chapter.pages].sort((a, b) => a.orderNumber - b.orderNumber)

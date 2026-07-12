@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import type { SlideshowPageConfig } from '../../types/course'
-import '../../pages/student/chapter1/Chapter1Page.css'
+import './SlideshowPage.css'
 
 interface SlideshowPageProps {
   config: SlideshowPageConfig
@@ -30,18 +30,18 @@ export function SlideshowPage({ config, onComplete, onBack }: SlideshowPageProps
   }, [currentImageIndex, images.length, autoAdvanceMs, onComplete])
 
   return (
-    <div className="chapter1-page">
-      <main className="chapter1-main">
-        <div className="chapter1-content">
-          <div className="chapter1-image-container">
+    <div className="chapter-slideshow-page">
+      <main className="chapter-slideshow-main">
+        <div className="chapter-slideshow-content">
+          <div className="chapter-slideshow-image-container">
             <img
               src={`/assets/${images[currentImageIndex]}`}
               alt={`Slide ${currentImageIndex + 1}`}
-              className="chapter1-image"
+              className="chapter-slideshow-image"
             />
           </div>
 
-          <div className="chapter1-progress">
+          <div className="chapter-slideshow-progress">
             <div className="progress-dots">
               {images.map((_, index) => (
                 <span

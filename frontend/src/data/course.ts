@@ -31,23 +31,12 @@ export async function getCourse(): Promise<Course> {
   }
 }
 
-export function saveCourse(course: Course) {
-  courseCache = course
-  safeStorage.set(COURSE_STORAGE_KEY, course)
+export function invalidateCourseCache() {
+  courseCache = null
+  safeStorage.remove(COURSE_STORAGE_KEY)
 }
 
 export async function getChapterById(chapterId: number) {
   const course = await getCourse()
   return course.chapters.find((chapter) => chapter.id === chapterId)
-}
-
-export async function getSectionById(chapterId: number, sectionId: number) {
-  const chapter = await getChapterById(chapterId)
-  return chapter?.sections.find((section) => section.id === sectionId)
-}
-
-export async function resetCourseToDefault() {
-  courseCache = null
-  safeStorage.remove(COURSE_STORAGE_KEY)
-  return getCourse()
 }

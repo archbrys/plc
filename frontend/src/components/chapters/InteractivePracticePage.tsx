@@ -1,7 +1,7 @@
 import { useAuth } from '../../hooks/useAuth'
 import { PLCSimulator } from '../student/PLCSimulator'
 import type { InteractivePracticePageConfig } from '../../types/course'
-import '../../pages/student/chapter1/Chapter1InteractivePracticePage.css'
+import './InteractivePracticePage.css'
 
 interface InteractivePracticePageProps {
   config: InteractivePracticePageConfig
@@ -9,12 +9,12 @@ interface InteractivePracticePageProps {
   onBack?: () => void
 }
 
-export function InteractivePracticePage({ config, onNext, onBack }: InteractivePracticePageProps) {
+export function InteractivePracticePage({ onNext, onBack }: InteractivePracticePageProps) {
   const { logout } = useAuth()
 
   return (
-    <div className="chapter1-practice-page">
-      <header className="chapter1-practice-header">
+    <div className="chapter-practice-page">
+      <header className="chapter-practice-header">
         <div className="header-actions">
           {onBack && (
             <button className="btn secondary" type="button" onClick={onBack}>
@@ -35,11 +35,11 @@ export function InteractivePracticePage({ config, onNext, onBack }: InteractiveP
         <h1 className="banner-title">INTERACTIVE PRACTICE</h1>
       </div>
 
-      <main className="chapter1-practice-main">
-        <div className="chapter1-practice-content">
+      <main className="chapter-practice-main">
+        <div className="chapter-practice-content">
           <PLCSimulator />
 
-          <div className="chapter1-practice-actions">
+          <div className="chapter-practice-actions">
             <button className="btn large ready-btn" type="button" onClick={onNext}>
               Continue to Assessment
             </button>

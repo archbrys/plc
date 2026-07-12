@@ -1,11 +1,11 @@
-.chapter1-page {
+.chapter-slideshow-page {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   background: #000;
 }
 
-.chapter1-main {
+.chapter-slideshow-main {
   flex: 1;
   display: flex;
   align-items: center;
@@ -15,7 +15,7 @@
   padding: 0;
 }
 
-.chapter1-content {
+.chapter-slideshow-content {
   width: 100%;
   height: 100%;
   display: flex;
@@ -26,7 +26,7 @@
   position: relative;
 }
 
-.chapter1-image-container {
+.chapter-slideshow-image-container {
   width: 100%;
   height: 100%;
   display: flex;
@@ -46,14 +46,14 @@
   }
 }
 
-.chapter1-image {
+.chapter-slideshow-image {
   width: 100%;
   height: 100%;
   object-fit: contain;
   display: block;
 }
 
-.chapter1-progress {
+.chapter-slideshow-progress {
   position: absolute;
   bottom: 2rem;
   left: 50%;
@@ -89,11 +89,9 @@
   background: rgba(255, 255, 255, 0.7);
 }
 
-
-
 /* Responsive Design */
 @media (max-width: 768px) {
-  .chapter1-progress {
+  .chapter-slideshow-progress {
     bottom: 1rem;
   }
 }
