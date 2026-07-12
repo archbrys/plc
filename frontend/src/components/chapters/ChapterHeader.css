@@ -1,0 +1,44 @@
+.chapter-flow-header {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: clamp(0.5rem, 1.5vh, 1rem) clamp(1rem, 3vw, 2rem);
+  background: rgba(15, 23, 42, 0.85);
+  color: #fff;
+  z-index: 20;
+}
+
+.chapter-flow-header-titles {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.chapter-flow-header-chapter {
+  margin: 0;
+  font-size: clamp(1rem, 2.2vh, 1.35rem);
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chapter-flow-header-section {
+  margin: 0;
+  font-size: clamp(0.75rem, 1.4vh, 0.95rem);
+  font-weight: 500;
+  opacity: 0.85;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chapter-flow-header-logout {
+  flex: 0 0 auto;
+  font-size: clamp(0.8rem, 1.4vh, 0.95rem);
+  padding: 0.5rem 1rem;
+}

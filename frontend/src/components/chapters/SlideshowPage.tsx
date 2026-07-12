@@ -5,10 +5,9 @@ import './SlideshowPage.css'
 interface SlideshowPageProps {
   config: SlideshowPageConfig
   onComplete?: () => void
-  onBack?: () => void
 }
 
-export function SlideshowPage({ config, onComplete, onBack }: SlideshowPageProps) {
+export function SlideshowPage({ config, onComplete }: SlideshowPageProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const { images, autoAdvanceMs } = config
 
@@ -30,29 +29,27 @@ export function SlideshowPage({ config, onComplete, onBack }: SlideshowPageProps
   }, [currentImageIndex, images.length, autoAdvanceMs, onComplete])
 
   return (
-    <div className="chapter-slideshow-page">
-      <main className="chapter-slideshow-main">
-        <div className="chapter-slideshow-content">
-          <div className="chapter-slideshow-image-container">
-            <img
-              src={`/assets/${images[currentImageIndex]}`}
-              alt={`Slide ${currentImageIndex + 1}`}
-              className="chapter-slideshow-image"
-            />
-          </div>
+    <main className="chapter-slideshow-main">
+      <div className="chapter-slideshow-content">
+        <div className="chapter-slideshow-image-container">
+          <img
+            src={`/assets/${images[currentImageIndex]}`}
+            alt={`Slide ${currentImageIndex + 1}`}
+            className="chapter-slideshow-image"
+          />
+        </div>
 
-          <div className="chapter-slideshow-progress">
-            <div className="progress-dots">
-              {images.map((_, index) => (
-                <span
-                  key={index}
-                  className={`progress-dot ${index === currentImageIndex ? 'active' : ''} ${index < currentImageIndex ? 'completed' : ''}`}
-                />
-              ))}
-            </div>
+        <div className="chapter-slideshow-progress">
+          <div className="progress-dots">
+            {images.map((_, index) => (
+              <span
+                key={index}
+                className={`progress-dot ${index === currentImageIndex ? 'active' : ''} ${index < currentImageIndex ? 'completed' : ''}`}
+              />
+            ))}
           </div>
         </div>
-      </main>
-    </div>
+      </div>
+    </main>
   )
 }

@@ -14,7 +14,8 @@
     "start": "npm run start --prefix backend",
     "lint": "npm run lint --prefix frontend && npm run lint --prefix backend",
     "prisma:migrate": "npm run prisma:migrate --prefix backend",
-    "prisma:seed": "npm run prisma:seed --prefix backend"
+    "prisma:seed": "npm run prisma:seed --prefix backend",
+    "migrate:content-blocks": "npm run migrate:content-blocks --prefix backend"
   },
   "devDependencies": {
     "concurrently": "^9.1.2"

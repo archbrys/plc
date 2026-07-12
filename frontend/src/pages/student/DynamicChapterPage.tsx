@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { useAuth } from '../../hooks/useAuth'
 import { getCourse } from '../../data/course'
 import type { CourseChapter } from '../../types/course'
 import { ChapterFlowRenderer } from '../../components/chapters/ChapterFlowRenderer'
 
 export function DynamicChapterPage() {
-  const navigate = useNavigate()
   const { logout } = useAuth()
   const { chapterId } = useParams()
 
@@ -36,9 +35,6 @@ export function DynamicChapterPage() {
       <div className="landing-page">
         <header className="landing-header">
           <div className="header-actions">
-            <button className="btn secondary" type="button" onClick={() => navigate('/student/chapters')}>
-              Back to Chapters
-            </button>
             <button className="btn" type="button" onClick={logout}>
               Logout
             </button>
@@ -62,12 +58,6 @@ export function DynamicChapterPage() {
     }
   }
 
-  const handleBack = () => {
-    if (currentPageIndex > 0) {
-      setCurrentPageIndex(currentPageIndex - 1)
-    }
-  }
-
   const handleComplete = () => {
     // For auto-complete pages like slideshows
     handleNext()
@@ -78,9 +68,6 @@ export function DynamicChapterPage() {
       <div className="landing-page">
         <header className="landing-header">
           <div className="header-actions">
-            <button className="btn secondary" type="button" onClick={() => navigate('/student/chapters')}>
-              Back to Chapters
-            </button>
             <button className="btn" type="button" onClick={logout}>
               Logout
             </button>
@@ -95,10 +82,10 @@ export function DynamicChapterPage() {
 
   return (
     <ChapterFlowRenderer
+      chapterTitle={chapter.title}
       page={currentPage}
       onComplete={handleComplete}
       onNext={handleNext}
-      onBack={currentPageIndex > 0 ? handleBack : undefined}
     />
   )
 }

@@ -1,71 +1,83 @@
-.chapter-practice-page {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  display: flex;
-  flex-direction: column;
-}
-
-.chapter-practice-header {
-  display: flex;
-  justify-content: flex-end;
-  padding: 1.5rem 2rem;
-  position: relative;
-  z-index: 10;
-}
-
-.interactive-practice-banner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
-  border-radius: 50px;
-  padding: 1rem 2.5rem;
-  margin: 0 auto;
-  max-width: 600px;
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
-}
-
-.banner-icon {
-  width: 2rem;
-  height: 2rem;
-  color: white;
-  flex-shrink: 0;
-}
-
-.banner-title {
-  margin: 0;
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: white;
-  letter-spacing: 0.05em;
-}
-
 .chapter-practice-main {
-  flex: 1;
+  flex: 1 1 auto;
+  min-height: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem 2rem 2rem 2rem;
-  position: relative;
-  z-index: 1;
+  padding: clamp(0.75rem, 2vh, 1.5rem) clamp(1rem, 3vw, 2rem);
+  overflow: hidden;
 }
 
 .chapter-practice-content {
   max-width: 1200px;
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: clamp(0.75rem, 2vh, 1.5rem);
+  min-height: 0;
+}
+
+.chapter-practice-simulator {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.chapter-practice-simulator > * {
+  max-width: 100%;
+  max-height: 100%;
+  overflow: auto;
+}
+
+/* Compact the PLC simulator so it fits a fixed-height tablet viewport without page scroll */
+.chapter-practice-simulator .plc-simulator {
+  padding: clamp(0.75rem, 2vh, 1.5rem);
+}
+
+.chapter-practice-simulator .plc-simulator-header {
+  margin-bottom: clamp(0.5rem, 1.5vh, 1rem);
+  padding-bottom: clamp(0.5rem, 1.5vh, 1rem);
+}
+
+.chapter-practice-simulator .plc-simulator-title {
+  font-size: clamp(1rem, 2.2vh, 1.4rem);
+}
+
+.chapter-practice-simulator .plc-simulator-body {
+  padding: clamp(0.75rem, 2vh, 1.5rem);
+}
+
+.chapter-practice-simulator .plc-io-grid {
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1rem, 2.5vw, 2rem);
+}
+
+.chapter-practice-simulator .plc-io-section {
+  gap: clamp(0.5rem, 1.5vh, 1rem);
+}
+
+.chapter-practice-simulator .plc-io-items {
+  gap: clamp(0.4rem, 1vh, 0.85rem);
+}
+
+.chapter-practice-simulator .plc-io-item {
+  padding: clamp(0.5rem, 1.2vh, 0.9rem) clamp(0.75rem, 1.5vw, 1.25rem);
+}
+
+.chapter-practice-simulator .plc-section-label {
+  font-size: clamp(1rem, 2vh, 1.3rem);
+}
+
+.chapter-practice-simulator .plc-io-label {
+  font-size: clamp(0.85rem, 1.6vh, 1.05rem);
 }
 
 .chapter-practice-actions {
+  flex: 0 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -73,32 +85,13 @@
 
 .chapter-practice-actions .ready-btn {
   min-width: 250px;
-  font-size: 1.2rem;
-  padding: 1rem 2.5rem;
+  font-size: clamp(0.95rem, 1.8vh, 1.2rem);
+  padding: clamp(0.6rem, 1.5vh, 1rem) 2.5rem;
 }
 
 /* Responsive design */
 @media (max-width: 768px) {
-  .chapter-practice-header {
-    padding: 1rem;
-  }
-
-  .interactive-practice-banner {
-    margin: 0 1rem;
-    padding: 0.75rem 1.5rem;
-    border-radius: 40px;
-  }
-
-  .banner-icon {
-    width: 1.5rem;
-    height: 1.5rem;
-  }
-
-  .banner-title {
-    font-size: 1.25rem;
-  }
-
   .chapter-practice-main {
-    padding: 1rem;
+    padding: 0.75rem;
   }
 }

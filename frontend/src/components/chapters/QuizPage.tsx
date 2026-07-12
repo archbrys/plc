@@ -5,15 +5,15 @@ import { questionSetService } from '../../services/questionSetService'
 import { resultService } from '../../services/resultService'
 import type { QuestionSet, StudentAnswer } from '../../types/quiz'
 import type { QuizPageConfig } from '../../types/course'
+import './QuizPage.css'
 
 interface QuizPageProps {
   config: QuizPageConfig
-  onBack?: () => void
 }
 
-export function QuizPage({ config, onBack }: QuizPageProps) {
+export function QuizPage({ config }: QuizPageProps) {
   const navigate = useNavigate()
-  const { user, logout } = useAuth()
+  const { user } = useAuth()
 
   const [questionSet, setQuestionSet] = useState<QuestionSet | null>(null)
   const [answers, setAnswers] = useState<Record<string, StudentAnswer>>({})
@@ -99,164 +99,122 @@ export function QuizPage({ config, onBack }: QuizPageProps) {
 
   if (loading) {
     return (
-      <div className="landing-page">
-        <main className="plc-intro-content">
-          <p className="muted">Loading quiz...</p>
-        </main>
-      </div>
+      <main className="plc-quiz-content">
+        <p className="muted">Loading quiz...</p>
+      </main>
     )
   }
 
   if (!questionSet) {
     return (
-      <div className="landing-page">
-        <main className="plc-intro-content">
-          <p className="muted">Quiz not found for this page.</p>
-        </main>
-      </div>
+      <main className="plc-quiz-content">
+        <p className="muted">Quiz not found for this page.</p>
+      </main>
     )
   }
 
   if (!started) {
     return (
-      <div className="landing-page quiz-start-page">
-        <header className="landing-header">
-          <div className="header-actions">
-            {onBack && (
-              <button className="btn secondary" type="button" onClick={onBack}>
-                Back
-              </button>
-            )}
-            <button className="btn" type="button" onClick={logout}>
-              Logout
-            </button>
-          </div>
-        </header>
-
-        <main className="quiz-start-content">
-          <h1 className="quiz-start-title">Quiz Time!</h1>
-          <button className="btn large ready-btn quiz-start-btn" type="button" onClick={() => setStarted(true)}>
-            Begin
-          </button>
-        </main>
-      </div>
+      <main className="quiz-start-content">
+        <h1 className="quiz-start-title">Quiz Time!</h1>
+        <button className="btn large ready-btn quiz-start-btn" type="button" onClick={() => setStarted(true)}>
+          Begin
+        </button>
+      </main>
     )
   }
 
   return (
-    <div className="landing-page">
-      <header className="landing-header">
-        <div className="header-actions">
-          {onBack && (
-            <button className="btn secondary" type="button" onClick={onBack}>
-              Back
-            </button>
-          )}
-          <button className="btn" type="button" onClick={logout}>
-            Logout
-          </button>
+    <main className="plc-quiz-content">
+      <div className="progress-bar-container">
+        <div className="progress-bar">
+          <div className="progress-bar-fill" style={{ width: `${progressPercentage}%` }} />
         </div>
-      </header>
+      </div>
 
-      <main className="plc-quiz-content">
-        <div className="plc-quiz-logo">
-          <img
-            src="/assets/logo-plc.png"
-            alt="Interactive Digital Learning - PLC Trainer"
-            className="plc-logo-image"
-          />
-        </div>
+      {currentQuestion && (
+        <div className="question-container">
+          {error ? <p className="error-text">{error}</p> : null}
 
-        <div className="progress-bar-container">
-          <div className="progress-bar">
-            <div className="progress-bar-fill" style={{ width: `${progressPercentage}%` }} />
-          </div>
-        </div>
+          <div className="question-card">
+            <h2 className="question-number">
+              {currentQuestion.orderNumber}. {currentQuestion.questionText}
+            </h2>
 
-        {currentQuestion && (
-          <div className="question-container">
-            {error ? <p className="error-text">{error}</p> : null}
-
-            <div className="question-card">
-              <h2 className="question-number">
-                {currentQuestion.orderNumber}. {currentQuestion.questionText}
-              </h2>
-
-              <div className="choices-container">
-                {currentQuestion.questionType === 'multiple_choice' &&
-                  currentQuestion.choices
-                    .sort((a, b) => a.orderNumber - b.orderNumber)
-                    .map((choice) => (
-                      <label key={choice.id} className="radio-choice">
-                        <input
-                          type="radio"
-                          name={currentQuestion.id}
-                          checked={answers[currentQuestion.id]?.selectedChoiceId === choice.id}
-                          onChange={() => updateAnswer(currentQuestion.id, { selectedChoiceId: choice.id })}
-                        />
-                        <span className="choice-text">{choice.choiceText}</span>
-                      </label>
-                    ))}
-
-                {currentQuestion.questionType === 'true_false' && (
-                  <>
-                    <label className="radio-choice">
+            <div className="choices-container">
+              {currentQuestion.questionType === 'multiple_choice' &&
+                currentQuestion.choices
+                  .sort((a, b) => a.orderNumber - b.orderNumber)
+                  .map((choice) => (
+                    <label key={choice.id} className="radio-choice">
                       <input
                         type="radio"
                         name={currentQuestion.id}
-                        checked={answers[currentQuestion.id]?.selectedBoolean === true}
-                        onChange={() => updateAnswer(currentQuestion.id, { selectedBoolean: true })}
+                        checked={answers[currentQuestion.id]?.selectedChoiceId === choice.id}
+                        onChange={() => updateAnswer(currentQuestion.id, { selectedChoiceId: choice.id })}
                       />
-                      <span className="choice-text">True</span>
+                      <span className="choice-text">{choice.choiceText}</span>
                     </label>
-                    <label className="radio-choice">
-                      <input
-                        type="radio"
-                        name={currentQuestion.id}
-                        checked={answers[currentQuestion.id]?.selectedBoolean === false}
-                        onChange={() => updateAnswer(currentQuestion.id, { selectedBoolean: false })}
-                      />
-                      <span className="choice-text">False</span>
-                    </label>
-                  </>
-                )}
+                  ))}
 
-                {currentQuestion.questionType === 'short_answer' && (
-                  <textarea
-                    className="short-answer-input"
-                    rows={5}
-                    value={answers[currentQuestion.id]?.answerText ?? ''}
-                    onChange={(event) =>
-                      updateAnswer(currentQuestion.id, {
-                        answerText: event.target.value,
-                      })
-                    }
-                  />
-                )}
-              </div>
+              {currentQuestion.questionType === 'true_false' && (
+                <>
+                  <label className="radio-choice">
+                    <input
+                      type="radio"
+                      name={currentQuestion.id}
+                      checked={answers[currentQuestion.id]?.selectedBoolean === true}
+                      onChange={() => updateAnswer(currentQuestion.id, { selectedBoolean: true })}
+                    />
+                    <span className="choice-text">True</span>
+                  </label>
+                  <label className="radio-choice">
+                    <input
+                      type="radio"
+                      name={currentQuestion.id}
+                      checked={answers[currentQuestion.id]?.selectedBoolean === false}
+                      onChange={() => updateAnswer(currentQuestion.id, { selectedBoolean: false })}
+                    />
+                    <span className="choice-text">False</span>
+                  </label>
+                </>
+              )}
+
+              {currentQuestion.questionType === 'short_answer' && (
+                <textarea
+                  className="short-answer-input"
+                  rows={5}
+                  value={answers[currentQuestion.id]?.answerText ?? ''}
+                  onChange={(event) =>
+                    updateAnswer(currentQuestion.id, {
+                      answerText: event.target.value,
+                    })
+                  }
+                />
+              )}
             </div>
           </div>
-        )}
-
-        <div className="quiz-navigation">
-          <button
-            className="btn-nav btn-previous"
-            type="button"
-            onClick={handlePrevious}
-            disabled={currentQuestionIndex === 0}
-          >
-            Previous
-          </button>
-          <button
-            className="btn-nav btn-next"
-            type="button"
-            onClick={handleNext}
-            disabled={submitting || !hasCurrentAnswer}
-          >
-            {submitting ? 'Submitting...' : currentQuestionIndex === totalQuestions - 1 ? 'Submit' : 'Next'}
-          </button>
         </div>
-      </main>
-    </div>
+      )}
+
+      <div className="quiz-navigation">
+        <button
+          className="btn-nav btn-previous"
+          type="button"
+          onClick={handlePrevious}
+          disabled={currentQuestionIndex === 0}
+        >
+          Previous
+        </button>
+        <button
+          className="btn-nav btn-next"
+          type="button"
+          onClick={handleNext}
+          disabled={submitting || !hasCurrentAnswer}
+        >
+          {submitting ? 'Submitting...' : currentQuestionIndex === totalQuestions - 1 ? 'Submit' : 'Next'}
+        </button>
+      </div>
+    </main>
   )
 }
