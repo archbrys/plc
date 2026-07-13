@@ -40,6 +40,26 @@ export function StudentQuestionSetDetailPage() {
   const currentQuestion = orderedQuestions[currentQuestionIndex]
   const progressPercentage = totalQuestions > 0 ? ((currentQuestionIndex + 1) / totalQuestions) * 100 : 0
 
+  const isQuestionAnswered = (answer: StudentAnswer | undefined, question: QuestionSet['questions'][number]) => {
+    if (!answer) {
+      return false
+    }
+    switch (question.questionType) {
+      case 'multiple_choice':
+        return Boolean(answer.selectedChoiceId)
+      case 'true_false':
+        return typeof answer.selectedBoolean === 'boolean'
+      case 'short_answer':
+        return Boolean(answer.answerText?.trim())
+      default:
+        return false
+    }
+  }
+
+  const isCurrentQuestionAnswered = currentQuestion
+    ? isQuestionAnswered(answers[currentQuestion.id], currentQuestion)
+    : false
+
   if (!questionSet) {
     return (
       <div className="landing-page">
@@ -211,15 +231,18 @@ export function StudentQuestionSetDetailPage() {
             className="btn-nav btn-next" 
             type="button" 
             onClick={handleNext}
-            disabled={submitting}
+            disabled={submitting || !isCurrentQuestionAnswered}
           >
-            {submitting 
-              ? 'Submitting...' 
-              : currentQuestionIndex === totalQuestions - 1 
-                ? 'Submit' 
+            {submitting
+              ? 'Submitting...'
+              : currentQuestionIndex === totalQuestions - 1
+                ? 'Submit'
                 : 'Next'}
           </button>
         </div>
+        {!isCurrentQuestionAnswered ? (
+          <p className="quiz-nav-hint muted">Answer the question to continue.</p>
+        ) : null}
       </main>
     </div>
   )

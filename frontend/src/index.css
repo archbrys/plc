@@ -545,7 +545,7 @@ select {
 }
 
 .plc-logo-image {
-  width: 400px;
+  width: 250px;
   max-width: 90%;
   height: auto;
   filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
@@ -613,7 +613,7 @@ select {
   align-items: center;
   gap: 1rem;
   background: rgba(255, 255, 255, 0.15);
-  padding: 1rem 1.5rem;
+  padding: 0.5rem 1.5rem;
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -714,7 +714,7 @@ select {
   }
 
   .plc-logo-image {
-    width: 300px;
+    width: 150px;
   }
 
   .question-card {
@@ -937,7 +937,7 @@ select {
 
 @media (max-width: 480px) {
   .plc-logo-image {
-    width: 250px;
+    width: 150px;
   }
 
   .question-card {
