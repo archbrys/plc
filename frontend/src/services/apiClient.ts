@@ -5,10 +5,11 @@ interface ApiEnvelope<T> {
 }
 
 async function request<T>(input: RequestInfo | URL, init?: RequestInit): Promise<ApiEnvelope<T>> {
+  const isFormData = init?.body instanceof FormData
   const response = await fetch(input, {
     credentials: 'include',
     headers: {
-      'Content-Type': 'application/json',
+      ...(isFormData ? {} : { 'Content-Type': 'application/json' }),
       ...(init?.headers ?? {}),
     },
     ...init,
@@ -32,4 +33,6 @@ export const apiClient = {
   patch: <T>(url: string, body?: unknown) =>
     request<T>(url, { method: 'PATCH', body: body ? JSON.stringify(body) : undefined }),
   delete: <T>(url: string) => request<T>(url, { method: 'DELETE' }),
+  postForm: <T>(url: string, formData: FormData) =>
+    request<T>(url, { method: 'POST', body: formData, headers: {} }),
 }

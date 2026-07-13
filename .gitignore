@@ -14,6 +14,8 @@ dist-ssr
 backend/dist
 backend/prisma/dev.db
 backend/prisma/dev.db-journal
+backend/uploads/*
+!backend/uploads/.gitkeep
 .env
 
 # Editor directories and files

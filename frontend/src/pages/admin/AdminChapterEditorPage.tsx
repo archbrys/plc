@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type ChangeEvent } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { AppShell } from '../../components/common/AppShell'
 import { courseApiService, type UpsertPagePayload } from '../../services/courseApiService'
 import { invalidateCourseCache } from '../../data/course'
 import { questionSetService } from '../../services/questionSetService'
+import { uploadService } from '../../services/uploadService'
 import { resolveAssetSrc } from '../../utils/assets'
 import type {
   ChapterPage,
@@ -122,6 +123,26 @@ function SlideshowForm({ config, onChange }: { config: SlideshowPageConfig; onCh
 }
 
 function NarrationForm({ config, onChange }: { config: NarrationPageConfig; onChange: (config: NarrationPageConfig) => void }) {
+  const [isUploading, setIsUploading] = useState(false)
+  const [uploadError, setUploadError] = useState<string | null>(null)
+
+  const handleFileSelected = async (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0]
+    event.target.value = ''
+    if (!file) return
+
+    setIsUploading(true)
+    setUploadError(null)
+    try {
+      const url = await uploadService.uploadImage(file)
+      onChange({ ...config, backgroundImage: url })
+    } catch (error) {
+      setUploadError(error instanceof Error ? error.message : 'Upload failed.')
+    } finally {
+      setIsUploading(false)
+    }
+  }
+
   return (
     <div className="stack">
       <label className="field">
@@ -133,11 +154,22 @@ function NarrationForm({ config, onChange }: { config: NarrationPageConfig; onCh
         <textarea rows={4} value={config.text} onChange={(event) => onChange({ ...config, text: event.target.value })} />
       </label>
       <label className="field">
-        <span>Background Image (optional URL)</span>
+        <span>Narrator Image</span>
         <input
           value={config.backgroundImage ?? ''}
+          placeholder="Filename under /assets/, full URL, or upload below"
           onChange={(event) => onChange({ ...config, backgroundImage: event.target.value || undefined })}
         />
+        <input type="file" accept="image/png,image/jpeg,image/webp,image/gif" onChange={handleFileSelected} disabled={isUploading} />
+        {isUploading && <span className="muted">Uploading...</span>}
+        {uploadError && <span className="error-message">{uploadError}</span>}
+        {config.backgroundImage && (
+          <img
+            src={resolveAssetSrc(config.backgroundImage)}
+            alt="Narrator preview"
+            style={{ maxWidth: '200px', marginTop: '0.5rem', borderRadius: '8px' }}
+          />
+        )}
       </label>
     </div>
   )

@@ -5,7 +5,13 @@
 :root {
   color: #1f2937;
   background: #f3f4f6;
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    sans-serif;
   font-size: 18px;
   line-height: 1.4;
 }
@@ -16,10 +22,10 @@ body {
 }
 
 body::before {
-  content: '';
+  content: "";
   position: fixed;
   inset: 0;
-  background-image: url('/assets/background-plc.png');
+  background-image: url("/assets/background-plc.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -312,6 +318,7 @@ select {
 }
 
 .narration-box {
+  background: rgb(22, 53, 114);
   color: white;
   padding: 2.5rem 3rem;
   border-radius: 16px;
@@ -348,28 +355,28 @@ select {
     flex-direction: column;
     gap: 2rem;
   }
-  
+
   .plc-intro-logo {
     order: 1;
   }
-  
+
   .plc-intro-narration {
     order: 2;
     width: 100%;
   }
-  
+
   .narration-box {
     padding: 2rem;
   }
-  
+
   .narration-text {
     font-size: 1.1rem;
   }
-  
+
   .plc-intro-image {
     width: 220px;
   }
-  
+
   .plc-intro-actions {
     justify-content: center;
   }
@@ -380,27 +387,27 @@ select {
     min-width: auto;
     padding: 1.5rem 2rem;
   }
-  
+
   .box-title {
     font-size: 1.5rem;
   }
-  
+
   .plc-image {
     width: 200px;
   }
-  
+
   .plc-intro-image {
     width: 180px;
   }
-  
+
   .narration-text {
     font-size: 1rem;
   }
-  
+
   .narration-text strong {
     font-size: 1.2rem;
   }
-  
+
   .ready-btn {
     min-width: auto;
     width: 100%;
@@ -649,32 +656,32 @@ select {
   .plc-quiz-content {
     padding: 1.5rem 1rem 2rem;
   }
-  
+
   .plc-logo-image {
     width: 300px;
   }
-  
+
   .question-card {
     padding: 2rem 1.5rem;
     min-height: 350px;
   }
-  
+
   .question-number {
     font-size: 1.2rem;
   }
-  
+
   .choice-text {
     font-size: 1rem;
   }
-  
+
   .radio-choice {
     padding: 0.75rem 1rem;
   }
-  
+
   .quiz-navigation {
     gap: 1rem;
   }
-  
+
   .btn-nav {
     padding: 0.85rem 1.5rem;
     font-size: 1rem;
@@ -810,7 +817,9 @@ select {
   padding: 1.2rem 4rem;
   cursor: pointer;
   box-shadow: 0 5px 15px rgba(30, 64, 175, 0.3);
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
   animation: fadeInUp 0.5s ease-out 0.6s both;
 }
 
@@ -874,11 +883,11 @@ select {
   .plc-logo-image {
     width: 250px;
   }
-  
+
   .question-card {
     padding: 1.5rem 1rem;
   }
-  
+
   .btn-nav {
     min-width: 100px;
     padding: 0.75rem 1rem;

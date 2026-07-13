@@ -1,5 +1,6 @@
 import { StatusCodes } from 'http-status-codes'
 import type { NextFunction, Request, Response } from 'express'
+import { MulterError } from 'multer'
 import { ZodError } from 'zod'
 
 import { createApiResponse } from '../utils/apiResponse.js'
@@ -10,6 +11,16 @@ export function errorHandler(error: unknown, _req: Request, res: Response, _next
   if (error instanceof ZodError) {
     const message = error.issues.map((issue) => issue.message).join(' ')
     res.status(StatusCodes.BAD_REQUEST).json(createApiResponse(false, message, null))
+    return
+  }
+
+  if (error instanceof MulterError) {
+    res.status(StatusCodes.BAD_REQUEST).json(createApiResponse(false, error.message, null))
+    return
+  }
+
+  if (error instanceof Error && error.message.includes('Only PNG, JPEG, WEBP, or GIF')) {
+    res.status(StatusCodes.BAD_REQUEST).json(createApiResponse(false, error.message, null))
     return
   }
 

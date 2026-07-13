@@ -1,0 +1,33 @@
+import crypto from 'node:crypto'
+import fs from 'node:fs'
+import path from 'node:path'
+
+import multer from 'multer'
+
+export const UPLOADS_DIR = path.resolve(process.cwd(), 'uploads')
+
+fs.mkdirSync(UPLOADS_DIR, { recursive: true })
+
+const ALLOWED_MIME_TYPES = new Set(['image/png', 'image/jpeg', 'image/webp', 'image/gif'])
+
+const storage = multer.diskStorage({
+  destination: (_req, _file, callback) => {
+    callback(null, UPLOADS_DIR)
+  },
+  filename: (_req, file, callback) => {
+    const ext = path.extname(file.originalname).toLowerCase()
+    callback(null, `${crypto.randomUUID()}${ext}`)
+  },
+})
+
+export const uploadImage = multer({
+  storage,
+  limits: { fileSize: 5 * 1024 * 1024 },
+  fileFilter: (_req, file, callback) => {
+    if (!ALLOWED_MIME_TYPES.has(file.mimetype)) {
+      callback(new Error('Only PNG, JPEG, WEBP, or GIF images are allowed.'))
+      return
+    }
+    callback(null, true)
+  },
+})

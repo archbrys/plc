@@ -23,6 +23,7 @@
     "express-session": "^1.18.1",
     "http-status-codes": "^2.3.0",
     "morgan": "^1.10.0",
+    "multer": "^2.2.0",
     "zod": "^4.1.11"
   },
   "devDependencies": {
@@ -31,6 +32,7 @@
     "@types/express": "^5.0.4",
     "@types/express-session": "^1.18.2",
     "@types/morgan": "^1.9.10",
+    "@types/multer": "^2.2.0",
     "@types/node": "^24.3.3",
     "eslint": "^9.37.0",
     "eslint-config-prettier": "^10.1.8",

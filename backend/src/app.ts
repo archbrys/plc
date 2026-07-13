@@ -7,6 +7,7 @@ import session from 'express-session'
 import { env } from './config/env.js'
 import { errorHandler } from './middleware/errorHandler.js'
 import { loggingMiddleware } from './middleware/loggingMiddleware.js'
+import { UPLOADS_DIR } from './middleware/uploadMiddleware.js'
 import { apiRouter } from './routes/index.js'
 import { createApiResponse } from './utils/apiResponse.js'
 
@@ -43,6 +44,7 @@ app.get('/api/health', (_req, res) => {
 
 app.use('/api', apiRouter)
 
+app.use('/uploads', express.static(UPLOADS_DIR))
 app.use(express.static(frontendDistPath))
 app.use((_req, res) => {
   res.sendFile(path.join(frontendDistPath, 'index.html'))
