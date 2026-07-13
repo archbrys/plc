@@ -23,6 +23,11 @@ export function LoginPage() {
     return <Navigate to="/admin/dashboard" replace />
   }
 
+  const switchMode = () => {
+    setMode((prev) => (prev === 'student' ? 'admin' : 'student'))
+    setError('')
+  }
+
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
     setError('')
@@ -75,24 +80,7 @@ export function LoginPage() {
           }}
         />
         <form className="card auth-card" onSubmit={handleSubmit} style={{ width: '100%', margin: 0 }}>
-        <h1>Login</h1>
-
-        <div style={{ display: 'flex', gap: '1rem', marginBottom: '1.5rem' }}>
-          <button
-            type="button"
-            className={mode === 'student' ? 'btn' : 'btn-outline'}
-            onClick={() => setMode('student')}
-          >
-            Student
-          </button>
-          <button
-            type="button"
-            className={mode === 'admin' ? 'btn' : 'btn-outline'}
-            onClick={() => setMode('admin')}
-          >
-            Admin
-          </button>
-        </div>
+        <h1>{mode === 'student' ? 'Student Login' : 'Admin Login'}</h1>
 
         {error && <p className="error-text">{error}</p>}
 
@@ -139,6 +127,12 @@ export function LoginPage() {
         <button type="submit" className="btn large" disabled={loading}>
           {loading ? 'Signing in...' : 'Login'}
         </button>
+
+        <div className="auth-switch">
+          <button type="button" className="auth-switch-link" onClick={switchMode}>
+            {mode === 'student' ? 'Login as Admin' : 'Login as Student'}
+          </button>
+        </div>
         </form>
       </div>
     </div>

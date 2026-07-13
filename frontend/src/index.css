@@ -72,6 +72,52 @@ body::before {
 
 .auth-card {
   width: min(420px, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  padding: 2.25rem 2.5rem;
+  border-radius: 18px;
+  box-shadow: 0 12px 32px rgba(22, 53, 114, 0.18);
+  border-color: rgba(22, 53, 114, 0.15);
+}
+
+.auth-card h1 {
+  margin: 0;
+  text-align: center;
+  color: rgb(22, 53, 114);
+  font-size: 1.6rem;
+}
+
+.auth-card input:focus {
+  outline: none;
+  border-color: rgb(22, 53, 114);
+  box-shadow: 0 0 0 3px rgba(22, 53, 114, 0.15);
+}
+
+.auth-card .btn {
+  background: rgb(22, 53, 114);
+}
+
+.auth-card .btn:hover:not(:disabled) {
+  background: rgb(17, 42, 92);
+}
+
+.auth-switch {
+  text-align: center;
+}
+
+.auth-switch-link {
+  font: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  color: rgb(22, 53, 114);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.auth-switch-link:hover {
+  color: rgb(17, 42, 92);
 }
 
 .card {
