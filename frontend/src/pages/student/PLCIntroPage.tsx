@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useAuth } from '../../hooks/useAuth'
+import { StudentMenu } from '../../components/student/StudentMenu'
 import { questionSetService } from '../../services/questionSetService'
 import type { QuestionSet } from '../../types/quiz'
 
 export function PLCIntroPage() {
   const navigate = useNavigate()
-  const { logout } = useAuth()
   const [questionSet, setQuestionSet] = useState<QuestionSet | null>(null)
   const [loading, setLoading] = useState(true)
 
@@ -29,12 +28,10 @@ export function PLCIntroPage() {
     <div className="landing-page">
       <header className="landing-header">
         <div className="header-actions">
-          <button className="btn secondary" type="button" onClick={() => navigate('/student/question-sets')}>
+          <button className="btn secondary" type="button" onClick={() => navigate('/student/plc')}>
             Back
           </button>
-          <button className="btn" type="button" onClick={logout}>
-            Logout
-          </button>
+          <StudentMenu />
         </div>
       </header>
       

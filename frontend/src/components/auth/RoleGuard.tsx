@@ -15,7 +15,7 @@ export function RoleGuard({ allowedRole }: RoleGuardProps) {
   }
 
   if (user.role !== allowedRole) {
-    const fallback = user.role === 'admin' ? '/admin/dashboard' : '/student/question-sets'
+    const fallback = user.role === 'admin' ? '/admin/dashboard' : '/student/plc'
     return <Navigate to={fallback} replace />
   }
 

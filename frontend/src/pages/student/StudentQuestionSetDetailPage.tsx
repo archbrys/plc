@@ -1,13 +1,14 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useAuth } from '../../hooks/useAuth'
+import { StudentMenu } from '../../components/student/StudentMenu'
 import { questionSetService } from '../../services/questionSetService'
 import { resultService } from '../../services/resultService'
 import type { QuestionSet, StudentAnswer } from '../../types/quiz'
 
 export function StudentQuestionSetDetailPage() {
   const { id } = useParams<{ id: string }>()
-  const { user, logout } = useAuth()
+  const { user } = useAuth()
   const navigate = useNavigate()
 
   const [questionSet, setQuestionSet] = useState<QuestionSet | null>(null)
@@ -100,12 +101,10 @@ export function StudentQuestionSetDetailPage() {
     <div className="landing-page">
       <header className="landing-header">
         <div className="header-actions">
-          <button className="btn secondary" type="button" onClick={() => navigate('/student/question-sets')}>
+          <button className="btn secondary" type="button" onClick={() => navigate('/student/plc')}>
             Back
           </button>
-          <button className="btn" type="button" onClick={logout}>
-            Logout
-          </button>
+          <StudentMenu />
         </div>
       </header>
 

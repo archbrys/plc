@@ -28,7 +28,7 @@ export function StudentResultPage() {
   }, [user])
 
   return (
-    <AppShell title="My Results" links={[{ label: 'Back to Sets', to: '/student/question-sets' }]}>
+    <AppShell title="My Results" links={[{ label: 'Back to Sets', to: '/student/plc' }]}>
       <div className="stack">
         {latest ? (
           <section className="card">

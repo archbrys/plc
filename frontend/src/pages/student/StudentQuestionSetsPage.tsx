@@ -1,8 +1,7 @@
-import { Link, useNavigate } from 'react-router-dom'
-import { useAuth } from '../../hooks/useAuth'
+import { useNavigate } from 'react-router-dom'
+import { StudentMenu } from '../../components/student/StudentMenu'
 
 export function StudentQuestionSetsPage() {
-  const { logout } = useAuth()
   const navigate = useNavigate()
 
   const handlePLCClick = () => {
@@ -13,12 +12,7 @@ export function StudentQuestionSetsPage() {
     <div className="landing-page">
       <header className="landing-header">
         <div className="header-actions">
-          <Link to="/student/result" className="btn secondary">
-            My Result
-          </Link>
-          <button className="btn" type="button" onClick={logout}>
-            Logout
-          </button>
+          <StudentMenu />
         </div>
       </header>
       

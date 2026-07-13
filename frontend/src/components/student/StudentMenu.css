@@ -1,0 +1,61 @@
+.student-menu {
+  position: relative;
+}
+
+.student-menu-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font: inherit;
+  font-weight: 600;
+  color: #1f2937;
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.student-menu-trigger:hover {
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.student-menu-chevron {
+  font-size: 0.7rem;
+  transition: transform 0.2s ease;
+}
+
+.student-menu-chevron.open {
+  transform: rotate(180deg);
+}
+
+.student-menu-dropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  min-width: 160px;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  z-index: 20;
+}
+
+.student-menu-item {
+  font: inherit;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 0.7rem 1rem;
+  cursor: pointer;
+  color: #1f2937;
+}
+
+.student-menu-item:hover {
+  background: #f3f4f6;
+}

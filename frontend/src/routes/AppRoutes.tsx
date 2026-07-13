@@ -33,7 +33,7 @@ export function AppRoutes() {
       <Route path="/admin/login" element={<Navigate to="/login" replace />} />
 
       <Route element={<RoleGuard allowedRole="student" />}>
-        <Route path="/student/question-sets" element={<StudentQuestionSetsPage />} />
+        <Route path="/student/plc" element={<StudentQuestionSetsPage />} />
         <Route path="/student/plc-intro" element={<PLCIntroPage />} />
         <Route path="/student/characters" element={<StudentCharactersPage />} />
         <Route path="/student/plc-welcome" element={<PLCWelcomePage />} />

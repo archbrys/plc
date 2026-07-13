@@ -16,7 +16,7 @@ export function LoginPage() {
   const [loading, setLoading] = useState(false)
 
   if (user?.role === 'student') {
-    return <Navigate to="/student/question-sets" replace />
+    return <Navigate to="/student/plc" replace />
   }
 
   if (user?.role === 'admin') {
@@ -47,7 +47,7 @@ export function LoginPage() {
         return
       }
 
-      navigate('/student/question-sets')
+      navigate('/student/plc')
     } else {
       if (!username.trim() || !password.trim()) {
         setError('Username and password are required.')

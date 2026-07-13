@@ -1,9 +1,8 @@
 import { useNavigate } from 'react-router-dom'
-import { useAuth } from '../../hooks/useAuth'
+import { StudentMenu } from '../../components/student/StudentMenu'
 
 export function PLCWelcomePage() {
   const navigate = useNavigate()
-  const { logout } = useAuth()
 
   const handleNext = () => {
     navigate('/student/plc-chapter-select')
@@ -16,9 +15,7 @@ export function PLCWelcomePage() {
           <button className="btn secondary" type="button" onClick={() => navigate('/student/characters')}>
             Back
           </button>
-          <button className="btn" type="button" onClick={logout}>
-            Logout
-          </button>
+          <StudentMenu />
         </div>
       </header>
       

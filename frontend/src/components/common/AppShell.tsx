@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import type { ReactNode } from 'react'
 import { useAuth } from '../../hooks/useAuth'
+import { StudentMenu } from '../student/StudentMenu'
 
 interface AppShellProps {
   title: string
@@ -25,7 +26,9 @@ export function AppShell({ title, subtitle, children, links = [] }: AppShellProp
               {link.label}
             </Link>
           ))}
-          {user ? (
+          {user?.role === 'student' ? (
+            <StudentMenu />
+          ) : user ? (
             <button className="btn" type="button" onClick={logout}>
               Logout
             </button>
