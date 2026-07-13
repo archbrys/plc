@@ -1,6 +1,6 @@
 import { useEffect, useState, type ChangeEvent } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { AppShell } from '../../components/common/AppShell'
+import { AdminLayout } from '../../components/admin/AdminLayout'
 import { courseApiService, type UpsertPagePayload } from '../../services/courseApiService'
 import { invalidateCourseCache } from '../../data/course'
 import { questionSetService } from '../../services/questionSetService'
@@ -361,9 +361,9 @@ export function AdminChapterEditorPage() {
 
   if (isLoading || !chapter) {
     return (
-      <AppShell title="Chapter Editor" subtitle="Loading chapter...">
+      <AdminLayout title="Chapter Editor" subtitle="Loading chapter...">
         <div>Loading...</div>
-      </AppShell>
+      </AdminLayout>
     )
   }
 
@@ -459,22 +459,22 @@ export function AdminChapterEditorPage() {
   }
 
   return (
-    <AppShell
+    <AdminLayout
       title={`Editing: ${chapter.title}`}
       subtitle="Manage this chapter's pages."
-      links={[
-        { label: 'Dashboard', to: '/admin/dashboard' },
-        { label: 'Course Content', to: '/admin/course-content' },
-      ]}
+      actions={
+        <button className="btn-outline" type="button" onClick={() => navigate('/admin/course-content')}>
+          Back to Chapters
+        </button>
+      }
     >
-      <div className="stack">
-        {error ? <p className="error-text">{error}</p> : null}
+      {error ? <p className="error-text">{error}</p> : null}
 
-        <article className="card stack">
-          <button className="btn secondary small" type="button" onClick={() => navigate('/admin/course-content')}>
-            Back to Chapters
-          </button>
-
+      <div className="admin-panel">
+        <div className="admin-panel-header">
+          <h2>Chapter Title</h2>
+        </div>
+        <div className="admin-panel-body stack">
           <label className="field">
             <span>Chapter Title</span>
             <input value={chapterTitleDraft} onChange={(event) => setChapterTitleDraft(event.target.value)} />
@@ -484,10 +484,14 @@ export function AdminChapterEditorPage() {
               Save Chapter Title
             </button>
           </div>
-        </article>
+        </div>
+      </div>
 
-        <article className="card stack">
+      <div className="admin-panel">
+        <div className="admin-panel-header">
           <h2>Add Page</h2>
+        </div>
+        <div className="admin-panel-body stack">
           <div className="grid-two">
             <label className="field">
               <span>Page Type</span>
@@ -512,40 +516,45 @@ export function AdminChapterEditorPage() {
               Add Page
             </button>
           </div>
-        </article>
+        </div>
+      </div>
 
-        {pages.map((page, index) => {
-          const draft = drafts[page.id] ?? { type: page.type, orderNumber: page.orderNumber, config: page.config }
+      {pages.map((page, index) => {
+        const draft = drafts[page.id] ?? { type: page.type, orderNumber: page.orderNumber, config: page.config }
 
-          return (
-            <article className="card stack" key={page.id}>
-              <div className="row-between" style={{ alignItems: 'center' }}>
-                <strong>
-                  Page {page.orderNumber}: {PAGE_TYPE_LABELS[page.type]}
-                </strong>
-                <div className="header-actions wrap">
-                  <button
-                    className="btn secondary small"
-                    type="button"
-                    onClick={() => handleMovePage(index, -1)}
-                    disabled={index === 0}
-                  >
-                    Move Up
-                  </button>
-                  <button
-                    className="btn secondary small"
-                    type="button"
-                    onClick={() => handleMovePage(index, 1)}
-                    disabled={index === pages.length - 1}
-                  >
-                    Move Down
-                  </button>
-                  <button className="btn danger small" type="button" onClick={() => handleDeletePage(page.id)}>
-                    Delete
-                  </button>
-                </div>
+        return (
+          <div className="admin-panel" key={page.id}>
+            <div className="admin-panel-header">
+              <h2>
+                <span className="admin-cell-index" style={{ marginRight: '0.6rem' }}>
+                  {page.orderNumber}
+                </span>
+                {PAGE_TYPE_LABELS[page.type]}
+              </h2>
+              <div className="header-actions wrap">
+                <button
+                  className="btn secondary small"
+                  type="button"
+                  onClick={() => handleMovePage(index, -1)}
+                  disabled={index === 0}
+                >
+                  Move Up
+                </button>
+                <button
+                  className="btn secondary small"
+                  type="button"
+                  onClick={() => handleMovePage(index, 1)}
+                  disabled={index === pages.length - 1}
+                >
+                  Move Down
+                </button>
+                <button className="btn danger small" type="button" onClick={() => handleDeletePage(page.id)}>
+                  Delete
+                </button>
               </div>
+            </div>
 
+            <div className="admin-panel-body stack">
               <PageConfigForm
                 page={draft}
                 questionSets={questionSets}
@@ -559,10 +568,10 @@ export function AdminChapterEditorPage() {
                   Save Page
                 </button>
               </div>
-            </article>
-          )
-        })}
-      </div>
-    </AppShell>
+            </div>
+          </div>
+        )
+      })}
+    </AdminLayout>
   )
 }

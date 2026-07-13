@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { AppShell } from '../../components/common/AppShell'
+import { AdminLayout } from '../../components/admin/AdminLayout'
 import { courseApiService } from '../../services/courseApiService'
 import { invalidateCourseCache } from '../../data/course'
 import type { Course } from '../../types/course'
@@ -70,19 +70,14 @@ export function AdminCourseContentPage() {
   }
 
   return (
-    <AppShell
-      title="Course Content"
-      subtitle="Create chapters and manage their pages."
-      links={[
-        { label: 'Dashboard', to: '/admin/dashboard' },
-        { label: 'Question Sets', to: '/admin/question-sets' },
-      ]}
-    >
-      <div className="stack">
-        {error ? <p className="error-text">{error}</p> : null}
+    <AdminLayout title="Course Content" subtitle="Create chapters and manage their pages.">
+      {error ? <p className="error-text">{error}</p> : null}
 
-        <article className="card stack">
+      <div className="admin-panel">
+        <div className="admin-panel-header">
           <h2>Create New Chapter</h2>
+        </div>
+        <div className="admin-panel-body">
           <div className="grid-two">
             <label className="field">
               <span>Chapter Title</span>
@@ -94,54 +89,72 @@ export function AdminCourseContentPage() {
             </label>
           </div>
 
-          <div className="header-actions wrap">
+          <div className="header-actions wrap" style={{ marginTop: '1rem' }}>
             <button className="btn" type="button" onClick={handleAddChapter}>
               Add Chapter
             </button>
           </div>
-        </article>
-
-        {isLoading ? (
-          <p className="muted">Loading...</p>
-        ) : (
-          chapters.map((chapter, index) => (
-            <article className="card" key={chapter.id}>
-              <div className="row-between" style={{ alignItems: 'center' }}>
-                <div>
-                  <p className="muted">Chapter {chapter.orderNumber}</p>
-                  <h2>{chapter.title}</h2>
-                  <p className="muted">{chapter.pages.length} pages</p>
-                </div>
-
-                <div className="header-actions wrap">
-                  <button
-                    className="btn secondary small"
-                    type="button"
-                    onClick={() => handleMove(index, -1)}
-                    disabled={index === 0}
-                  >
-                    Move Up
-                  </button>
-                  <button
-                    className="btn secondary small"
-                    type="button"
-                    onClick={() => handleMove(index, 1)}
-                    disabled={index === chapters.length - 1}
-                  >
-                    Move Down
-                  </button>
-                  <Link className="btn secondary" to={`/admin/course-content/${chapter.id}`}>
-                    Edit Pages
-                  </Link>
-                  <button className="btn danger" type="button" onClick={() => handleDeleteChapter(chapter.id)}>
-                    Delete
-                  </button>
-                </div>
-              </div>
-            </article>
-          ))
-        )}
+        </div>
       </div>
-    </AppShell>
+
+      <div className="admin-panel">
+        <div className="admin-table-wrap">
+          <table className="admin-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th className="col-numeric">Pages</th>
+                <th className="col-actions">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {chapters.map((chapter, index) => (
+                <tr key={chapter.id}>
+                  <td>
+                    <span className="admin-cell-index">{chapter.orderNumber}</span>
+                  </td>
+                  <td>
+                    <div className="admin-table-title">{chapter.title}</div>
+                  </td>
+                  <td className="col-numeric">{chapter.pages.length}</td>
+                  <td className="col-actions">
+                    <div className="admin-table-actions">
+                      <button
+                        className="btn secondary small"
+                        type="button"
+                        onClick={() => handleMove(index, -1)}
+                        disabled={index === 0}
+                      >
+                        Move Up
+                      </button>
+                      <button
+                        className="btn secondary small"
+                        type="button"
+                        onClick={() => handleMove(index, 1)}
+                        disabled={index === chapters.length - 1}
+                      >
+                        Move Down
+                      </button>
+                      <Link className="btn secondary small" to={`/admin/course-content/${chapter.id}`}>
+                        Edit Pages
+                      </Link>
+                      <button className="btn danger small" type="button" onClick={() => handleDeleteChapter(chapter.id)}>
+                        Delete
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          {isLoading ? (
+            <p className="admin-empty-state">Loading...</p>
+          ) : chapters.length === 0 ? (
+            <p className="admin-empty-state">No chapters yet.</p>
+          ) : null}
+        </div>
+      </div>
+    </AdminLayout>
   )
 }

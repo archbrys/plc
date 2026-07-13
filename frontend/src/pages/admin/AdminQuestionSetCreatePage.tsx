@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { AppShell } from '../../components/common/AppShell'
+import { AdminLayout } from '../../components/admin/AdminLayout'
 import { QuestionSetEditor } from '../../components/questions/QuestionSetEditor'
 import { questionSetService } from '../../services/questionSetService'
 import type { QuestionSet } from '../../types/quiz'
@@ -25,13 +25,24 @@ export function AdminQuestionSetCreatePage() {
   }
 
   return (
-    <AppShell title="Create Question Set" links={[{ label: 'Back', to: '/admin/question-sets' }]}>
-      <QuestionSetEditor
-        initialValue={initialQuestionSet}
-        onSave={handleSave}
-        onCancel={() => navigate('/admin/question-sets')}
-        submitLabel="Create"
-      />
-    </AppShell>
+    <AdminLayout
+      title="Create Question Set"
+      actions={
+        <button className="btn-outline" type="button" onClick={() => navigate('/admin/question-sets')}>
+          Back
+        </button>
+      }
+    >
+      <div className="admin-panel">
+        <div className="admin-panel-body">
+          <QuestionSetEditor
+            initialValue={initialQuestionSet}
+            onSave={handleSave}
+            onCancel={() => navigate('/admin/question-sets')}
+            submitLabel="Create"
+          />
+        </div>
+      </div>
+    </AdminLayout>
   )
 }

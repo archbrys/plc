@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { AppShell } from '../../components/common/AppShell'
+import { AdminLayout } from '../../components/admin/AdminLayout'
 import { questionSetService } from '../../services/questionSetService'
 import type { QuestionSet, QuestionSetStatus } from '../../types/quiz'
 
@@ -37,52 +37,69 @@ export function AdminQuestionSetsPage() {
   }
 
   return (
-    <AppShell
+    <AdminLayout
       title="Question Sets"
-      links={[
-        { label: 'Dashboard', to: '/admin/dashboard' },
-        { label: 'Course Content', to: '/admin/course-content' },
-        { label: 'Create', to: '/admin/question-sets/create' },
-      ]}
+      subtitle="Create, publish, and manage quiz question sets."
+      actions={
+        <Link className="btn" to="/admin/question-sets/create">
+          Create Question Set
+        </Link>
+      }
     >
-      <div className="stack">
-        {error ? <p className="error-text">{error}</p> : null}
+      {error ? <p className="error-text">{error}</p> : null}
 
-        {sets.map((set) => (
-          <article className="card" key={set.id}>
-            <div className="row-between">
-              <div>
-                <h2>{set.title}</h2>
-                <p className="muted">{set.description}</p>
-                <p className="muted">
-                  Status: <strong>{set.status}</strong> • Questions: {set.questions.length}
-                </p>
-              </div>
-              <div className="header-actions wrap">
-                <Link className="btn secondary" to={`/admin/question-sets/${set.id}/edit`}>
-                  Edit
-                </Link>
-                <button className="btn secondary" type="button" onClick={() => handleStatus(set.id, 'draft')}>
-                  Draft
-                </button>
-                <button
-                  className="btn secondary"
-                  type="button"
-                  onClick={() => handleStatus(set.id, 'published')}
-                >
-                  Publish
-                </button>
-                <button className="btn secondary" type="button" onClick={() => handleArchive(set.id)}>
-                  Archive
-                </button>
-                <button className="btn danger" type="button" onClick={() => handleDelete(set.id)}>
-                  Delete
-                </button>
-              </div>
-            </div>
-          </article>
-        ))}
+      <div className="admin-panel">
+        <div className="admin-table-wrap">
+          <table className="admin-table">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Status</th>
+                <th className="col-numeric">Questions</th>
+                <th className="col-actions">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {sets.map((set) => (
+                <tr key={set.id}>
+                  <td>
+                    <div className="admin-table-title">{set.title}</div>
+                    {set.description ? <div className="admin-table-desc">{set.description}</div> : null}
+                  </td>
+                  <td>
+                    <span className={`admin-badge status-${set.status}`}>{set.status}</span>
+                  </td>
+                  <td className="col-numeric">{set.questions.length}</td>
+                  <td className="col-actions">
+                    <div className="admin-table-actions">
+                      <Link className="btn secondary small" to={`/admin/question-sets/${set.id}/edit`}>
+                        Edit
+                      </Link>
+                      <button className="btn secondary small" type="button" onClick={() => handleStatus(set.id, 'draft')}>
+                        Draft
+                      </button>
+                      <button
+                        className="btn secondary small"
+                        type="button"
+                        onClick={() => handleStatus(set.id, 'published')}
+                      >
+                        Publish
+                      </button>
+                      <button className="btn secondary small" type="button" onClick={() => handleArchive(set.id)}>
+                        Archive
+                      </button>
+                      <button className="btn danger small" type="button" onClick={() => handleDelete(set.id)}>
+                        Delete
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          {sets.length === 0 ? <p className="admin-empty-state">No question sets yet.</p> : null}
+        </div>
       </div>
-    </AppShell>
+    </AdminLayout>
   )
 }

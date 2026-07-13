@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { AppShell } from '../../components/common/AppShell'
+import { AdminLayout } from '../../components/admin/AdminLayout'
 import { QuestionSetEditor } from '../../components/questions/QuestionSetEditor'
 import { questionSetService } from '../../services/questionSetService'
 import type { QuestionSet } from '../../types/quiz'
@@ -27,22 +27,32 @@ export function AdminQuestionSetEditPage() {
     navigate('/admin/question-sets')
   }
 
+  const backAction = (
+    <button className="btn-outline" type="button" onClick={() => navigate('/admin/question-sets')}>
+      Back
+    </button>
+  )
+
   if (!questionSet) {
     return (
-      <AppShell title="Edit Question Set" links={[{ label: 'Back', to: '/admin/question-sets' }]}>
+      <AdminLayout title="Edit Question Set" actions={backAction}>
         <p className="muted">Question set not found.</p>
-      </AppShell>
+      </AdminLayout>
     )
   }
 
   return (
-    <AppShell title="Edit Question Set" links={[{ label: 'Back', to: '/admin/question-sets' }]}>
-      <QuestionSetEditor
-        initialValue={questionSet}
-        onSave={handleSave}
-        onCancel={() => navigate('/admin/question-sets')}
-        submitLabel="Save Changes"
-      />
-    </AppShell>
+    <AdminLayout title="Edit Question Set" actions={backAction}>
+      <div className="admin-panel">
+        <div className="admin-panel-body">
+          <QuestionSetEditor
+            initialValue={questionSet}
+            onSave={handleSave}
+            onCancel={() => navigate('/admin/question-sets')}
+            submitLabel="Save Changes"
+          />
+        </div>
+      </div>
+    </AdminLayout>
   )
 }

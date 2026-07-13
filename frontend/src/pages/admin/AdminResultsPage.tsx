@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { AppShell } from '../../components/common/AppShell'
+import { AdminLayout } from '../../components/admin/AdminLayout'
 import { resultService } from '../../services/resultService'
 import type { QuizResult } from '../../types/quiz'
 
@@ -11,31 +11,37 @@ export function AdminResultsPage() {
   }, [])
 
   return (
-    <AppShell
-      title="Student Results"
-      links={[
-        { label: 'Dashboard', to: '/admin/dashboard' },
-        { label: 'Question Sets', to: '/admin/question-sets' },
-      ]}
-    >
-      <div className="stack">
-        {results.length === 0 ? (
-          <p className="muted">No results submitted yet.</p>
-        ) : (
-          results.map((result) => (
-            <article className="card" key={result.id}>
-              <h2>{result.questionSetTitle}</h2>
-              <p>
-                {result.studentName} ({result.studentId})
-              </p>
-              <p>
-                Score: {result.earnedPoints}/{result.totalPoints}
-              </p>
-              <p className="muted">Submitted: {new Date(result.submittedAt).toLocaleString()}</p>
-            </article>
-          ))
-        )}
+    <AdminLayout title="Student Results" subtitle="Scores submitted by students across all question sets.">
+      <div className="admin-panel">
+        <div className="admin-table-wrap">
+          <table className="admin-table">
+            <thead>
+              <tr>
+                <th>Student</th>
+                <th>Question Set</th>
+                <th className="col-numeric">Score</th>
+                <th>Submitted</th>
+              </tr>
+            </thead>
+            <tbody>
+              {results.map((result) => (
+                <tr key={result.id}>
+                  <td>
+                    <div className="admin-table-title">{result.studentName}</div>
+                    <div className="admin-table-desc">{result.studentId}</div>
+                  </td>
+                  <td>{result.questionSetTitle}</td>
+                  <td className="col-numeric">
+                    {result.earnedPoints}/{result.totalPoints}
+                  </td>
+                  <td>{new Date(result.submittedAt).toLocaleString()}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          {results.length === 0 ? <p className="admin-empty-state">No results submitted yet.</p> : null}
+        </div>
       </div>
-    </AppShell>
+    </AdminLayout>
   )
 }
