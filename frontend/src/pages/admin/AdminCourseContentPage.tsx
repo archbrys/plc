@@ -1,15 +1,17 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { AdminLayout } from '../../components/admin/AdminLayout'
+import { ConfirmModal } from '../../components/admin/ConfirmModal'
 import { courseApiService } from '../../services/courseApiService'
 import { invalidateCourseCache } from '../../data/course'
-import type { Course } from '../../types/course'
+import type { Course, CourseChapter } from '../../types/course'
 
 export function AdminCourseContentPage() {
   const [course, setCourse] = useState<Course | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [newChapterTitle, setNewChapterTitle] = useState('')
   const [error, setError] = useState('')
+  const [pendingDeleteChapter, setPendingDeleteChapter] = useState<CourseChapter | null>(null)
 
   const load = () => {
     courseApiService
@@ -40,15 +42,18 @@ export function AdminCourseContentPage() {
     }
   }
 
-  const handleDeleteChapter = async (chapterId: number) => {
-    if (!window.confirm('Delete this chapter and all its pages?')) return
+  const handleConfirmDeleteChapter = async () => {
+    if (!pendingDeleteChapter) return
 
     try {
-      await courseApiService.deleteChapter(chapterId)
+      await courseApiService.deleteChapter(pendingDeleteChapter.id)
       invalidateCourseCache()
+      setError('')
       load()
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Unable to delete chapter.')
+    } finally {
+      setPendingDeleteChapter(null)
     }
   }
 
@@ -139,7 +144,11 @@ export function AdminCourseContentPage() {
                       <Link className="btn secondary small" to={`/admin/course-content/${chapter.id}`}>
                         Edit Pages
                       </Link>
-                      <button className="btn danger small" type="button" onClick={() => handleDeleteChapter(chapter.id)}>
+                      <button
+                        className="btn danger small"
+                        type="button"
+                        onClick={() => setPendingDeleteChapter(chapter)}
+                      >
                         Delete
                       </button>
                     </div>
@@ -155,6 +164,16 @@ export function AdminCourseContentPage() {
           ) : null}
         </div>
       </div>
+
+      {pendingDeleteChapter ? (
+        <ConfirmModal
+          title="Delete chapter"
+          message={`Delete "${pendingDeleteChapter.title}" and all its pages? This cannot be undone.`}
+          confirmLabel="Delete"
+          onConfirm={handleConfirmDeleteChapter}
+          onCancel={() => setPendingDeleteChapter(null)}
+        />
+      ) : null}
     </AdminLayout>
   )
 }

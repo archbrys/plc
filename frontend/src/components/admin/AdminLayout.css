@@ -397,6 +397,16 @@
   color: #b91c1c;
 }
 
+.admin-badge.status-admin {
+  background: #eef2ff;
+  color: #4338ca;
+}
+
+.admin-badge.status-student {
+  background: #f1f5f9;
+  color: #475569;
+}
+
 .admin-cell-index {
   display: inline-flex;
   align-items: center;

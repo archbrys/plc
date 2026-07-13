@@ -1,6 +1,7 @@
 import { useEffect, useState, type ChangeEvent } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { AdminLayout } from '../../components/admin/AdminLayout'
+import { ConfirmModal } from '../../components/admin/ConfirmModal'
 import { courseApiService, type UpsertPagePayload } from '../../services/courseApiService'
 import { invalidateCourseCache } from '../../data/course'
 import { questionSetService } from '../../services/questionSetService'
@@ -335,6 +336,7 @@ export function AdminChapterEditorPage() {
   const [newPageDraft, setNewPageDraft] = useState<UpsertPagePayload>(defaultConfigFor('narration', ''))
   const [error, setError] = useState('')
   const [isLoading, setIsLoading] = useState(true)
+  const [pendingDeletePageId, setPendingDeletePageId] = useState<number | null>(null)
 
   const load = () => {
     if (!Number.isInteger(parsedChapterId)) return
@@ -427,16 +429,18 @@ export function AdminChapterEditorPage() {
     }
   }
 
-  const handleDeletePage = async (pageId: number) => {
-    if (!window.confirm('Delete this page?')) return
+  const handleConfirmDeletePage = async () => {
+    if (pendingDeletePageId === null) return
 
     try {
-      await courseApiService.deletePage(pageId)
+      await courseApiService.deletePage(pendingDeletePageId)
       invalidateCourseCache()
       setError('')
       load()
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Unable to delete page.')
+    } finally {
+      setPendingDeletePageId(null)
     }
   }
 
@@ -548,7 +552,11 @@ export function AdminChapterEditorPage() {
                 >
                   Move Down
                 </button>
-                <button className="btn danger small" type="button" onClick={() => handleDeletePage(page.id)}>
+                <button
+                  className="btn danger small"
+                  type="button"
+                  onClick={() => setPendingDeletePageId(page.id)}
+                >
                   Delete
                 </button>
               </div>
@@ -572,6 +580,16 @@ export function AdminChapterEditorPage() {
           </div>
         )
       })}
+
+      {pendingDeletePageId !== null ? (
+        <ConfirmModal
+          title="Delete page"
+          message="Delete this page? This cannot be undone."
+          confirmLabel="Delete"
+          onConfirm={handleConfirmDeletePage}
+          onCancel={() => setPendingDeletePageId(null)}
+        />
+      ) : null}
     </AdminLayout>
   )
 }

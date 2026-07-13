@@ -12,6 +12,16 @@ export interface ApiUser {
   studentId?: string
 }
 
+export interface UserDTO {
+  id: string
+  role: UserRole
+  fullName: string
+  username?: string
+  studentId?: string
+  createdAt: string
+  updatedAt: string
+}
+
 export interface ChoiceDTO {
   id: string
   questionId: string

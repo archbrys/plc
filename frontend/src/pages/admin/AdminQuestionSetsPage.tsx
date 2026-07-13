@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { AdminLayout } from '../../components/admin/AdminLayout'
+import { ConfirmModal } from '../../components/admin/ConfirmModal'
 import { questionSetService } from '../../services/questionSetService'
 import type { QuestionSet, QuestionSetStatus } from '../../types/quiz'
 
 export function AdminQuestionSetsPage() {
   const [sets, setSets] = useState<QuestionSet[]>([])
   const [error, setError] = useState('')
+  const [pendingDelete, setPendingDelete] = useState<QuestionSet | null>(null)
 
   const load = () => {
     questionSetService.listAll().then(setSets)
@@ -31,9 +33,18 @@ export function AdminQuestionSetsPage() {
     load()
   }
 
-  const handleDelete = async (id: string) => {
-    await questionSetService.remove(id)
-    load()
+  const handleConfirmDelete = async () => {
+    if (!pendingDelete) return
+
+    try {
+      await questionSetService.remove(pendingDelete.id)
+      setError('')
+      load()
+    } catch (deleteError) {
+      setError(deleteError instanceof Error ? deleteError.message : 'Unable to delete question set.')
+    } finally {
+      setPendingDelete(null)
+    }
   }
 
   return (
@@ -88,7 +99,7 @@ export function AdminQuestionSetsPage() {
                       <button className="btn secondary small" type="button" onClick={() => handleArchive(set.id)}>
                         Archive
                       </button>
-                      <button className="btn danger small" type="button" onClick={() => handleDelete(set.id)}>
+                      <button className="btn danger small" type="button" onClick={() => setPendingDelete(set)}>
                         Delete
                       </button>
                     </div>
@@ -100,6 +111,16 @@ export function AdminQuestionSetsPage() {
           {sets.length === 0 ? <p className="admin-empty-state">No question sets yet.</p> : null}
         </div>
       </div>
+
+      {pendingDelete ? (
+        <ConfirmModal
+          title="Delete question set"
+          message={`Delete "${pendingDelete.title}"? This cannot be undone.`}
+          confirmLabel="Delete"
+          onConfirm={handleConfirmDelete}
+          onCancel={() => setPendingDelete(null)}
+        />
+      ) : null}
     </AdminLayout>
   )
 }

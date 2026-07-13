@@ -7,6 +7,9 @@ import { AdminQuestionSetsPage } from '../pages/admin/AdminQuestionSetsPage'
 import { AdminResultsPage } from '../pages/admin/AdminResultsPage'
 import { AdminCourseContentPage } from '../pages/admin/AdminCourseContentPage'
 import { AdminChapterEditorPage } from '../pages/admin/AdminChapterEditorPage'
+import { AdminStudentsPage } from '../pages/admin/AdminStudentsPage'
+import { AdminStudentCreatePage } from '../pages/admin/AdminStudentCreatePage'
+import { AdminStudentEditPage } from '../pages/admin/AdminStudentEditPage'
 import { LoginPage } from '../pages/auth/LoginPage'
 import { PLCIntroPage } from '../pages/student/PLCIntroPage'
 import { PLCWelcomePage } from '../pages/student/PLCWelcomePage'
@@ -50,6 +53,9 @@ export function AppRoutes() {
         <Route path="/admin/question-sets/create" element={<AdminQuestionSetCreatePage />} />
         <Route path="/admin/question-sets/:id/edit" element={<AdminQuestionSetEditPage />} />
         <Route path="/admin/results" element={<AdminResultsPage />} />
+        <Route path="/admin/students" element={<AdminStudentsPage />} />
+        <Route path="/admin/students/create" element={<AdminStudentCreatePage />} />
+        <Route path="/admin/students/:id/edit" element={<AdminStudentEditPage />} />
       </Route>
 
       <Route path="*" element={<Navigate to="/login" replace />} />
