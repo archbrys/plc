@@ -1,35 +1,51 @@
 import { useEffect, useMemo, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../../hooks/useAuth'
 import { StudentMenu } from '../../components/student/StudentMenu'
 import { questionSetService } from '../../services/questionSetService'
 import { resultService } from '../../services/resultService'
-import type { QuestionSet, StudentAnswer } from '../../types/quiz'
+import type { QuestionSet, QuizResult, StudentAnswer } from '../../types/quiz'
 
-export function StudentQuestionSetDetailPage() {
-  const { id } = useParams<{ id: string }>()
+const PLC_FUNDAMENTALS_TITLE = 'PLC Fundamentals'
+
+export function PLCFundamentalsPage() {
   const { user } = useAuth()
   const navigate = useNavigate()
 
   const [questionSet, setQuestionSet] = useState<QuestionSet | null>(null)
+  const [previousResult, setPreviousResult] = useState<QuizResult | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [notFound, setNotFound] = useState(false)
+  const [retaking, setRetaking] = useState(false)
+
   const [answers, setAnswers] = useState<Record<string, StudentAnswer>>({})
   const [error, setError] = useState('')
   const [submitting, setSubmitting] = useState(false)
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
 
   useEffect(() => {
-    if (!id) {
+    if (!user || user.role !== 'student') {
       return
     }
 
-    questionSetService.getById(id).then((set) => {
-      if (!set || set.status !== 'published') {
-        setQuestionSet(null)
-        return
-      }
-      setQuestionSet(set)
-    })
-  }, [id])
+    Promise.all([questionSetService.listPublished(), resultService.listByStudent(user.id)]).then(
+      ([sets, results]) => {
+        const set = sets.find((s) => s.title.trim().toLowerCase() === PLC_FUNDAMENTALS_TITLE.toLowerCase())
+        if (!set) {
+          setNotFound(true)
+          setLoading(false)
+          return
+        }
+        setQuestionSet(set)
+
+        const forThisSet = results
+          .filter((result) => result.questionSetId === set.id)
+          .sort((a, b) => new Date(b.submittedAt).getTime() - new Date(a.submittedAt).getTime())
+        setPreviousResult(forThisSet[0] ?? null)
+        setLoading(false)
+      },
+    )
+  }, [user])
 
   const orderedQuestions = useMemo(
     () => [...(questionSet?.questions ?? [])].sort((a, b) => a.orderNumber - b.orderNumber),
@@ -60,16 +76,6 @@ export function StudentQuestionSetDetailPage() {
     ? isQuestionAnswered(answers[currentQuestion.id], currentQuestion)
     : false
 
-  if (!questionSet) {
-    return (
-      <div className="landing-page">
-        <main className="plc-intro-content">
-          <p className="muted">Question set not found or unavailable.</p>
-        </main>
-      </div>
-    )
-  }
-
   const updateAnswer = (questionId: string, patch: Partial<StudentAnswer>) => {
     setAnswers((current) => ({
       ...current,
@@ -91,12 +97,12 @@ export function StudentQuestionSetDetailPage() {
     if (currentQuestionIndex < totalQuestions - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1)
     } else {
-      // Last question - submit
       handleSubmit()
     }
   }
 
   const handleSubmit = async () => {
+    if (!questionSet) return
     setError('')
 
     if (!user || user.role !== 'student') {
@@ -117,6 +123,85 @@ export function StudentQuestionSetDetailPage() {
     navigate('/student/completion')
   }
 
+  const handleRetake = () => {
+    setAnswers({})
+    setCurrentQuestionIndex(0)
+    setError('')
+    setRetaking(true)
+  }
+
+  const handleProceed = () => {
+    navigate('/student/characters')
+  }
+
+  if (loading) {
+    return (
+      <div className="landing-page">
+        <main className="plc-intro-content">
+          <p className="muted">Loading...</p>
+        </main>
+      </div>
+    )
+  }
+
+  if (notFound || !questionSet) {
+    return (
+      <div className="landing-page">
+        <main className="plc-intro-content">
+          <p className="muted">PLC Fundamentals is not available right now.</p>
+        </main>
+      </div>
+    )
+  }
+
+  // Already answered and not retaking: show results summary with proceed/retake choice.
+  if (previousResult && !retaking) {
+    const percentage =
+      previousResult.totalPoints > 0
+        ? Math.round((previousResult.earnedPoints / previousResult.totalPoints) * 100)
+        : 0
+
+    return (
+      <div className="landing-page">
+        <header className="landing-header">
+          <div className="header-actions">
+            <button className="btn secondary" type="button" onClick={() => navigate('/student/plc')}>
+              Back
+            </button>
+            <StudentMenu />
+          </div>
+        </header>
+
+        <main className="completion-content">
+          <div className="completion-container">
+            <h1 className="completion-title">PLC Fundamentals — Already Completed</h1>
+
+            <div className="completion-score-card">
+              <div className="score-label">Your Latest Score</div>
+              <div className="score-value">
+                {previousResult.earnedPoints}/{previousResult.totalPoints}
+              </div>
+              <div className="score-percentage">{percentage}% Correct</div>
+              <div className="completion-progress-bar">
+                <div className="completion-progress-fill" style={{ width: `${percentage}%` }} />
+              </div>
+              <p className="muted">Submitted: {new Date(previousResult.submittedAt).toLocaleString()}</p>
+            </div>
+
+            <div className="plc-intro-actions">
+              <button className="btn secondary" type="button" onClick={handleRetake}>
+                Retake Quiz
+              </button>
+              <button className="btn large ready-btn" type="button" onClick={handleProceed}>
+                Proceed
+              </button>
+            </div>
+          </div>
+        </main>
+      </div>
+    )
+  }
+
   return (
     <div className="landing-page">
       <header className="landing-header">
@@ -129,37 +214,30 @@ export function StudentQuestionSetDetailPage() {
       </header>
 
       <main className="plc-quiz-content">
-        {/* Logo */}
         <div className="plc-quiz-logo">
-          <img 
-            src="/assets/logo-plc.png" 
-            alt="Interactive Digital Learning - PLC Trainer" 
-            className="plc-logo-image" 
+          <img
+            src="/assets/logo-plc.png"
+            alt="Interactive Digital Learning - PLC Trainer"
+            className="plc-logo-image"
           />
         </div>
 
-        {/* Progress Bar */}
         <div className="progress-bar-container">
           <div className="progress-bar">
-            <div 
-              className="progress-bar-fill" 
-              style={{ width: `${progressPercentage}%` }}
-            />
+            <div className="progress-bar-fill" style={{ width: `${progressPercentage}%` }} />
           </div>
         </div>
 
-        {/* Question Container */}
         {currentQuestion && (
           <div className="question-container">
             {error ? <p className="error-text">{error}</p> : null}
-            
+
             <div className="question-card">
               <h2 className="question-number">
                 {currentQuestion.orderNumber}. {currentQuestion.questionText}
               </h2>
 
               <div className="choices-container">
-                {/* Multiple Choice */}
                 {currentQuestion.questionType === 'multiple_choice' &&
                   currentQuestion.choices
                     .sort((a, b) => a.orderNumber - b.orderNumber)
@@ -175,7 +253,6 @@ export function StudentQuestionSetDetailPage() {
                       </label>
                     ))}
 
-                {/* True/False */}
                 {currentQuestion.questionType === 'true_false' && (
                   <>
                     <label className="radio-choice">
@@ -199,7 +276,6 @@ export function StudentQuestionSetDetailPage() {
                   </>
                 )}
 
-                {/* Short Answer */}
                 {currentQuestion.questionType === 'short_answer' && (
                   <textarea
                     className="short-answer-input"
@@ -217,32 +293,25 @@ export function StudentQuestionSetDetailPage() {
           </div>
         )}
 
-        {/* Navigation Buttons */}
         <div className="quiz-navigation">
-          <button 
-            className="btn-nav btn-previous" 
-            type="button" 
+          <button
+            className="btn-nav btn-previous"
+            type="button"
             onClick={handlePrevious}
             disabled={currentQuestionIndex === 0}
           >
             Previous
           </button>
-          <button 
-            className="btn-nav btn-next" 
-            type="button" 
+          <button
+            className="btn-nav btn-next"
+            type="button"
             onClick={handleNext}
             disabled={submitting || !isCurrentQuestionAnswered}
           >
-            {submitting
-              ? 'Submitting...'
-              : currentQuestionIndex === totalQuestions - 1
-                ? 'Submit'
-                : 'Next'}
+            {submitting ? 'Submitting...' : currentQuestionIndex === totalQuestions - 1 ? 'Submit' : 'Next'}
           </button>
         </div>
-        {!isCurrentQuestionAnswered ? (
-          <p className="quiz-nav-hint muted">Answer the question to continue.</p>
-        ) : null}
+        {!isCurrentQuestionAnswered ? <p className="quiz-nav-hint muted">Answer the question to continue.</p> : null}
       </main>
     </div>
   )

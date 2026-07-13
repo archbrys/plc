@@ -12,11 +12,11 @@ import { AdminStudentCreatePage } from '../pages/admin/AdminStudentCreatePage'
 import { AdminStudentEditPage } from '../pages/admin/AdminStudentEditPage'
 import { LoginPage } from '../pages/auth/LoginPage'
 import { PLCIntroPage } from '../pages/student/PLCIntroPage'
+import { PLCFundamentalsPage } from '../pages/student/PLCFundamentalsPage'
 import { PLCWelcomePage } from '../pages/student/PLCWelcomePage'
 import { PLCChapterSelectPage } from '../pages/student/PLCChapterSelectPage'
 import { ChaptersPage } from '../pages/student/ChaptersPage'
 import { StudentCharactersPage } from '../pages/student/StudentCharactersPage'
-import { StudentQuestionSetDetailPage } from '../pages/student/StudentQuestionSetDetailPage'
 import { StudentQuestionSetsPage } from '../pages/student/StudentQuestionSetsPage'
 import { StudentQuizCompletionPage } from '../pages/student/StudentQuizCompletionPage'
 import { StudentResultPage } from '../pages/student/StudentResultPage'
@@ -35,12 +35,12 @@ export function AppRoutes() {
       <Route element={<RoleGuard allowedRole="student" />}>
         <Route path="/student/plc" element={<StudentQuestionSetsPage />} />
         <Route path="/student/plc-intro" element={<PLCIntroPage />} />
+        <Route path="/student/plc-fundamentals" element={<PLCFundamentalsPage />} />
         <Route path="/student/characters" element={<StudentCharactersPage />} />
         <Route path="/student/plc-welcome" element={<PLCWelcomePage />} />
         <Route path="/student/plc-chapter-select" element={<PLCChapterSelectPage />} />
         <Route path="/student/chapters" element={<ChaptersPage />} />
         <Route path="/student/chapters/:chapterId/flow" element={<DynamicChapterPage />} />
-        <Route path="/student/question-sets/:id" element={<StudentQuestionSetDetailPage />} />
         <Route path="/student/completion" element={<StudentQuizCompletionPage />} />
         <Route path="/student/result" element={<StudentResultPage />} />
       </Route>

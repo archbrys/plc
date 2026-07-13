@@ -5,6 +5,8 @@ import { ConfirmModal } from '../../components/admin/ConfirmModal'
 import { questionSetService } from '../../services/questionSetService'
 import type { QuestionSet, QuestionSetStatus } from '../../types/quiz'
 
+const PROTECTED_TITLE = 'PLC Fundamentals'
+
 export function AdminQuestionSetsPage() {
   const [sets, setSets] = useState<QuestionSet[]>([])
   const [error, setError] = useState('')
@@ -99,9 +101,15 @@ export function AdminQuestionSetsPage() {
                       <button className="btn secondary small" type="button" onClick={() => handleArchive(set.id)}>
                         Archive
                       </button>
-                      <button className="btn danger small" type="button" onClick={() => setPendingDelete(set)}>
-                        Delete
-                      </button>
+                      {set.title.trim().toLowerCase() === PROTECTED_TITLE.toLowerCase() ? (
+                        <button className="btn danger small" type="button" disabled title="This question set cannot be deleted.">
+                          Delete
+                        </button>
+                      ) : (
+                        <button className="btn danger small" type="button" onClick={() => setPendingDelete(set)}>
+                          Delete
+                        </button>
+                      )}
                     </div>
                   </td>
                 </tr>

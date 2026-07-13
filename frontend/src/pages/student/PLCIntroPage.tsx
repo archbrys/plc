@@ -4,6 +4,8 @@ import { StudentMenu } from '../../components/student/StudentMenu'
 import { questionSetService } from '../../services/questionSetService'
 import type { QuestionSet } from '../../types/quiz'
 
+const PLC_FUNDAMENTALS_TITLE = 'PLC Fundamentals'
+
 export function PLCIntroPage() {
   const navigate = useNavigate()
   const [questionSet, setQuestionSet] = useState<QuestionSet | null>(null)
@@ -11,16 +13,15 @@ export function PLCIntroPage() {
 
   useEffect(() => {
     questionSetService.listPublished().then((sets) => {
-      if (sets.length > 0) {
-        setQuestionSet(sets[0])
-      }
+      const set = sets.find((s) => s.title.trim().toLowerCase() === PLC_FUNDAMENTALS_TITLE.toLowerCase())
+      setQuestionSet(set ?? null)
       setLoading(false)
     })
   }, [])
 
   const handleReady = () => {
     if (questionSet) {
-      navigate(`/student/question-sets/${questionSet.id}`)
+      navigate('/student/plc-fundamentals')
     }
   }
 

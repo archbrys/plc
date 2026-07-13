@@ -96,6 +96,8 @@ function validateForPublish(set: QuestionSetDTO): void {
   }
 }
 
+const PROTECTED_TITLE = 'PLC Fundamentals'
+
 export interface UpsertQuestionSetInput {
   id?: string
   title: string
@@ -244,6 +246,10 @@ export class QuestionSetService {
   async remove(id: string): Promise<void> {
     const existing = await this.repository.getById(id)
     if (!existing) throw new HttpError(404, 'Question set not found.')
+
+    if (existing.title.trim().toLowerCase() === PROTECTED_TITLE.toLowerCase()) {
+      throw new HttpError(400, `"${PROTECTED_TITLE}" cannot be deleted.`)
+    }
 
     await this.repository.delete(id)
   }
