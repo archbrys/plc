@@ -31,7 +31,7 @@ export function NarrationPage({ config, onNext }: NarrationPageProps) {
         </div>
       </div>
 
-      <div className="plc-intro-actions">
+      <div className="narration-page-actions">
         <button className="btn large ready-btn" type="button" onClick={onNext}>
           Next
         </button>

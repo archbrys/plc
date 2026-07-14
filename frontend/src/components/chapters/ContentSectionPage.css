@@ -112,7 +112,7 @@
 .chapter-section2-actions {
   flex: 0 0 auto;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 }
 

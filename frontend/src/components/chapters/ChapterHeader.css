@@ -36,9 +36,3 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
-.chapter-flow-header-logout {
-  flex: 0 0 auto;
-  font-size: clamp(0.8rem, 1.4vh, 0.95rem);
-  padding: 0.5rem 1rem;
-}

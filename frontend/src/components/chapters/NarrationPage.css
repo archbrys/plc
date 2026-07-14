@@ -9,3 +9,11 @@
   padding: clamp(1rem, 3vh, 2rem) clamp(1rem, 3vw, 2rem);
   overflow: auto;
 }
+
+.narration-page-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+}
