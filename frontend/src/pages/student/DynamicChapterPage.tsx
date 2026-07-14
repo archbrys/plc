@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useAuth } from '../../hooks/useAuth'
 import { getCourse } from '../../data/course'
 import type { CourseChapter } from '../../types/course'
@@ -8,6 +8,7 @@ import { ChapterFlowRenderer } from '../../components/chapters/ChapterFlowRender
 export function DynamicChapterPage() {
   const { logout } = useAuth()
   const { chapterId } = useParams()
+  const navigate = useNavigate()
 
   const parsedChapterId = Number(chapterId)
   const [chapter, setChapter] = useState<CourseChapter | undefined>(undefined)
@@ -55,6 +56,8 @@ export function DynamicChapterPage() {
   const handleNext = () => {
     if (currentPageIndex < pages.length - 1) {
       setCurrentPageIndex(currentPageIndex + 1)
+    } else {
+      navigate('/student/chapters')
     }
   }
 
