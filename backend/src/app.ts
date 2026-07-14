@@ -32,7 +32,9 @@ app.use(
     cookie: {
       httpOnly: true,
       sameSite: 'lax',
-      secure: env.NODE_ENV === 'production',
+      // LAN-only kiosk over plain HTTP, no TLS in this deployment — a
+      // secure cookie would never be sent back by the browser.
+      secure: false,
       maxAge: 12 * 60 * 60 * 1000,
     },
   }),
