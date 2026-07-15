@@ -118,6 +118,7 @@ model CourseChapter {
   title       String
   orderNumber Int
   pages       ChapterPage[]
+  homeButtons HomeButton[]
   createdAt   DateTime      @default(now())
   updatedAt   DateTime      @updatedAt
 
@@ -133,6 +134,21 @@ model ChapterPage {
   config      String        // JSON string containing the page configuration
   createdAt   DateTime      @default(now())
   updatedAt   DateTime      @updatedAt
+
+  @@index([chapterId])
+}
+
+model HomeButton {
+  id          Int            @id @default(autoincrement())
+  label       String
+  orderNumber Int
+  targetType  String         // 'CHAPTER' | 'ROUTE'
+  chapterId   Int?
+  chapter     CourseChapter? @relation(fields: [chapterId], references: [id], onDelete: Restrict)
+  route       String?
+  isActive    Boolean        @default(true)
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
 
   @@index([chapterId])
 }

@@ -9,6 +9,7 @@ import {
 const prisma = new PrismaClient()
 
 async function main() {
+  await prisma.homeButton.deleteMany()
   await prisma.studentAnswer.deleteMany()
   await prisma.submission.deleteMany()
   await prisma.choice.deleteMany()
@@ -932,6 +933,16 @@ As the market grew, every PLC manufacturer developed their own proprietary softw
           },
         ],
       },
+    },
+  })
+
+  await prisma.homeButton.create({
+    data: {
+      label: 'PROGRAMMABLE LOGIC CONTROLLER',
+      orderNumber: 1,
+      targetType: 'ROUTE',
+      route: '/student/plc-intro',
+      isActive: true,
     },
   })
 }
