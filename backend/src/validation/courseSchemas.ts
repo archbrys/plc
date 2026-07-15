@@ -34,12 +34,20 @@ const quizConfigSchema = z.object({
   questionSetId: z.string().min(1),
 })
 
+const mediaConfigSchema = z.object({
+  title: z.string().min(1),
+  mediaType: z.enum(['video', 'file']),
+  url: z.string().min(1),
+  description: z.string().optional(),
+})
+
 export const upsertPageSchema = z.discriminatedUnion('type', [
   z.object({ type: z.literal('slideshow'), orderNumber: z.number().int().min(1).optional(), config: slideshowConfigSchema }),
   z.object({ type: z.literal('narration'), orderNumber: z.number().int().min(1).optional(), config: narrationConfigSchema }),
   z.object({ type: z.literal('content_section'), orderNumber: z.number().int().min(1).optional(), config: contentSectionConfigSchema }),
   z.object({ type: z.literal('interactive_practice'), orderNumber: z.number().int().min(1).optional(), config: interactivePracticeConfigSchema }),
   z.object({ type: z.literal('quiz'), orderNumber: z.number().int().min(1).optional(), config: quizConfigSchema }),
+  z.object({ type: z.literal('media'), orderNumber: z.number().int().min(1).optional(), config: mediaConfigSchema }),
 ])
 
 export const upsertChapterSchema = z.object({
