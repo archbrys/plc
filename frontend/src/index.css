@@ -418,10 +418,11 @@ select {
 
 .landing-content {
   flex: 1;
+  min-height: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: clamp(0.75rem, 3vh, 2rem) 2rem;
 }
 
 .landing-hero {
@@ -431,15 +432,15 @@ select {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 1.5rem;
+  gap: clamp(0.5rem, 2.5vh, 1.5rem);
 }
 
 .hero-logo {
-  margin-bottom: 2rem;
+  margin-bottom: clamp(0.5rem, 3vh, 2rem);
 }
 
 .plc-image {
-  width: 300px;
+  width: clamp(120px, 22vh, 300px);
   height: auto;
   filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
 }
@@ -447,12 +448,12 @@ select {
 .hero-box {
   background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
   color: white;
-  padding: 2.5rem 4rem;
+  padding: clamp(1rem, 4vh, 2.5rem) clamp(1.5rem, 6vw, 4rem);
   border-radius: 16px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   border: 3px solid rgba(255, 255, 255, 0.3);
-  margin: 1rem 0 2rem;
-  min-width: 600px;
+  margin: clamp(0.5rem, 2vh, 1rem) 0 clamp(0.75rem, 2vh, 2rem);
+  width: min(600px, 90vw);
 }
 
 .hero-box-btn {

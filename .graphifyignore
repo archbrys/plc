@@ -1,0 +1,20 @@
+# Ignore everything by default, then re-include only what graphify should index.
+/*
+!/frontend/
+!/backend/
+!/shared/
+!/shared/**
+
+# frontend: only src
+/frontend/**
+!/frontend/src/
+!/frontend/src/**
+
+# backend: only prisma, src, uploads
+/backend/**
+!/backend/prisma/
+!/backend/prisma/**
+!/backend/src/
+!/backend/src/**
+!/backend/uploads/
+!/backend/uploads/**
