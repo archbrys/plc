@@ -19,7 +19,10 @@ export function errorHandler(error: unknown, _req: Request, res: Response, _next
     return
   }
 
-  if (error instanceof Error && error.message.includes('Only PNG, JPEG, WEBP, or GIF')) {
+  if (
+    error instanceof Error &&
+    (error.message.includes('Only PNG, JPEG, WEBP, or GIF') || error.message.includes('Only MP4, WEBM, or PDF'))
+  ) {
     res.status(StatusCodes.BAD_REQUEST).json(createApiResponse(false, error.message, null))
     return
   }

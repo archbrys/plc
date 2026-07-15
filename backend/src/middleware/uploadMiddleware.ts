@@ -31,3 +31,17 @@ export const uploadImage = multer({
     callback(null, true)
   },
 })
+
+const ALLOWED_MEDIA_MIME_TYPES = new Set(['video/mp4', 'video/webm', 'application/pdf'])
+
+export const uploadMedia = multer({
+  storage,
+  limits: { fileSize: 200 * 1024 * 1024 },
+  fileFilter: (_req, file, callback) => {
+    if (!ALLOWED_MEDIA_MIME_TYPES.has(file.mimetype)) {
+      callback(new Error('Only MP4, WEBM, or PDF files are allowed.'))
+      return
+    }
+    callback(null, true)
+  },
+})

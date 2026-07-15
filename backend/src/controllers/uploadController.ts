@@ -14,4 +14,14 @@ export const uploadController = {
       .status(StatusCodes.CREATED)
       .json(createApiResponse(true, 'Image uploaded.', { url: `/uploads/${req.file.filename}` }))
   },
+
+  uploadMedia: (req: Request, res: Response) => {
+    if (!req.file) {
+      throw new HttpError(400, 'No media file provided.')
+    }
+
+    res
+      .status(StatusCodes.CREATED)
+      .json(createApiResponse(true, 'Media uploaded.', { url: `/uploads/${req.file.filename}` }))
+  },
 }
