@@ -69,12 +69,12 @@ export function LoginPage() {
 
   return (
     <div className="auth-page">
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px', width: 'min(420px, 100%)' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'clamp(0.5rem, 3vh, 1.25rem)', width: 'min(420px, 100%)' }}>
         <img
           src="/assets/logo-plc.png"
           alt="PLC Logo"
           style={{
-            maxWidth: '300px',
+            maxWidth: 'clamp(140px, 22vh, 300px)',
             width: '100%',
             height: 'auto',
           }}

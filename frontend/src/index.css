@@ -1,5 +1,15 @@
 * {
   box-sizing: border-box;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+input,
+textarea,
+[contenteditable] {
+  -webkit-user-select: text;
+  user-select: text;
 }
 
 :root {
@@ -16,8 +26,13 @@
   line-height: 1.4;
 }
 
+html,
 body {
+  height: 100%;
   margin: 0;
+}
+
+body {
   position: relative;
 }
 
@@ -34,12 +49,19 @@ body::before {
 }
 
 #root {
-  min-height: 100vh;
-  position: relative;
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .app-shell {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
   max-width: 1024px;
+  width: 100%;
   margin: 0 auto;
   padding: 1rem;
 }
@@ -70,15 +92,16 @@ body::before {
   display: grid;
   place-items: center;
   padding: 1rem;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .auth-card {
   width: min(420px, 100%);
   display: flex;
   flex-direction: column;
-  gap: 1.1rem;
-  padding: 2.25rem 2.5rem;
+  gap: clamp(0.6rem, 2.5vh, 1.1rem);
+  padding: clamp(1.25rem, 4vh, 2.25rem) clamp(1.5rem, 5vw, 2.5rem);
   border-radius: 18px;
   box-shadow: 0 12px 32px rgba(22, 53, 114, 0.18);
   border-color: rgba(22, 53, 114, 0.15);
@@ -375,7 +398,10 @@ select {
 
 /* Landing Page Styles */
 .landing-page {
-  min-height: 100vh;
+  flex: 1 1 auto;
+  min-height: 0;
+  height: 100%;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -461,7 +487,7 @@ select {
   align-items: center;
   justify-content: space-between;
   padding: 2rem 2rem 3rem;
-  min-height: calc(100vh - 120px);
+  min-height: 0;
 }
 
 .plc-intro-container {
@@ -609,7 +635,7 @@ select {
   justify-content: center;
   gap: 2.5rem;
   padding: 2rem;
-  min-height: calc(100vh - 120px);
+  min-height: 0;
 }
 
 .quiz-start-title {
@@ -866,7 +892,8 @@ select {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  flex: 1;
+  min-height: 0;
   padding: 2rem 1rem;
 }
 

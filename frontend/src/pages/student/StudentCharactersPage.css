@@ -1,7 +1,10 @@
 .characters-page {
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  flex: 1 1 auto;
+  min-height: 0;
+  height: 100%;
+  overflow-y: auto;
   background-image: url('/assets/characters-plc.jpg');
   background-size: cover;
   background-position: center center;
