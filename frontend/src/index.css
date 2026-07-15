@@ -65,10 +65,12 @@ body::before {
 }
 
 .auth-page {
-  min-height: 100vh;
+  position: fixed;
+  inset: 0;
   display: grid;
   place-items: center;
   padding: 1rem;
+  overflow: hidden;
 }
 
 .auth-card {
@@ -257,6 +259,118 @@ select {
   margin: 0;
   font-size: 2rem;
   font-weight: 700;
+}
+
+.result-hero {
+  background: #fff;
+  border: 1px solid #d1d5db;
+  border-left: 6px solid #9ca3af;
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+}
+
+.result-hero.band-good {
+  border-left-color: #16a34a;
+  background: #f0fdf4;
+}
+
+.result-hero.band-mid {
+  border-left-color: #d97706;
+  background: #fffbeb;
+}
+
+.result-hero.band-low {
+  border-left-color: #dc2626;
+  background: #fef2f2;
+}
+
+.result-hero-label {
+  margin: 0 0 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.8rem;
+}
+
+.result-hero-title {
+  margin: 0 0 0.75rem;
+}
+
+.result-hero-score {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.result-hero-score-value {
+  font-size: 2.25rem;
+  font-weight: 700;
+}
+
+.result-hero-message {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+}
+
+.score-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0.25rem 0.75rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.score-pill.band-good {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.score-pill.band-mid {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.score-pill.band-low {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.history-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.history-row:last-child {
+  border-bottom: none;
+}
+
+.history-row-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.history-row-title {
+  font-weight: 600;
+}
+
+.history-row-date {
+  font-size: 0.85rem;
+}
+
+.history-row-score {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 /* Landing Page Styles */
