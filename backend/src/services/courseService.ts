@@ -2,9 +2,11 @@ import type { CourseChapter, ChapterPage } from '@prisma/client'
 
 import { prisma } from '../config/prisma.js'
 import { CourseRepository } from '../repositories/courseRepository.js'
+import { HomeButtonRepository } from '../repositories/homeButtonRepository.js'
 import { HttpError } from '../utils/httpError.js'
 
 const repository = new CourseRepository(prisma)
+const homeButtonRepository = new HomeButtonRepository(prisma)
 
 export interface ChapterPageResponse {
   id: number
@@ -93,6 +95,15 @@ export const courseService = {
     const existing = await repository.getChapterById(chapterId)
     if (!existing) {
       throw new HttpError(404, 'Chapter not found')
+    }
+
+    const linkedButtons = await homeButtonRepository.findByChapterId(chapterId)
+    if (linkedButtons.length > 0) {
+      const names = linkedButtons.map((button) => `"${button.label}"`).join(', ')
+      throw new HttpError(
+        409,
+        `Cannot delete this chapter — it is linked from the ${names} home button. Unlink it first.`,
+      )
     }
 
     await repository.deleteChapter(chapterId)
