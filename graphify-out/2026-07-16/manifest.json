@@ -20,9 +20,9 @@
     "semantic_hash": "66da50d81d1891a5b973892d351e16b3"
   },
   "backend/prisma/seed.ts": {
-    "mtime": 1784136944.9784236,
-    "ast_hash": "9f286ece06232801ad60d3538da0205e",
-    "semantic_hash": ""
+    "mtime": 1783884687.245385,
+    "ast_hash": "0f69d7821829374eb5af972970c313fd",
+    "semantic_hash": "0f69d7821829374eb5af972970c313fd"
   },
   "backend/src/app.ts": {
     "mtime": 1784008549.3414168,
@@ -583,10 +583,5 @@
     "mtime": 1781938178.4054005,
     "ast_hash": "9960a24288958394ac50e57ff638b036",
     "semantic_hash": "9960a24288958394ac50e57ff638b036"
-  },
-  "backend/prisma/migrations/20260715173201_add_home_buttons/migration.sql": {
-    "mtime": 1784136726.9336157,
-    "ast_hash": "f91047c2ed0574b557cff0e46b22461c",
-    "semantic_hash": ""
   }
 }

@@ -3,20 +3,30 @@ import { Link } from 'react-router-dom'
 import { AdminLayout } from '../../components/admin/AdminLayout'
 import { ConfirmModal } from '../../components/admin/ConfirmModal'
 import { courseApiService } from '../../services/courseApiService'
+import { homeButtonApiService } from '../../services/homeButtonApiService'
 import { invalidateCourseCache } from '../../data/course'
 import type { Course, CourseChapter } from '../../types/course'
 
 export function AdminCourseContentPage() {
   const [course, setCourse] = useState<Course | null>(null)
+  const [linkedChapterIds, setLinkedChapterIds] = useState<Set<number>>(new Set())
   const [isLoading, setIsLoading] = useState(true)
   const [newChapterTitle, setNewChapterTitle] = useState('')
   const [error, setError] = useState('')
   const [pendingDeleteChapter, setPendingDeleteChapter] = useState<CourseChapter | null>(null)
 
   const load = () => {
-    courseApiService
-      .getCourse()
-      .then(setCourse)
+    Promise.all([courseApiService.getCourse(), homeButtonApiService.getHomeButtons()])
+      .then(([courseData, homeButtons]) => {
+        setCourse(courseData)
+        setLinkedChapterIds(
+          new Set(
+            homeButtons
+              .filter((button) => button.targetType === 'CHAPTER' && button.chapterId !== null)
+              .map((button) => button.chapterId as number),
+          ),
+        )
+      })
       .catch((err) => setError(err instanceof Error ? err.message : 'Unable to load course.'))
       .finally(() => setIsLoading(false))
   }
@@ -26,6 +36,14 @@ export function AdminCourseContentPage() {
   }, [])
 
   const chapters = course ? [...course.chapters].sort((a, b) => a.orderNumber - b.orderNumber) : []
+
+  let trueChapterCount = 0
+  const chapterDisplayNumbers = new Map<number, number>()
+  for (const chapter of chapters) {
+    if (linkedChapterIds.has(chapter.id)) continue
+    trueChapterCount += 1
+    chapterDisplayNumbers.set(chapter.id, trueChapterCount)
+  }
 
   const handleAddChapter = async () => {
     const title = newChapterTitle.trim()
@@ -117,7 +135,7 @@ export function AdminCourseContentPage() {
               {chapters.map((chapter, index) => (
                 <tr key={chapter.id}>
                   <td>
-                    <span className="admin-cell-index">{chapter.orderNumber}</span>
+                    <span className="admin-cell-index">{chapterDisplayNumbers.get(chapter.id) ?? ''}</span>
                   </td>
                   <td>
                     <div className="admin-table-title">{chapter.title}</div>

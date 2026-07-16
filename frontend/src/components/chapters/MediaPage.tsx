@@ -8,21 +8,23 @@ interface MediaPageProps {
 }
 
 export function MediaPage({ config, onNext }: MediaPageProps) {
-  const { title, mediaType, url, description } = config
+  const { mediaType, url, description } = config
   const src = resolveAssetSrc(url)
 
   return (
     <main className="media-page-content">
       <div className="media-page-container">
-        <h2 className="media-page-title">{title}</h2>
         {description ? <p className="muted">{description}</p> : null}
 
         {mediaType === 'video' ? (
           <video className="media-page-video" src={src} controls />
         ) : (
-          <a className="btn large" href={src} target="_blank" rel="noreferrer">
-            Open File
-          </a>
+          <>
+            <iframe className="media-page-file" src={src} title="Media file" />
+            <a className="media-page-file-link" href={src} target="_blank" rel="noreferrer">
+              Download / open in new tab
+            </a>
+          </>
         )}
       </div>
 

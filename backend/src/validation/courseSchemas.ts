@@ -35,7 +35,6 @@ const quizConfigSchema = z.object({
 })
 
 const mediaConfigSchema = z.object({
-  title: z.string().min(1),
   mediaType: z.enum(['video', 'file']),
   url: z.string().min(1),
   description: z.string().optional(),

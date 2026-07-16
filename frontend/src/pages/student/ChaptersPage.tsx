@@ -2,17 +2,28 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { StudentMenu } from "../../components/student/StudentMenu";
 import { getCourse } from "../../data/course";
+import { homeButtonApiService } from "../../services/homeButtonApiService";
 import type { Course } from "../../types/course";
 import "./ChaptersPage.css";
 
 export function ChaptersPage() {
   const navigate = useNavigate();
   const [course, setCourse] = useState<Course | null>(null);
+  const [linkedChapterIds, setLinkedChapterIds] = useState<Set<number>>(new Set());
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    getCourse()
-      .then(setCourse)
+    Promise.all([getCourse(), homeButtonApiService.getHomeButtons()])
+      .then(([courseData, homeButtons]) => {
+        setCourse(courseData);
+        setLinkedChapterIds(
+          new Set(
+            homeButtons
+              .filter((button) => button.targetType === "CHAPTER" && button.chapterId !== null)
+              .map((button) => button.chapterId as number),
+          ),
+        );
+      })
       .catch(console.error)
       .finally(() => setIsLoading(false));
   }, []);
@@ -60,13 +71,14 @@ export function ChaptersPage() {
 
         <div className="chapters-grid">
           {(() => {
-            const sortedChapters = [...course.chapters].sort(
-              (a, b) => a.orderNumber - b.orderNumber,
-            );
-            const half = Math.ceil(sortedChapters.length / 2);
+            const visibleChapters = course.chapters
+              .filter((chapter) => !linkedChapterIds.has(chapter.id))
+              .sort((a, b) => a.orderNumber - b.orderNumber)
+              .map((chapter, index) => ({ ...chapter, displayNumber: index + 1 }));
+            const half = Math.ceil(visibleChapters.length / 2);
             const columns = [
-              sortedChapters.slice(0, half),
-              sortedChapters.slice(half),
+              visibleChapters.slice(0, half),
+              visibleChapters.slice(half),
             ];
 
             return columns.map((columnChapters, columnIndex) => (
@@ -78,7 +90,7 @@ export function ChaptersPage() {
                     type="button"
                     onClick={() => handleChapterClick(chapter.id)}
                   >
-                    CHAPTER {chapter.orderNumber}
+                    CHAPTER {chapter.displayNumber}
                   </button>
                 ))}
               </div>

@@ -33,7 +33,6 @@ export interface QuizPageConfig {
 }
 
 export interface MediaPageConfig {
-  title: string
   mediaType: 'video' | 'file'
   url: string
   description?: string

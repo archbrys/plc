@@ -30,7 +30,6 @@
       "_origin": "ast",
       "id": "backend_prisma_migrate_content_blocks",
       "community": 10,
-      "community_name": "Prisma Content Blocks Migration",
       "norm_label": "migrate-content-blocks.ts"
     },
     {
@@ -41,7 +40,6 @@
       "_origin": "ast",
       "id": "backend_prisma_migrate_content_blocks_prisma",
       "community": 10,
-      "community_name": "Prisma Content Blocks Migration",
       "norm_label": "prisma"
     },
     {
@@ -52,7 +50,6 @@
       "_origin": "ast",
       "id": "backend_prisma_migrate_content_blocks_main",
       "community": 10,
-      "community_name": "Prisma Content Blocks Migration",
       "norm_label": "main()"
     },
     {
@@ -63,7 +60,6 @@
       "_origin": "ast",
       "id": "backend_prisma_seed_js_backend_prisma_seed",
       "community": 11,
-      "community_name": "Prisma Seed Script (JS)",
       "norm_label": "seed.js"
     },
     {
@@ -74,7 +70,6 @@
       "_origin": "ast",
       "id": "backend_prisma_seed_js_backend_prisma_seed_prisma",
       "community": 11,
-      "community_name": "Prisma Seed Script (JS)",
       "norm_label": "prisma"
     },
     {
@@ -85,7 +80,6 @@
       "_origin": "ast",
       "id": "backend_prisma_seed_js_backend_prisma_seed_main",
       "community": 11,
-      "community_name": "Prisma Seed Script (JS)",
       "norm_label": "main()"
     },
     {
@@ -96,7 +90,6 @@
       "_origin": "ast",
       "id": "backend_prisma_seed_ts_backend_prisma_seed",
       "community": 12,
-      "community_name": "Prisma Seed Script (TS)",
       "norm_label": "seed.ts"
     },
     {
@@ -107,7 +100,6 @@
       "_origin": "ast",
       "id": "backend_prisma_seed_ts_backend_prisma_seed_prisma",
       "community": 12,
-      "community_name": "Prisma Seed Script (TS)",
       "norm_label": "prisma"
     },
     {
@@ -118,7 +110,6 @@
       "_origin": "ast",
       "id": "backend_prisma_seed_ts_backend_prisma_seed_main",
       "community": 12,
-      "community_name": "Prisma Seed Script (TS)",
       "norm_label": "main()"
     },
     {
@@ -128,8 +119,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_app",
-      "community": 3,
-      "community_name": "Backend API Routes & Validation",
+      "community": 6,
       "norm_label": "app.ts"
     },
     {
@@ -139,8 +129,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "backend_src_app_app",
-      "community": 3,
-      "community_name": "Backend API Routes & Validation",
+      "community": 6,
       "norm_label": "app"
     },
     {
@@ -150,8 +139,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "backend_src_app_frontenddistpath",
-      "community": 3,
-      "community_name": "Backend API Routes & Validation",
+      "community": 6,
       "norm_label": "frontenddistpath"
     },
     {
@@ -161,8 +149,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_config_env",
-      "community": 3,
-      "community_name": "Backend API Routes & Validation",
+      "community": 6,
       "norm_label": "env.ts"
     },
     {
@@ -172,8 +159,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "backend_src_config_env_dirname",
-      "community": 3,
-      "community_name": "Backend API Routes & Validation",
+      "community": 6,
       "norm_label": "__dirname"
     },
     {
@@ -183,8 +169,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "backend_src_config_env_envschema",
-      "community": 3,
-      "community_name": "Backend API Routes & Validation",
+      "community": 6,
       "norm_label": "envschema"
     },
     {
@@ -194,8 +179,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "backend_src_config_env_env",
-      "community": 3,
-      "community_name": "Backend API Routes & Validation",
+      "community": 6,
       "norm_label": "env"
     },
     {
@@ -205,8 +189,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_config_prisma",
-      "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
+      "community": 1,
       "norm_label": "prisma.ts"
     },
     {
@@ -216,8 +199,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "backend_src_config_prisma_prisma",
-      "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
+      "community": 1,
       "norm_label": "prisma"
     },
     {
@@ -228,7 +210,6 @@
       "_origin": "ast",
       "id": "backend_src_controllers_authcontroller",
       "community": 1,
-      "community_name": "Backend Auth & User Services",
       "norm_label": "authcontroller.ts"
     },
     {
@@ -239,7 +220,6 @@
       "_origin": "ast",
       "id": "backend_src_controllers_authcontroller_authservice",
       "community": 1,
-      "community_name": "Backend Auth & User Services",
       "norm_label": "authservice"
     },
     {
@@ -250,7 +230,6 @@
       "_origin": "ast",
       "id": "backend_src_controllers_authcontroller_authcontroller",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "authcontroller"
     },
     {
@@ -260,8 +239,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_controllers_coursecontroller",
-      "community": 6,
-      "community_name": "Backend Server Bootstrap",
+      "community": 3,
       "norm_label": "coursecontroller.ts"
     },
     {
@@ -271,8 +249,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "backend_src_controllers_coursecontroller_parseid",
-      "community": 6,
-      "community_name": "Backend Server Bootstrap",
+      "community": 3,
       "norm_label": "parseid()"
     },
     {
@@ -282,8 +259,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "backend_src_controllers_coursecontroller_coursecontroller",
-      "community": 6,
-      "community_name": "Backend Server Bootstrap",
+      "community": 3,
       "norm_label": "coursecontroller"
     },
     {
@@ -293,8 +269,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_controllers_questionsetcontroller",
-      "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
+      "community": 3,
       "norm_label": "questionsetcontroller.ts"
     },
     {
@@ -304,8 +279,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "backend_src_controllers_questionsetcontroller_questionsetservice",
-      "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
+      "community": 3,
       "norm_label": "questionsetservice"
     },
     {
@@ -316,7 +290,6 @@
       "_origin": "ast",
       "id": "backend_src_controllers_questionsetcontroller_questionsetcontroller",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "questionsetcontroller"
     },
     {
@@ -327,7 +300,6 @@
       "_origin": "ast",
       "id": "backend_src_controllers_resultcontroller",
       "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
       "norm_label": "resultcontroller.ts"
     },
     {
@@ -338,7 +310,6 @@
       "_origin": "ast",
       "id": "backend_src_controllers_resultcontroller_resultservice",
       "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
       "norm_label": "resultservice"
     },
     {
@@ -349,7 +320,6 @@
       "_origin": "ast",
       "id": "backend_src_controllers_resultcontroller_resultcontroller",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "resultcontroller"
     },
     {
@@ -359,8 +329,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_controllers_uploadcontroller",
-      "community": 6,
-      "community_name": "Backend Server Bootstrap",
+      "community": 3,
       "norm_label": "uploadcontroller.ts"
     },
     {
@@ -370,8 +339,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "backend_src_controllers_uploadcontroller_uploadcontroller",
-      "community": 6,
-      "community_name": "Backend Server Bootstrap",
+      "community": 3,
       "norm_label": "uploadcontroller"
     },
     {
@@ -382,7 +350,6 @@
       "_origin": "ast",
       "id": "backend_src_controllers_usercontroller",
       "community": 1,
-      "community_name": "Backend Auth & User Services",
       "norm_label": "usercontroller.ts"
     },
     {
@@ -393,7 +360,6 @@
       "_origin": "ast",
       "id": "backend_src_controllers_usercontroller_userservice",
       "community": 1,
-      "community_name": "Backend Auth & User Services",
       "norm_label": "userservice"
     },
     {
@@ -404,7 +370,6 @@
       "_origin": "ast",
       "id": "backend_src_controllers_usercontroller_usercontroller",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "usercontroller"
     },
     {
@@ -415,7 +380,6 @@
       "_origin": "ast",
       "id": "backend_src_middleware_authmiddleware",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "authmiddleware.ts"
     },
     {
@@ -426,7 +390,6 @@
       "_origin": "ast",
       "id": "backend_src_middleware_authmiddleware_authmiddleware",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "authmiddleware()"
     },
     {
@@ -436,8 +399,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_middleware_errorhandler",
-      "community": 3,
-      "community_name": "Backend API Routes & Validation",
+      "community": 6,
       "norm_label": "errorhandler.ts"
     },
     {
@@ -447,8 +409,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "backend_src_middleware_errorhandler_errorhandler",
-      "community": 3,
-      "community_name": "Backend API Routes & Validation",
+      "community": 6,
       "norm_label": "errorhandler()"
     },
     {
@@ -458,8 +419,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_middleware_loggingmiddleware",
-      "community": 3,
-      "community_name": "Backend API Routes & Validation",
+      "community": 6,
       "norm_label": "loggingmiddleware.ts"
     },
     {
@@ -469,8 +429,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "backend_src_middleware_loggingmiddleware_loggingmiddleware",
-      "community": 3,
-      "community_name": "Backend API Routes & Validation",
+      "community": 6,
       "norm_label": "loggingmiddleware"
     },
     {
@@ -481,7 +440,6 @@
       "_origin": "ast",
       "id": "backend_src_middleware_rolemiddleware",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "rolemiddleware.ts"
     },
     {
@@ -492,7 +450,6 @@
       "_origin": "ast",
       "id": "backend_src_middleware_rolemiddleware_rolemiddleware",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "rolemiddleware()"
     },
     {
@@ -502,8 +459,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_middleware_uploadmiddleware",
-      "community": 3,
-      "community_name": "Backend API Routes & Validation",
+      "community": 6,
       "norm_label": "uploadmiddleware.ts"
     },
     {
@@ -513,8 +469,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "backend_src_middleware_uploadmiddleware_uploads_dir",
-      "community": 3,
-      "community_name": "Backend API Routes & Validation",
+      "community": 6,
       "norm_label": "uploads_dir"
     },
     {
@@ -524,8 +479,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "backend_src_middleware_uploadmiddleware_allowed_mime_types",
-      "community": 3,
-      "community_name": "Backend API Routes & Validation",
+      "community": 6,
       "norm_label": "allowed_mime_types"
     },
     {
@@ -535,8 +489,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "backend_src_middleware_uploadmiddleware_storage",
-      "community": 3,
-      "community_name": "Backend API Routes & Validation",
+      "community": 6,
       "norm_label": "storage"
     },
     {
@@ -546,8 +499,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "backend_src_middleware_uploadmiddleware_uploadimage",
-      "community": 3,
-      "community_name": "Backend API Routes & Validation",
+      "community": 6,
       "norm_label": "uploadimage"
     },
     {
@@ -558,7 +510,6 @@
       "_origin": "ast",
       "id": "backend_src_middleware_validate",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "validate.ts"
     },
     {
@@ -569,7 +520,6 @@
       "_origin": "ast",
       "id": "backend_src_middleware_validate_validatebody",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "validatebody()"
     },
     {
@@ -580,7 +530,6 @@
       "_origin": "ast",
       "id": "backend_src_middleware_validate_validateparams",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "validateparams()"
     },
     {
@@ -591,7 +540,6 @@
       "_origin": "ast",
       "id": "backend_src_modules_answers_index",
       "community": 16,
-      "community_name": "Answers Module Placeholder",
       "norm_label": "index.ts"
     },
     {
@@ -602,7 +550,6 @@
       "_origin": "ast",
       "id": "backend_src_modules_auth_index",
       "community": 17,
-      "community_name": "Auth Module Placeholder",
       "norm_label": "index.ts"
     },
     {
@@ -613,7 +560,6 @@
       "_origin": "ast",
       "id": "backend_src_modules_questionsets_index",
       "community": 19,
-      "community_name": "QuestionSets Module Placeholder",
       "norm_label": "index.ts"
     },
     {
@@ -624,7 +570,6 @@
       "_origin": "ast",
       "id": "backend_src_modules_questions_index",
       "community": 18,
-      "community_name": "Questions Module Placeholder",
       "norm_label": "index.ts"
     },
     {
@@ -635,7 +580,6 @@
       "_origin": "ast",
       "id": "backend_src_modules_results_index",
       "community": 20,
-      "community_name": "Results Module Placeholder",
       "norm_label": "index.ts"
     },
     {
@@ -646,7 +590,6 @@
       "_origin": "ast",
       "id": "backend_src_modules_users_index",
       "community": 21,
-      "community_name": "Users Module Placeholder",
       "norm_label": "index.ts"
     },
     {
@@ -656,8 +599,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_repositories_courserepository",
-      "community": 6,
-      "community_name": "Backend Server Bootstrap",
+      "community": 1,
       "norm_label": "courserepository.ts"
     },
     {
@@ -667,8 +609,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "backend_src_repositories_courserepository_courserepository",
-      "community": 6,
-      "community_name": "Backend Server Bootstrap",
+      "community": 1,
       "norm_label": "courserepository"
     },
     {
@@ -678,8 +619,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "backend_src_repositories_courserepository_courserepository_constructor",
-      "community": 6,
-      "community_name": "Backend Server Bootstrap",
+      "community": 1,
       "norm_label": ".constructor()"
     },
     {
@@ -689,8 +629,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "backend_src_repositories_courserepository_courserepository_getcoursewithchapters",
-      "community": 6,
-      "community_name": "Backend Server Bootstrap",
+      "community": 1,
       "norm_label": ".getcoursewithchapters()"
     },
     {
@@ -700,8 +639,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "backend_src_repositories_courserepository_courserepository_getchapterbyid",
-      "community": 6,
-      "community_name": "Backend Server Bootstrap",
+      "community": 1,
       "norm_label": ".getchapterbyid()"
     },
     {
@@ -711,8 +649,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "backend_src_repositories_courserepository_courserepository_createchapter",
-      "community": 6,
-      "community_name": "Backend Server Bootstrap",
+      "community": 1,
       "norm_label": ".createchapter()"
     },
     {
@@ -722,8 +659,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "backend_src_repositories_courserepository_courserepository_updatechapter",
-      "community": 6,
-      "community_name": "Backend Server Bootstrap",
+      "community": 1,
       "norm_label": ".updatechapter()"
     },
     {
@@ -733,8 +669,7 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "backend_src_repositories_courserepository_courserepository_deletechapter",
-      "community": 6,
-      "community_name": "Backend Server Bootstrap",
+      "community": 1,
       "norm_label": ".deletechapter()"
     },
     {
@@ -744,8 +679,7 @@
       "source_location": "L43",
       "_origin": "ast",
       "id": "backend_src_repositories_courserepository_courserepository_reorderchapters",
-      "community": 6,
-      "community_name": "Backend Server Bootstrap",
+      "community": 1,
       "norm_label": ".reorderchapters()"
     },
     {
@@ -755,8 +689,7 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "backend_src_repositories_courserepository_courserepository_getpagebyid",
-      "community": 6,
-      "community_name": "Backend Server Bootstrap",
+      "community": 1,
       "norm_label": ".getpagebyid()"
     },
     {
@@ -766,8 +699,7 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "backend_src_repositories_courserepository_courserepository_createpage",
-      "community": 6,
-      "community_name": "Backend Server Bootstrap",
+      "community": 1,
       "norm_label": ".createpage()"
     },
     {
@@ -777,8 +709,7 @@
       "source_location": "L59",
       "_origin": "ast",
       "id": "backend_src_repositories_courserepository_courserepository_updatepage",
-      "community": 6,
-      "community_name": "Backend Server Bootstrap",
+      "community": 1,
       "norm_label": ".updatepage()"
     },
     {
@@ -788,8 +719,7 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "backend_src_repositories_courserepository_courserepository_deletepage",
-      "community": 6,
-      "community_name": "Backend Server Bootstrap",
+      "community": 1,
       "norm_label": ".deletepage()"
     },
     {
@@ -799,8 +729,7 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "backend_src_repositories_courserepository_courserepository_reorderpages",
-      "community": 6,
-      "community_name": "Backend Server Bootstrap",
+      "community": 1,
       "norm_label": ".reorderpages()"
     },
     {
@@ -811,7 +740,6 @@
       "_origin": "ast",
       "id": "backend_src_repositories_questionsetrepository",
       "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
       "norm_label": "questionsetrepository.ts"
     },
     {
@@ -822,7 +750,6 @@
       "_origin": "ast",
       "id": "backend_src_repositories_questionsetrepository_questionsetrepository",
       "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
       "norm_label": "questionsetrepository"
     },
     {
@@ -833,7 +760,6 @@
       "_origin": "ast",
       "id": "backend_src_repositories_questionsetrepository_questionsetrepository_constructor",
       "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
       "norm_label": ".constructor()"
     },
     {
@@ -844,7 +770,6 @@
       "_origin": "ast",
       "id": "backend_src_repositories_questionsetrepository_questionsetrepository_list",
       "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
       "norm_label": ".list()"
     },
     {
@@ -855,7 +780,6 @@
       "_origin": "ast",
       "id": "backend_src_repositories_questionsetrepository_questionsetrepository_getbyid",
       "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
       "norm_label": ".getbyid()"
     },
     {
@@ -866,7 +790,6 @@
       "_origin": "ast",
       "id": "backend_src_repositories_questionsetrepository_questionsetrepository_create",
       "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
       "norm_label": ".create()"
     },
     {
@@ -877,7 +800,6 @@
       "_origin": "ast",
       "id": "backend_src_repositories_questionsetrepository_questionsetrepository_update",
       "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
       "norm_label": ".update()"
     },
     {
@@ -888,7 +810,6 @@
       "_origin": "ast",
       "id": "backend_src_repositories_questionsetrepository_questionsetrepository_delete",
       "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
       "norm_label": ".delete()"
     },
     {
@@ -899,7 +820,6 @@
       "_origin": "ast",
       "id": "backend_src_repositories_submissionrepository",
       "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
       "norm_label": "submissionrepository.ts"
     },
     {
@@ -910,7 +830,6 @@
       "_origin": "ast",
       "id": "backend_src_repositories_submissionrepository_submissionrepository",
       "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
       "norm_label": "submissionrepository"
     },
     {
@@ -921,7 +840,6 @@
       "_origin": "ast",
       "id": "backend_src_repositories_submissionrepository_submissionrepository_constructor",
       "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
       "norm_label": ".constructor()"
     },
     {
@@ -932,7 +850,6 @@
       "_origin": "ast",
       "id": "backend_src_repositories_submissionrepository_submissionrepository_listall",
       "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
       "norm_label": ".listall()"
     },
     {
@@ -943,7 +860,6 @@
       "_origin": "ast",
       "id": "backend_src_repositories_submissionrepository_submissionrepository_listbystudent",
       "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
       "norm_label": ".listbystudent()"
     },
     {
@@ -954,7 +870,6 @@
       "_origin": "ast",
       "id": "backend_src_repositories_submissionrepository_submissionrepository_create",
       "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
       "norm_label": ".create()"
     },
     {
@@ -965,7 +880,6 @@
       "_origin": "ast",
       "id": "backend_src_repositories_userrepository",
       "community": 1,
-      "community_name": "Backend Auth & User Services",
       "norm_label": "userrepository.ts"
     },
     {
@@ -976,7 +890,6 @@
       "_origin": "ast",
       "id": "backend_src_repositories_userrepository_userrepository",
       "community": 1,
-      "community_name": "Backend Auth & User Services",
       "norm_label": "userrepository"
     },
     {
@@ -987,7 +900,6 @@
       "_origin": "ast",
       "id": "backend_src_repositories_userrepository_userrepository_constructor",
       "community": 1,
-      "community_name": "Backend Auth & User Services",
       "norm_label": ".constructor()"
     },
     {
@@ -998,7 +910,6 @@
       "_origin": "ast",
       "id": "backend_src_repositories_userrepository_userrepository_findbyadminusername",
       "community": 1,
-      "community_name": "Backend Auth & User Services",
       "norm_label": ".findbyadminusername()"
     },
     {
@@ -1009,7 +920,6 @@
       "_origin": "ast",
       "id": "backend_src_repositories_userrepository_userrepository_findbystudentid",
       "community": 1,
-      "community_name": "Backend Auth & User Services",
       "norm_label": ".findbystudentid()"
     },
     {
@@ -1020,7 +930,6 @@
       "_origin": "ast",
       "id": "backend_src_repositories_userrepository_userrepository_findbyid",
       "community": 1,
-      "community_name": "Backend Auth & User Services",
       "norm_label": ".findbyid()"
     },
     {
@@ -1031,7 +940,6 @@
       "_origin": "ast",
       "id": "backend_src_repositories_userrepository_userrepository_list",
       "community": 1,
-      "community_name": "Backend Auth & User Services",
       "norm_label": ".list()"
     },
     {
@@ -1042,7 +950,6 @@
       "_origin": "ast",
       "id": "backend_src_repositories_userrepository_userrepository_create",
       "community": 1,
-      "community_name": "Backend Auth & User Services",
       "norm_label": ".create()"
     },
     {
@@ -1053,7 +960,6 @@
       "_origin": "ast",
       "id": "backend_src_repositories_userrepository_userrepository_update",
       "community": 1,
-      "community_name": "Backend Auth & User Services",
       "norm_label": ".update()"
     },
     {
@@ -1064,7 +970,6 @@
       "_origin": "ast",
       "id": "backend_src_repositories_userrepository_userrepository_delete",
       "community": 1,
-      "community_name": "Backend Auth & User Services",
       "norm_label": ".delete()"
     },
     {
@@ -1075,7 +980,6 @@
       "_origin": "ast",
       "id": "backend_src_routes_authroutes",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "authroutes.ts"
     },
     {
@@ -1086,7 +990,6 @@
       "_origin": "ast",
       "id": "backend_src_routes_authroutes_authroutes",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "authroutes"
     },
     {
@@ -1097,7 +1000,6 @@
       "_origin": "ast",
       "id": "backend_src_routes_courseroutes",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "courseroutes.ts"
     },
     {
@@ -1108,7 +1010,6 @@
       "_origin": "ast",
       "id": "backend_src_routes_courseroutes_courseroutes",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "courseroutes"
     },
     {
@@ -1119,7 +1020,6 @@
       "_origin": "ast",
       "id": "backend_src_routes_index",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "index.ts"
     },
     {
@@ -1129,8 +1029,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "backend_src_routes_index_apirouter",
-      "community": 3,
-      "community_name": "Backend API Routes & Validation",
+      "community": 6,
       "norm_label": "apirouter"
     },
     {
@@ -1141,7 +1040,6 @@
       "_origin": "ast",
       "id": "backend_src_routes_questionsetroutes",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "questionsetroutes.ts"
     },
     {
@@ -1152,7 +1050,6 @@
       "_origin": "ast",
       "id": "backend_src_routes_questionsetroutes_questionsetroutes",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "questionsetroutes"
     },
     {
@@ -1163,7 +1060,6 @@
       "_origin": "ast",
       "id": "backend_src_routes_resultroutes",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "resultroutes.ts"
     },
     {
@@ -1174,7 +1070,6 @@
       "_origin": "ast",
       "id": "backend_src_routes_resultroutes_resultroutes",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "resultroutes"
     },
     {
@@ -1185,7 +1080,6 @@
       "_origin": "ast",
       "id": "backend_src_routes_uploadroutes",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "uploadroutes.ts"
     },
     {
@@ -1196,7 +1090,6 @@
       "_origin": "ast",
       "id": "backend_src_routes_uploadroutes_uploadroutes",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "uploadroutes"
     },
     {
@@ -1207,7 +1100,6 @@
       "_origin": "ast",
       "id": "backend_src_routes_userroutes",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "userroutes.ts"
     },
     {
@@ -1218,7 +1110,6 @@
       "_origin": "ast",
       "id": "backend_src_routes_userroutes_userroutes",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "userroutes"
     },
     {
@@ -1228,8 +1119,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_server",
-      "community": 3,
-      "community_name": "Backend API Routes & Validation",
+      "community": 6,
       "norm_label": "server.ts"
     },
     {
@@ -1239,8 +1129,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "backend_src_server_server",
-      "community": 3,
-      "community_name": "Backend API Routes & Validation",
+      "community": 6,
       "norm_label": "server"
     },
     {
@@ -1250,8 +1139,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "backend_src_server_shutdown",
-      "community": 3,
-      "community_name": "Backend API Routes & Validation",
+      "community": 6,
       "norm_label": "shutdown()"
     },
     {
@@ -1262,7 +1150,6 @@
       "_origin": "ast",
       "id": "backend_src_services_authservice",
       "community": 1,
-      "community_name": "Backend Auth & User Services",
       "norm_label": "authservice.ts"
     },
     {
@@ -1273,7 +1160,6 @@
       "_origin": "ast",
       "id": "backend_src_services_authservice_torole",
       "community": 1,
-      "community_name": "Backend Auth & User Services",
       "norm_label": "torole()"
     },
     {
@@ -1284,7 +1170,6 @@
       "_origin": "ast",
       "id": "backend_src_services_authservice_toapiuser",
       "community": 1,
-      "community_name": "Backend Auth & User Services",
       "norm_label": "toapiuser()"
     },
     {
@@ -1295,7 +1180,6 @@
       "_origin": "ast",
       "id": "backend_src_services_authservice_authservice",
       "community": 1,
-      "community_name": "Backend Auth & User Services",
       "norm_label": "authservice"
     },
     {
@@ -1306,7 +1190,6 @@
       "_origin": "ast",
       "id": "backend_src_services_authservice_authservice_constructor",
       "community": 1,
-      "community_name": "Backend Auth & User Services",
       "norm_label": ".constructor()"
     },
     {
@@ -1317,7 +1200,6 @@
       "_origin": "ast",
       "id": "backend_src_services_authservice_authservice_loginadmin",
       "community": 1,
-      "community_name": "Backend Auth & User Services",
       "norm_label": ".loginadmin()"
     },
     {
@@ -1328,7 +1210,6 @@
       "_origin": "ast",
       "id": "backend_src_services_authservice_authservice_loginstudent",
       "community": 1,
-      "community_name": "Backend Auth & User Services",
       "norm_label": ".loginstudent()"
     },
     {
@@ -1339,7 +1220,6 @@
       "_origin": "ast",
       "id": "backend_src_services_authservice_authservice_getcurrentuser",
       "community": 1,
-      "community_name": "Backend Auth & User Services",
       "norm_label": ".getcurrentuser()"
     },
     {
@@ -1349,8 +1229,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_services_courseservice",
-      "community": 6,
-      "community_name": "Backend Server Bootstrap",
+      "community": 1,
       "norm_label": "courseservice.ts"
     },
     {
@@ -1360,8 +1239,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "backend_src_services_courseservice_repository",
-      "community": 6,
-      "community_name": "Backend Server Bootstrap",
+      "community": 1,
       "norm_label": "repository"
     },
     {
@@ -1371,8 +1249,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "backend_src_services_courseservice_chapterpageresponse",
-      "community": 6,
-      "community_name": "Backend Server Bootstrap",
+      "community": 1,
       "norm_label": "chapterpageresponse"
     },
     {
@@ -1382,8 +1259,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "backend_src_services_courseservice_coursechapterresponse",
-      "community": 6,
-      "community_name": "Backend Server Bootstrap",
+      "community": 1,
       "norm_label": "coursechapterresponse"
     },
     {
@@ -1393,8 +1269,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "backend_src_services_courseservice_courseresponse",
-      "community": 6,
-      "community_name": "Backend Server Bootstrap",
+      "community": 1,
       "norm_label": "courseresponse"
     },
     {
@@ -1404,8 +1279,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "backend_src_services_courseservice_mappage",
-      "community": 6,
-      "community_name": "Backend Server Bootstrap",
+      "community": 1,
       "norm_label": "mappage()"
     },
     {
@@ -1415,8 +1289,7 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "backend_src_services_courseservice_mapchapter",
-      "community": 6,
-      "community_name": "Backend Server Bootstrap",
+      "community": 1,
       "norm_label": "mapchapter()"
     },
     {
@@ -1426,8 +1299,7 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "backend_src_services_courseservice_upsertpageinput",
-      "community": 6,
-      "community_name": "Backend Server Bootstrap",
+      "community": 1,
       "norm_label": "upsertpageinput"
     },
     {
@@ -1437,8 +1309,7 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "backend_src_services_courseservice_courseservice",
-      "community": 6,
-      "community_name": "Backend Server Bootstrap",
+      "community": 3,
       "norm_label": "courseservice"
     },
     {
@@ -1449,7 +1320,6 @@
       "_origin": "ast",
       "id": "backend_src_services_questionsetservice",
       "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
       "norm_label": "questionsetservice.ts"
     },
     {
@@ -1460,7 +1330,6 @@
       "_origin": "ast",
       "id": "backend_src_services_questionsetservice_mapquestiontype",
       "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
       "norm_label": "mapquestiontype()"
     },
     {
@@ -1471,7 +1340,6 @@
       "_origin": "ast",
       "id": "backend_src_services_questionsetservice_mapstatus",
       "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
       "norm_label": "mapstatus()"
     },
     {
@@ -1482,7 +1350,6 @@
       "_origin": "ast",
       "id": "backend_src_services_questionsetservice_mapquestionset",
       "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
       "norm_label": "mapquestionset()"
     },
     {
@@ -1493,7 +1360,6 @@
       "_origin": "ast",
       "id": "backend_src_services_questionsetservice_parsestatus",
       "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
       "norm_label": "parsestatus()"
     },
     {
@@ -1504,7 +1370,6 @@
       "_origin": "ast",
       "id": "backend_src_services_questionsetservice_parsetype",
       "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
       "norm_label": "parsetype()"
     },
     {
@@ -1515,7 +1380,6 @@
       "_origin": "ast",
       "id": "backend_src_services_questionsetservice_validateforpublish",
       "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
       "norm_label": "validateforpublish()"
     },
     {
@@ -1526,7 +1390,6 @@
       "_origin": "ast",
       "id": "backend_src_services_questionsetservice_upsertquestionsetinput",
       "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
       "norm_label": "upsertquestionsetinput"
     },
     {
@@ -1537,7 +1400,6 @@
       "_origin": "ast",
       "id": "backend_src_services_questionsetservice_questionsetservice",
       "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
       "norm_label": "questionsetservice"
     },
     {
@@ -1548,7 +1410,6 @@
       "_origin": "ast",
       "id": "backend_src_services_questionsetservice_questionsetservice_constructor",
       "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
       "norm_label": ".constructor()"
     },
     {
@@ -1559,7 +1420,6 @@
       "_origin": "ast",
       "id": "backend_src_services_questionsetservice_questionsetservice_listall",
       "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
       "norm_label": ".listall()"
     },
     {
@@ -1570,7 +1430,6 @@
       "_origin": "ast",
       "id": "backend_src_services_questionsetservice_questionsetservice_listpublished",
       "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
       "norm_label": ".listpublished()"
     },
     {
@@ -1581,7 +1440,6 @@
       "_origin": "ast",
       "id": "backend_src_services_questionsetservice_questionsetservice_getbyid",
       "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
       "norm_label": ".getbyid()"
     },
     {
@@ -1592,7 +1450,6 @@
       "_origin": "ast",
       "id": "backend_src_services_questionsetservice_questionsetservice_upsert",
       "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
       "norm_label": ".upsert()"
     },
     {
@@ -1603,7 +1460,6 @@
       "_origin": "ast",
       "id": "backend_src_services_questionsetservice_questionsetservice_setstatus",
       "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
       "norm_label": ".setstatus()"
     },
     {
@@ -1614,7 +1470,6 @@
       "_origin": "ast",
       "id": "backend_src_services_questionsetservice_questionsetservice_remove",
       "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
       "norm_label": ".remove()"
     },
     {
@@ -1625,7 +1480,6 @@
       "_origin": "ast",
       "id": "backend_src_services_resultservice",
       "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
       "norm_label": "resultservice.ts"
     },
     {
@@ -1636,7 +1490,6 @@
       "_origin": "ast",
       "id": "backend_src_services_resultservice_mapresult",
       "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
       "norm_label": "mapresult()"
     },
     {
@@ -1647,7 +1500,6 @@
       "_origin": "ast",
       "id": "backend_src_services_resultservice_gradequestion",
       "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
       "norm_label": "gradequestion()"
     },
     {
@@ -1658,7 +1510,6 @@
       "_origin": "ast",
       "id": "backend_src_services_resultservice_resultservice",
       "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
       "norm_label": "resultservice"
     },
     {
@@ -1669,7 +1520,6 @@
       "_origin": "ast",
       "id": "backend_src_services_resultservice_resultservice_constructor",
       "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
       "norm_label": ".constructor()"
     },
     {
@@ -1680,7 +1530,6 @@
       "_origin": "ast",
       "id": "backend_src_services_resultservice_resultservice_submit",
       "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
       "norm_label": ".submit()"
     },
     {
@@ -1691,7 +1540,6 @@
       "_origin": "ast",
       "id": "backend_src_services_resultservice_resultservice_listall",
       "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
       "norm_label": ".listall()"
     },
     {
@@ -1702,7 +1550,6 @@
       "_origin": "ast",
       "id": "backend_src_services_resultservice_resultservice_listbystudent",
       "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
       "norm_label": ".listbystudent()"
     },
     {
@@ -1713,7 +1560,6 @@
       "_origin": "ast",
       "id": "backend_src_services_userservice",
       "community": 1,
-      "community_name": "Backend Auth & User Services",
       "norm_label": "userservice.ts"
     },
     {
@@ -1724,7 +1570,6 @@
       "_origin": "ast",
       "id": "backend_src_services_userservice_torole",
       "community": 1,
-      "community_name": "Backend Auth & User Services",
       "norm_label": "torole()"
     },
     {
@@ -1735,7 +1580,6 @@
       "_origin": "ast",
       "id": "backend_src_services_userservice_touserdto",
       "community": 1,
-      "community_name": "Backend Auth & User Services",
       "norm_label": "touserdto()"
     },
     {
@@ -1746,7 +1590,6 @@
       "_origin": "ast",
       "id": "backend_src_services_userservice_createuserinput",
       "community": 1,
-      "community_name": "Backend Auth & User Services",
       "norm_label": "createuserinput"
     },
     {
@@ -1757,7 +1600,6 @@
       "_origin": "ast",
       "id": "backend_src_services_userservice_updateuserinput",
       "community": 1,
-      "community_name": "Backend Auth & User Services",
       "norm_label": "updateuserinput"
     },
     {
@@ -1768,7 +1610,6 @@
       "_origin": "ast",
       "id": "backend_src_services_userservice_userservice",
       "community": 1,
-      "community_name": "Backend Auth & User Services",
       "norm_label": "userservice"
     },
     {
@@ -1779,7 +1620,6 @@
       "_origin": "ast",
       "id": "backend_src_services_userservice_userservice_constructor",
       "community": 1,
-      "community_name": "Backend Auth & User Services",
       "norm_label": ".constructor()"
     },
     {
@@ -1790,7 +1630,6 @@
       "_origin": "ast",
       "id": "backend_src_services_userservice_userservice_list",
       "community": 1,
-      "community_name": "Backend Auth & User Services",
       "norm_label": ".list()"
     },
     {
@@ -1801,7 +1640,6 @@
       "_origin": "ast",
       "id": "backend_src_services_userservice_userservice_getbyid",
       "community": 1,
-      "community_name": "Backend Auth & User Services",
       "norm_label": ".getbyid()"
     },
     {
@@ -1812,7 +1650,6 @@
       "_origin": "ast",
       "id": "backend_src_services_userservice_userservice_create",
       "community": 1,
-      "community_name": "Backend Auth & User Services",
       "norm_label": ".create()"
     },
     {
@@ -1823,7 +1660,6 @@
       "_origin": "ast",
       "id": "backend_src_services_userservice_userservice_update",
       "community": 1,
-      "community_name": "Backend Auth & User Services",
       "norm_label": ".update()"
     },
     {
@@ -1834,7 +1670,6 @@
       "_origin": "ast",
       "id": "backend_src_services_userservice_userservice_remove",
       "community": 1,
-      "community_name": "Backend Auth & User Services",
       "norm_label": ".remove()"
     },
     {
@@ -1845,7 +1680,6 @@
       "_origin": "ast",
       "id": "backend_src_types_domain",
       "community": 1,
-      "community_name": "Backend Auth & User Services",
       "norm_label": "domain.ts"
     },
     {
@@ -1856,7 +1690,6 @@
       "_origin": "ast",
       "id": "backend_src_types_domain_userrole",
       "community": 1,
-      "community_name": "Backend Auth & User Services",
       "norm_label": "userrole"
     },
     {
@@ -1867,7 +1700,6 @@
       "_origin": "ast",
       "id": "backend_src_types_domain_questionsetstatus",
       "community": 1,
-      "community_name": "Backend Auth & User Services",
       "norm_label": "questionsetstatus"
     },
     {
@@ -1878,7 +1710,6 @@
       "_origin": "ast",
       "id": "backend_src_types_domain_questiontype",
       "community": 1,
-      "community_name": "Backend Auth & User Services",
       "norm_label": "questiontype"
     },
     {
@@ -1889,7 +1720,6 @@
       "_origin": "ast",
       "id": "backend_src_types_domain_apiuser",
       "community": 1,
-      "community_name": "Backend Auth & User Services",
       "norm_label": "apiuser"
     },
     {
@@ -1900,7 +1730,6 @@
       "_origin": "ast",
       "id": "backend_src_types_domain_userdto",
       "community": 1,
-      "community_name": "Backend Auth & User Services",
       "norm_label": "userdto"
     },
     {
@@ -1911,7 +1740,6 @@
       "_origin": "ast",
       "id": "backend_src_types_domain_choicedto",
       "community": 1,
-      "community_name": "Backend Auth & User Services",
       "norm_label": "choicedto"
     },
     {
@@ -1922,7 +1750,6 @@
       "_origin": "ast",
       "id": "backend_src_types_domain_questiondto",
       "community": 1,
-      "community_name": "Backend Auth & User Services",
       "norm_label": "questiondto"
     },
     {
@@ -1933,7 +1760,6 @@
       "_origin": "ast",
       "id": "backend_src_types_domain_questionsetdto",
       "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
       "norm_label": "questionsetdto"
     },
     {
@@ -1944,7 +1770,6 @@
       "_origin": "ast",
       "id": "backend_src_types_domain_studentanswerdto",
       "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
       "norm_label": "studentanswerdto"
     },
     {
@@ -1955,7 +1780,6 @@
       "_origin": "ast",
       "id": "backend_src_types_domain_questionscoredto",
       "community": 1,
-      "community_name": "Backend Auth & User Services",
       "norm_label": "questionscoredto"
     },
     {
@@ -1966,7 +1790,6 @@
       "_origin": "ast",
       "id": "backend_src_types_domain_quizresultdto",
       "community": 4,
-      "community_name": "Backend Quiz Grading & Results",
       "norm_label": "quizresultdto"
     },
     {
@@ -1977,7 +1800,6 @@
       "_origin": "ast",
       "id": "backend_src_types_express_session_d",
       "community": 13,
-      "community_name": "Express Session Type Augmentation",
       "norm_label": "express-session.d.ts"
     },
     {
@@ -1988,7 +1810,6 @@
       "_origin": "ast",
       "id": "backend_src_types_express_session_d_express_session",
       "community": 13,
-      "community_name": "Express Session Type Augmentation",
       "norm_label": "express-session"
     },
     {
@@ -1999,7 +1820,6 @@
       "_origin": "ast",
       "id": "backend_src_types_express_session_d_sessiondata",
       "community": 13,
-      "community_name": "Express Session Type Augmentation",
       "norm_label": "sessiondata"
     },
     {
@@ -2010,7 +1830,6 @@
       "_origin": "ast",
       "id": "backend_src_utils_apiresponse",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "apiresponse.ts"
     },
     {
@@ -2021,7 +1840,6 @@
       "_origin": "ast",
       "id": "backend_src_utils_apiresponse_apiresponse",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "apiresponse"
     },
     {
@@ -2032,7 +1850,6 @@
       "_origin": "ast",
       "id": "backend_src_utils_apiresponse_createapiresponse",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "createapiresponse()"
     },
     {
@@ -2042,8 +1859,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_utils_httperror",
-      "community": 6,
-      "community_name": "Backend Server Bootstrap",
+      "community": 1,
       "norm_label": "httperror.ts"
     },
     {
@@ -2053,8 +1869,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_utils_httperror_httperror",
-      "community": 6,
-      "community_name": "Backend Server Bootstrap",
+      "community": 1,
       "norm_label": "httperror"
     },
     {
@@ -2064,8 +1879,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "backend_src_utils_httperror_httperror_constructor",
-      "community": 6,
-      "community_name": "Backend Server Bootstrap",
+      "community": 1,
       "norm_label": ".constructor()"
     },
     {
@@ -2075,8 +1889,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_utils_logger",
-      "community": 3,
-      "community_name": "Backend API Routes & Validation",
+      "community": 6,
       "norm_label": "logger.ts"
     },
     {
@@ -2086,8 +1899,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_utils_logger_logger",
-      "community": 3,
-      "community_name": "Backend API Routes & Validation",
+      "community": 6,
       "norm_label": "logger"
     },
     {
@@ -2098,7 +1910,6 @@
       "_origin": "ast",
       "id": "backend_src_validation_authschemas",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "authschemas.ts"
     },
     {
@@ -2109,7 +1920,6 @@
       "_origin": "ast",
       "id": "backend_src_validation_authschemas_loginschema",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "loginschema"
     },
     {
@@ -2120,7 +1930,6 @@
       "_origin": "ast",
       "id": "backend_src_validation_courseschemas",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "courseschemas.ts"
     },
     {
@@ -2131,7 +1940,6 @@
       "_origin": "ast",
       "id": "backend_src_validation_courseschemas_slideshowconfigschema",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "slideshowconfigschema"
     },
     {
@@ -2142,7 +1950,6 @@
       "_origin": "ast",
       "id": "backend_src_validation_courseschemas_narrationconfigschema",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "narrationconfigschema"
     },
     {
@@ -2153,7 +1960,6 @@
       "_origin": "ast",
       "id": "backend_src_validation_courseschemas_contentblockschema",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "contentblockschema"
     },
     {
@@ -2164,7 +1970,6 @@
       "_origin": "ast",
       "id": "backend_src_validation_courseschemas_contentsectionconfigschema",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "contentsectionconfigschema"
     },
     {
@@ -2175,7 +1980,6 @@
       "_origin": "ast",
       "id": "backend_src_validation_courseschemas_interactivepracticeconfigschema",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "interactivepracticeconfigschema"
     },
     {
@@ -2186,7 +1990,6 @@
       "_origin": "ast",
       "id": "backend_src_validation_courseschemas_quizconfigschema",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "quizconfigschema"
     },
     {
@@ -2197,7 +2000,6 @@
       "_origin": "ast",
       "id": "backend_src_validation_courseschemas_upsertpageschema",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "upsertpageschema"
     },
     {
@@ -2208,7 +2010,6 @@
       "_origin": "ast",
       "id": "backend_src_validation_courseschemas_upsertchapterschema",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "upsertchapterschema"
     },
     {
@@ -2219,7 +2020,6 @@
       "_origin": "ast",
       "id": "backend_src_validation_courseschemas_chapteridparamschema",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "chapteridparamschema"
     },
     {
@@ -2230,7 +2030,6 @@
       "_origin": "ast",
       "id": "backend_src_validation_courseschemas_pageidparamschema",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "pageidparamschema"
     },
     {
@@ -2241,7 +2040,6 @@
       "_origin": "ast",
       "id": "backend_src_validation_courseschemas_reorderschema",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "reorderschema"
     },
     {
@@ -2252,7 +2050,6 @@
       "_origin": "ast",
       "id": "backend_src_validation_questionsetschemas",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "questionsetschemas.ts"
     },
     {
@@ -2263,7 +2060,6 @@
       "_origin": "ast",
       "id": "backend_src_validation_questionsetschemas_choiceschema",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "choiceschema"
     },
     {
@@ -2274,7 +2070,6 @@
       "_origin": "ast",
       "id": "backend_src_validation_questionsetschemas_questionschema",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "questionschema"
     },
     {
@@ -2285,7 +2080,6 @@
       "_origin": "ast",
       "id": "backend_src_validation_questionsetschemas_upsertquestionsetschema",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "upsertquestionsetschema"
     },
     {
@@ -2296,7 +2090,6 @@
       "_origin": "ast",
       "id": "backend_src_validation_questionsetschemas_questionsetidparamschema",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "questionsetidparamschema"
     },
     {
@@ -2307,7 +2100,6 @@
       "_origin": "ast",
       "id": "backend_src_validation_questionsetschemas_updatestatusschema",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "updatestatusschema"
     },
     {
@@ -2318,7 +2110,6 @@
       "_origin": "ast",
       "id": "backend_src_validation_resultschemas",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "resultschemas.ts"
     },
     {
@@ -2329,7 +2120,6 @@
       "_origin": "ast",
       "id": "backend_src_validation_resultschemas_answerschema",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "answerschema"
     },
     {
@@ -2340,7 +2130,6 @@
       "_origin": "ast",
       "id": "backend_src_validation_resultschemas_submitresultschema",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "submitresultschema"
     },
     {
@@ -2351,7 +2140,6 @@
       "_origin": "ast",
       "id": "backend_src_validation_userschemas",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "userschemas.ts"
     },
     {
@@ -2362,7 +2150,6 @@
       "_origin": "ast",
       "id": "backend_src_validation_userschemas_createuserschema",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "createuserschema"
     },
     {
@@ -2373,7 +2160,6 @@
       "_origin": "ast",
       "id": "backend_src_validation_userschemas_updateuserschema",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "updateuserschema"
     },
     {
@@ -2384,7 +2170,6 @@
       "_origin": "ast",
       "id": "backend_src_validation_userschemas_useridparamschema",
       "community": 3,
-      "community_name": "Backend API Routes & Validation",
       "norm_label": "useridparamschema"
     },
     {
@@ -2395,7 +2180,6 @@
       "_origin": "ast",
       "id": "frontend_src_app",
       "community": 7,
-      "community_name": "Frontend App Bootstrap & Auth Context",
       "norm_label": "app.tsx"
     },
     {
@@ -2406,7 +2190,6 @@
       "_origin": "ast",
       "id": "frontend_src_app_app",
       "community": 7,
-      "community_name": "Frontend App Bootstrap & Auth Context",
       "norm_label": "app()"
     },
     {
@@ -2417,7 +2200,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_admin_adminlayout",
       "community": 5,
-      "community_name": "Frontend Admin & User Management",
       "norm_label": "adminlayout.tsx"
     },
     {
@@ -2428,7 +2210,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_admin_adminlayout_nav_items",
       "community": 5,
-      "community_name": "Frontend Admin & User Management",
       "norm_label": "nav_items"
     },
     {
@@ -2439,7 +2220,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_admin_adminlayout_adminlayoutprops",
       "community": 5,
-      "community_name": "Frontend Admin & User Management",
       "norm_label": "adminlayoutprops"
     },
     {
@@ -2450,7 +2230,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_admin_adminlayout_adminlayout",
       "community": 5,
-      "community_name": "Frontend Admin & User Management",
       "norm_label": "adminlayout()"
     },
     {
@@ -2460,8 +2239,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_components_admin_confirmmodal",
-      "community": 5,
-      "community_name": "Frontend Admin & User Management",
+      "community": 2,
       "norm_label": "confirmmodal.tsx"
     },
     {
@@ -2471,8 +2249,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "frontend_src_components_admin_confirmmodal_confirmmodalprops",
-      "community": 5,
-      "community_name": "Frontend Admin & User Management",
+      "community": 2,
       "norm_label": "confirmmodalprops"
     },
     {
@@ -2482,8 +2259,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "frontend_src_components_admin_confirmmodal_confirmmodal",
-      "community": 5,
-      "community_name": "Frontend Admin & User Management",
+      "community": 2,
       "norm_label": "confirmmodal()"
     },
     {
@@ -2494,7 +2270,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_auth_roleguard",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "roleguard.tsx"
     },
     {
@@ -2504,8 +2279,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "frontend_src_components_auth_roleguard_roleguardprops",
-      "community": 5,
-      "community_name": "Frontend Admin & User Management",
+      "community": 0,
       "norm_label": "roleguardprops"
     },
     {
@@ -2516,7 +2290,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_auth_roleguard_roleguard",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "roleguard()"
     },
     {
@@ -2527,7 +2300,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_chapters_chapterflowrenderer",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "chapterflowrenderer.tsx"
     },
     {
@@ -2538,7 +2310,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_chapters_chapterflowrenderer_chapterflowrendererprops",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "chapterflowrendererprops"
     },
     {
@@ -2549,7 +2320,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_chapters_chapterflowrenderer_misconfiguredpage",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "misconfiguredpage()"
     },
     {
@@ -2560,7 +2330,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_chapters_chapterflowrenderer_getsectiontitle",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "getsectiontitle()"
     },
     {
@@ -2571,7 +2340,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_chapters_chapterflowrenderer_chapterflowrenderer",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "chapterflowrenderer()"
     },
     {
@@ -2581,8 +2349,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_components_chapters_chapterheader",
-      "community": 2,
-      "community_name": "Frontend Course Content Renderer",
+      "community": 0,
       "norm_label": "chapterheader.tsx"
     },
     {
@@ -2592,8 +2359,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "frontend_src_components_chapters_chapterheader_chapterheaderprops",
-      "community": 2,
-      "community_name": "Frontend Course Content Renderer",
+      "community": 0,
       "norm_label": "chapterheaderprops"
     },
     {
@@ -2604,7 +2370,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_chapters_chapterheader_chapterheader",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "chapterheader()"
     },
     {
@@ -2615,7 +2380,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_chapters_contentsectionpage",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "contentsectionpage.tsx"
     },
     {
@@ -2626,7 +2390,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_chapters_contentsectionpage_contentsectionpageprops",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "contentsectionpageprops"
     },
     {
@@ -2637,7 +2400,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_chapters_contentsectionpage_contentsectionpage",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "contentsectionpage()"
     },
     {
@@ -2648,7 +2410,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_chapters_interactivepracticepage",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "interactivepracticepage.tsx"
     },
     {
@@ -2659,7 +2420,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_chapters_interactivepracticepage_interactivepracticepageprops",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "interactivepracticepageprops"
     },
     {
@@ -2670,7 +2430,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_chapters_interactivepracticepage_interactivepracticepage",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "interactivepracticepage()"
     },
     {
@@ -2681,7 +2440,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_chapters_narrationpage",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "narrationpage.tsx"
     },
     {
@@ -2692,7 +2450,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_chapters_narrationpage_narrationpageprops",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "narrationpageprops"
     },
     {
@@ -2703,7 +2460,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_chapters_narrationpage_narrationpage",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "narrationpage()"
     },
     {
@@ -2714,7 +2470,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_chapters_quizpage",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "quizpage.tsx"
     },
     {
@@ -2724,8 +2479,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "frontend_src_components_chapters_quizpage_quizpageprops",
-      "community": 2,
-      "community_name": "Frontend Course Content Renderer",
+      "community": 0,
       "norm_label": "quizpageprops"
     },
     {
@@ -2735,8 +2489,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "frontend_src_components_chapters_quizpage_quizpage",
-      "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
+      "community": 2,
       "norm_label": "quizpage()"
     },
     {
@@ -2747,7 +2500,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_chapters_slideshowpage",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "slideshowpage.tsx"
     },
     {
@@ -2758,7 +2510,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_chapters_slideshowpage_slideshowpageprops",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "slideshowpageprops"
     },
     {
@@ -2769,7 +2520,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_chapters_slideshowpage_slideshowpage",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "slideshowpage()"
     },
     {
@@ -2780,7 +2530,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_common_appshell",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "appshell.tsx"
     },
     {
@@ -2791,7 +2540,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_common_appshell_appshellprops",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "appshellprops"
     },
     {
@@ -2802,7 +2550,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_common_appshell_appshell",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "appshell()"
     },
     {
@@ -2813,7 +2560,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_common_splashscreen",
       "community": 7,
-      "community_name": "Frontend App Bootstrap & Auth Context",
       "norm_label": "splashscreen.tsx"
     },
     {
@@ -2824,7 +2570,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_common_splashscreen_splashscreenprops",
       "community": 7,
-      "community_name": "Frontend App Bootstrap & Auth Context",
       "norm_label": "splashscreenprops"
     },
     {
@@ -2835,7 +2580,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_common_splashscreen_splashscreen",
       "community": 7,
-      "community_name": "Frontend App Bootstrap & Auth Context",
       "norm_label": "splashscreen()"
     },
     {
@@ -2846,7 +2590,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_common_typinganimation",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "typinganimation.tsx"
     },
     {
@@ -2857,7 +2600,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_common_typinganimation_typinganimationprops",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "typinganimationprops"
     },
     {
@@ -2868,7 +2610,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_common_typinganimation_typinganimation",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "typinganimation()"
     },
     {
@@ -2879,7 +2620,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_questions_questioninput",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "questioninput.tsx"
     },
     {
@@ -2890,7 +2630,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_questions_questioninput_questioninputprops",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "questioninputprops"
     },
     {
@@ -2901,7 +2640,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_questions_questioninput_questioninput",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "questioninput()"
     },
     {
@@ -2912,7 +2650,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_questions_questionseteditor",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "questionseteditor.tsx"
     },
     {
@@ -2923,7 +2660,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_questions_questionseteditor_questionseteditorprops",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "questionseteditorprops"
     },
     {
@@ -2934,7 +2670,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_questions_questionseteditor_questionseteditor",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "questionseteditor()"
     },
     {
@@ -2945,7 +2680,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_student_plcsimulator",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "plcsimulator.tsx"
     },
     {
@@ -2956,7 +2690,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_student_plcsimulator_plcsimulator",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "plcsimulator()"
     },
     {
@@ -2967,7 +2700,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_student_studentmenu",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "studentmenu.tsx"
     },
     {
@@ -2978,7 +2710,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_student_studentmenu_studentmenu",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "studentmenu()"
     },
     {
@@ -2989,7 +2720,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_students_studentform",
       "community": 5,
-      "community_name": "Frontend Admin & User Management",
       "norm_label": "studentform.tsx"
     },
     {
@@ -3000,7 +2730,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_students_studentform_studentformvalue",
       "community": 5,
-      "community_name": "Frontend Admin & User Management",
       "norm_label": "studentformvalue"
     },
     {
@@ -3011,7 +2740,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_students_studentform_studentformprops",
       "community": 5,
-      "community_name": "Frontend Admin & User Management",
       "norm_label": "studentformprops"
     },
     {
@@ -3022,7 +2750,6 @@
       "_origin": "ast",
       "id": "frontend_src_components_students_studentform_studentform",
       "community": 5,
-      "community_name": "Frontend Admin & User Management",
       "norm_label": "studentform()"
     },
     {
@@ -3033,7 +2760,6 @@
       "_origin": "ast",
       "id": "frontend_src_context_authcontext",
       "community": 7,
-      "community_name": "Frontend App Bootstrap & Auth Context",
       "norm_label": "authcontext.tsx"
     },
     {
@@ -3044,7 +2770,6 @@
       "_origin": "ast",
       "id": "frontend_src_context_authcontext_authcontextvalue",
       "community": 7,
-      "community_name": "Frontend App Bootstrap & Auth Context",
       "norm_label": "authcontextvalue"
     },
     {
@@ -3055,7 +2780,6 @@
       "_origin": "ast",
       "id": "frontend_src_context_authcontext_authcontext",
       "community": 7,
-      "community_name": "Frontend App Bootstrap & Auth Context",
       "norm_label": "authcontext"
     },
     {
@@ -3066,7 +2790,6 @@
       "_origin": "ast",
       "id": "frontend_src_context_authcontext_authproviderprops",
       "community": 7,
-      "community_name": "Frontend App Bootstrap & Auth Context",
       "norm_label": "authproviderprops"
     },
     {
@@ -3077,7 +2800,6 @@
       "_origin": "ast",
       "id": "frontend_src_context_authcontext_authprovider",
       "community": 7,
-      "community_name": "Frontend App Bootstrap & Auth Context",
       "norm_label": "authprovider()"
     },
     {
@@ -3088,7 +2810,6 @@
       "_origin": "ast",
       "id": "frontend_src_context_authcontext_useauthcontext",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "useauthcontext()"
     },
     {
@@ -3099,7 +2820,6 @@
       "_origin": "ast",
       "id": "frontend_src_data_course",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "course.ts"
     },
     {
@@ -3110,7 +2830,6 @@
       "_origin": "ast",
       "id": "frontend_src_data_course_getcourse",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "getcourse()"
     },
     {
@@ -3121,7 +2840,6 @@
       "_origin": "ast",
       "id": "frontend_src_data_course_invalidatecoursecache",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "invalidatecoursecache()"
     },
     {
@@ -3132,7 +2850,6 @@
       "_origin": "ast",
       "id": "frontend_src_data_course_getchapterbyid",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "getchapterbyid()"
     },
     {
@@ -3143,7 +2860,6 @@
       "_origin": "ast",
       "id": "frontend_src_hooks_useauth",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "useauth.ts"
     },
     {
@@ -3154,7 +2870,6 @@
       "_origin": "ast",
       "id": "frontend_src_hooks_useauth_useauth",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "useauth()"
     },
     {
@@ -3165,7 +2880,6 @@
       "_origin": "ast",
       "id": "frontend_src_main",
       "community": 7,
-      "community_name": "Frontend App Bootstrap & Auth Context",
       "norm_label": "main.tsx"
     },
     {
@@ -3176,7 +2890,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminchaptereditorpage",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "adminchaptereditorpage.tsx"
     },
     {
@@ -3187,7 +2900,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminchaptereditorpage_page_type_labels",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "page_type_labels"
     },
     {
@@ -3198,7 +2910,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminchaptereditorpage_defaultconfigfor",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "defaultconfigfor()"
     },
     {
@@ -3209,7 +2920,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminchaptereditorpage_stringlisteditor",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "stringlisteditor()"
     },
     {
@@ -3220,7 +2930,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminchaptereditorpage_slideshowform",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "slideshowform()"
     },
     {
@@ -3231,7 +2940,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminchaptereditorpage_narrationform",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "narrationform()"
     },
     {
@@ -3242,7 +2950,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminchaptereditorpage_contentblocklisteditor",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "contentblocklisteditor()"
     },
     {
@@ -3253,7 +2960,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminchaptereditorpage_contentsectionform",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "contentsectionform()"
     },
     {
@@ -3264,7 +2970,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminchaptereditorpage_quizform",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "quizform()"
     },
     {
@@ -3275,7 +2980,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminchaptereditorpage_pageconfigform",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "pageconfigform()"
     },
     {
@@ -3286,7 +2990,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminchaptereditorpage_adminchaptereditorpage",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "adminchaptereditorpage()"
     },
     {
@@ -3296,8 +2999,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_pages_admin_admincoursecontentpage",
-      "community": 5,
-      "community_name": "Frontend Admin & User Management",
+      "community": 2,
       "norm_label": "admincoursecontentpage.tsx"
     },
     {
@@ -3308,7 +3010,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_admincoursecontentpage_admincoursecontentpage",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "admincoursecontentpage()"
     },
     {
@@ -3319,7 +3020,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_admindashboardpage",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "admindashboardpage.tsx"
     },
     {
@@ -3330,7 +3030,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_admindashboardpage_admindashboardpage",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "admindashboardpage()"
     },
     {
@@ -3341,7 +3040,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminquestionsetcreatepage",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "adminquestionsetcreatepage.tsx"
     },
     {
@@ -3352,7 +3050,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminquestionsetcreatepage_initialquestionset",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "initialquestionset"
     },
     {
@@ -3363,7 +3060,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminquestionsetcreatepage_adminquestionsetcreatepage",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "adminquestionsetcreatepage()"
     },
     {
@@ -3374,7 +3070,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminquestionseteditpage",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "adminquestionseteditpage.tsx"
     },
     {
@@ -3385,7 +3080,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminquestionseteditpage_adminquestionseteditpage",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "adminquestionseteditpage()"
     },
     {
@@ -3395,8 +3089,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminquestionsetspage",
-      "community": 5,
-      "community_name": "Frontend Admin & User Management",
+      "community": 0,
       "norm_label": "adminquestionsetspage.tsx"
     },
     {
@@ -3406,8 +3099,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminquestionsetspage_adminquestionsetspage",
-      "community": 5,
-      "community_name": "Frontend Admin & User Management",
+      "community": 0,
       "norm_label": "adminquestionsetspage()"
     },
     {
@@ -3418,7 +3110,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminresultspage",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "adminresultspage.tsx"
     },
     {
@@ -3429,7 +3120,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminresultspage_adminresultspage",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "adminresultspage()"
     },
     {
@@ -3440,7 +3130,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminstudentcreatepage",
       "community": 5,
-      "community_name": "Frontend Admin & User Management",
       "norm_label": "adminstudentcreatepage.tsx"
     },
     {
@@ -3450,8 +3139,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminstudentcreatepage_adminstudentcreatepage",
-      "community": 5,
-      "community_name": "Frontend Admin & User Management",
+      "community": 0,
       "norm_label": "adminstudentcreatepage()"
     },
     {
@@ -3462,7 +3150,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminstudenteditpage",
       "community": 5,
-      "community_name": "Frontend Admin & User Management",
       "norm_label": "adminstudenteditpage.tsx"
     },
     {
@@ -3472,8 +3159,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminstudenteditpage_adminstudenteditpage",
-      "community": 5,
-      "community_name": "Frontend Admin & User Management",
+      "community": 0,
       "norm_label": "adminstudenteditpage()"
     },
     {
@@ -3484,7 +3170,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminstudentspage",
       "community": 5,
-      "community_name": "Frontend Admin & User Management",
       "norm_label": "adminstudentspage.tsx"
     },
     {
@@ -3494,8 +3179,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "frontend_src_pages_admin_adminstudentspage_adminstudentspage",
-      "community": 5,
-      "community_name": "Frontend Admin & User Management",
+      "community": 0,
       "norm_label": "adminstudentspage()"
     },
     {
@@ -3506,7 +3190,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_auth_loginpage",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "loginpage.tsx"
     },
     {
@@ -3517,7 +3200,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_auth_loginpage_loginmode",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "loginmode"
     },
     {
@@ -3528,7 +3210,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_auth_loginpage_loginpage",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "loginpage()"
     },
     {
@@ -3539,7 +3220,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_student_chapterspage",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "chapterspage.tsx"
     },
     {
@@ -3550,7 +3230,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_student_chapterspage_chapterspage",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "chapterspage()"
     },
     {
@@ -3561,7 +3240,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_student_dynamicchapterpage",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "dynamicchapterpage.tsx"
     },
     {
@@ -3572,7 +3250,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_student_dynamicchapterpage_dynamicchapterpage",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "dynamicchapterpage()"
     },
     {
@@ -3583,7 +3260,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_student_plcchapterselectpage",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "plcchapterselectpage.tsx"
     },
     {
@@ -3594,7 +3270,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_student_plcchapterselectpage_plcchapterselectpage",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "plcchapterselectpage()"
     },
     {
@@ -3605,7 +3280,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_student_plcfundamentalspage",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "plcfundamentalspage.tsx"
     },
     {
@@ -3616,7 +3290,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_student_plcfundamentalspage_plcfundamentalspage",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "plcfundamentalspage()"
     },
     {
@@ -3627,7 +3300,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_student_plcintropage",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "plcintropage.tsx"
     },
     {
@@ -3638,7 +3310,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_student_plcintropage_plcintropage",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "plcintropage()"
     },
     {
@@ -3649,7 +3320,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_student_plcwelcomepage",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "plcwelcomepage.tsx"
     },
     {
@@ -3660,7 +3330,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_student_plcwelcomepage_plcwelcomepage",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "plcwelcomepage()"
     },
     {
@@ -3671,7 +3340,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_student_studentcharacterspage",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "studentcharacterspage.tsx"
     },
     {
@@ -3682,7 +3350,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_student_studentcharacterspage_studentcharacterspage",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "studentcharacterspage()"
     },
     {
@@ -3693,7 +3360,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_student_studentquestionsetspage",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "studentquestionsetspage.tsx"
     },
     {
@@ -3704,7 +3370,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_student_studentquestionsetspage_studentquestionsetspage",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "studentquestionsetspage()"
     },
     {
@@ -3715,7 +3380,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_student_studentquizcompletionpage",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "studentquizcompletionpage.tsx"
     },
     {
@@ -3726,7 +3390,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_student_studentquizcompletionpage_studentquizcompletionpage",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "studentquizcompletionpage()"
     },
     {
@@ -3737,7 +3400,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_student_studentresultpage",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "studentresultpage.tsx"
     },
     {
@@ -3748,7 +3410,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_student_studentresultpage_scoreband",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "scoreband"
     },
     {
@@ -3759,7 +3420,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_student_studentresultpage_getpercentage",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "getpercentage()"
     },
     {
@@ -3770,7 +3430,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_student_studentresultpage_getscoreband",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "getscoreband()"
     },
     {
@@ -3781,7 +3440,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_student_studentresultpage_band_message",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "band_message"
     },
     {
@@ -3792,7 +3450,6 @@
       "_origin": "ast",
       "id": "frontend_src_pages_student_studentresultpage_studentresultpage",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "studentresultpage()"
     },
     {
@@ -3803,7 +3460,6 @@
       "_origin": "ast",
       "id": "frontend_src_routes_approutes",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "approutes.tsx"
     },
     {
@@ -3814,7 +3470,6 @@
       "_origin": "ast",
       "id": "frontend_src_routes_approutes_approutes",
       "community": 7,
-      "community_name": "Frontend App Bootstrap & Auth Context",
       "norm_label": "approutes()"
     },
     {
@@ -3824,8 +3479,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_services_apiclient",
-      "community": 7,
-      "community_name": "Frontend App Bootstrap & Auth Context",
+      "community": 5,
       "norm_label": "apiclient.ts"
     },
     {
@@ -3835,8 +3489,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_services_apiclient_apienvelope",
-      "community": 7,
-      "community_name": "Frontend App Bootstrap & Auth Context",
+      "community": 5,
       "norm_label": "apienvelope"
     },
     {
@@ -3846,8 +3499,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "frontend_src_services_apiclient_request",
-      "community": 7,
-      "community_name": "Frontend App Bootstrap & Auth Context",
+      "community": 5,
       "norm_label": "request()"
     },
     {
@@ -3857,8 +3509,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "frontend_src_services_apiclient_apiclient",
-      "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
+      "community": 5,
       "norm_label": "apiclient"
     },
     {
@@ -3869,7 +3520,6 @@
       "_origin": "ast",
       "id": "frontend_src_services_authservice",
       "community": 7,
-      "community_name": "Frontend App Bootstrap & Auth Context",
       "norm_label": "authservice.ts"
     },
     {
@@ -3880,7 +3530,6 @@
       "_origin": "ast",
       "id": "frontend_src_services_authservice_setcurrentuser",
       "community": 7,
-      "community_name": "Frontend App Bootstrap & Auth Context",
       "norm_label": "setcurrentuser()"
     },
     {
@@ -3891,7 +3540,6 @@
       "_origin": "ast",
       "id": "frontend_src_services_authservice_authservice",
       "community": 7,
-      "community_name": "Frontend App Bootstrap & Auth Context",
       "norm_label": "authservice"
     },
     {
@@ -3902,7 +3550,6 @@
       "_origin": "ast",
       "id": "frontend_src_services_courseapiservice",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "courseapiservice.ts"
     },
     {
@@ -3913,7 +3560,6 @@
       "_origin": "ast",
       "id": "frontend_src_services_courseapiservice_upsertpagepayload",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "upsertpagepayload"
     },
     {
@@ -3924,7 +3570,6 @@
       "_origin": "ast",
       "id": "frontend_src_services_courseapiservice_courseapiservice",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "courseapiservice"
     },
     {
@@ -3935,7 +3580,6 @@
       "_origin": "ast",
       "id": "frontend_src_services_questionsetservice",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "questionsetservice.ts"
     },
     {
@@ -3946,7 +3590,6 @@
       "_origin": "ast",
       "id": "frontend_src_services_questionsetservice_questionsetservice",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "questionsetservice"
     },
     {
@@ -3957,7 +3600,6 @@
       "_origin": "ast",
       "id": "frontend_src_services_resultservice",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "resultservice.ts"
     },
     {
@@ -3968,7 +3610,6 @@
       "_origin": "ast",
       "id": "frontend_src_services_resultservice_resultservice",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "resultservice"
     },
     {
@@ -3979,7 +3620,6 @@
       "_origin": "ast",
       "id": "frontend_src_services_storage",
       "community": 8,
-      "community_name": "Frontend Local Storage Service",
       "norm_label": "storage.ts"
     },
     {
@@ -3990,7 +3630,6 @@
       "_origin": "ast",
       "id": "frontend_src_services_storage_storage_keys",
       "community": 8,
-      "community_name": "Frontend Local Storage Service",
       "norm_label": "storage_keys"
     },
     {
@@ -4001,7 +3640,6 @@
       "_origin": "ast",
       "id": "frontend_src_services_storage_loadfromstorage",
       "community": 8,
-      "community_name": "Frontend Local Storage Service",
       "norm_label": "loadfromstorage()"
     },
     {
@@ -4012,7 +3650,6 @@
       "_origin": "ast",
       "id": "frontend_src_services_storage_savetostorage",
       "community": 8,
-      "community_name": "Frontend Local Storage Service",
       "norm_label": "savetostorage()"
     },
     {
@@ -4023,7 +3660,6 @@
       "_origin": "ast",
       "id": "frontend_src_services_storage_getstudents",
       "community": 8,
-      "community_name": "Frontend Local Storage Service",
       "norm_label": "getstudents()"
     },
     {
@@ -4034,7 +3670,6 @@
       "_origin": "ast",
       "id": "frontend_src_services_storage_setstudents",
       "community": 8,
-      "community_name": "Frontend Local Storage Service",
       "norm_label": "setstudents()"
     },
     {
@@ -4045,7 +3680,6 @@
       "_origin": "ast",
       "id": "frontend_src_services_storage_getadmins",
       "community": 8,
-      "community_name": "Frontend Local Storage Service",
       "norm_label": "getadmins()"
     },
     {
@@ -4056,7 +3690,6 @@
       "_origin": "ast",
       "id": "frontend_src_services_storage_setadmins",
       "community": 8,
-      "community_name": "Frontend Local Storage Service",
       "norm_label": "setadmins()"
     },
     {
@@ -4067,7 +3700,6 @@
       "_origin": "ast",
       "id": "frontend_src_services_storage_getquestionsets",
       "community": 8,
-      "community_name": "Frontend Local Storage Service",
       "norm_label": "getquestionsets()"
     },
     {
@@ -4078,7 +3710,6 @@
       "_origin": "ast",
       "id": "frontend_src_services_storage_setquestionsets",
       "community": 8,
-      "community_name": "Frontend Local Storage Service",
       "norm_label": "setquestionsets()"
     },
     {
@@ -4089,7 +3720,6 @@
       "_origin": "ast",
       "id": "frontend_src_services_storage_getresults",
       "community": 8,
-      "community_name": "Frontend Local Storage Service",
       "norm_label": "getresults()"
     },
     {
@@ -4100,7 +3730,6 @@
       "_origin": "ast",
       "id": "frontend_src_services_storage_setresults",
       "community": 8,
-      "community_name": "Frontend Local Storage Service",
       "norm_label": "setresults()"
     },
     {
@@ -4110,8 +3739,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_services_uploadservice",
-      "community": 2,
-      "community_name": "Frontend Course Content Renderer",
+      "community": 5,
       "norm_label": "uploadservice.ts"
     },
     {
@@ -4121,8 +3749,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "frontend_src_services_uploadservice_uploadservice",
-      "community": 2,
-      "community_name": "Frontend Course Content Renderer",
+      "community": 5,
       "norm_label": "uploadservice"
     },
     {
@@ -4133,7 +3760,6 @@
       "_origin": "ast",
       "id": "frontend_src_services_userservice",
       "community": 5,
-      "community_name": "Frontend Admin & User Management",
       "norm_label": "userservice.ts"
     },
     {
@@ -4144,7 +3770,6 @@
       "_origin": "ast",
       "id": "frontend_src_services_userservice_userservice",
       "community": 5,
-      "community_name": "Frontend Admin & User Management",
       "norm_label": "userservice"
     },
     {
@@ -4155,7 +3780,6 @@
       "_origin": "ast",
       "id": "frontend_src_types_course",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "course.ts"
     },
     {
@@ -4166,7 +3790,6 @@
       "_origin": "ast",
       "id": "frontend_src_types_course_chapterpagetype",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "chapterpagetype"
     },
     {
@@ -4177,7 +3800,6 @@
       "_origin": "ast",
       "id": "frontend_src_types_course_slideshowpageconfig",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "slideshowpageconfig"
     },
     {
@@ -4188,7 +3810,6 @@
       "_origin": "ast",
       "id": "frontend_src_types_course_narrationpageconfig",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "narrationpageconfig"
     },
     {
@@ -4199,7 +3820,6 @@
       "_origin": "ast",
       "id": "frontend_src_types_course_contentblock",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "contentblock"
     },
     {
@@ -4210,7 +3830,6 @@
       "_origin": "ast",
       "id": "frontend_src_types_course_contentsectionpageconfig",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "contentsectionpageconfig"
     },
     {
@@ -4221,7 +3840,6 @@
       "_origin": "ast",
       "id": "frontend_src_types_course_interactivepracticepageconfig",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "interactivepracticepageconfig"
     },
     {
@@ -4231,8 +3849,7 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "frontend_src_types_course_quizpageconfig",
-      "community": 2,
-      "community_name": "Frontend Course Content Renderer",
+      "community": 0,
       "norm_label": "quizpageconfig"
     },
     {
@@ -4243,7 +3860,6 @@
       "_origin": "ast",
       "id": "frontend_src_types_course_chapterpageconfig",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "chapterpageconfig"
     },
     {
@@ -4254,7 +3870,6 @@
       "_origin": "ast",
       "id": "frontend_src_types_course_chapterpage",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "chapterpage"
     },
     {
@@ -4265,7 +3880,6 @@
       "_origin": "ast",
       "id": "frontend_src_types_course_coursechapter",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "coursechapter"
     },
     {
@@ -4276,7 +3890,6 @@
       "_origin": "ast",
       "id": "frontend_src_types_course_course",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "course"
     },
     {
@@ -4287,7 +3900,6 @@
       "_origin": "ast",
       "id": "frontend_src_types_quiz",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "quiz.ts"
     },
     {
@@ -4298,7 +3910,6 @@
       "_origin": "ast",
       "id": "frontend_src_types_quiz_userrole",
       "community": 5,
-      "community_name": "Frontend Admin & User Management",
       "norm_label": "userrole"
     },
     {
@@ -4309,7 +3920,6 @@
       "_origin": "ast",
       "id": "frontend_src_types_quiz_questionsetstatus",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "questionsetstatus"
     },
     {
@@ -4320,7 +3930,6 @@
       "_origin": "ast",
       "id": "frontend_src_types_quiz_questiontype",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "questiontype"
     },
     {
@@ -4331,7 +3940,6 @@
       "_origin": "ast",
       "id": "frontend_src_types_quiz_choice",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "choice"
     },
     {
@@ -4342,7 +3950,6 @@
       "_origin": "ast",
       "id": "frontend_src_types_quiz_question",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "question"
     },
     {
@@ -4353,7 +3960,6 @@
       "_origin": "ast",
       "id": "frontend_src_types_quiz_questionset",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "questionset"
     },
     {
@@ -4364,7 +3970,6 @@
       "_origin": "ast",
       "id": "frontend_src_types_quiz_studentaccount",
       "community": 8,
-      "community_name": "Frontend Local Storage Service",
       "norm_label": "studentaccount"
     },
     {
@@ -4375,7 +3980,6 @@
       "_origin": "ast",
       "id": "frontend_src_types_quiz_adminaccount",
       "community": 8,
-      "community_name": "Frontend Local Storage Service",
       "norm_label": "adminaccount"
     },
     {
@@ -4386,7 +3990,6 @@
       "_origin": "ast",
       "id": "frontend_src_types_quiz_authuser",
       "community": 7,
-      "community_name": "Frontend App Bootstrap & Auth Context",
       "norm_label": "authuser"
     },
     {
@@ -4397,7 +4000,6 @@
       "_origin": "ast",
       "id": "frontend_src_types_quiz_studentanswer",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "studentanswer"
     },
     {
@@ -4408,7 +4010,6 @@
       "_origin": "ast",
       "id": "frontend_src_types_quiz_questionscore",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "questionscore"
     },
     {
@@ -4419,7 +4020,6 @@
       "_origin": "ast",
       "id": "frontend_src_types_quiz_quizresult",
       "community": 0,
-      "community_name": "Frontend Quiz & Student Pages",
       "norm_label": "quizresult"
     },
     {
@@ -4430,7 +4030,6 @@
       "_origin": "ast",
       "id": "frontend_src_types_user",
       "community": 5,
-      "community_name": "Frontend Admin & User Management",
       "norm_label": "user.ts"
     },
     {
@@ -4441,7 +4040,6 @@
       "_origin": "ast",
       "id": "frontend_src_types_user_manageduser",
       "community": 5,
-      "community_name": "Frontend Admin & User Management",
       "norm_label": "manageduser"
     },
     {
@@ -4452,7 +4050,6 @@
       "_origin": "ast",
       "id": "frontend_src_types_user_createuserpayload",
       "community": 5,
-      "community_name": "Frontend Admin & User Management",
       "norm_label": "createuserpayload"
     },
     {
@@ -4463,7 +4060,6 @@
       "_origin": "ast",
       "id": "frontend_src_types_user_updateuserpayload",
       "community": 5,
-      "community_name": "Frontend Admin & User Management",
       "norm_label": "updateuserpayload"
     },
     {
@@ -4474,7 +4070,6 @@
       "_origin": "ast",
       "id": "frontend_src_utils_assets",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "assets.ts"
     },
     {
@@ -4485,7 +4080,6 @@
       "_origin": "ast",
       "id": "frontend_src_utils_assets_resolveassetsrc",
       "community": 2,
-      "community_name": "Frontend Course Content Renderer",
       "norm_label": "resolveassetsrc()"
     },
     {
@@ -4496,7 +4090,6 @@
       "_origin": "ast",
       "id": "frontend_src_utils_id",
       "community": 14,
-      "community_name": "Frontend ID Generator Util",
       "norm_label": "id.ts"
     },
     {
@@ -4507,7 +4100,6 @@
       "_origin": "ast",
       "id": "frontend_src_utils_id_createid",
       "community": 14,
-      "community_name": "Frontend ID Generator Util",
       "norm_label": "createid()"
     },
     {
@@ -4517,8 +4109,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "frontend_src_utils_validation",
-      "community": 25,
-      "community_name": "validation.ts",
+      "community": 0,
       "norm_label": "validation.ts"
     },
     {
@@ -4528,8 +4119,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "frontend_src_utils_validation_validationresult",
-      "community": 25,
-      "community_name": "validation.ts",
+      "community": 0,
       "norm_label": "validationresult"
     },
     {
@@ -4539,8 +4129,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "frontend_src_utils_validation_validaterequiredtext",
-      "community": 25,
-      "community_name": "validation.ts",
+      "community": 0,
       "norm_label": "validaterequiredtext()"
     },
     {
@@ -4550,8 +4139,7 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "frontend_src_utils_validation_validatequestion",
-      "community": 25,
-      "community_name": "validation.ts",
+      "community": 0,
       "norm_label": "validatequestion()"
     },
     {
@@ -4561,8 +4149,7 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "frontend_src_utils_validation_validatequestionsetforpublish",
-      "community": 25,
-      "community_name": "validation.ts",
+      "community": 0,
       "norm_label": "validatequestionsetforpublish()"
     },
     {
@@ -4572,8 +4159,7 @@
       "source_location": "L62",
       "_origin": "ast",
       "id": "frontend_src_utils_validation_validatestudentanswers",
-      "community": 25,
-      "community_name": "validation.ts",
+      "community": 0,
       "norm_label": "validatestudentanswers()"
     },
     {
@@ -4584,7 +4170,6 @@
       "_origin": "ast",
       "id": "shared_types_api",
       "community": 15,
-      "community_name": "Shared API Envelope Type",
       "norm_label": "api.ts"
     },
     {
@@ -4595,30 +4180,7 @@
       "_origin": "ast",
       "id": "shared_types_api_apienvelope",
       "community": 15,
-      "community_name": "Shared API Envelope Type",
       "norm_label": "apienvelope"
-    },
-    {
-      "label": "README.md",
-      "file_type": "document",
-      "source_file": "backend/src/modules/README.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "backend_src_modules_readme",
-      "community": 26,
-      "community_name": "README.md",
-      "norm_label": "readme.md"
-    },
-    {
-      "label": "Backend Modules",
-      "file_type": "document",
-      "source_file": "backend/src/modules/README.md",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "backend_src_modules_readme_backend_modules",
-      "community": 26,
-      "community_name": "README.md",
-      "norm_label": "backend modules"
     },
     {
       "label": "Backend Modules (future extension placeholders)",
@@ -4629,10 +4191,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
-      "norm_label": "backend modules (future extension placeholders)",
       "id": "backend_src_modules_readme_backendmodules",
-      "community_name": "Backend Modules Placeholder Docs"
+      "community": 9,
+      "norm_label": "backend modules (future extension placeholders)"
     },
     {
       "label": "auth/ module (login/session workflows)",
@@ -4643,10 +4204,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
-      "norm_label": "auth/ module (login/session workflows)",
       "id": "backend_src_modules_readme_authmodule",
-      "community_name": "Backend Modules Placeholder Docs"
+      "community": 9,
+      "norm_label": "auth/ module (login/session workflows)"
     },
     {
       "label": "users/ module (user lifecycle and profile features)",
@@ -4657,10 +4217,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
-      "norm_label": "users/ module (user lifecycle and profile features)",
       "id": "backend_src_modules_readme_usersmodule",
-      "community_name": "Backend Modules Placeholder Docs"
+      "community": 9,
+      "norm_label": "users/ module (user lifecycle and profile features)"
     },
     {
       "label": "questionSets/ module (quiz set management)",
@@ -4671,10 +4230,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
-      "norm_label": "questionsets/ module (quiz set management)",
       "id": "backend_src_modules_readme_questionsetsmodule",
-      "community_name": "Backend Modules Placeholder Docs"
+      "community": 9,
+      "norm_label": "questionsets/ module (quiz set management)"
     },
     {
       "label": "questions/ module (question-level operations)",
@@ -4685,10 +4243,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
-      "norm_label": "questions/ module (question-level operations)",
       "id": "backend_src_modules_readme_questionsmodule",
-      "community_name": "Backend Modules Placeholder Docs"
+      "community": 9,
+      "norm_label": "questions/ module (question-level operations)"
     },
     {
       "label": "answers/ module (answer processing and grading)",
@@ -4699,10 +4256,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
-      "norm_label": "answers/ module (answer processing and grading)",
       "id": "backend_src_modules_readme_answersmodule",
-      "community_name": "Backend Modules Placeholder Docs"
+      "community": 9,
+      "norm_label": "answers/ module (answer processing and grading)"
     },
     {
       "label": "results/ module (submission history and reports)",
@@ -4713,10 +4269,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
-      "norm_label": "results/ module (submission history and reports)",
       "id": "backend_src_modules_readme_resultsmodule",
-      "community_name": "Backend Modules Placeholder Docs"
+      "community": 9,
+      "norm_label": "results/ module (submission history and reports)"
     },
     {
       "label": "Current layered implementation (routes/controllers/services/repositories/validation)",
@@ -4727,10 +4282,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 9,
-      "norm_label": "current layered implementation (routes/controllers/services/repositories/validation)",
       "id": "backend_src_modules_readme_layeredarchitecture",
-      "community_name": "Backend Modules Placeholder Docs"
+      "community": 9,
+      "norm_label": "current layered implementation (routes/controllers/services/repositories/validation)"
     },
     {
       "label": "Hero Image (Isometric Card/Panel Graphic)",
@@ -4741,10 +4295,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 22,
-      "norm_label": "hero image (isometric card/panel graphic)",
       "id": "frontend_src_assets_hero_hero_image",
-      "community_name": "Hero Image Asset"
+      "community": 22,
+      "norm_label": "hero image (isometric card/panel graphic)"
     },
     {
       "label": "React Logo (Vite scaffold asset)",
@@ -4755,10 +4308,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 23,
-      "norm_label": "react logo (vite scaffold asset)",
       "id": "frontend_src_assets_react_reactlogo",
-      "community_name": "React Logo Asset"
+      "community": 23,
+      "norm_label": "react logo (vite scaffold asset)"
     },
     {
       "label": "Vite Logo (vite.svg)",
@@ -4769,10 +4321,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 24,
-      "norm_label": "vite logo (vite.svg)",
       "id": "frontend_src_assets_vite_vitelogo",
-      "community_name": "Vite Logo Asset"
+      "community": 24,
+      "norm_label": "vite logo (vite.svg)"
     }
   ],
   "links": [
@@ -15716,17 +15267,6 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "backend/src/modules/README.md",
-      "source_location": "L1",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "backend_src_modules_readme",
-      "target": "backend_src_modules_readme_backend_modules",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "references",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
@@ -15815,5 +15355,5 @@
       "source_file": "backend/src/modules/README.md"
     }
   ],
-  "built_at_commit": "a4d382b72b6d860ced0231cb50d7c994714e18c3"
+  "built_at_commit": "248c0a161fa30b568613954abe36b989baa42c5a"
 }

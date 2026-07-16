@@ -42,7 +42,7 @@ function defaultConfigFor(type: ChapterPageType, chapterTitle: string): UpsertPa
     case 'quiz':
       return { type, config: { questionSetId: '' } }
     case 'media':
-      return { type, config: { title: '', mediaType: 'video', url: '' } }
+      return { type, config: { mediaType: 'video', url: '' } }
   }
 }
 
@@ -328,10 +328,6 @@ function MediaForm({ config, onChange }: { config: MediaPageConfig; onChange: (c
   return (
     <div className="stack">
       <label className="field">
-        <span>Title</span>
-        <input value={config.title} onChange={(event) => onChange({ ...config, title: event.target.value })} />
-      </label>
-      <label className="field">
         <span>Media Type</span>
         <select
           value={config.mediaType}
@@ -481,7 +477,7 @@ export function AdminChapterEditorPage() {
     (newPageDraft.type !== 'media' ||
       (() => {
         const config = newPageDraft.config as MediaPageConfig
-        return config.title.trim().length > 0 && config.url.trim().length > 0
+        return config.url.trim().length > 0
       })())
 
   const handleAddPage = async () => {
