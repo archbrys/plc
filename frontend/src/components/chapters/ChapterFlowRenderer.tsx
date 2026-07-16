@@ -6,6 +6,7 @@ import { NarrationPage } from './NarrationPage'
 import { ContentSectionPage } from './ContentSectionPage'
 import { InteractivePracticePage } from './InteractivePracticePage'
 import { QuizPage } from './QuizPage'
+import { MediaPage } from './MediaPage'
 import './ChapterFlowRenderer.css'
 
 interface ChapterFlowRendererProps {
@@ -33,6 +34,8 @@ function getSectionTitle(page: ChapterPage): string | undefined {
       return 'Interactive Practice'
     case 'quiz':
       return 'Assessment'
+    case 'media':
+      return page.config.title
     case 'slideshow':
     default:
       return undefined
@@ -83,6 +86,15 @@ export function ChapterFlowRenderer({ chapterTitle, page, onComplete, onNext }: 
       ) : (
         <QuizPage key={page.id} config={page.config} />
       )
+      break
+
+    case 'media':
+      body =
+        !page.config.title || !page.config.url ? (
+          <MisconfiguredPage type={page.type} />
+        ) : (
+          <MediaPage key={page.id} config={page.config} onNext={onNext} />
+        )
       break
 
     default:
