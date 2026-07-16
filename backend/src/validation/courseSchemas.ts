@@ -15,6 +15,8 @@ const contentBlockSchema = z
   .object({
     text: z.string().default(''),
     image: z.string().optional(),
+    imagePosition: z.enum(['left', 'right', 'top', 'bottom']).optional(),
+    textPercent: z.number().min(0).max(100).optional(),
   })
   .refine((block) => block.text.trim().length > 0 || Boolean(block.image), {
     message: 'Provide text or an image for this content block',

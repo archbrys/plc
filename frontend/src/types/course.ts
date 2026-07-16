@@ -13,9 +13,13 @@ export interface NarrationPageConfig {
   backgroundImage?: string
 }
 
+export type ImagePosition = 'left' | 'right' | 'top' | 'bottom'
+
 export interface ContentBlock {
   text: string
   image?: string
+  imagePosition?: ImagePosition
+  textPercent?: number
 }
 
 export interface ContentSectionPageConfig {
