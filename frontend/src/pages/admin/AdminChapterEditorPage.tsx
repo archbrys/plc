@@ -2,6 +2,7 @@ import { useEffect, useState, type ChangeEvent } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { AdminLayout } from '../../components/admin/AdminLayout'
 import { ConfirmModal } from '../../components/admin/ConfirmModal'
+import { ContentBlockPreviewModal } from '../../components/admin/ContentBlockPreviewModal'
 import { courseApiService, type UpsertPagePayload } from '../../services/courseApiService'
 import { invalidateCourseCache } from '../../data/course'
 import { questionSetService } from '../../services/questionSetService'
@@ -187,6 +188,8 @@ function ContentBlockListEditor({
   blocks: ContentBlock[]
   onChange: (blocks: ContentBlock[]) => void
 }) {
+  const [previewIndex, setPreviewIndex] = useState<number | null>(null)
+
   const updateBlock = (index: number, patch: Partial<ContentBlock>) => {
     const next = [...blocks]
     next[index] = { ...next[index], ...patch }
@@ -233,11 +236,48 @@ function ContentBlockListEditor({
               )}
             </label>
           </div>
+          <div className="grid-two" style={{ gridTemplateColumns: '65% 35%', alignItems: 'start' }}>
+            <label className="field">
+              <span>Image Position</span>
+              <select
+                value={block.imagePosition ?? 'right'}
+                disabled={!block.image}
+                onChange={(event) =>
+                  updateBlock(index, { imagePosition: event.target.value as ContentBlock['imagePosition'] })
+                }
+              >
+                <option value="right">Right</option>
+                <option value="left">Left</option>
+                <option value="top">Top</option>
+                <option value="bottom">Bottom</option>
+              </select>
+            </label>
+            <label className="field">
+              <span>
+                Split ({block.textPercent ?? 65}% text / {100 - (block.textPercent ?? 65)}% image)
+              </span>
+              <input
+                type="range"
+                min={0}
+                max={100}
+                step={5}
+                value={block.textPercent ?? 65}
+                disabled={!block.image}
+                onChange={(event) => updateBlock(index, { textPercent: Number(event.target.value) })}
+              />
+            </label>
+          </div>
+          <button className="btn secondary small" type="button" onClick={() => setPreviewIndex(index)}>
+            Preview
+          </button>
         </div>
       ))}
       <button className="btn secondary small" type="button" onClick={() => onChange([...blocks, { text: '' }])}>
         Add Block
       </button>
+      {previewIndex !== null && (
+        <ContentBlockPreviewModal block={blocks[previewIndex]} onClose={() => setPreviewIndex(null)} />
+      )}
     </div>
   )
 }
