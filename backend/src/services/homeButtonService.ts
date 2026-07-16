@@ -52,10 +52,10 @@ export const homeButtonService = {
   async createButton(input: UpsertHomeButtonInput): Promise<HomeButtonResponse> {
     await assertValidTarget(input)
 
-    const count = await repository.getCount()
+    const maxOrderNumber = await repository.getMaxOrderNumber()
     const button = await repository.create({
       label: input.label,
-      orderNumber: input.orderNumber ?? count + 1,
+      orderNumber: input.orderNumber ?? maxOrderNumber + 1,
       targetType: input.targetType,
       chapterId: input.targetType === 'CHAPTER' ? input.chapterId : null,
       route: input.targetType === 'ROUTE' ? input.route : null,

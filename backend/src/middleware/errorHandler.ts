@@ -1,6 +1,7 @@
 import { StatusCodes } from 'http-status-codes'
 import type { NextFunction, Request, Response } from 'express'
 import { MulterError } from 'multer'
+import { Prisma } from '@prisma/client'
 import { ZodError } from 'zod'
 
 import { createApiResponse } from '../utils/apiResponse.js'
@@ -29,6 +30,13 @@ export function errorHandler(error: unknown, _req: Request, res: Response, _next
 
   if (error instanceof HttpError) {
     res.status(error.statusCode).json(createApiResponse(false, error.message, null))
+    return
+  }
+
+  if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === 'P2003') {
+    res
+      .status(StatusCodes.CONFLICT)
+      .json(createApiResponse(false, 'This record is still referenced by another record and cannot be deleted.', null))
     return
   }
 

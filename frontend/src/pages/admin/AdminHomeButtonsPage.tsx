@@ -86,7 +86,10 @@ export function AdminHomeButtonsPage() {
 
   const handleSubmit = async () => {
     const payload = buildPayload()
-    if (!payload) return
+    if (!payload) {
+      setError('Select a chapter or enter a route before saving.')
+      return
+    }
 
     try {
       if (editingId !== null) {

@@ -34,8 +34,6 @@ function getSectionTitle(page: ChapterPage): string | undefined {
       return 'Interactive Practice'
     case 'quiz':
       return 'Assessment'
-    case 'media':
-      return page.config.title
     case 'slideshow':
     default:
       return undefined

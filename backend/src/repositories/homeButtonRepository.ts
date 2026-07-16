@@ -15,8 +15,9 @@ export class HomeButtonRepository {
     return this.db.homeButton.findUnique({ where: { id } })
   }
 
-  getCount() {
-    return this.db.homeButton.count()
+  async getMaxOrderNumber(): Promise<number> {
+    const result = await this.db.homeButton.aggregate({ _max: { orderNumber: true } })
+    return result._max.orderNumber ?? 0
   }
 
   findByChapterId(chapterId: number) {
