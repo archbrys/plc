@@ -1,5 +1,5 @@
 // Page types for rich chapter flows
-export type ChapterPageType = 'slideshow' | 'narration' | 'content_section' | 'interactive_practice' | 'quiz'
+export type ChapterPageType = 'slideshow' | 'narration' | 'content_section' | 'interactive_practice' | 'quiz' | 'media'
 
 // Page config interfaces
 export interface SlideshowPageConfig {
@@ -32,12 +32,20 @@ export interface QuizPageConfig {
   questionSetId: string
 }
 
+export interface MediaPageConfig {
+  title: string
+  mediaType: 'video' | 'file'
+  url: string
+  description?: string
+}
+
 export type ChapterPageConfig =
   | SlideshowPageConfig
   | NarrationPageConfig
   | ContentSectionPageConfig
   | InteractivePracticePageConfig
   | QuizPageConfig
+  | MediaPageConfig
 
 export type ChapterPage =
   | { id: number; type: 'slideshow'; orderNumber: number; config: SlideshowPageConfig }
@@ -45,6 +53,7 @@ export type ChapterPage =
   | { id: number; type: 'content_section'; orderNumber: number; config: ContentSectionPageConfig }
   | { id: number; type: 'interactive_practice'; orderNumber: number; config: InteractivePracticePageConfig }
   | { id: number; type: 'quiz'; orderNumber: number; config: QuizPageConfig }
+  | { id: number; type: 'media'; orderNumber: number; config: MediaPageConfig }
 
 export interface CourseChapter {
   id: number

@@ -9,4 +9,11 @@ export const uploadService = {
     const response = await apiClient.postForm<{ url: string }>(`${API_BASE_URL}/uploads/image`, formData)
     return response.data.url
   },
+
+  async uploadMedia(file: File): Promise<string> {
+    const formData = new FormData()
+    formData.append('media', file)
+    const response = await apiClient.postForm<{ url: string }>(`${API_BASE_URL}/uploads/media`, formData)
+    return response.data.url
+  },
 }
