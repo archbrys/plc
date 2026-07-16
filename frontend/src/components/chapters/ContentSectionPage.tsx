@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { TypingAnimation } from '../common/TypingAnimation'
 import type { ContentSectionPageConfig } from '../../types/course'
 import { resolveAssetSrc } from '../../utils/assets'
+import { getContentBlockLayoutStyle } from './contentBlockLayout'
 import './ContentSectionPage.css'
 
 interface ContentSectionPageProps {
@@ -29,6 +30,7 @@ export function ContentSectionPage({ config, onNext }: ContentSectionPageProps) 
                   ? ' chapter-section2-body-wrapper--image-only'
                   : ''
             }`}
+            style={hasImage && hasText ? getContentBlockLayoutStyle(currentBlock) : undefined}
           >
             <div
               className={`chapter-section2-text-column${
