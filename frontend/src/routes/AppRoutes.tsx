@@ -7,6 +7,7 @@ import { AdminQuestionSetsPage } from '../pages/admin/AdminQuestionSetsPage'
 import { AdminResultsPage } from '../pages/admin/AdminResultsPage'
 import { AdminCourseContentPage } from '../pages/admin/AdminCourseContentPage'
 import { AdminChapterEditorPage } from '../pages/admin/AdminChapterEditorPage'
+import { AdminHomeButtonsPage } from '../pages/admin/AdminHomeButtonsPage'
 import { AdminStudentsPage } from '../pages/admin/AdminStudentsPage'
 import { AdminStudentCreatePage } from '../pages/admin/AdminStudentCreatePage'
 import { AdminStudentEditPage } from '../pages/admin/AdminStudentEditPage'
@@ -50,6 +51,7 @@ export function AppRoutes() {
         <Route path="/admin/question-sets" element={<AdminQuestionSetsPage />} />
         <Route path="/admin/course-content" element={<AdminCourseContentPage />} />
         <Route path="/admin/course-content/:chapterId" element={<AdminChapterEditorPage />} />
+        <Route path="/admin/home-buttons" element={<AdminHomeButtonsPage />} />
         <Route path="/admin/question-sets/create" element={<AdminQuestionSetCreatePage />} />
         <Route path="/admin/question-sets/:id/edit" element={<AdminQuestionSetEditPage />} />
         <Route path="/admin/results" element={<AdminResultsPage />} />

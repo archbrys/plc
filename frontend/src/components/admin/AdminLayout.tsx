@@ -7,6 +7,7 @@ const NAV_ITEMS = [
   { label: 'Dashboard', to: '/admin/dashboard', icon: '▦' },
   { label: 'Question Sets', to: '/admin/question-sets', icon: '≡' },
   { label: 'Course Content', to: '/admin/course-content', icon: '▤' },
+  { label: 'Home Buttons', to: '/admin/home-buttons', icon: '⌂' },
   { label: 'Students', to: '/admin/students', icon: '☺' },
   { label: 'Results', to: '/admin/results', icon: '✓' },
 ]
