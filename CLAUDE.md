@@ -40,8 +40,13 @@ Backend dev server runs at `http://localhost:3000`; Vite dev server proxies `/ap
 
 This project has a knowledge graph at graphify-out/ with god nodes, community structure, and cross-file relationships.
 
-Rules:
-- For codebase questions, first run `graphify query "<question>"` when graphify-out/graph.json exists. Use `graphify path "<A>" "<B>"` for relationships and `graphify explain "<concept>"` for focused concepts. These return a scoped subgraph, usually much smaller than GRAPH_REPORT.md or raw grep output.
+`graphify-out/graph.json` exists in this repo, which makes the rules below MANDATORY, not optional — this has been missed before by defaulting to grep/Explore/Read out of habit. Before any codebase exploration (a "where is X", "how does Y work", "what calls Z" question, or orienting yourself before an edit), you MUST run graphify first:
+
+- `graphify query "<question>"` for general codebase questions
+- `graphify path "<A>" "<B>"` for relationships between two things
+- `graphify explain "<concept>"` for a focused concept
+- These return a scoped subgraph, usually much smaller than GRAPH_REPORT.md or raw grep/Read/Explore output. Only fall back to grep, Explore, or reading raw source once graphify has oriented you and you need specific line-level detail, or if graphify's output genuinely doesn't surface enough.
+- This rule applies to subagents too — when delegating codebase exploration to a subagent (Explore, general-purpose, etc.), include this graphify requirement in the subagent's prompt, since a fresh subagent has no memory of this file.
 - If graphify-out/wiki/index.md exists, use it for broad navigation instead of raw source browsing.
 - Read graphify-out/GRAPH_REPORT.md only for broad architecture review or when query/path/explain do not surface enough context.
 - After modifying code, run `graphify update .` to keep the graph current (AST-only, no API cost).
