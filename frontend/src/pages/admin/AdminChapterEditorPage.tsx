@@ -13,6 +13,7 @@ import type {
   ContentBlock,
   ContentSectionPageConfig,
   CourseChapter,
+  MediaPageConfig,
   NarrationPageConfig,
   QuizPageConfig,
   SlideshowPageConfig,
@@ -25,6 +26,7 @@ const PAGE_TYPE_LABELS: Record<ChapterPageType, string> = {
   content_section: 'Content Section',
   interactive_practice: 'Interactive Practice',
   quiz: 'Quiz',
+  media: 'Video/File',
 }
 
 function defaultConfigFor(type: ChapterPageType, chapterTitle: string): UpsertPagePayload {
@@ -39,6 +41,8 @@ function defaultConfigFor(type: ChapterPageType, chapterTitle: string): UpsertPa
       return { type, config: {} }
     case 'quiz':
       return { type, config: { questionSetId: '' } }
+    case 'media':
+      return { type, config: { title: '', mediaType: 'video', url: '' } }
   }
 }
 
@@ -300,6 +304,78 @@ function QuizForm({
   )
 }
 
+function MediaForm({ config, onChange }: { config: MediaPageConfig; onChange: (config: MediaPageConfig) => void }) {
+  const [isUploading, setIsUploading] = useState(false)
+  const [uploadError, setUploadError] = useState<string | null>(null)
+
+  const handleFileSelected = async (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0]
+    event.target.value = ''
+    if (!file) return
+
+    setIsUploading(true)
+    setUploadError(null)
+    try {
+      const url = await uploadService.uploadMedia(file)
+      onChange({ ...config, url })
+    } catch (error) {
+      setUploadError(error instanceof Error ? error.message : 'Upload failed.')
+    } finally {
+      setIsUploading(false)
+    }
+  }
+
+  return (
+    <div className="stack">
+      <label className="field">
+        <span>Title</span>
+        <input value={config.title} onChange={(event) => onChange({ ...config, title: event.target.value })} />
+      </label>
+      <label className="field">
+        <span>Media Type</span>
+        <select
+          value={config.mediaType}
+          onChange={(event) => onChange({ ...config, mediaType: event.target.value as MediaPageConfig['mediaType'] })}
+        >
+          <option value="video">Video</option>
+          <option value="file">File</option>
+        </select>
+      </label>
+      <label className="field">
+        <span>Description (optional)</span>
+        <textarea
+          rows={3}
+          value={config.description ?? ''}
+          onChange={(event) => onChange({ ...config, description: event.target.value || undefined })}
+        />
+      </label>
+      <label className="field">
+        <span>{config.mediaType === 'video' ? 'Video File' : 'File'}</span>
+        <input
+          value={config.url}
+          placeholder="Filename under /assets/, full URL, or upload below"
+          onChange={(event) => onChange({ ...config, url: event.target.value })}
+        />
+        <input
+          type="file"
+          accept={config.mediaType === 'video' ? 'video/mp4,video/webm' : 'application/pdf'}
+          onChange={handleFileSelected}
+          disabled={isUploading}
+        />
+        {isUploading && <span className="muted">Uploading...</span>}
+        {uploadError && <span className="error-message">{uploadError}</span>}
+        {config.url && config.mediaType === 'video' && (
+          <video
+            src={resolveAssetSrc(config.url)}
+            controls
+            style={{ maxWidth: '100%', marginTop: '0.5rem', borderRadius: '8px' }}
+          />
+        )}
+      </label>
+    </div>
+  )
+}
+
 function PageConfigForm({
   page,
   onChange,
@@ -320,6 +396,8 @@ function PageConfigForm({
       return <p className="muted">Renders the PLC simulator. No additional configuration needed.</p>
     case 'quiz':
       return <QuizForm config={page.config as QuizPageConfig} onChange={onChange} questionSets={questionSets} />
+    case 'media':
+      return <MediaForm config={page.config as MediaPageConfig} onChange={onChange} />
   }
 }
 
@@ -399,6 +477,11 @@ export function AdminChapterEditorPage() {
           config.contents.length > 0 &&
           config.contents.every((block) => block.text.trim().length > 0 || Boolean(block.image))
         )
+      })()) &&
+    (newPageDraft.type !== 'media' ||
+      (() => {
+        const config = newPageDraft.config as MediaPageConfig
+        return config.title.trim().length > 0 && config.url.trim().length > 0
       })())
 
   const handleAddPage = async () => {
