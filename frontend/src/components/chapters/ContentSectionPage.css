@@ -74,7 +74,7 @@
   flex: 0 0 var(--section-text-basis, 65%);
   align-self: flex-start;
   min-width: 0;
-  font-size: 1rem;
+  font-size: 1.5rem;
   line-height: 1.6;
   max-height: 100%;
   overflow: hidden;
