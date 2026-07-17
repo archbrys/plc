@@ -59,6 +59,10 @@
   align-items: flex-start;
 }
 
+.chapter-section2-body-wrapper--text-only .chapter-section2-text-column {
+  flex: 1 1 100%;
+}
+
 .chapter-section2-body-wrapper--image-only {
   display: flex;
   justify-content: center;

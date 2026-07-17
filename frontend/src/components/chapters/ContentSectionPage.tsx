@@ -74,14 +74,16 @@ export function ContentSectionPage({ config, onNext }: ContentSectionPageProps) 
         </div>
 
         <div className="chapter-section2-actions">
-          <button
-            className="btn small"
-            type="button"
-            onClick={handlePrevious}
-            disabled={isFirstBlock}
-          >
-            Previous
-          </button>
+          {!isTyping && (
+            <button
+              className="btn large ready-btn"
+              type="button"
+              onClick={handlePrevious}
+              disabled={isFirstBlock}
+            >
+              Previous
+            </button>
+          )}
           {!isTyping && (
             <button className="btn large ready-btn" type="button" onClick={handleNext}>
               Next
