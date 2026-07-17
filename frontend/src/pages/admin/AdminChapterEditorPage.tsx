@@ -181,6 +181,118 @@ function NarrationForm({ config, onChange }: { config: NarrationPageConfig; onCh
   )
 }
 
+function ContentBlockRow({
+  block,
+  index,
+  onChange,
+  onRemove,
+  onPreview,
+  removeDisabled,
+}: {
+  block: ContentBlock
+  index: number
+  onChange: (patch: Partial<ContentBlock>) => void
+  onRemove: () => void
+  onPreview: () => void
+  removeDisabled: boolean
+}) {
+  const [isUploading, setIsUploading] = useState(false)
+  const [uploadError, setUploadError] = useState<string | null>(null)
+
+  const handleFileSelected = async (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0]
+    event.target.value = ''
+    if (!file) return
+
+    setIsUploading(true)
+    setUploadError(null)
+    try {
+      const url = await uploadService.uploadImage(file)
+      onChange({ image: url })
+    } catch (error) {
+      setUploadError(error instanceof Error ? error.message : 'Upload failed.')
+    } finally {
+      setIsUploading(false)
+    }
+  }
+
+  return (
+    <div className="card stack" style={{ padding: '1rem' }}>
+      <div className="row-between" style={{ alignItems: 'center' }}>
+        <strong>Block {index + 1}</strong>
+        <button className="btn secondary small" type="button" onClick={onRemove} disabled={removeDisabled}>
+          Remove Block
+        </button>
+      </div>
+      <div className="grid-two" style={{ gridTemplateColumns: '65% 35%', alignItems: 'start' }}>
+        <label className="field">
+          <span>Text</span>
+          <textarea
+            rows={4}
+            value={block.text}
+            placeholder="Content block text"
+            onChange={(event) => onChange({ text: event.target.value })}
+          />
+        </label>
+        <label className="field">
+          <span>Image (filename under /assets/ or full URL)</span>
+          <input
+            value={block.image ?? ''}
+            onChange={(event) => onChange({ image: event.target.value || undefined })}
+          />
+          <input
+            type="file"
+            accept="image/png,image/jpeg,image/webp,image/gif"
+            onChange={handleFileSelected}
+            disabled={isUploading}
+          />
+          {isUploading && <span className="muted">Uploading...</span>}
+          {uploadError && <span className="error-message">{uploadError}</span>}
+          {block.image && (
+            <img
+              src={resolveAssetSrc(block.image)}
+              alt={`Block ${index + 1} preview`}
+              style={{ maxWidth: '100%', marginTop: '0.5rem', borderRadius: '8px' }}
+            />
+          )}
+        </label>
+      </div>
+      <div className="grid-two" style={{ gridTemplateColumns: '65% 35%', alignItems: 'start' }}>
+        <label className="field">
+          <span>Image Position</span>
+          <select
+            value={block.imagePosition ?? 'right'}
+            disabled={!block.image}
+            onChange={(event) => onChange({ imagePosition: event.target.value as ContentBlock['imagePosition'] })}
+          >
+            <option value="right">Right</option>
+            <option value="left">Left</option>
+            <option value="top">Top</option>
+            <option value="bottom">Bottom</option>
+          </select>
+        </label>
+        <label className="field">
+          <span>
+            Split ({block.textPercent ?? 65}% text / {100 - (block.textPercent ?? 65)}% image)
+          </span>
+          <input
+            type="range"
+            min={0}
+            max={100}
+            step={5}
+            value={block.textPercent ?? 65}
+            disabled={!block.image}
+            onChange={(event) => onChange({ textPercent: Number(event.target.value) })}
+          />
+        </label>
+      </div>
+      <button className="btn secondary small" type="button" onClick={onPreview}>
+        Preview
+      </button>
+    </div>
+  )
+}
+
 function ContentBlockListEditor({
   blocks,
   onChange,
@@ -199,78 +311,15 @@ function ContentBlockListEditor({
   return (
     <div className="stack">
       {blocks.map((block, index) => (
-        <div key={index} className="card stack" style={{ padding: '1rem' }}>
-          <div className="row-between" style={{ alignItems: 'center' }}>
-            <strong>Block {index + 1}</strong>
-            <button
-              className="btn secondary small"
-              type="button"
-              onClick={() => onChange(blocks.filter((_, i) => i !== index))}
-              disabled={blocks.length <= 1}
-            >
-              Remove Block
-            </button>
-          </div>
-          <div className="grid-two" style={{ gridTemplateColumns: '65% 35%', alignItems: 'start' }}>
-            <label className="field">
-              <span>Text</span>
-              <textarea
-                rows={4}
-                value={block.text}
-                placeholder="Content block text"
-                onChange={(event) => updateBlock(index, { text: event.target.value })}
-              />
-            </label>
-            <label className="field">
-              <span>Image (filename under /assets/ or full URL)</span>
-              <input
-                value={block.image ?? ''}
-                onChange={(event) => updateBlock(index, { image: event.target.value || undefined })}
-              />
-              {block.image && (
-                <img
-                  src={resolveAssetSrc(block.image)}
-                  alt={`Block ${index + 1} preview`}
-                  style={{ maxWidth: '100%', marginTop: '0.5rem', borderRadius: '8px' }}
-                />
-              )}
-            </label>
-          </div>
-          <div className="grid-two" style={{ gridTemplateColumns: '65% 35%', alignItems: 'start' }}>
-            <label className="field">
-              <span>Image Position</span>
-              <select
-                value={block.imagePosition ?? 'right'}
-                disabled={!block.image}
-                onChange={(event) =>
-                  updateBlock(index, { imagePosition: event.target.value as ContentBlock['imagePosition'] })
-                }
-              >
-                <option value="right">Right</option>
-                <option value="left">Left</option>
-                <option value="top">Top</option>
-                <option value="bottom">Bottom</option>
-              </select>
-            </label>
-            <label className="field">
-              <span>
-                Split ({block.textPercent ?? 65}% text / {100 - (block.textPercent ?? 65)}% image)
-              </span>
-              <input
-                type="range"
-                min={0}
-                max={100}
-                step={5}
-                value={block.textPercent ?? 65}
-                disabled={!block.image}
-                onChange={(event) => updateBlock(index, { textPercent: Number(event.target.value) })}
-              />
-            </label>
-          </div>
-          <button className="btn secondary small" type="button" onClick={() => setPreviewIndex(index)}>
-            Preview
-          </button>
-        </div>
+        <ContentBlockRow
+          key={index}
+          block={block}
+          index={index}
+          onChange={(patch) => updateBlock(index, patch)}
+          onRemove={() => onChange(blocks.filter((_, i) => i !== index))}
+          onPreview={() => setPreviewIndex(index)}
+          removeDisabled={blocks.length <= 1}
+        />
       ))}
       <button className="btn secondary small" type="button" onClick={() => onChange([...blocks, { text: '' }])}>
         Add Block
