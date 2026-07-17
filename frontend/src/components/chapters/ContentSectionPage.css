@@ -6,13 +6,13 @@
   justify-content: center;
   padding: clamp(0.75rem, 2vh, 2rem);
   overflow: hidden;
-  background: url('/assets/per-chapter-background.png') no-repeat center center;
+  background: url("/assets/per-chapter-background.jpg") no-repeat center center;
   background-size: cover;
   position: relative;
 }
 
 .chapter-section2-main::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.3);
@@ -140,13 +140,13 @@
 
   .chapter-section2-image-column {
     order: 2;
-    flex-basis: auto;
+    flex: 0 0 var(--section-image-basis, 35%);
     max-height: 30vh;
   }
 
   .chapter-section2-text-column {
     order: 1;
-    flex-basis: auto;
+    flex: 0 0 var(--section-text-basis, 65%);
   }
 }
 

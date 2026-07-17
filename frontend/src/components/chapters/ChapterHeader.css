@@ -10,6 +10,21 @@
   z-index: 20;
 }
 
+.chapter-flow-header-start {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.chapter-flow-header-logo {
+  flex: 0 0 auto;
+  width: clamp(2rem, 4vh, 2.75rem);
+  height: clamp(2rem, 4vh, 2.75rem);
+  border-radius: 0.375rem;
+  object-fit: cover;
+}
+
 .chapter-flow-header-titles {
   display: flex;
   flex-direction: column;
