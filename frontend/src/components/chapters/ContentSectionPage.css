@@ -56,7 +56,7 @@
 
 .chapter-section2-body-wrapper--text-only {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .chapter-section2-body-wrapper--image-only {
@@ -72,6 +72,7 @@
 
 .chapter-section2-text-column {
   flex: 0 0 var(--section-text-basis, 65%);
+  align-self: flex-start;
   min-width: 0;
   font-size: clamp(0.85rem, 2vh, 1.15rem);
   line-height: 1.6;
