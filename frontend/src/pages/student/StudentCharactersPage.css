@@ -92,29 +92,29 @@
 
 /* Position each character label */
 .character-label.jeffrey {
-  top: 35%;
-  left: 15%;
+  top: 22%;
+  left: 17%;
 }
 
 .character-label.jenny {
-  top: 42%;
-  left: 30%;
+  top: 29%;
+  left: 31%;
 }
 
 .character-label.aaron {
-  top: 28%;
-  left: 48%;
+  top: 21%;
+  left: 52%;
   transform: translate(-50%, calc(-100% - 12px));
 }
 
 .character-label.dezziel {
-  top: 35%;
-  right: 22%;
+  top: 23%;
+  right: 26%;
 }
 
 .character-label.aerzien {
-  top: 35%;
-  right: 7%;
+  top: 23%;
+  right: 12%;
 }
 
 .btn-next-characters {
