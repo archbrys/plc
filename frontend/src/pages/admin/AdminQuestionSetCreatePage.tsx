@@ -28,7 +28,7 @@ export function AdminQuestionSetCreatePage() {
     <AdminLayout
       title="Create Question Set"
       actions={
-        <button className="btn-outline small" type="button" onClick={() => navigate('/admin/question-sets')}>
+        <button className="btn-outline" type="button" onClick={() => navigate('/admin/question-sets')}>
           Back
         </button>
       }

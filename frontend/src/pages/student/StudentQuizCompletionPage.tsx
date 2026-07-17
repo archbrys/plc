@@ -98,7 +98,7 @@ export function StudentQuizCompletionPage() {
 
           {/* Continue Button */}
           <button 
-            className="btn-continue-learning btn-sm"
+            className="btn-continue-learning" 
             type="button" 
             onClick={handleContinue}
           >

@@ -55,7 +55,7 @@ export function QuestionInput({ question, answer, onChange, disabled = false }: 
         <div className="inline-actions">
           <button
             type="button"
-            className={`btn small ${answer?.selectedBoolean === true ? '' : 'secondary'}`}
+            className={`btn ${answer?.selectedBoolean === true ? '' : 'secondary'}`}
             disabled={disabled}
             onClick={() =>
               onChange({
@@ -68,7 +68,7 @@ export function QuestionInput({ question, answer, onChange, disabled = false }: 
           </button>
           <button
             type="button"
-            className={`btn small ${answer?.selectedBoolean === false ? '' : 'secondary'}`}
+            className={`btn ${answer?.selectedBoolean === false ? '' : 'secondary'}`}
             disabled={disabled}
             onClick={() =>
               onChange({

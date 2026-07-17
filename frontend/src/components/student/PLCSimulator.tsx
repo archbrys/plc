@@ -39,7 +39,7 @@ export function PLCSimulator() {
         <h2 className="plc-simulator-title">Basic Input/Output Simulation</h2>
         <button
           type="button"
-          className={`plc-power-toggle ${isPowerOn ? 'on' : 'off'} btn-sm`}
+          className={`plc-power-toggle ${isPowerOn ? 'on' : 'off'}`}
           onClick={handlePowerToggle}
         >
           <svg className="plc-power-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -69,7 +69,7 @@ export function PLCSimulator() {
                 </div>
                 <button
                   type="button"
-                  className={`plc-io-button ${pushButton1 ? 'on' : 'off'} btn-sm`}
+                  className={`plc-io-button ${pushButton1 ? 'on' : 'off'}`}
                   onClick={handlePushButton1Toggle}
                   disabled={!isPowerOn}
                 >
@@ -85,7 +85,7 @@ export function PLCSimulator() {
                 </div>
                 <button
                   type="button"
-                  className={`plc-io-button ${pushButton2 ? 'on' : 'off'} btn-sm`}
+                  className={`plc-io-button ${pushButton2 ? 'on' : 'off'}`}
                   onClick={handlePushButton2Toggle}
                   disabled={!isPowerOn}
                 >

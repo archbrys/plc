@@ -32,7 +32,7 @@ export function NarrationPage({ config, onNext }: NarrationPageProps) {
       </div>
 
       <div className="narration-page-actions">
-        <button className="btn small ready-btn" type="button" onClick={onNext}>
+        <button className="btn large ready-btn" type="button" onClick={onNext}>
           Next
         </button>
       </div>

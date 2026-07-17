@@ -29,7 +29,7 @@ export function AppShell({ title, subtitle, children, links = [] }: AppShellProp
           {user?.role === 'student' ? (
             <StudentMenu />
           ) : user ? (
-            <button className="btn small" type="button" onClick={logout}>
+            <button className="btn" type="button" onClick={logout}>
               Logout
             </button>
           ) : null}

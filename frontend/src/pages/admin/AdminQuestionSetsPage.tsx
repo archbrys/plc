@@ -54,7 +54,7 @@ export function AdminQuestionSetsPage() {
       title="Question Sets"
       subtitle="Create, publish, and manage quiz question sets."
       actions={
-        <Link className="btn small" to="/admin/question-sets/create">
+        <Link className="btn" to="/admin/question-sets/create">
           Create Question Set
         </Link>
       }

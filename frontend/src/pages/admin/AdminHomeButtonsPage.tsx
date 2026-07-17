@@ -196,11 +196,11 @@ export function AdminHomeButtonsPage() {
           </label>
 
           <div className="header-actions wrap">
-            <button className="btn small" type="button" onClick={handleSubmit}>
+            <button className="btn" type="button" onClick={handleSubmit}>
               {editingId !== null ? 'Save Changes' : 'Add Home Button'}
             </button>
             {editingId !== null ? (
-              <button className="btn secondary small" type="button" onClick={resetForm}>
+              <button className="btn secondary" type="button" onClick={resetForm}>
                 Cancel Edit
               </button>
             ) : null}

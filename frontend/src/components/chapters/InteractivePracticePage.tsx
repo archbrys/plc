@@ -16,7 +16,7 @@ export function InteractivePracticePage({ onNext }: InteractivePracticePageProps
         </div>
 
         <div className="chapter-practice-actions">
-          <button className="btn small ready-btn" type="button" onClick={onNext}>
+          <button className="btn large ready-btn" type="button" onClick={onNext}>
             Continue to Assessment
           </button>
         </div>

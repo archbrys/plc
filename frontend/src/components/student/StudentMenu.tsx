@@ -52,7 +52,7 @@ export function StudentMenu() {
     <div className="student-menu" ref={menuRef}>
       <button
         type="button"
-        className="student-menu-trigger btn-sm"
+        className="student-menu-trigger"
         onClick={() => setIsOpen((prev) => !prev)}
         aria-haspopup="menu"
         aria-expanded={isOpen}
@@ -65,10 +65,10 @@ export function StudentMenu() {
 
       {isOpen ? (
         <div className="student-menu-dropdown" role="menu">
-          <button type="button" className="student-menu-item btn-sm" role="menuitem" onClick={handleResults}>
+          <button type="button" className="student-menu-item" role="menuitem" onClick={handleResults}>
             My Results
           </button>
-          <button type="button" className="student-menu-item btn-sm" role="menuitem" onClick={handleLogout}>
+          <button type="button" className="student-menu-item" role="menuitem" onClick={handleLogout}>
             Logout
           </button>
         </div>

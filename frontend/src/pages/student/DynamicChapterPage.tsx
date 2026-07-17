@@ -36,7 +36,7 @@ export function DynamicChapterPage() {
       <div className="landing-page">
         <header className="landing-header">
           <div className="header-actions">
-            <button className="btn small" type="button" onClick={logout}>
+            <button className="btn" type="button" onClick={logout}>
               Logout
             </button>
           </div>
@@ -71,7 +71,7 @@ export function DynamicChapterPage() {
       <div className="landing-page">
         <header className="landing-header">
           <div className="header-actions">
-            <button className="btn small" type="button" onClick={logout}>
+            <button className="btn" type="button" onClick={logout}>
               Logout
             </button>
           </div>

@@ -39,7 +39,7 @@ export function StudentQuestionSetsPage() {
           {buttons.map((button) => (
             <button
               key={button.id}
-              className="hero-box hero-box-btn btn-sm"
+              className="hero-box hero-box-btn"
               type="button"
               onClick={() => handleButtonClick(button)}
             >

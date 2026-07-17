@@ -124,12 +124,12 @@ export function LoginPage() {
           </>
         )}
 
-        <button type="submit" className="btn small" disabled={loading}>
+        <button type="submit" className="btn large" disabled={loading}>
           {loading ? 'Signing in...' : 'Login'}
         </button>
 
         <div className="auth-switch">
-          <button type="button" className="auth-switch-link btn-sm" onClick={switchMode}>
+          <button type="button" className="auth-switch-link" onClick={switchMode}>
             {mode === 'student' ? 'Login as Admin' : 'Login as Student'}
           </button>
         </div>

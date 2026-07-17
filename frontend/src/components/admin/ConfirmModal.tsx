@@ -23,10 +23,10 @@ export function ConfirmModal({
         <h2 className="confirm-modal-title">{title}</h2>
         <p className="confirm-modal-message">{message}</p>
         <div className="confirm-modal-actions">
-          <button type="button" className="btn secondary small" onClick={onCancel}>
+          <button type="button" className="btn secondary" onClick={onCancel}>
             {cancelLabel}
           </button>
-          <button type="button" className="btn danger small" onClick={onConfirm}>
+          <button type="button" className="btn danger" onClick={onConfirm}>
             {confirmLabel}
           </button>
         </div>

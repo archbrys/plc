@@ -29,7 +29,7 @@ export function MediaPage({ config, onNext }: MediaPageProps) {
       </div>
 
       <div className="media-page-actions">
-        <button className="btn small ready-btn" type="button" onClick={onNext}>
+        <button className="btn large ready-btn" type="button" onClick={onNext}>
           Next
         </button>
       </div>

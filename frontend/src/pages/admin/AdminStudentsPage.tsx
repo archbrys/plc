@@ -39,7 +39,7 @@ export function AdminStudentsPage() {
       title="Students"
       subtitle="Create, update, and remove student accounts."
       actions={
-        <Link className="btn small" to="/admin/students/create">
+        <Link className="btn" to="/admin/students/create">
           Add Student
         </Link>
       }

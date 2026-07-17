@@ -586,7 +586,7 @@ export function AdminChapterEditorPage() {
       title={`Editing: ${chapter.title}`}
       subtitle="Manage this chapter's pages."
       actions={
-        <button className="btn-outline small" type="button" onClick={() => navigate('/admin/course-content')}>
+        <button className="btn-outline" type="button" onClick={() => navigate('/admin/course-content')}>
           Back to Chapters
         </button>
       }
@@ -603,7 +603,7 @@ export function AdminChapterEditorPage() {
             <input value={chapterTitleDraft} onChange={(event) => setChapterTitleDraft(event.target.value)} />
           </label>
           <div className="header-actions wrap">
-            <button className="btn small" type="button" onClick={handleSaveChapterTitle}>
+            <button className="btn" type="button" onClick={handleSaveChapterTitle}>
               Save Chapter Title
             </button>
           </div>
@@ -635,7 +635,7 @@ export function AdminChapterEditorPage() {
           />
 
           <div className="header-actions wrap">
-            <button className="btn small" type="button" onClick={handleAddPage} disabled={!newPageIsValid}>
+            <button className="btn" type="button" onClick={handleAddPage} disabled={!newPageIsValid}>
               Add Page
             </button>
           </div>
@@ -691,7 +691,7 @@ export function AdminChapterEditorPage() {
               />
 
               <div className="header-actions wrap">
-                <button className="btn small" type="button" onClick={() => handleSavePage(page)}>
+                <button className="btn" type="button" onClick={() => handleSavePage(page)}>
                   Save Page
                 </button>
               </div>
