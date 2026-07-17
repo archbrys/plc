@@ -6,17 +6,22 @@
   justify-content: center;
   padding: clamp(0.75rem, 2vh, 2rem);
   overflow: hidden;
-  background: url("/assets/per-chapter-background.jpg") no-repeat center center;
-  background-size: cover;
   position: relative;
 }
 
 .chapter-section2-main::before {
   content: "";
-  position: absolute;
+  position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.3);
-  z-index: 0;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("/assets/per-chapter-background.jpg");
+  background-repeat: no-repeat, no-repeat;
+  background-position: center, center;
+  /* Stretched to exactly fill the viewport (not cropped) so it always
+     matches the current window/screen dimensions, however extreme. */
+  background-size: 100% 100%, 100% 100%;
+  z-index: -1;
 }
 
 .chapter-section2-content {

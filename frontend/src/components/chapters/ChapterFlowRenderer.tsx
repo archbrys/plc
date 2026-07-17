@@ -14,6 +14,7 @@ interface ChapterFlowRendererProps {
   page: ChapterPage
   onComplete?: () => void
   onNext?: () => void
+  onPrevious?: () => void
 }
 
 function MisconfiguredPage({ type }: { type: string }) {
@@ -40,7 +41,7 @@ function getSectionTitle(page: ChapterPage): string | undefined {
   }
 }
 
-export function ChapterFlowRenderer({ chapterTitle, page, onComplete, onNext }: ChapterFlowRendererProps) {
+export function ChapterFlowRenderer({ chapterTitle, page, onComplete, onNext, onPrevious }: ChapterFlowRendererProps) {
   let body: ReactNode
 
   switch (page.type) {
@@ -70,7 +71,7 @@ export function ChapterFlowRenderer({ chapterTitle, page, onComplete, onNext }: 
         page.config.contents.some((block) => !block.text?.trim() && !block.image) ? (
           <MisconfiguredPage type={page.type} />
         ) : (
-          <ContentSectionPage key={page.id} config={page.config} onNext={onNext} />
+          <ContentSectionPage key={page.id} config={page.config} onNext={onNext} onPrevious={onPrevious} />
         )
       break
 

@@ -1,0 +1,342 @@
+{
+  "src/App.tsx": {
+    "mtime": 1782547750.964677,
+    "ast_hash": "e0ffa3aff0351a3b5e8f3c2b61b4f303",
+    "semantic_hash": ""
+  },
+  "src/components/admin/AdminLayout.tsx": {
+    "mtime": 1784269432.6720204,
+    "ast_hash": "8a89e59022f08d509e8349ed07d31db3",
+    "semantic_hash": ""
+  },
+  "src/components/admin/ConfirmModal.tsx": {
+    "mtime": 1784269432.6723356,
+    "ast_hash": "e11de18e96ba4067469117c6755fed32",
+    "semantic_hash": ""
+  },
+  "src/components/admin/ContentBlockPreviewModal.tsx": {
+    "mtime": 1784234556.3574343,
+    "ast_hash": "dad09079e51dce051cfd03bc730f1044",
+    "semantic_hash": ""
+  },
+  "src/components/auth/RoleGuard.tsx": {
+    "mtime": 1783964310.6680872,
+    "ast_hash": "5d42499186a011e947fc15db42751426",
+    "semantic_hash": ""
+  },
+  "src/components/chapters/ChapterFlowRenderer.tsx": {
+    "mtime": 1784318283.6247916,
+    "ast_hash": "722661c862f557b9719275df8322e1aa",
+    "semantic_hash": ""
+  },
+  "src/components/chapters/ChapterHeader.tsx": {
+    "mtime": 1784311666.9479632,
+    "ast_hash": "d96781e29b5fa5bc32705aef67b2436c",
+    "semantic_hash": ""
+  },
+  "src/components/chapters/ContentSectionPage.tsx": {
+    "mtime": 1784318297.7384243,
+    "ast_hash": "6dffffc7518ddf70a446f962b3e9a3f7",
+    "semantic_hash": ""
+  },
+  "src/components/chapters/InteractivePracticePage.tsx": {
+    "mtime": 1784269432.6749034,
+    "ast_hash": "0ffb82a271232db9f80326389622980e",
+    "semantic_hash": ""
+  },
+  "src/components/chapters/MediaPage.tsx": {
+    "mtime": 1784269432.6751585,
+    "ast_hash": "8157f4eb37a31fe042cf6a485fc74984",
+    "semantic_hash": ""
+  },
+  "src/components/chapters/NarrationPage.tsx": {
+    "mtime": 1784269432.6755006,
+    "ast_hash": "5e68e41a141ec9addd154ced85351b72",
+    "semantic_hash": ""
+  },
+  "src/components/chapters/QuizPage.tsx": {
+    "mtime": 1784269432.6760955,
+    "ast_hash": "9be688b053346121d11261b54856c708",
+    "semantic_hash": ""
+  },
+  "src/components/chapters/SlideshowPage.tsx": {
+    "mtime": 1783886803.5772421,
+    "ast_hash": "87174a363b0dd5a5da28b35da39ab15c",
+    "semantic_hash": ""
+  },
+  "src/components/chapters/contentBlockLayout.ts": {
+    "mtime": 1784233709.9144568,
+    "ast_hash": "313f125ace24fa76bd64707d6c72ff29",
+    "semantic_hash": ""
+  },
+  "src/components/common/AppShell.tsx": {
+    "mtime": 1784269432.676675,
+    "ast_hash": "307e1546ef5c1cfe71a57e276c19bc86",
+    "semantic_hash": ""
+  },
+  "src/components/common/SplashScreen.tsx": {
+    "mtime": 1782547672.6623106,
+    "ast_hash": "b3a9e2947dcf19d6f38e3ac3994cee08",
+    "semantic_hash": ""
+  },
+  "src/components/common/TypingAnimation.tsx": {
+    "mtime": 1784317480.425644,
+    "ast_hash": "d208284d368d52e4848c5c9644d72c29",
+    "semantic_hash": ""
+  },
+  "src/components/questions/QuestionInput.tsx": {
+    "mtime": 1784269432.6771152,
+    "ast_hash": "ca4023e2e7200969f97dfae6d53577ca",
+    "semantic_hash": ""
+  },
+  "src/components/questions/QuestionSetEditor.tsx": {
+    "mtime": 1784269432.6774344,
+    "ast_hash": "b40c9e594da9e028695236556529fdcc",
+    "semantic_hash": ""
+  },
+  "src/components/student/PLCSimulator.tsx": {
+    "mtime": 1784269432.6778991,
+    "ast_hash": "f77478744c787d0895fea0b4e57e25d9",
+    "semantic_hash": ""
+  },
+  "src/components/student/StudentMenu.tsx": {
+    "mtime": 1784269432.6781843,
+    "ast_hash": "7c45f3bc0fea56108ac7698c6720e28a",
+    "semantic_hash": ""
+  },
+  "src/components/students/StudentForm.tsx": {
+    "mtime": 1784269432.678479,
+    "ast_hash": "7fc7c6b1c5ae9c51bb96557296d4ca92",
+    "semantic_hash": ""
+  },
+  "src/context/AuthContext.tsx": {
+    "mtime": 1782545438.228,
+    "ast_hash": "b8e28cc1b2df879e177f87b5761f244b",
+    "semantic_hash": ""
+  },
+  "src/data/course.ts": {
+    "mtime": 1783889874.4789536,
+    "ast_hash": "802ad74beb20e6d7674e7b6af16faa16",
+    "semantic_hash": ""
+  },
+  "src/hooks/useAuth.ts": {
+    "mtime": 1782541758.6883037,
+    "ast_hash": "9536a7666e2c4bfc2736aea03b78de3c",
+    "semantic_hash": ""
+  },
+  "src/main.tsx": {
+    "mtime": 1783889874.4791298,
+    "ast_hash": "110e69cae67ec2718d0e8290e228ac1e",
+    "semantic_hash": ""
+  },
+  "src/pages/admin/AdminChapterEditorPage.tsx": {
+    "mtime": 1784271042.9526231,
+    "ast_hash": "b868c21028a33f4cd6337af18fe80e68",
+    "semantic_hash": ""
+  },
+  "src/pages/admin/AdminCourseContentPage.tsx": {
+    "mtime": 1784269432.6799688,
+    "ast_hash": "841888a443a7f9b8d6849aff285ae253",
+    "semantic_hash": ""
+  },
+  "src/pages/admin/AdminDashboardPage.tsx": {
+    "mtime": 1784269432.680303,
+    "ast_hash": "80ac5e6d67956bba13e20402036bb6e2",
+    "semantic_hash": ""
+  },
+  "src/pages/admin/AdminHomeButtonsPage.tsx": {
+    "mtime": 1784269432.6806643,
+    "ast_hash": "401ca6b1a12c7313a1f96c75b193a02b",
+    "semantic_hash": ""
+  },
+  "src/pages/admin/AdminQuestionSetCreatePage.tsx": {
+    "mtime": 1784269432.680848,
+    "ast_hash": "a0eeb804c4ae981003d4bedbdcffae33",
+    "semantic_hash": ""
+  },
+  "src/pages/admin/AdminQuestionSetEditPage.tsx": {
+    "mtime": 1784269432.6810455,
+    "ast_hash": "5ef1c7af68284d579e7195a02404fdac",
+    "semantic_hash": ""
+  },
+  "src/pages/admin/AdminQuestionSetsPage.tsx": {
+    "mtime": 1784269432.6813917,
+    "ast_hash": "6691a0b8e58764c8c2dc1eb71ffe99e2",
+    "semantic_hash": ""
+  },
+  "src/pages/admin/AdminResultsPage.tsx": {
+    "mtime": 1784305998.1448874,
+    "ast_hash": "7334fbdc063730ae4f8f1066b9f69f74",
+    "semantic_hash": ""
+  },
+  "src/pages/admin/AdminStudentCreatePage.tsx": {
+    "mtime": 1784269432.6817434,
+    "ast_hash": "06ff2971be3c68c6e6a2ce77f2daca83",
+    "semantic_hash": ""
+  },
+  "src/pages/admin/AdminStudentEditPage.tsx": {
+    "mtime": 1784269432.6820488,
+    "ast_hash": "bfc2784645df63849e9cf50601f370eb",
+    "semantic_hash": ""
+  },
+  "src/pages/admin/AdminStudentsPage.tsx": {
+    "mtime": 1784269432.6839097,
+    "ast_hash": "3aafb79957b9686c2532c957531f4edf",
+    "semantic_hash": ""
+  },
+  "src/pages/auth/LoginPage.tsx": {
+    "mtime": 1784269432.6843026,
+    "ast_hash": "d04a56ef47430fb9c543d7f325314b61",
+    "semantic_hash": ""
+  },
+  "src/pages/student/ChaptersPage.tsx": {
+    "mtime": 1784269432.6846046,
+    "ast_hash": "4146a2112d7db02946b5cea00fd1dfc8",
+    "semantic_hash": ""
+  },
+  "src/pages/student/DynamicChapterPage.tsx": {
+    "mtime": 1784318272.3921194,
+    "ast_hash": "835af0479ac20f07c73e1693e45784f9",
+    "semantic_hash": ""
+  },
+  "src/pages/student/PLCChapterSelectPage.tsx": {
+    "mtime": 1784269432.6853898,
+    "ast_hash": "e3c9e21f5ea93c36197c90eb6022a741",
+    "semantic_hash": ""
+  },
+  "src/pages/student/PLCFundamentalsPage.tsx": {
+    "mtime": 1784269432.685777,
+    "ast_hash": "d2e01af45baf346243a495c186bda25a",
+    "semantic_hash": ""
+  },
+  "src/pages/student/PLCIntroPage.tsx": {
+    "mtime": 1784269432.6862233,
+    "ast_hash": "b0c2d173764cdac1b8f14b699f0c9b38",
+    "semantic_hash": ""
+  },
+  "src/pages/student/PLCWelcomePage.tsx": {
+    "mtime": 1784269432.686643,
+    "ast_hash": "f252a0ae2bebc4a880e98cf8c14750e6",
+    "semantic_hash": ""
+  },
+  "src/pages/student/StudentCharactersPage.tsx": {
+    "mtime": 1784269432.6871824,
+    "ast_hash": "a7d6c94d7cf8b66843064d6820baeb0d",
+    "semantic_hash": ""
+  },
+  "src/pages/student/StudentQuestionSetsPage.tsx": {
+    "mtime": 1784269432.6875045,
+    "ast_hash": "ea10a4faa122605eecfb39ccdd31148c",
+    "semantic_hash": ""
+  },
+  "src/pages/student/StudentQuizCompletionPage.tsx": {
+    "mtime": 1784269432.6879442,
+    "ast_hash": "0eccd1709ad35eecb08d761e7b9def93",
+    "semantic_hash": ""
+  },
+  "src/pages/student/StudentResultPage.tsx": {
+    "mtime": 1784052216.9948752,
+    "ast_hash": "be3460bec6fc48d6fcdafc25d5f3391d",
+    "semantic_hash": ""
+  },
+  "src/routes/AppRoutes.tsx": {
+    "mtime": 1784227313.257634,
+    "ast_hash": "037dce16cd8c108e35473e7b29b3d242",
+    "semantic_hash": ""
+  },
+  "src/services/apiClient.ts": {
+    "mtime": 1783889874.479725,
+    "ast_hash": "d39856b0f42b75684ebba875587076b5",
+    "semantic_hash": ""
+  },
+  "src/services/authService.ts": {
+    "mtime": 1782545438.2279649,
+    "ast_hash": "fb2419144f5b7d027e0bc127bbe6f450",
+    "semantic_hash": ""
+  },
+  "src/services/courseApiService.ts": {
+    "mtime": 1783873927.132173,
+    "ast_hash": "affb94722bbe8ac7be9afa19d576a2ce",
+    "semantic_hash": ""
+  },
+  "src/services/homeButtonApiService.ts": {
+    "mtime": 1784225667.557465,
+    "ast_hash": "23be037108b477fbba7b187c7c602c47",
+    "semantic_hash": ""
+  },
+  "src/services/questionSetService.ts": {
+    "mtime": 1782545438.2280703,
+    "ast_hash": "7dcea3f0fc995dd4efc7d6f48fc8a78c",
+    "semantic_hash": ""
+  },
+  "src/services/resultService.ts": {
+    "mtime": 1784305981.4883327,
+    "ast_hash": "1817102d3ba56ad0cb49829fcec1ab39",
+    "semantic_hash": ""
+  },
+  "src/services/storage.ts": {
+    "mtime": 1782541626.4023573,
+    "ast_hash": "7d649a67b123cf76447deb816a43a990",
+    "semantic_hash": ""
+  },
+  "src/services/uploadService.ts": {
+    "mtime": 1784225672.248357,
+    "ast_hash": "1ab60a8a7fad486e9ba06d20d1ca326f",
+    "semantic_hash": ""
+  },
+  "src/services/userService.ts": {
+    "mtime": 1783959994.1443696,
+    "ast_hash": "5820c63235657357e76b1bcc9a61f72c",
+    "semantic_hash": ""
+  },
+  "src/types/course.ts": {
+    "mtime": 1784233638.335444,
+    "ast_hash": "13478d17c261905fbce5dc9ee2ccaf2b",
+    "semantic_hash": ""
+  },
+  "src/types/homeButton.ts": {
+    "mtime": 1784225662.926674,
+    "ast_hash": "40dd2c0c0e8a66e6c6f929cb95f13247",
+    "semantic_hash": ""
+  },
+  "src/types/quiz.ts": {
+    "mtime": 1782541613.9544637,
+    "ast_hash": "ba89a24f4bc53db01baf95fab6f5a98e",
+    "semantic_hash": ""
+  },
+  "src/types/user.ts": {
+    "mtime": 1783959987.768568,
+    "ast_hash": "fcd71fb763ee61b1ee342a746216c81c",
+    "semantic_hash": ""
+  },
+  "src/utils/assets.ts": {
+    "mtime": 1783883884.4941895,
+    "ast_hash": "91efb6849085c4e1c1f7b974b7bf9019",
+    "semantic_hash": ""
+  },
+  "src/utils/id.ts": {
+    "mtime": 1782541617.7357075,
+    "ast_hash": "cfc14de8e25f7b4176a431bf20478397",
+    "semantic_hash": ""
+  },
+  "src/utils/validation.ts": {
+    "mtime": 1782541646.6473713,
+    "ast_hash": "a9541fa6e9976f426f80c173bc8cee37",
+    "semantic_hash": ""
+  },
+  "src/assets/hero.png": {
+    "mtime": 1781938178.4046576,
+    "ast_hash": "aead493361b27e7510691c5d7072dfc1",
+    "semantic_hash": ""
+  },
+  "src/assets/react.svg": {
+    "mtime": 1781938178.4051697,
+    "ast_hash": "f0402b67b6ce880f65666bb49e841696",
+    "semantic_hash": ""
+  },
+  "src/assets/vite.svg": {
+    "mtime": 1781938178.4054005,
+    "ast_hash": "9960a24288958394ac50e57ff638b036",
+    "semantic_hash": ""
+  }
+}

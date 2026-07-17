@@ -61,6 +61,14 @@ export function DynamicChapterPage() {
     }
   }
 
+  const handlePrevious = () => {
+    if (currentPageIndex > 0) {
+      setCurrentPageIndex(currentPageIndex - 1)
+    } else {
+      navigate('/student/chapters')
+    }
+  }
+
   const handleComplete = () => {
     // For auto-complete pages like slideshows
     handleNext()
@@ -89,6 +97,7 @@ export function DynamicChapterPage() {
       page={currentPage}
       onComplete={handleComplete}
       onNext={handleNext}
+      onPrevious={handlePrevious}
     />
   )
 }

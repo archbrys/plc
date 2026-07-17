@@ -8,9 +8,10 @@ import './ContentSectionPage.css'
 interface ContentSectionPageProps {
   config: ContentSectionPageConfig
   onNext?: () => void
+  onPrevious?: () => void
 }
 
-export function ContentSectionPage({ config, onNext }: ContentSectionPageProps) {
+export function ContentSectionPage({ config, onNext, onPrevious }: ContentSectionPageProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isTyping, setIsTyping] = useState(true)
   const { contents } = config
@@ -21,9 +22,11 @@ export function ContentSectionPage({ config, onNext }: ContentSectionPageProps) 
   const isLastBlock = currentIndex === contents.length - 1
 
   const handlePrevious = () => {
-    if (!isFirstBlock) {
-      setCurrentIndex((index) => index - 1)
+    if (isFirstBlock) {
+      onPrevious?.()
+      return
     }
+    setCurrentIndex((index) => index - 1)
   }
 
   const handleNext = () => {
@@ -75,12 +78,7 @@ export function ContentSectionPage({ config, onNext }: ContentSectionPageProps) 
 
         <div className="chapter-section2-actions">
           {!isTyping && (
-            <button
-              className="btn large ready-btn"
-              type="button"
-              onClick={handlePrevious}
-              disabled={isFirstBlock}
-            >
+            <button className="btn large ready-btn" type="button" onClick={handlePrevious}>
               Previous
             </button>
           )}
