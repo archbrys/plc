@@ -11,12 +11,28 @@ interface ContentSectionPageProps {
 }
 
 export function ContentSectionPage({ config, onNext }: ContentSectionPageProps) {
-  const [showNextButton, setShowNextButton] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [isTyping, setIsTyping] = useState(true)
   const { contents } = config
   const currentBlock = contents[currentIndex] ?? contents[0]
   const hasText = Boolean(currentBlock?.text?.trim())
   const hasImage = Boolean(currentBlock?.image)
+  const isFirstBlock = currentIndex === 0
+  const isLastBlock = currentIndex === contents.length - 1
+
+  const handlePrevious = () => {
+    if (!isFirstBlock) {
+      setCurrentIndex((index) => index - 1)
+    }
+  }
+
+  const handleNext = () => {
+    if (isLastBlock) {
+      onNext?.()
+      return
+    }
+    setCurrentIndex((index) => index + 1)
+  }
 
   return (
     <main className="chapter-section2-main">
@@ -39,12 +55,9 @@ export function ContentSectionPage({ config, onNext }: ContentSectionPageProps) 
             >
               <TypingAnimation
                 contents={contents.map((block) => block.text)}
+                currentIndex={currentIndex}
                 typingSpeed={30}
-                displayDuration={5000}
-                clearSpeed={10}
-                loop={false}
-                onComplete={() => setShowNextButton(true)}
-                onIndexChange={setCurrentIndex}
+                onTypingStateChange={setIsTyping}
               />
             </div>
 
@@ -60,13 +73,21 @@ export function ContentSectionPage({ config, onNext }: ContentSectionPageProps) 
           </div>
         </div>
 
-        {showNextButton && (
-          <div className="chapter-section2-actions">
-            <button className="btn large ready-btn" type="button" onClick={onNext}>
+        <div className="chapter-section2-actions">
+          <button
+            className="btn small"
+            type="button"
+            onClick={handlePrevious}
+            disabled={isFirstBlock}
+          >
+            Previous
+          </button>
+          {!isTyping && (
+            <button className="btn large ready-btn" type="button" onClick={handleNext}>
               Next
             </button>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </main>
   )
