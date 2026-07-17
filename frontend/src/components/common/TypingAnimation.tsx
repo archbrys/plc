@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import './TypingAnimation.css'
 
 interface TypingAnimationProps {
@@ -16,6 +16,7 @@ export function TypingAnimation({
 }: TypingAnimationProps) {
   const [displayedText, setDisplayedText] = useState('')
   const [renderedIndex, setRenderedIndex] = useState(currentIndex)
+  const containerRef = useRef<HTMLDivElement>(null)
 
   const currentContent = contents[currentIndex]
   const isTyping = displayedText.length < currentContent.length
@@ -39,6 +40,13 @@ export function TypingAnimation({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isTyping])
 
+  useEffect(() => {
+    const container = containerRef.current
+    if (container) {
+      container.scrollTop = container.scrollHeight
+    }
+  }, [displayedText])
+
   const handleSkip = () => {
     if (isTyping) {
       setDisplayedText(currentContent)
@@ -47,7 +55,7 @@ export function TypingAnimation({
 
   return (
     <div className="typing-animation-wrapper">
-      <div className="typing-animation-container" onClick={handleSkip}>
+      <div className="typing-animation-container" onClick={handleSkip} ref={containerRef}>
         <div className="typing-animation-text">
           {displayedText.split('\n').map((line, index) => (
             <span key={index}>
