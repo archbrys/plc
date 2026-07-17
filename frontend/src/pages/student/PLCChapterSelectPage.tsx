@@ -12,7 +12,7 @@ export function PLCChapterSelectPage() {
     <div className="landing-page">
       <header className="landing-header">
         <div className="header-actions">
-          <button className="btn secondary" type="button" onClick={() => navigate('/student/plc-welcome')}>
+          <button className="btn secondary small" type="button" onClick={() => navigate('/student/plc-welcome')}>
             Back
           </button>
           <StudentMenu />
@@ -41,7 +41,7 @@ export function PLCChapterSelectPage() {
         
         <div className="plc-intro-actions">
           <button 
-            className="btn large ready-btn" 
+            className="btn small ready-btn"
             type="button" 
             onClick={handleNext}
           >

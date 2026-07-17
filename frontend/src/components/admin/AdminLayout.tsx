@@ -58,7 +58,7 @@ export function AdminLayout({ title, subtitle, children, actions }: AdminLayoutP
             </div>
           ) : null}
           {user ? (
-            <button className="btn-outline admin-logout" type="button" onClick={logout}>
+            <button className="btn-outline admin-logout small" type="button" onClick={logout}>
               Logout
             </button>
           ) : null}

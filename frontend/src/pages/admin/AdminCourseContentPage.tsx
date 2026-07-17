@@ -113,7 +113,7 @@ export function AdminCourseContentPage() {
           </div>
 
           <div className="header-actions wrap" style={{ marginTop: '1rem' }}>
-            <button className="btn" type="button" onClick={handleAddChapter}>
+            <button className="btn small" type="button" onClick={handleAddChapter}>
               Add Chapter
             </button>
           </div>

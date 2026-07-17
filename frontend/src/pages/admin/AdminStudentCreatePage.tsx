@@ -25,7 +25,7 @@ export function AdminStudentCreatePage() {
     <AdminLayout
       title="Add Student"
       actions={
-        <button className="btn-outline" type="button" onClick={() => navigate('/admin/students')}>
+        <button className="btn-outline small" type="button" onClick={() => navigate('/admin/students')}>
           Back
         </button>
       }

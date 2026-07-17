@@ -38,7 +38,7 @@ export function StudentCharactersPage() {
         </div>
         
         <button
-          className="btn-nav btn-next btn-next-characters"
+          className="btn-nav btn-next btn-next-characters btn-sm"
           type="button"
           onClick={handleNext}
         >

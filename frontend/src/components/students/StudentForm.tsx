@@ -87,10 +87,10 @@ export function StudentForm({ initialValue, onSave, onCancel, submitLabel }: Stu
       </label>
 
       <div className="row-between">
-        <button type="button" className="btn secondary" onClick={onCancel}>
+        <button type="button" className="btn secondary small" onClick={onCancel}>
           Cancel
         </button>
-        <button type="submit" className="btn" disabled={saving}>
+        <button type="submit" className="btn small" disabled={saving}>
           {saving ? 'Saving...' : submitLabel}
         </button>
       </div>

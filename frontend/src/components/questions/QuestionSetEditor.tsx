@@ -204,7 +204,7 @@ export function QuestionSetEditor({
             <h3>Question {index + 1}</h3>
             <button
               type="button"
-              className="btn danger"
+              className="btn danger small"
               onClick={() => removeQuestion(question.id)}
             >
               Remove
@@ -279,7 +279,7 @@ export function QuestionSetEditor({
             <div className="stack">
               <div className="row-between">
                 <h4>Choices</h4>
-                <button type="button" className="btn secondary" onClick={() => addChoice(question.id)}>
+                <button type="button" className="btn secondary small" onClick={() => addChoice(question.id)}>
                   Add Choice
                 </button>
               </div>
@@ -311,7 +311,7 @@ export function QuestionSetEditor({
                   </label>
                   <button
                     type="button"
-                    className="btn danger"
+                    className="btn danger small"
                     onClick={() => removeChoice(question.id, choice.id)}
                   >
                     Remove
@@ -324,14 +324,14 @@ export function QuestionSetEditor({
       ))}
 
       <div className="row-between">
-        <button type="button" className="btn secondary" onClick={addQuestion}>
+        <button type="button" className="btn secondary small" onClick={addQuestion}>
           Add Question
         </button>
         <div className="header-actions">
-          <button type="button" className="btn secondary" onClick={onCancel}>
+          <button type="button" className="btn secondary small" onClick={onCancel}>
             Cancel
           </button>
-          <button type="submit" className="btn" disabled={saving}>
+          <button type="submit" className="btn small" disabled={saving}>
             {saving ? 'Saving...' : submitLabel}
           </button>
         </div>

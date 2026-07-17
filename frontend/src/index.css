@@ -205,8 +205,14 @@ select {
 .btn.small,
 .btn-outline.small {
   padding: 0.4rem 0.75rem;
-  font-size: 0.85rem;
+  font-size: 12px;
   border-radius: 8px;
+}
+
+/* Global small-size utility for buttons outside the .btn family */
+.btn-sm {
+  font-size: 12px !important;
+  padding: 0.35rem 0.7rem !important;
 }
 
 .btn.secondary {

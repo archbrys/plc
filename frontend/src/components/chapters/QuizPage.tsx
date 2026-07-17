@@ -117,7 +117,7 @@ export function QuizPage({ config }: QuizPageProps) {
     return (
       <main className="quiz-start-content">
         <h1 className="quiz-start-title">Quiz Time!</h1>
-        <button className="btn large ready-btn quiz-start-btn" type="button" onClick={() => setStarted(true)}>
+        <button className="btn small ready-btn quiz-start-btn" type="button" onClick={() => setStarted(true)}>
           Begin
         </button>
       </main>
@@ -199,7 +199,7 @@ export function QuizPage({ config }: QuizPageProps) {
 
       <div className="quiz-navigation">
         <button
-          className="btn-nav btn-previous"
+          className="btn-nav btn-previous btn-sm"
           type="button"
           onClick={handlePrevious}
           disabled={currentQuestionIndex === 0}
@@ -207,7 +207,7 @@ export function QuizPage({ config }: QuizPageProps) {
           Previous
         </button>
         <button
-          className="btn-nav btn-next"
+          className="btn-nav btn-next btn-sm"
           type="button"
           onClick={handleNext}
           disabled={submitting || !hasCurrentAnswer}

@@ -55,13 +55,13 @@ export function AdminDashboardPage() {
         </div>
         <div className="admin-panel-body">
           <div className="header-actions wrap">
-            <Link className="btn" to="/admin/question-sets/create">
+            <Link className="btn small" to="/admin/question-sets/create">
               Create Question Set
             </Link>
-            <Link className="btn secondary" to="/admin/course-content">
+            <Link className="btn secondary small" to="/admin/course-content">
               View Chapters &amp; Sections
             </Link>
-            <Link className="btn secondary" to="/admin/results">
+            <Link className="btn secondary small" to="/admin/results">
               View Student Results
             </Link>
           </div>

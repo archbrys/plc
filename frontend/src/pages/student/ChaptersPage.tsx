@@ -50,7 +50,7 @@ export function ChaptersPage() {
       <header className="chapters-header">
         <div className="header-actions">
           <button
-            className="btn secondary"
+            className="btn secondary small"
             type="button"
             onClick={() => navigate("/student/plc-chapter-select")}
           >
@@ -86,7 +86,7 @@ export function ChaptersPage() {
                 {columnChapters.map((chapter) => (
                   <button
                     key={chapter.id}
-                    className="chapter-btn"
+                    className="chapter-btn btn-sm"
                     type="button"
                     onClick={() => handleChapterClick(chapter.id)}
                   >
