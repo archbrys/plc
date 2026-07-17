@@ -45,4 +45,12 @@ export class SubmissionRepository {
       },
     })
   }
+
+  findById(id: string) {
+    return this.db.submission.findUnique({ where: { id } })
+  }
+
+  delete(id: string) {
+    return this.db.submission.delete({ where: { id } })
+  }
 }

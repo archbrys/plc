@@ -29,4 +29,9 @@ export const resultController = {
     const data = await resultService.listByStudent(sessionUser!.id)
     res.status(StatusCodes.OK).json(createApiResponse(true, 'Student results retrieved.', data))
   },
+
+  remove: async (req: Request, res: Response) => {
+    await resultService.remove(String(req.params.id))
+    res.status(StatusCodes.OK).json(createApiResponse(true, 'Result deleted.', null))
+  },
 }

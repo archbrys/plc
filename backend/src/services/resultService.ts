@@ -177,4 +177,11 @@ export class ResultService {
       }),
     )
   }
+
+  async remove(id: string): Promise<void> {
+    const existing = await this.submissionRepository.findById(id)
+    if (!existing) throw new HttpError(404, 'Result not found.')
+
+    await this.submissionRepository.delete(id)
+  }
 }

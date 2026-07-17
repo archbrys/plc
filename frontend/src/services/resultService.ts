@@ -35,4 +35,8 @@ export const resultService = {
     const results = await this.listByStudent('')
     return results.find((result) => result.id === id) ?? null
   },
+
+  async remove(id: string): Promise<void> {
+    await apiClient.delete(`/api/results/${id}`)
+  },
 }
