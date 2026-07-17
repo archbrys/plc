@@ -535,8 +535,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_middleware_uploadmiddleware",
-      "community": 31,
-      "community_name": "courseService.ts",
+      "community": 34,
+      "community_name": "uploadRoutes.ts",
       "norm_label": "uploadmiddleware.ts"
     },
     {
@@ -557,8 +557,8 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "backend_src_middleware_uploadmiddleware_allowed_mime_types",
-      "community": 31,
-      "community_name": "courseService.ts",
+      "community": 34,
+      "community_name": "uploadRoutes.ts",
       "norm_label": "allowed_mime_types"
     },
     {
@@ -568,8 +568,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "backend_src_middleware_uploadmiddleware_storage",
-      "community": 31,
-      "community_name": "courseService.ts",
+      "community": 34,
+      "community_name": "uploadRoutes.ts",
       "norm_label": "storage"
     },
     {
@@ -579,8 +579,8 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "backend_src_middleware_uploadmiddleware_uploadimage",
-      "community": 31,
-      "community_name": "courseService.ts",
+      "community": 34,
+      "community_name": "uploadRoutes.ts",
       "norm_label": "uploadimage"
     },
     {
@@ -590,8 +590,8 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "backend_src_middleware_uploadmiddleware_allowed_media_mime_types",
-      "community": 31,
-      "community_name": "courseService.ts",
+      "community": 34,
+      "community_name": "uploadRoutes.ts",
       "norm_label": "allowed_media_mime_types"
     },
     {
@@ -601,8 +601,8 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "backend_src_middleware_uploadmiddleware_uploadmedia",
-      "community": 31,
-      "community_name": "courseService.ts",
+      "community": 34,
+      "community_name": "uploadRoutes.ts",
       "norm_label": "uploadmedia"
     },
     {
@@ -1415,8 +1415,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "backend_src_routes_uploadroutes",
-      "community": 31,
-      "community_name": "courseService.ts",
+      "community": 34,
+      "community_name": "uploadRoutes.ts",
       "norm_label": "uploadroutes.ts"
     },
     {
@@ -1426,8 +1426,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "backend_src_routes_uploadroutes_uploadroutes",
-      "community": 31,
-      "community_name": "courseService.ts",
+      "community": 34,
+      "community_name": "uploadRoutes.ts",
       "norm_label": "uploadroutes"
     },
     {
@@ -3370,7 +3370,7 @@
       "label": "TypingAnimation()",
       "file_type": "code",
       "source_file": "frontend/src/components/common/TypingAnimation.tsx",
-      "source_location": "L14",
+      "source_location": "L11",
       "_origin": "ast",
       "id": "frontend_src_components_common_typinganimation_typinganimation",
       "community": 2,
@@ -12571,7 +12571,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/chapters/ContentSectionPage.tsx",
-      "source_location": "L33",
+      "source_location": "L49",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_components_chapters_contentsectionpage_contentsectionpage",
@@ -12583,7 +12583,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "frontend/src/components/chapters/ContentSectionPage.tsx",
-      "source_location": "L54",
+      "source_location": "L67",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_components_chapters_contentsectionpage_contentsectionpage",
@@ -13249,7 +13249,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "frontend/src/components/common/TypingAnimation.tsx",
-      "source_location": "L14",
+      "source_location": "L11",
       "weight": 1.0,
       "_origin": "ast",
       "source": "frontend_src_components_common_typinganimation",
@@ -18176,5 +18176,5 @@
       "source_file": "backend/src/modules/README.md"
     }
   ],
-  "built_at_commit": "e46401b4286afd31c8e51db88748a681d4a11681"
+  "built_at_commit": "a091c55b8ce61237b225a52cc3d1678efa4b58f2"
 }

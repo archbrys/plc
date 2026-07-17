@@ -290,13 +290,13 @@
     "semantic_hash": ""
   },
   "frontend/src/components/chapters/ChapterHeader.tsx": {
-    "mtime": 1784051639.6643276,
-    "ast_hash": "9c9cf5e8e383c63c7a5b39e0a2191773",
-    "semantic_hash": "9c9cf5e8e383c63c7a5b39e0a2191773"
+    "mtime": 1784311666.9479632,
+    "ast_hash": "d96781e29b5fa5bc32705aef67b2436c",
+    "semantic_hash": ""
   },
   "frontend/src/components/chapters/ContentSectionPage.tsx": {
-    "mtime": 1784269432.6729589,
-    "ast_hash": "ebd2f9280238bc40dc057ba50ffb2bb8",
+    "mtime": 1784316001.9735138,
+    "ast_hash": "36d4f202bbed937a0631007d2ccd04f0",
     "semantic_hash": ""
   },
   "frontend/src/components/chapters/InteractivePracticePage.tsx": {
@@ -330,9 +330,9 @@
     "semantic_hash": "b3a9e2947dcf19d6f38e3ac3994cee08"
   },
   "frontend/src/components/common/TypingAnimation.tsx": {
-    "mtime": 1783884695.420935,
-    "ast_hash": "482967b4dfd669eee0e78ca54ac4675a",
-    "semantic_hash": "482967b4dfd669eee0e78ca54ac4675a"
+    "mtime": 1784316031.3812582,
+    "ast_hash": "1d34a6d8de8dd8159539db4b6f6c8e14",
+    "semantic_hash": ""
   },
   "frontend/src/components/questions/QuestionInput.tsx": {
     "mtime": 1784269432.6771152,

@@ -32,5 +32,6 @@
   "30": "ContentSectionPage.tsx",
   "31": "courseService.ts",
   "32": "HomeButtonRepository",
-  "33": "HttpError"
+  "33": "HttpError",
+  "34": "uploadRoutes.ts"
 }

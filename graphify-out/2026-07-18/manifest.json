@@ -55,9 +55,9 @@
     "semantic_hash": "f3646cf03d40c7327eaaa83c84db61a2"
   },
   "backend/src/controllers/resultController.ts": {
-    "mtime": 1782545438.2278135,
-    "ast_hash": "c59768a98d9e5d382299b42375adc0bf",
-    "semantic_hash": "c59768a98d9e5d382299b42375adc0bf"
+    "mtime": 1784306025.7618847,
+    "ast_hash": "0a85507b5494c5be8cd09fd047907e28",
+    "semantic_hash": ""
   },
   "backend/src/controllers/uploadController.ts": {
     "mtime": 1784137930.6698472,
@@ -140,9 +140,9 @@
     "semantic_hash": "83f2b55c5b08cdd6b4b78d0a869b7581"
   },
   "backend/src/repositories/submissionRepository.ts": {
-    "mtime": 1782545438.2277343,
-    "ast_hash": "b10fecd32480f7699f8f3782e23b9b52",
-    "semantic_hash": "b10fecd32480f7699f8f3782e23b9b52"
+    "mtime": 1784305957.6957164,
+    "ast_hash": "f9985eeacb609d54616bb66cd2bacbd4",
+    "semantic_hash": ""
   },
   "backend/src/repositories/userRepository.ts": {
     "mtime": 1783960106.786407,
@@ -170,9 +170,9 @@
     "semantic_hash": "5c878df1dac9bdd77069e9bf8cc4763a"
   },
   "backend/src/routes/resultRoutes.ts": {
-    "mtime": 1782545438.2278326,
-    "ast_hash": "1dbf08dfe1b601992b676f2eda100fdb",
-    "semantic_hash": "1dbf08dfe1b601992b676f2eda100fdb"
+    "mtime": 1784305977.0505118,
+    "ast_hash": "4d694682763eeb2ee16e05cc4313efee",
+    "semantic_hash": ""
   },
   "backend/src/routes/uploadRoutes.ts": {
     "mtime": 1784137935.842696,
@@ -205,9 +205,9 @@
     "semantic_hash": "3f545fe7405ddb4c853abfffb7f63597"
   },
   "backend/src/services/resultService.ts": {
-    "mtime": 1782545438.2277503,
-    "ast_hash": "d3a4dc51a379e57b3159b6d3a3db43e0",
-    "semantic_hash": "d3a4dc51a379e57b3159b6d3a3db43e0"
+    "mtime": 1784305964.9207828,
+    "ast_hash": "91b2f2f93481dd938b77acad8975c6b6",
+    "semantic_hash": ""
   },
   "backend/src/services/userService.ts": {
     "mtime": 1783959962.1719217,
@@ -290,13 +290,13 @@
     "semantic_hash": ""
   },
   "frontend/src/components/chapters/ChapterHeader.tsx": {
-    "mtime": 1784051639.6643276,
-    "ast_hash": "9c9cf5e8e383c63c7a5b39e0a2191773",
-    "semantic_hash": "9c9cf5e8e383c63c7a5b39e0a2191773"
+    "mtime": 1784311666.9479632,
+    "ast_hash": "d96781e29b5fa5bc32705aef67b2436c",
+    "semantic_hash": ""
   },
   "frontend/src/components/chapters/ContentSectionPage.tsx": {
-    "mtime": 1784269432.6729589,
-    "ast_hash": "ebd2f9280238bc40dc057ba50ffb2bb8",
+    "mtime": 1784313605.3194988,
+    "ast_hash": "82277169e55189750905bdca84178a45",
     "semantic_hash": ""
   },
   "frontend/src/components/chapters/InteractivePracticePage.tsx": {
@@ -330,9 +330,9 @@
     "semantic_hash": "b3a9e2947dcf19d6f38e3ac3994cee08"
   },
   "frontend/src/components/common/TypingAnimation.tsx": {
-    "mtime": 1783884695.420935,
-    "ast_hash": "482967b4dfd669eee0e78ca54ac4675a",
-    "semantic_hash": "482967b4dfd669eee0e78ca54ac4675a"
+    "mtime": 1784313632.1571465,
+    "ast_hash": "742ea1b79b64b68cb06dfaeee25757f3",
+    "semantic_hash": ""
   },
   "frontend/src/components/questions/QuestionInput.tsx": {
     "mtime": 1784269432.6771152,
@@ -380,8 +380,8 @@
     "semantic_hash": "110e69cae67ec2718d0e8290e228ac1e"
   },
   "frontend/src/pages/admin/AdminChapterEditorPage.tsx": {
-    "mtime": 1784269432.679476,
-    "ast_hash": "d2704da096729cc7ad017da5b4c3159d",
+    "mtime": 1784271042.9526231,
+    "ast_hash": "b868c21028a33f4cd6337af18fe80e68",
     "semantic_hash": ""
   },
   "frontend/src/pages/admin/AdminCourseContentPage.tsx": {
@@ -410,9 +410,9 @@
     "semantic_hash": ""
   },
   "frontend/src/pages/admin/AdminResultsPage.tsx": {
-    "mtime": 1783958612.0576599,
-    "ast_hash": "1dbe34ccf6c386e5cbd89db1f58be8de",
-    "semantic_hash": "1dbe34ccf6c386e5cbd89db1f58be8de"
+    "mtime": 1784305998.1448874,
+    "ast_hash": "7334fbdc063730ae4f8f1066b9f69f74",
+    "semantic_hash": ""
   },
   "frontend/src/pages/admin/AdminStudentCreatePage.tsx": {
     "mtime": 1784269432.6817434,
@@ -510,9 +510,9 @@
     "semantic_hash": "7dcea3f0fc995dd4efc7d6f48fc8a78c"
   },
   "frontend/src/services/resultService.ts": {
-    "mtime": 1782545438.2279937,
-    "ast_hash": "67333dc27158c6f656a06b3a2a9b299d",
-    "semantic_hash": "67333dc27158c6f656a06b3a2a9b299d"
+    "mtime": 1784305981.4883327,
+    "ast_hash": "1817102d3ba56ad0cb49829fcec1ab39",
+    "semantic_hash": ""
   },
   "frontend/src/services/storage.ts": {
     "mtime": 1782541626.4023573,

@@ -1,16 +1,16 @@
 # Graph Report - plc-mc  (2026-07-18)
 
 ## Corpus Check
-- 126 files · ~28,823 words
+- 126 files · ~28,793 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 490 nodes · 1090 edges · 34 communities (25 shown, 9 thin omitted)
+- 490 nodes · 1090 edges · 35 communities (26 shown, 9 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 2 edges (avg confidence: 0.5)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `e46401b4`
+- Built from commit: `a091c55b`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -42,6 +42,7 @@
 - courseService.ts
 - HomeButtonRepository
 - HttpError
+- uploadRoutes.ts
 
 ## God Nodes (most connected - your core abstractions)
 1. `useAuth()` - 22 edges
@@ -73,7 +74,7 @@
 ## Hyperedges (group relationships)
 - **Future domain module folders under backend/src/modules** — backend_src_modules_readme_authmodule, backend_src_modules_readme_usersmodule, backend_src_modules_readme_questionsetsmodule, backend_src_modules_readme_questionsmodule, backend_src_modules_readme_answersmodule, backend_src_modules_readme_resultsmodule [EXTRACTED 1.00]
 
-## Communities (34 total, 9 thin omitted)
+## Communities (35 total, 9 thin omitted)
 
 ### Community 0 - "Frontend Quiz & Student Pages"
 Cohesion: 0.06
@@ -136,8 +137,8 @@ Cohesion: 0.36
 Nodes (6): validateBody(), validateParams(), userRoutes, createUserSchema, updateUserSchema, userIdParamSchema
 
 ### Community 31 - "courseService.ts"
-Cohesion: 0.15
-Nodes (10): courseController, uploadController, ALLOWED_MEDIA_MIME_TYPES, ALLOWED_MIME_TYPES, storage, uploadImage, uploadMedia, uploadRoutes (+2 more)
+Cohesion: 0.28
+Nodes (4): courseController, uploadController, courseService, HttpError
 
 ### Community 32 - "HomeButtonRepository"
 Cohesion: 0.32
@@ -146,6 +147,10 @@ Nodes (5): resultController, courseRoutes, resultRoutes, answerSchema, submitRes
 ### Community 33 - "HttpError"
 Cohesion: 0.24
 Nodes (7): homeButtonController, homeButtonRoutes, homeButtonService, chapterTargetSchema, homeButtonIdParamSchema, routeTargetSchema, upsertHomeButtonSchema
+
+### Community 34 - "uploadRoutes.ts"
+Cohesion: 0.32
+Nodes (6): ALLOWED_MEDIA_MIME_TYPES, ALLOWED_MIME_TYPES, storage, uploadImage, uploadMedia, uploadRoutes
 
 ## Knowledge Gaps
 - **80 isolated node(s):** `prisma`, `prisma`, `prisma`, `frontendDistPath`, `__dirname` (+75 more)
