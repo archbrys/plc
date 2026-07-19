@@ -93,7 +93,7 @@ export function ChapterFlowRenderer({ chapterTitle, page, onComplete, onNext, on
       body = !page.config.url ? (
         <MisconfiguredPage type={page.type} />
       ) : (
-        <MediaPage key={page.id} config={page.config} onNext={onNext} />
+        <MediaPage key={page.id} config={page.config} onNext={onNext} onPrevious={onPrevious} />
       )
       break
 

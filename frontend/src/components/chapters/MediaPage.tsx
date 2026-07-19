@@ -5,9 +5,10 @@ import './MediaPage.css'
 interface MediaPageProps {
   config: MediaPageConfig
   onNext?: () => void
+  onPrevious?: () => void
 }
 
-export function MediaPage({ config, onNext }: MediaPageProps) {
+export function MediaPage({ config, onNext, onPrevious }: MediaPageProps) {
   const { mediaType, url, description } = config
   const src = resolveAssetSrc(url)
 
@@ -29,6 +30,9 @@ export function MediaPage({ config, onNext }: MediaPageProps) {
       </div>
 
       <div className="media-page-actions">
+        <button className="btn-nav btn-previous" type="button" onClick={onPrevious}>
+          Previous
+        </button>
         <button className="btn large ready-btn" type="button" onClick={onNext}>
           Next
         </button>

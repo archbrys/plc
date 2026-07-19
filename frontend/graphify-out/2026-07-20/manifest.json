@@ -25,8 +25,8 @@
     "semantic_hash": ""
   },
   "src/components/chapters/ChapterFlowRenderer.tsx": {
-    "mtime": 1784484236.7420971,
-    "ast_hash": "628fbe4b5a5387be3aa911e8980ac2a5",
+    "mtime": 1784467168.7623713,
+    "ast_hash": "71e259aeb4efdeb423c363a483f00abd",
     "semantic_hash": ""
   },
   "src/components/chapters/ChapterHeader.tsx": {
@@ -35,8 +35,8 @@
     "semantic_hash": ""
   },
   "src/components/chapters/ContentSectionPage.tsx": {
-    "mtime": 1784475046.4360735,
-    "ast_hash": "15f20a7c208bb4f214fd5b2809aafd98",
+    "mtime": 1784318297.7384243,
+    "ast_hash": "6dffffc7518ddf70a446f962b3e9a3f7",
     "semantic_hash": ""
   },
   "src/components/chapters/InteractivePracticePage.tsx": {
@@ -45,8 +45,8 @@
     "semantic_hash": ""
   },
   "src/components/chapters/MediaPage.tsx": {
-    "mtime": 1784484231.9731936,
-    "ast_hash": "9005d85fe21d3615db71269715663e14",
+    "mtime": 1784269432.6751585,
+    "ast_hash": "8157f4eb37a31fe042cf6a485fc74984",
     "semantic_hash": ""
   },
   "src/components/chapters/NarrationPage.tsx": {
@@ -145,8 +145,8 @@
     "semantic_hash": ""
   },
   "src/pages/admin/AdminHomeButtonsPage.tsx": {
-    "mtime": 1784470049.066956,
-    "ast_hash": "b77e57ff46c37ef8a6ea8290460f8fdb",
+    "mtime": 1784465882.013554,
+    "ast_hash": "6dd5b2624c2e7369d320b57bb8289c5c",
     "semantic_hash": ""
   },
   "src/pages/admin/AdminQuestionSetCreatePage.tsx": {
@@ -200,8 +200,8 @@
     "semantic_hash": ""
   },
   "src/pages/student/PLCChapterSelectPage.tsx": {
-    "mtime": 1784467803.374077,
-    "ast_hash": "0e06761ae7a480c4999a3218211ec3a8",
+    "mtime": 1784467037.1248465,
+    "ast_hash": "733d717a9b8fbcfdc507be1d3a71f924",
     "semantic_hash": ""
   },
   "src/pages/student/PLCFundamentalsPage.tsx": {
@@ -210,13 +210,13 @@
     "semantic_hash": ""
   },
   "src/pages/student/PLCIntroPage.tsx": {
-    "mtime": 1784467662.538387,
-    "ast_hash": "906cc76959271448c9d2868bdbbca938",
+    "mtime": 1784466784.4539106,
+    "ast_hash": "79b39e015e060f064da6a3c3ef08c630",
     "semantic_hash": ""
   },
   "src/pages/student/PLCWelcomePage.tsx": {
-    "mtime": 1784467802.1993053,
-    "ast_hash": "a4ded5abcf7138ef781facaa355afdf7",
+    "mtime": 1784467036.1084034,
+    "ast_hash": "8c0c723b113525774beb511b895ffa14",
     "semantic_hash": ""
   },
   "src/pages/student/StudentCharactersPage.tsx": {
