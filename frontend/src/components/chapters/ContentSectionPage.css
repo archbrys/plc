@@ -128,6 +128,56 @@
   border-radius: 8px;
 }
 
+/* Side-by-side overlay variant: text-column spans the full row so its
+   scrollbar renders at the card's outer edge instead of at the text/image
+   boundary. The image is absolutely positioned on top instead of sharing
+   flex space; --text-inline-inset-* (consumed by TypingAnimation.css)
+   reserves the image's width + gap as inset padding on the scroll box. */
+.chapter-section2-body-wrapper--overlay-right,
+.chapter-section2-body-wrapper--overlay-left {
+  position: relative;
+  display: block;
+}
+
+.chapter-section2-body-wrapper--overlay-right .chapter-section2-text-column,
+.chapter-section2-body-wrapper--overlay-left .chapter-section2-text-column {
+  flex: none;
+  width: 100%;
+  height: 100%;
+}
+
+.chapter-section2-body-wrapper--overlay-right .chapter-section2-text-column {
+  --text-inline-inset-right: calc(var(--section-image-basis, 35%) + clamp(1rem, 2.5vw, 3rem));
+}
+
+.chapter-section2-body-wrapper--overlay-left .chapter-section2-text-column {
+  --text-inline-inset-left: calc(var(--section-image-basis, 35%) + clamp(1rem, 2.5vw, 3rem));
+}
+
+.chapter-section2-body-wrapper--overlay-right .chapter-section2-image-column,
+.chapter-section2-body-wrapper--overlay-left .chapter-section2-image-column {
+  position: absolute;
+  top: 0;
+  flex: none;
+  width: var(--section-image-basis, 35%);
+  height: 100%;
+  max-height: none;
+}
+
+/* The text column's native scrollbar sits at its own right edge, which is
+   also the card's right edge — same spot the image-right variant anchors
+   the image to. Without a gap the image (painted after, in DOM order)
+   sits flush on top of the scrollbar and hides it. Inset the image by a
+   gutter so the scrollbar has clear space to the right of it. */
+.chapter-section2-body-wrapper--overlay-right .chapter-section2-image-column {
+  right: clamp(0.75rem, 1.5vw, 1.25rem);
+  width: calc(var(--section-image-basis, 35%) - clamp(0.75rem, 1.5vw, 1.25rem));
+}
+
+.chapter-section2-body-wrapper--overlay-left .chapter-section2-image-column {
+  left: 0;
+}
+
 .chapter-section2-actions {
   flex: 0 0 auto;
   display: flex;
@@ -165,6 +215,29 @@
   .chapter-section2-text-column {
     order: 1;
     flex: 0 0 var(--section-text-basis, 65%);
+  }
+
+  /* Drop the overlay layout below the row/column breakpoint — the base
+     rules above already stack text and image with flex, so undo the
+     absolute positioning and inset padding here. */
+  .chapter-section2-body-wrapper--overlay-right,
+  .chapter-section2-body-wrapper--overlay-left {
+    display: flex;
+    position: static;
+  }
+
+  .chapter-section2-body-wrapper--overlay-right .chapter-section2-text-column,
+  .chapter-section2-body-wrapper--overlay-left .chapter-section2-text-column {
+    --text-inline-inset-right: 0px;
+    --text-inline-inset-left: 0px;
+    width: auto;
+    height: auto;
+  }
+
+  .chapter-section2-body-wrapper--overlay-right .chapter-section2-image-column,
+  .chapter-section2-body-wrapper--overlay-left .chapter-section2-image-column {
+    position: static;
+    width: auto;
   }
 }
 

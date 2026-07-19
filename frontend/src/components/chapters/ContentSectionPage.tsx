@@ -20,6 +20,12 @@ export function ContentSectionPage({ config, onNext, onPrevious }: ContentSectio
   const hasImage = Boolean(currentBlock?.image)
   const isFirstBlock = currentIndex === 0
   const isLastBlock = currentIndex === contents.length - 1
+  const imagePosition = currentBlock?.imagePosition ?? 'right'
+  const isSideBySide = imagePosition === 'left' || imagePosition === 'right'
+  const overlayModifier =
+    hasImage && hasText && isSideBySide
+      ? ` chapter-section2-body-wrapper--overlay-${imagePosition}`
+      : ''
 
   const handlePrevious = () => {
     if (isFirstBlock) {
@@ -47,7 +53,7 @@ export function ContentSectionPage({ config, onNext, onPrevious }: ContentSectio
                 ? ' chapter-section2-body-wrapper--text-only'
                 : !hasText
                   ? ' chapter-section2-body-wrapper--image-only'
-                  : ''
+                  : overlayModifier
             }`}
             style={hasImage && hasText ? getContentBlockLayoutStyle(currentBlock) : undefined}
           >

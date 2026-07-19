@@ -20,6 +20,8 @@
   cursor: pointer;
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;
+  padding-right: var(--text-inline-inset-right, 0px);
+  padding-left: var(--text-inline-inset-left, 0px);
 }
 
 .typing-animation-container:hover,
