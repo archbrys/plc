@@ -8,7 +8,7 @@ import { invalidateCourseCache } from '../../data/course'
 import { questionSetService } from '../../services/questionSetService'
 import { uploadService } from '../../services/uploadService'
 import { useToast } from '../../hooks/useToast'
-import { resolveAssetSrc } from '../../utils/assets'
+import { resolveAssetSrc, resolveVideoEmbed } from '../../utils/assets'
 import type {
   ChapterPage,
   ChapterPageType,
@@ -450,10 +450,14 @@ function MediaForm({ config, onChange }: { config: MediaPageConfig; onChange: (c
         />
       </label>
       <label className="field">
-        <span>{config.mediaType === 'video' ? 'Video File' : 'File'}</span>
+        <span>{config.mediaType === 'video' ? 'Video File or Link' : 'File'}</span>
         <input
           value={config.url}
-          placeholder="Filename under /assets/, full URL, or upload below"
+          placeholder={
+            config.mediaType === 'video'
+              ? 'YouTube/Vimeo link, filename under /assets/, full URL, or upload below'
+              : 'Filename under /assets/, full URL, or upload below'
+          }
           onChange={(event) => onChange({ ...config, url: event.target.value })}
         />
         <input
@@ -465,11 +469,24 @@ function MediaForm({ config, onChange }: { config: MediaPageConfig; onChange: (c
         {isUploading && <span className="muted">Uploading...</span>}
         {uploadError && <span className="error-message">{uploadError}</span>}
         {config.url && config.mediaType === 'video' && (
-          <video
-            src={resolveAssetSrc(config.url)}
-            controls
-            style={{ maxWidth: '100%', marginTop: '0.5rem', borderRadius: '8px' }}
-          />
+          (() => {
+            const embed = resolveVideoEmbed(config.url)
+            return embed.kind === 'iframe' ? (
+              <iframe
+                src={embed.src}
+                title="Video preview"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                style={{ width: '100%', aspectRatio: '16 / 9', border: 0, marginTop: '0.5rem', borderRadius: '8px' }}
+              />
+            ) : (
+              <video
+                src={embed.src}
+                controls
+                style={{ maxWidth: '100%', marginTop: '0.5rem', borderRadius: '8px' }}
+              />
+            )
+          })()
         )}
       </label>
     </div>

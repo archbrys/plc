@@ -1,5 +1,5 @@
 import type { MediaPageConfig } from '../../types/course'
-import { resolveAssetSrc } from '../../utils/assets'
+import { resolveAssetSrc, resolveVideoEmbed } from '../../utils/assets'
 import './MediaPage.css'
 
 interface MediaPageProps {
@@ -11,14 +11,25 @@ interface MediaPageProps {
 export function MediaPage({ config, onNext, onPrevious }: MediaPageProps) {
   const { mediaType, url, description } = config
   const src = resolveAssetSrc(url)
+  const videoEmbed = mediaType === 'video' ? resolveVideoEmbed(url) : null
 
   return (
     <main className="media-page-content">
       <div className="media-page-container">
         {description ? <p className="muted">{description}</p> : null}
 
-        {mediaType === 'video' ? (
-          <video className="media-page-video" src={src} controls />
+        {videoEmbed ? (
+          videoEmbed.kind === 'iframe' ? (
+            <iframe
+              className="media-page-video-frame"
+              src={videoEmbed.src}
+              title="Video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          ) : (
+            <video className="media-page-video" src={videoEmbed.src} controls />
+          )
         ) : (
           <>
             <iframe className="media-page-file" src={src} title="Media file" />
