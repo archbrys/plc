@@ -4,9 +4,10 @@ import './NarrationPage.css'
 interface NarrationPageProps {
   config: NarrationPageConfig
   onNext?: () => void
+  onPrevious?: () => void
 }
 
-export function NarrationPage({ config, onNext }: NarrationPageProps) {
+export function NarrationPage({ config, onNext, onPrevious }: NarrationPageProps) {
   const { character, text, backgroundImage } = config
 
   return (
@@ -32,6 +33,9 @@ export function NarrationPage({ config, onNext }: NarrationPageProps) {
       </div>
 
       <div className="narration-page-actions">
+        <button className="btn-nav btn-previous" type="button" onClick={onPrevious}>
+          Previous
+        </button>
         <button className="btn large ready-btn" type="button" onClick={onNext}>
           Next
         </button>

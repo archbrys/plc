@@ -8,6 +8,10 @@ export function StudentCharactersPage() {
     navigate('/student/plc-welcome')
   }
 
+  const handlePrevious = () => {
+    navigate('/student/plc-fundamentals')
+  }
+
   return (
     <div className="characters-page">
       <div className="characters-overlay" />
@@ -37,6 +41,14 @@ export function StudentCharactersPage() {
           </div>
         </div>
         
+        <button
+          className="btn-nav btn-previous btn-previous-characters"
+          type="button"
+          onClick={handlePrevious}
+        >
+          Previous
+        </button>
+
         <button
           className="btn-nav btn-next btn-next-characters"
           type="button"

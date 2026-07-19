@@ -20,7 +20,9 @@
   background-position: center, center;
   /* Stretched to exactly fill the viewport (not cropped) so it always
      matches the current window/screen dimensions, however extreme. */
-  background-size: 100% 100%, 100% 100%;
+  background-size:
+    100% 100%,
+    100% 100%;
   z-index: -1;
 }
 
@@ -39,7 +41,7 @@
 .chapter-section2-card {
   color: white;
   border-radius: 12px;
-  padding: clamp(1rem, 2.5vh, 2rem);
+  padding: 45px;
   flex: 1 1 auto;
   min-height: 0;
   display: flex;

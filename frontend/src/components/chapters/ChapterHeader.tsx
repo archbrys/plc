@@ -1,12 +1,14 @@
+import type { ReactNode } from 'react'
 import { StudentMenu } from '../student/StudentMenu'
 import './ChapterHeader.css'
 
 interface ChapterHeaderProps {
   chapterTitle: string
   sectionTitle?: string
+  actions?: ReactNode
 }
 
-export function ChapterHeader({ chapterTitle, sectionTitle }: ChapterHeaderProps) {
+export function ChapterHeader({ chapterTitle, sectionTitle, actions }: ChapterHeaderProps) {
   return (
     <header className="chapter-flow-header">
       <div className="chapter-flow-header-start">
@@ -16,7 +18,10 @@ export function ChapterHeader({ chapterTitle, sectionTitle }: ChapterHeaderProps
           {sectionTitle && <p className="chapter-flow-header-section">{sectionTitle}</p>}
         </div>
       </div>
-      <StudentMenu />
+      <div className="chapter-flow-header-end">
+        {actions}
+        <StudentMenu />
+      </div>
     </header>
   )
 }

@@ -5,9 +5,10 @@ import './InteractivePracticePage.css'
 interface InteractivePracticePageProps {
   config: InteractivePracticePageConfig
   onNext?: () => void
+  onPrevious?: () => void
 }
 
-export function InteractivePracticePage({ onNext }: InteractivePracticePageProps) {
+export function InteractivePracticePage({ onNext, onPrevious }: InteractivePracticePageProps) {
   return (
     <main className="chapter-practice-main">
       <div className="chapter-practice-content">
@@ -16,6 +17,9 @@ export function InteractivePracticePage({ onNext }: InteractivePracticePageProps
         </div>
 
         <div className="chapter-practice-actions">
+          <button className="btn-nav btn-previous" type="button" onClick={onPrevious}>
+            Previous
+          </button>
           <button className="btn large ready-btn" type="button" onClick={onNext}>
             Continue to Assessment
           </button>

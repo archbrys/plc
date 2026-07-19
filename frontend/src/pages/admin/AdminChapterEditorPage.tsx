@@ -297,9 +297,13 @@ function ContentBlockRow({
 function ContentBlockListEditor({
   blocks,
   onChange,
+  chapterTitle,
+  sectionTitle,
 }: {
   blocks: ContentBlock[]
   onChange: (blocks: ContentBlock[]) => void
+  chapterTitle: string
+  sectionTitle: string
 }) {
   const [previewIndex, setPreviewIndex] = useState<number | null>(null)
 
@@ -326,7 +330,12 @@ function ContentBlockListEditor({
         Add Block
       </button>
       {previewIndex !== null && (
-        <ContentBlockPreviewModal block={blocks[previewIndex]} onClose={() => setPreviewIndex(null)} />
+        <ContentBlockPreviewModal
+          block={blocks[previewIndex]}
+          chapterTitle={chapterTitle}
+          sectionTitle={sectionTitle}
+          onClose={() => setPreviewIndex(null)}
+        />
       )}
     </div>
   )
@@ -359,7 +368,12 @@ function ContentSectionForm({
       </label>
       <label className="field">
         <span>Content Blocks</span>
-        <ContentBlockListEditor blocks={config.contents} onChange={(contents) => onChange({ ...config, contents })} />
+        <ContentBlockListEditor
+          blocks={config.contents}
+          onChange={(contents) => onChange({ ...config, contents })}
+          chapterTitle={config.chapterTitle}
+          sectionTitle={`Section ${config.sectionNumber}: ${config.sectionTitle}`}
+        />
       </label>
       <p className="muted">
         Each block types out its text and shows its own image beside it (65% text / 35% image). Leave a block's text

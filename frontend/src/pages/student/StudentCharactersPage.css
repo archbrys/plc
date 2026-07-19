@@ -125,6 +125,14 @@
   z-index: 10;
 }
 
+.btn-previous-characters {
+  position: absolute;
+  bottom: 6rem;
+  left: 4rem;
+  pointer-events: auto;
+  z-index: 10;
+}
+
 /* Responsive adjustments */
 @media (max-width: 1024px) {
   .characters-title {
@@ -141,6 +149,11 @@
   .btn-next-characters {
     bottom: 4rem;
     right: 2rem;
+  }
+
+  .btn-previous-characters {
+    bottom: 4rem;
+    left: 2rem;
   }
 }
 
@@ -185,6 +198,11 @@
     bottom: 3rem;
     right: 1.5rem;
   }
+
+  .btn-previous-characters {
+    bottom: 3rem;
+    left: 1.5rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -202,5 +220,10 @@
   .btn-next-characters {
     bottom: 2rem;
     right: 1rem;
+  }
+
+  .btn-previous-characters {
+    bottom: 2rem;
+    left: 1rem;
   }
 }

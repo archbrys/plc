@@ -9,9 +9,10 @@ import './QuizPage.css'
 
 interface QuizPageProps {
   config: QuizPageConfig
+  onPrevious?: () => void
 }
 
-export function QuizPage({ config }: QuizPageProps) {
+export function QuizPage({ config, onPrevious }: QuizPageProps) {
   const navigate = useNavigate()
   const { user } = useAuth()
 
@@ -61,6 +62,8 @@ export function QuizPage({ config }: QuizPageProps) {
   const handlePrevious = () => {
     if (currentQuestionIndex > 0) {
       setCurrentQuestionIndex(currentQuestionIndex - 1)
+    } else {
+      onPrevious?.()
     }
   }
 
@@ -117,9 +120,14 @@ export function QuizPage({ config }: QuizPageProps) {
     return (
       <main className="quiz-start-content">
         <h1 className="quiz-start-title">Quiz Time!</h1>
-        <button className="btn large ready-btn quiz-start-btn" type="button" onClick={() => setStarted(true)}>
-          Begin
-        </button>
+        <div className="quiz-navigation">
+          <button className="btn-nav btn-previous" type="button" onClick={onPrevious}>
+            Previous
+          </button>
+          <button className="btn large ready-btn quiz-start-btn" type="button" onClick={() => setStarted(true)}>
+            Begin
+          </button>
+        </div>
       </main>
     )
   }
@@ -198,12 +206,7 @@ export function QuizPage({ config }: QuizPageProps) {
       )}
 
       <div className="quiz-navigation">
-        <button
-          className="btn-nav btn-previous"
-          type="button"
-          onClick={handlePrevious}
-          disabled={currentQuestionIndex === 0}
-        >
+        <button className="btn-nav btn-previous" type="button" onClick={handlePrevious}>
           Previous
         </button>
         <button

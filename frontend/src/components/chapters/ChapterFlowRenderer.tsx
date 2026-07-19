@@ -59,7 +59,7 @@ export function ChapterFlowRenderer({ chapterTitle, page, onComplete, onNext, on
         !page.config.character || !page.config.text ? (
           <MisconfiguredPage type={page.type} />
         ) : (
-          <NarrationPage key={page.id} config={page.config} onNext={onNext} />
+          <NarrationPage key={page.id} config={page.config} onNext={onNext} onPrevious={onPrevious} />
         )
       break
 
@@ -76,14 +76,14 @@ export function ChapterFlowRenderer({ chapterTitle, page, onComplete, onNext, on
       break
 
     case 'interactive_practice':
-      body = <InteractivePracticePage key={page.id} config={page.config} onNext={onNext} />
+      body = <InteractivePracticePage key={page.id} config={page.config} onNext={onNext} onPrevious={onPrevious} />
       break
 
     case 'quiz':
       body = !page.config.questionSetId ? (
         <MisconfiguredPage type={page.type} />
       ) : (
-        <QuizPage key={page.id} config={page.config} />
+        <QuizPage key={page.id} config={page.config} onPrevious={onPrevious} />
       )
       break
 
