@@ -5,9 +5,11 @@ import { ConfirmModal } from '../../components/admin/ConfirmModal'
 import { courseApiService } from '../../services/courseApiService'
 import { homeButtonApiService } from '../../services/homeButtonApiService'
 import { invalidateCourseCache } from '../../data/course'
+import { useToast } from '../../hooks/useToast'
 import type { Course, CourseChapter } from '../../types/course'
 
 export function AdminCourseContentPage() {
+  const { showToast } = useToast()
   const [course, setCourse] = useState<Course | null>(null)
   const [linkedChapterIds, setLinkedChapterIds] = useState<Set<number>>(new Set())
   const [isLoading, setIsLoading] = useState(true)
@@ -55,8 +57,11 @@ export function AdminCourseContentPage() {
       setNewChapterTitle('')
       setError('')
       load()
+      showToast('Chapter added.', 'success')
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Unable to create chapter.')
+      const message = err instanceof Error ? err.message : 'Unable to create chapter.'
+      setError(message)
+      showToast(message, 'error')
     }
   }
 

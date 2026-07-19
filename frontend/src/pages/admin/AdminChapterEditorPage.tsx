@@ -7,6 +7,7 @@ import { courseApiService, type UpsertPagePayload } from '../../services/courseA
 import { invalidateCourseCache } from '../../data/course'
 import { questionSetService } from '../../services/questionSetService'
 import { uploadService } from '../../services/uploadService'
+import { useToast } from '../../hooks/useToast'
 import { resolveAssetSrc } from '../../utils/assets'
 import type {
   ChapterPage,
@@ -488,6 +489,7 @@ function PageConfigForm({
 
 export function AdminChapterEditorPage() {
   const navigate = useNavigate()
+  const { showToast } = useToast()
   const { chapterId } = useParams()
   const parsedChapterId = Number(chapterId)
 
@@ -543,8 +545,11 @@ export function AdminChapterEditorPage() {
       invalidateCourseCache()
       setError('')
       load()
+      showToast('Chapter title saved.', 'success')
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Unable to update chapter.')
+      const message = err instanceof Error ? err.message : 'Unable to update chapter.'
+      setError(message)
+      showToast(message, 'error')
     }
   }
 
@@ -578,8 +583,11 @@ export function AdminChapterEditorPage() {
       setError('')
       setNewPageDraft(defaultConfigFor(newPageType, chapter.title))
       load()
+      showToast('Page added.', 'success')
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Unable to add page.')
+      const message = err instanceof Error ? err.message : 'Unable to add page.'
+      setError(message)
+      showToast(message, 'error')
     }
   }
 
@@ -592,8 +600,11 @@ export function AdminChapterEditorPage() {
       invalidateCourseCache()
       setError('')
       load()
+      showToast('Page saved.', 'success')
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Unable to save page.')
+      const message = err instanceof Error ? err.message : 'Unable to save page.'
+      setError(message)
+      showToast(message, 'error')
     }
   }
 

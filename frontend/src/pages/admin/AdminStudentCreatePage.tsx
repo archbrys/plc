@@ -1,10 +1,12 @@
 import { useNavigate } from 'react-router-dom'
 import { AdminLayout } from '../../components/admin/AdminLayout'
 import { StudentForm, type StudentFormValue } from '../../components/students/StudentForm'
+import { useToast } from '../../hooks/useToast'
 import { userService } from '../../services/userService'
 
 export function AdminStudentCreatePage() {
   const navigate = useNavigate()
+  const { showToast } = useToast()
 
   const handleSave = async (value: StudentFormValue) => {
     const response = await userService.create({
@@ -15,9 +17,12 @@ export function AdminStudentCreatePage() {
     })
 
     if (!response.ok) {
-      throw new Error((response.errors ?? ['Unable to create student.']).join(' '))
+      const message = (response.errors ?? ['Unable to create student.']).join(' ')
+      showToast(message, 'error')
+      throw new Error(message)
     }
 
+    showToast('Student created.', 'success')
     navigate('/admin/students')
   }
 

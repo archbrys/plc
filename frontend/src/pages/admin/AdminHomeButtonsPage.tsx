@@ -3,6 +3,7 @@ import { AdminLayout } from '../../components/admin/AdminLayout'
 import { ConfirmModal } from '../../components/admin/ConfirmModal'
 import { courseApiService } from '../../services/courseApiService'
 import { homeButtonApiService, type UpsertHomeButtonPayload } from '../../services/homeButtonApiService'
+import { useToast } from '../../hooks/useToast'
 import type { CourseChapter } from '../../types/course'
 import type { HomeButton, HomeButtonTargetType } from '../../types/homeButton'
 
@@ -31,6 +32,7 @@ function targetLabel(button: HomeButton, chapters: CourseChapter[]): string {
 }
 
 export function AdminHomeButtonsPage() {
+  const { showToast } = useToast()
   const [buttons, setButtons] = useState<HomeButton[]>([])
   const [chapters, setChapters] = useState<CourseChapter[]>([])
   const [isLoading, setIsLoading] = useState(true)
@@ -91,17 +93,22 @@ export function AdminHomeButtonsPage() {
       return
     }
 
+    const wasEditing = editingId !== null
+
     try {
-      if (editingId !== null) {
-        await homeButtonApiService.updateHomeButton(editingId, payload)
+      if (wasEditing) {
+        await homeButtonApiService.updateHomeButton(editingId as number, payload)
       } else {
         await homeButtonApiService.createHomeButton(payload)
       }
       setError('')
       resetForm()
       load()
+      showToast(wasEditing ? 'Home button saved.' : 'Home button added.', 'success')
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Unable to save home button.')
+      const message = err instanceof Error ? err.message : 'Unable to save home button.'
+      setError(message)
+      showToast(message, 'error')
     }
   }
 

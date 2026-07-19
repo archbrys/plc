@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import { AuthProvider } from './context/AuthContext'
+import { ToastProvider } from './context/ToastContext'
 import { AppRoutes } from './routes/AppRoutes'
 import { SplashScreen } from './components/common/SplashScreen'
 
@@ -28,11 +29,13 @@ function App() {
   }
 
   return (
-    <AuthProvider>
-      <BrowserRouter>
-        <AppRoutes />
-      </BrowserRouter>
-    </AuthProvider>
+    <ToastProvider>
+      <AuthProvider>
+        <BrowserRouter>
+          <AppRoutes />
+        </BrowserRouter>
+      </AuthProvider>
+    </ToastProvider>
   )
 }
 

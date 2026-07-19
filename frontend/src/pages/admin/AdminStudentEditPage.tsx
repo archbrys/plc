@@ -2,12 +2,14 @@ import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { AdminLayout } from '../../components/admin/AdminLayout'
 import { StudentForm, type StudentFormValue } from '../../components/students/StudentForm'
+import { useToast } from '../../hooks/useToast'
 import { userService } from '../../services/userService'
 import type { ManagedUser } from '../../types/user'
 
 export function AdminStudentEditPage() {
   const { id } = useParams<{ id: string }>()
   const navigate = useNavigate()
+  const { showToast } = useToast()
   const [student, setStudent] = useState<ManagedUser | null>(null)
 
   useEffect(() => {
@@ -30,9 +32,12 @@ export function AdminStudentEditPage() {
     })
 
     if (!response.ok) {
-      throw new Error((response.errors ?? ['Unable to update student.']).join(' '))
+      const message = (response.errors ?? ['Unable to update student.']).join(' ')
+      showToast(message, 'error')
+      throw new Error(message)
     }
 
+    showToast('Student updated.', 'success')
     navigate('/admin/students')
   }
 
