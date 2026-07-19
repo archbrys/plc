@@ -147,6 +147,7 @@ model HomeButton {
   chapter     CourseChapter? @relation(fields: [chapterId], references: [id], onDelete: Restrict)
   route       String?
   isActive    Boolean        @default(true)
+  requiredQuestionSetIds String @default("[]")
   createdAt   DateTime       @default(now())
   updatedAt   DateTime       @updatedAt
 

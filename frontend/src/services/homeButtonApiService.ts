@@ -4,8 +4,22 @@ import type { HomeButton } from '../types/homeButton'
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api'
 
 export type UpsertHomeButtonPayload =
-  | { label: string; orderNumber?: number; targetType: 'CHAPTER'; chapterId: number; isActive?: boolean }
-  | { label: string; orderNumber?: number; targetType: 'ROUTE'; route: string; isActive?: boolean }
+  | {
+      label: string
+      orderNumber?: number
+      targetType: 'CHAPTER'
+      chapterId: number
+      isActive?: boolean
+      requiredQuestionSetIds?: string[]
+    }
+  | {
+      label: string
+      orderNumber?: number
+      targetType: 'ROUTE'
+      route: string
+      isActive?: boolean
+      requiredQuestionSetIds?: string[]
+    }
 
 export const homeButtonApiService = {
   async getHomeButtons(): Promise<HomeButton[]> {

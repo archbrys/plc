@@ -13,6 +13,7 @@ export function StudentQuestionSetsPage() {
   }, [])
 
   const handleButtonClick = (button: HomeButton) => {
+    if (button.locked) return
     if (button.targetType === 'CHAPTER' && button.chapterId !== null) {
       navigate(`/student/chapters/${button.chapterId}/flow`)
       return
@@ -46,8 +47,9 @@ export function StudentQuestionSetsPage() {
                   {columnButtons.map((button) => (
                     <button
                       key={button.id}
-                      className="hero-box hero-box-btn"
+                      className={`hero-box hero-box-btn${button.locked ? ' locked' : ''}`}
                       type="button"
+                      disabled={button.locked}
                       onClick={() => handleButtonClick(button)}
                     >
                       <h3 className="box-title">{button.label}</h3>

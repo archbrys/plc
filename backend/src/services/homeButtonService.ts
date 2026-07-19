@@ -3,10 +3,12 @@ import type { HomeButton } from '@prisma/client'
 import { prisma } from '../config/prisma.js'
 import { CourseRepository } from '../repositories/courseRepository.js'
 import { HomeButtonRepository } from '../repositories/homeButtonRepository.js'
+import { SubmissionRepository } from '../repositories/submissionRepository.js'
 import { HttpError } from '../utils/httpError.js'
 
 const repository = new HomeButtonRepository(prisma)
 const courseRepository = new CourseRepository(prisma)
+const submissionRepository = new SubmissionRepository(prisma)
 
 export interface HomeButtonResponse {
   id: number
@@ -16,13 +18,35 @@ export interface HomeButtonResponse {
   chapterId: number | null
   route: string | null
   isActive: boolean
+  requiredQuestionSetIds: string[]
+  locked: boolean
 }
 
 export type UpsertHomeButtonInput =
-  | { label: string; orderNumber?: number; targetType: 'CHAPTER'; chapterId: number; isActive?: boolean }
-  | { label: string; orderNumber?: number; targetType: 'ROUTE'; route: string; isActive?: boolean }
+  | {
+      label: string
+      orderNumber?: number
+      targetType: 'CHAPTER'
+      chapterId: number
+      isActive?: boolean
+      requiredQuestionSetIds?: string[]
+    }
+  | {
+      label: string
+      orderNumber?: number
+      targetType: 'ROUTE'
+      route: string
+      isActive?: boolean
+      requiredQuestionSetIds?: string[]
+    }
 
-function mapButton(button: HomeButton): HomeButtonResponse {
+function mapButton(button: HomeButton, submittedQuestionSetIds?: Set<string>): HomeButtonResponse {
+  const requiredQuestionSetIds: string[] = JSON.parse(button.requiredQuestionSetIds)
+  const locked =
+    submittedQuestionSetIds !== undefined &&
+    requiredQuestionSetIds.length > 0 &&
+    !requiredQuestionSetIds.every((id) => submittedQuestionSetIds.has(id))
+
   return {
     id: button.id,
     label: button.label,
@@ -31,6 +55,8 @@ function mapButton(button: HomeButton): HomeButtonResponse {
     chapterId: button.chapterId,
     route: button.route,
     isActive: button.isActive,
+    requiredQuestionSetIds,
+    locked,
   }
 }
 
@@ -44,9 +70,12 @@ async function assertValidTarget(input: UpsertHomeButtonInput): Promise<void> {
 }
 
 export const homeButtonService = {
-  async listButtons(includeInactive: boolean): Promise<HomeButtonResponse[]> {
+  async listButtons(includeInactive: boolean, studentId?: string): Promise<HomeButtonResponse[]> {
     const buttons = includeInactive ? await repository.getAll() : await repository.getActive()
-    return buttons.map(mapButton)
+    const submittedQuestionSetIds = studentId
+      ? new Set(await submissionRepository.listQuestionSetIdsByStudent(studentId))
+      : undefined
+    return buttons.map((button) => mapButton(button, submittedQuestionSetIds))
   },
 
   async createButton(input: UpsertHomeButtonInput): Promise<HomeButtonResponse> {
@@ -60,6 +89,7 @@ export const homeButtonService = {
       chapterId: input.targetType === 'CHAPTER' ? input.chapterId : null,
       route: input.targetType === 'ROUTE' ? input.route : null,
       isActive: input.isActive ?? true,
+      requiredQuestionSetIds: JSON.stringify(input.requiredQuestionSetIds ?? []),
     })
     return mapButton(button)
   },
@@ -79,6 +109,9 @@ export const homeButtonService = {
       chapterId: input.targetType === 'CHAPTER' ? input.chapterId : null,
       route: input.targetType === 'ROUTE' ? input.route : null,
       isActive: input.isActive ?? existing.isActive,
+      requiredQuestionSetIds: JSON.stringify(
+        input.requiredQuestionSetIds ?? JSON.parse(existing.requiredQuestionSetIds),
+      ),
     })
     return mapButton(button)
   },

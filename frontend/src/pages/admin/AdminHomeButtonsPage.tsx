@@ -3,9 +3,11 @@ import { AdminLayout } from '../../components/admin/AdminLayout'
 import { ConfirmModal } from '../../components/admin/ConfirmModal'
 import { courseApiService } from '../../services/courseApiService'
 import { homeButtonApiService, type UpsertHomeButtonPayload } from '../../services/homeButtonApiService'
+import { questionSetService } from '../../services/questionSetService'
 import { useToast } from '../../hooks/useToast'
 import type { CourseChapter } from '../../types/course'
 import type { HomeButton, HomeButtonTargetType } from '../../types/homeButton'
+import type { QuestionSet } from '../../types/quiz'
 
 interface FormState {
   label: string
@@ -13,6 +15,7 @@ interface FormState {
   chapterId: string
   route: string
   isActive: boolean
+  requiredQuestionSetIds: string[]
 }
 
 const EMPTY_FORM: FormState = {
@@ -21,6 +24,7 @@ const EMPTY_FORM: FormState = {
   chapterId: '',
   route: '',
   isActive: true,
+  requiredQuestionSetIds: [],
 }
 
 function targetLabel(button: HomeButton, chapters: CourseChapter[]): string {
@@ -35,6 +39,7 @@ export function AdminHomeButtonsPage() {
   const { showToast } = useToast()
   const [buttons, setButtons] = useState<HomeButton[]>([])
   const [chapters, setChapters] = useState<CourseChapter[]>([])
+  const [questionSets, setQuestionSets] = useState<QuestionSet[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState('')
   const [form, setForm] = useState<FormState>(EMPTY_FORM)
@@ -42,10 +47,11 @@ export function AdminHomeButtonsPage() {
   const [pendingDeleteButton, setPendingDeleteButton] = useState<HomeButton | null>(null)
 
   const load = () => {
-    Promise.all([homeButtonApiService.getHomeButtons(), courseApiService.getCourse()])
-      .then(([loadedButtons, course]) => {
+    Promise.all([homeButtonApiService.getHomeButtons(), courseApiService.getCourse(), questionSetService.listAll()])
+      .then(([loadedButtons, course, loadedQuestionSets]) => {
         setButtons([...loadedButtons].sort((a, b) => a.orderNumber - b.orderNumber))
         setChapters([...course.chapters].sort((a, b) => a.orderNumber - b.orderNumber))
+        setQuestionSets([...loadedQuestionSets].sort((a, b) => a.title.localeCompare(b.title)))
       })
       .catch((err) => setError(err instanceof Error ? err.message : 'Unable to load home buttons.'))
       .finally(() => setIsLoading(false))
@@ -68,7 +74,17 @@ export function AdminHomeButtonsPage() {
       chapterId: button.chapterId !== null ? String(button.chapterId) : '',
       route: button.route ?? '',
       isActive: button.isActive,
+      requiredQuestionSetIds: button.requiredQuestionSetIds,
     })
+  }
+
+  const toggleRequiredQuestionSet = (questionSetId: string) => {
+    setForm((prev) => ({
+      ...prev,
+      requiredQuestionSetIds: prev.requiredQuestionSetIds.includes(questionSetId)
+        ? prev.requiredQuestionSetIds.filter((id) => id !== questionSetId)
+        : [...prev.requiredQuestionSetIds, questionSetId],
+    }))
   }
 
   const buildPayload = (): UpsertHomeButtonPayload | null => {
@@ -78,12 +94,24 @@ export function AdminHomeButtonsPage() {
     if (form.targetType === 'CHAPTER') {
       const chapterId = Number.parseInt(form.chapterId, 10)
       if (!Number.isInteger(chapterId)) return null
-      return { label, targetType: 'CHAPTER', chapterId, isActive: form.isActive }
+      return {
+        label,
+        targetType: 'CHAPTER',
+        chapterId,
+        isActive: form.isActive,
+        requiredQuestionSetIds: form.requiredQuestionSetIds,
+      }
     }
 
     const route = form.route.trim()
     if (!route) return null
-    return { label, targetType: 'ROUTE', route, isActive: form.isActive }
+    return {
+      label,
+      targetType: 'ROUTE',
+      route,
+      isActive: form.isActive,
+      requiredQuestionSetIds: form.requiredQuestionSetIds,
+    }
   }
 
   const handleSubmit = async () => {
@@ -202,6 +230,29 @@ export function AdminHomeButtonsPage() {
             <span>Active (visible to students)</span>
           </label>
 
+          <div className="field">
+            <span>Require these quizzes completed before this button is enabled</span>
+            <div className="stack" style={{ gap: '0.25rem' }}>
+              {questionSets.length === 0 ? (
+                <p className="admin-empty-state">No question sets yet.</p>
+              ) : (
+                questionSets.map((questionSet) => (
+                  <label
+                    key={questionSet.id}
+                    style={{ flexDirection: 'row', alignItems: 'center', gap: '0.5rem', display: 'flex' }}
+                  >
+                    <input
+                      type="checkbox"
+                      checked={form.requiredQuestionSetIds.includes(questionSet.id)}
+                      onChange={() => toggleRequiredQuestionSet(questionSet.id)}
+                    />
+                    <span>{questionSet.title}</span>
+                  </label>
+                ))
+              )}
+            </div>
+          </div>
+
           <div className="header-actions wrap">
             <button className="btn" type="button" onClick={handleSubmit}>
               {editingId !== null ? 'Save Changes' : 'Add Home Button'}
@@ -224,6 +275,7 @@ export function AdminHomeButtonsPage() {
                 <th>Label</th>
                 <th>Target</th>
                 <th>Active</th>
+                <th>Requires</th>
                 <th className="col-actions">Actions</th>
               </tr>
             </thead>
@@ -238,6 +290,11 @@ export function AdminHomeButtonsPage() {
                   </td>
                   <td>{targetLabel(button, chapters)}</td>
                   <td>{button.isActive ? 'Yes' : 'No'}</td>
+                  <td>
+                    {button.requiredQuestionSetIds.length > 0
+                      ? `${button.requiredQuestionSetIds.length} quiz${button.requiredQuestionSetIds.length === 1 ? '' : 'zes'}`
+                      : '—'}
+                  </td>
                   <td className="col-actions">
                     <div className="admin-table-actions">
                       <button

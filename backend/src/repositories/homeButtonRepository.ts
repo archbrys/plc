@@ -31,6 +31,7 @@ export class HomeButtonRepository {
     chapterId: number | null
     route: string | null
     isActive: boolean
+    requiredQuestionSetIds: string
   }) {
     return this.db.homeButton.create({ data })
   }
@@ -44,6 +45,7 @@ export class HomeButtonRepository {
       chapterId?: number | null
       route?: string | null
       isActive?: boolean
+      requiredQuestionSetIds?: string
     },
   ) {
     return this.db.homeButton.update({ where: { id }, data })

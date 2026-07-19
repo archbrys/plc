@@ -6,6 +6,7 @@ const chapterTargetSchema = z.object({
   targetType: z.literal('CHAPTER'),
   chapterId: z.number().int(),
   isActive: z.boolean().optional(),
+  requiredQuestionSetIds: z.array(z.string()).optional(),
 })
 
 const routeTargetSchema = z.object({
@@ -14,6 +15,7 @@ const routeTargetSchema = z.object({
   targetType: z.literal('ROUTE'),
   route: z.string().regex(/^\//, 'Route must start with "/"'),
   isActive: z.boolean().optional(),
+  requiredQuestionSetIds: z.array(z.string()).optional(),
 })
 
 export const upsertHomeButtonSchema = z.discriminatedUnion('targetType', [chapterTargetSchema, routeTargetSchema])

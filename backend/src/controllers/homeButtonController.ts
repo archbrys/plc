@@ -16,7 +16,8 @@ function parseId(raw: unknown): number {
 export const homeButtonController = {
   list: async (req: Request, res: Response) => {
     const includeInactive = req.session.user?.role === 'admin'
-    const data = await homeButtonService.listButtons(includeInactive)
+    const studentId = req.session.user?.role === 'student' ? req.session.user.id : undefined
+    const data = await homeButtonService.listButtons(includeInactive, studentId)
     res.status(StatusCodes.OK).json(createApiResponse(true, 'Home buttons retrieved successfully.', data))
   },
 

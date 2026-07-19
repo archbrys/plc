@@ -32,6 +32,15 @@ export class SubmissionRepository {
     })
   }
 
+  async listQuestionSetIdsByStudent(studentId: string): Promise<string[]> {
+    const rows = await this.db.submission.findMany({
+      where: { studentId },
+      select: { questionSetId: true },
+      distinct: ['questionSetId'],
+    })
+    return rows.map((row) => row.questionSetId)
+  }
+
   create(payload: Prisma.SubmissionCreateInput) {
     return this.db.submission.create({
       data: payload,

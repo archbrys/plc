@@ -8,4 +8,6 @@ export interface HomeButton {
   chapterId: number | null
   route: string | null
   isActive: boolean
+  requiredQuestionSetIds: string[]
+  locked: boolean
 }
