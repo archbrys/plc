@@ -49,12 +49,8 @@ export function ChaptersPage() {
     <div className="chapters-page">
       <header className="chapters-header">
         <div className="header-actions">
-          <button
-            className="btn secondary"
-            type="button"
-            onClick={() => navigate("/student/plc-chapter-select")}
-          >
-            Back
+          <button className="btn secondary" type="button" onClick={() => navigate("/student/plc")}>
+            Home
           </button>
           <StudentMenu />
         </div>

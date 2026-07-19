@@ -12,9 +12,6 @@ export function PLCWelcomePage() {
     <div className="landing-page">
       <header className="landing-header">
         <div className="header-actions">
-          <button className="btn secondary" type="button" onClick={() => navigate('/student/characters')}>
-            Back
-          </button>
           <StudentMenu />
         </div>
       </header>
@@ -39,10 +36,13 @@ export function PLCWelcomePage() {
           </div>
         </div>
         
-        <div className="plc-intro-actions">
-          <button 
-            className="btn large ready-btn" 
-            type="button" 
+        <div className="plc-intro-actions spread">
+          <button className="btn-nav btn-previous" type="button" onClick={() => navigate('/student/characters')}>
+            Previous
+          </button>
+          <button
+            className="btn large ready-btn"
+            type="button"
             onClick={handleNext}
           >
             Next

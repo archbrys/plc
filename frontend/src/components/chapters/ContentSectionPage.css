@@ -135,7 +135,14 @@
   align-items: center;
 }
 
-.chapter-section2-actions .ready-btn {
+.chapter-section2-actions .btn-next {
+  min-width: 200px;
+  font-size: clamp(0.95rem, 1.8vh, 1.2rem);
+  padding: clamp(0.6rem, 1.5vh, 1rem) 2.5rem;
+  background: #2563eb;
+}
+
+.chapter-section2-actions .btn-previous {
   min-width: 200px;
   font-size: clamp(0.95rem, 1.8vh, 1.2rem);
   padding: clamp(0.6rem, 1.5vh, 1rem) 2.5rem;

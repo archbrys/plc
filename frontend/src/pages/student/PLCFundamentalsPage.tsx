@@ -165,9 +165,6 @@ export function PLCFundamentalsPage() {
       <div className="landing-page">
         <header className="landing-header">
           <div className="header-actions">
-            <button className="btn secondary" type="button" onClick={() => navigate('/student/plc')}>
-              Back
-            </button>
             <StudentMenu />
           </div>
         </header>
@@ -189,6 +186,9 @@ export function PLCFundamentalsPage() {
             </div>
 
             <div className="plc-intro-actions">
+              <button className="btn secondary" type="button" onClick={() => navigate('/student/plc')}>
+                Previous
+              </button>
               <button className="btn secondary" type="button" onClick={handleRetake}>
                 Retake Quiz
               </button>
@@ -206,9 +206,6 @@ export function PLCFundamentalsPage() {
     <div className="landing-page">
       <header className="landing-header">
         <div className="header-actions">
-          <button className="btn secondary" type="button" onClick={() => navigate('/student/plc')}>
-            Back
-          </button>
           <StudentMenu />
         </div>
       </header>

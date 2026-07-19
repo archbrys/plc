@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import { useNavigate } from 'react-router-dom'
 import type { ChapterPage } from '../../types/course'
 import { ChapterHeader } from './ChapterHeader'
 import { SlideshowPage } from './SlideshowPage'
@@ -42,6 +43,7 @@ function getSectionTitle(page: ChapterPage): string | undefined {
 }
 
 export function ChapterFlowRenderer({ chapterTitle, page, onComplete, onNext, onPrevious }: ChapterFlowRendererProps) {
+  const navigate = useNavigate()
   let body: ReactNode
 
   switch (page.type) {
@@ -102,7 +104,17 @@ export function ChapterFlowRenderer({ chapterTitle, page, onComplete, onNext, on
 
   return (
     <div className="chapter-flow-shell">
-      <ChapterHeader chapterTitle={chapterTitle} sectionTitle={getSectionTitle(page)} />
+      <ChapterHeader
+        chapterTitle={chapterTitle}
+        sectionTitle={getSectionTitle(page)}
+        actions={
+          page.type === 'slideshow' ? (
+            <button className="btn secondary" type="button" onClick={() => navigate('/student/plc')}>
+              Home
+            </button>
+          ) : undefined
+        }
+      />
       {body}
     </div>
   )

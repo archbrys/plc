@@ -78,12 +78,12 @@ export function ContentSectionPage({ config, onNext, onPrevious }: ContentSectio
 
         <div className="chapter-section2-actions">
           {!isTyping && (
-            <button className="btn large ready-btn" type="button" onClick={handlePrevious}>
+            <button className="btn-nav btn-previous" type="button" onClick={handlePrevious}>
               Previous
             </button>
           )}
           {!isTyping && (
-            <button className="btn large ready-btn" type="button" onClick={handleNext}>
+            <button className="btn-nav btn-next" type="button" onClick={handleNext}>
               Next
             </button>
           )}

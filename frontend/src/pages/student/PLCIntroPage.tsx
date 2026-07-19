@@ -29,9 +29,6 @@ export function PLCIntroPage() {
     <div className="landing-page">
       <header className="landing-header">
         <div className="header-actions">
-          <button className="btn secondary" type="button" onClick={() => navigate('/student/plc')}>
-            Back
-          </button>
           <StudentMenu />
         </div>
       </header>
@@ -56,10 +53,13 @@ export function PLCIntroPage() {
           </div>
         </div>
         
-        <div className="plc-intro-actions">
-          <button 
-            className="btn large ready-btn" 
-            type="button" 
+        <div className="plc-intro-actions spread">
+          <button className="btn-nav btn-previous" type="button" onClick={() => navigate('/student/plc')}>
+            Previous
+          </button>
+          <button
+            className="btn large ready-btn"
+            type="button"
             onClick={handleReady}
             disabled={loading || !questionSet}
           >
