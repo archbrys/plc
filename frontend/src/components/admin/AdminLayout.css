@@ -411,6 +411,80 @@
   color: #475569;
 }
 
+.btn-link {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #2563eb;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-link:hover {
+  text-decoration: underline;
+}
+
+.btn-link:disabled {
+  color: #9ca3af;
+  cursor: default;
+  text-decoration: none;
+}
+
+/* Required-quizzes checkbox list */
+.admin-checkbox-group-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.admin-checkbox-count {
+  font-weight: 500;
+  color: #6b7280;
+}
+
+.admin-checkbox-list {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: #f9fafb;
+  padding: 0.4rem;
+  max-height: 14rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.admin-checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 0.6rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.92rem;
+  color: #1f2937;
+}
+
+.admin-checkbox-item:hover {
+  background: #f1f5f9;
+}
+
+.admin-checkbox-item input[type='checkbox'] {
+  width: 1.05rem;
+  height: 1.05rem;
+  accent-color: #2563eb;
+  flex-shrink: 0;
+}
+
+.admin-checkbox-item.checked {
+  background: #eff6ff;
+  color: #1e3a8a;
+  font-weight: 500;
+}
+
 .admin-cell-index {
   display: inline-flex;
   align-items: center;

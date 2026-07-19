@@ -87,6 +87,14 @@ export function AdminHomeButtonsPage() {
     }))
   }
 
+  const selectAllRequiredQuestionSets = () => {
+    setForm((prev) => ({ ...prev, requiredQuestionSetIds: questionSets.map((qs) => qs.id) }))
+  }
+
+  const clearRequiredQuestionSets = () => {
+    setForm((prev) => ({ ...prev, requiredQuestionSetIds: [] }))
+  }
+
   const buildPayload = (): UpsertHomeButtonPayload | null => {
     const label = form.label.trim()
     if (!label) return null
@@ -231,26 +239,50 @@ export function AdminHomeButtonsPage() {
           </label>
 
           <div className="field">
-            <span>Require these quizzes completed before this button is enabled</span>
-            <div className="stack" style={{ gap: '0.25rem' }}>
-              {questionSets.length === 0 ? (
-                <p className="admin-empty-state">No question sets yet.</p>
-              ) : (
-                questionSets.map((questionSet) => (
-                  <label
-                    key={questionSet.id}
-                    style={{ flexDirection: 'row', alignItems: 'center', gap: '0.5rem', display: 'flex' }}
+            <div className="admin-checkbox-group-header">
+              <span>Require these quizzes completed before this button is enabled</span>
+              {questionSets.length > 0 ? (
+                <span className="admin-checkbox-count">
+                  {form.requiredQuestionSetIds.length} of {questionSets.length} selected ·{' '}
+                  <button
+                    className="btn-link"
+                    type="button"
+                    onClick={selectAllRequiredQuestionSets}
+                    disabled={form.requiredQuestionSetIds.length === questionSets.length}
                   >
-                    <input
-                      type="checkbox"
-                      checked={form.requiredQuestionSetIds.includes(questionSet.id)}
-                      onChange={() => toggleRequiredQuestionSet(questionSet.id)}
-                    />
-                    <span>{questionSet.title}</span>
-                  </label>
-                ))
-              )}
+                    Select all
+                  </button>{' '}
+                  ·{' '}
+                  <button
+                    className="btn-link"
+                    type="button"
+                    onClick={clearRequiredQuestionSets}
+                    disabled={form.requiredQuestionSetIds.length === 0}
+                  >
+                    Clear
+                  </button>
+                </span>
+              ) : null}
             </div>
+            {questionSets.length === 0 ? (
+              <p className="admin-empty-state">No question sets yet.</p>
+            ) : (
+              <div className="admin-checkbox-list">
+                {questionSets.map((questionSet) => {
+                  const checked = form.requiredQuestionSetIds.includes(questionSet.id)
+                  return (
+                    <label key={questionSet.id} className={`admin-checkbox-item${checked ? ' checked' : ''}`}>
+                      <input
+                        type="checkbox"
+                        checked={checked}
+                        onChange={() => toggleRequiredQuestionSet(questionSet.id)}
+                      />
+                      <span>{questionSet.title}</span>
+                    </label>
+                  )
+                })}
+              </div>
+            )}
           </div>
 
           <div className="header-actions wrap">
