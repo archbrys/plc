@@ -457,6 +457,31 @@ select {
   width: min(600px, 90vw);
 }
 
+.hero-buttons-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 2rem;
+  width: 100%;
+  max-width: 900px;
+}
+
+.hero-buttons-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hero-buttons-column .hero-box {
+  width: 100%;
+  min-height: clamp(90px, 14vh, 140px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-sizing: border-box;
+}
+
 .hero-box-btn {
   font: inherit;
   cursor: pointer;
@@ -582,6 +607,10 @@ select {
 }
 
 @media (max-width: 768px) {
+  .hero-buttons-grid {
+    grid-template-columns: 1fr;
+  }
+
   .hero-box {
     min-width: auto;
     padding: 1.5rem 2rem;

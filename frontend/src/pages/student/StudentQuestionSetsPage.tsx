@@ -36,16 +36,27 @@ export function StudentQuestionSetsPage() {
             <img src="/assets/logo-plc.png" alt="Interactive Digital Learning - PLC Trainer" className="plc-image" />
           </div>
 
-          {buttons.map((button) => (
-            <button
-              key={button.id}
-              className="hero-box hero-box-btn"
-              type="button"
-              onClick={() => handleButtonClick(button)}
-            >
-              <h3 className="box-title">{button.label}</h3>
-            </button>
-          ))}
+          <div className="hero-buttons-grid">
+            {(() => {
+              const half = Math.ceil(buttons.length / 2);
+              const columns = [buttons.slice(0, half), buttons.slice(half)];
+
+              return columns.map((columnButtons, columnIndex) => (
+                <div className="hero-buttons-column" key={columnIndex}>
+                  {columnButtons.map((button) => (
+                    <button
+                      key={button.id}
+                      className="hero-box hero-box-btn"
+                      type="button"
+                      onClick={() => handleButtonClick(button)}
+                    >
+                      <h3 className="box-title">{button.label}</h3>
+                    </button>
+                  ))}
+                </div>
+              ));
+            })()}
+          </div>
         </div>
       </main>
     </div>
