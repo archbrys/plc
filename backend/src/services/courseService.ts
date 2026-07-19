@@ -3,6 +3,7 @@ import type { CourseChapter, ChapterPage } from '@prisma/client'
 import { prisma } from '../config/prisma.js'
 import { CourseRepository } from '../repositories/courseRepository.js'
 import { HomeButtonRepository } from '../repositories/homeButtonRepository.js'
+import { deleteUploadedFile, extractLocalMediaUrl } from '../utils/uploadCleanup.js'
 import { HttpError } from '../utils/httpError.js'
 
 const repository = new CourseRepository(prisma)
@@ -141,6 +142,14 @@ export const courseService = {
       config: JSON.stringify(payload.config),
     })
 
+    if (existing.type === 'media') {
+      const oldUrl = extractLocalMediaUrl(JSON.parse(existing.config))
+      const newUrl = payload.type === 'media' ? extractLocalMediaUrl(payload.config) : undefined
+      if (oldUrl && oldUrl !== newUrl) {
+        await deleteUploadedFile(oldUrl)
+      }
+    }
+
     return mapPage(updated)
   },
 
@@ -151,6 +160,10 @@ export const courseService = {
     }
 
     await repository.deletePage(pageId)
+
+    if (existing.type === 'media') {
+      await deleteUploadedFile(extractLocalMediaUrl(JSON.parse(existing.config)))
+    }
   },
 
   async reorderPages(chapterId: number, orderedIds: number[]): Promise<void> {

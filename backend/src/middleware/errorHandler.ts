@@ -40,7 +40,16 @@ export function errorHandler(error: unknown, _req: Request, res: Response, _next
     return
   }
 
-  logger.error('Unhandled error', error)
+  const code = (error as NodeJS.ErrnoException)?.code
+  if (code === 'ENOSPC' || code === 'SQLITE_FULL') {
+    logger.error('Disk full while handling request', error)
+    res
+      .status(StatusCodes.INSUFFICIENT_STORAGE)
+      .json(createApiResponse(false, 'Server storage is full. Free up space on the device and try again.', null))
+    return
+  }
+
+  logger.error('Unhandled error', { code, message: (error as Error)?.message, error })
   res
     .status(StatusCodes.INTERNAL_SERVER_ERROR)
     .json(createApiResponse(false, 'Internal server error.', null))

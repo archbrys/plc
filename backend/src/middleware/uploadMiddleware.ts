@@ -20,8 +20,12 @@ const storage = multer.diskStorage({
   },
 })
 
+const MAX_IMAGE_SIZE_BYTES = 10 * 1024 * 1024
+const MAX_MEDIA_SIZE_BYTES = 300 * 1024 * 1024
+
 export const uploadImage = multer({
   storage,
+  limits: { fileSize: MAX_IMAGE_SIZE_BYTES },
   fileFilter: (_req, file, callback) => {
     if (!ALLOWED_MIME_TYPES.has(file.mimetype)) {
       callback(new Error('Only PNG, JPEG, WEBP, or GIF images are allowed.'))
@@ -35,6 +39,7 @@ const ALLOWED_MEDIA_MIME_TYPES = new Set(['video/mp4', 'video/webm', 'applicatio
 
 export const uploadMedia = multer({
   storage,
+  limits: { fileSize: MAX_MEDIA_SIZE_BYTES },
   fileFilter: (_req, file, callback) => {
     if (!ALLOWED_MEDIA_MIME_TYPES.has(file.mimetype)) {
       callback(new Error('Only MP4, WEBM, or PDF files are allowed.'))
