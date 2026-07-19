@@ -485,6 +485,15 @@
   font-weight: 500;
 }
 
+.admin-checkbox-item.standalone {
+  border: 1px solid #e5e7eb;
+  width: fit-content;
+}
+
+.admin-checkbox-item.standalone.checked {
+  border-color: #bfdbfe;
+}
+
 .admin-cell-index {
   display: inline-flex;
   align-items: center;

@@ -229,7 +229,7 @@ export function AdminHomeButtonsPage() {
             </label>
           )}
 
-          <label className="field" style={{ flexDirection: 'row', alignItems: 'center', gap: '0.5rem' }}>
+          <label className={`admin-checkbox-item standalone${form.isActive ? ' checked' : ''}`}>
             <input
               type="checkbox"
               checked={form.isActive}
