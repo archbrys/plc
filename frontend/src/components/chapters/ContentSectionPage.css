@@ -208,13 +208,15 @@
 
   .chapter-section2-image-column {
     order: 2;
-    flex: 0 0 var(--section-image-basis, 35%);
+    flex: 0 0 auto;
     max-height: 30vh;
   }
 
   .chapter-section2-text-column {
     order: 1;
-    flex: 0 0 var(--section-text-basis, 65%);
+    flex: 1 1 auto;
+    min-height: 0;
+    height: auto;
   }
 
   /* Drop the overlay layout below the row/column breakpoint — the base
