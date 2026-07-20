@@ -199,7 +199,7 @@
 }
 
 /* Responsive design */
-@media (max-width: 1024px) {
+@media (max-width: 400px) {
   .chapter-section2-body-wrapper {
     flex-direction: column;
     gap: clamp(0.5rem, 1.5vh, 1.5rem);
@@ -208,13 +208,13 @@
 
   .chapter-section2-image-column {
     order: 2;
-    flex: 0 0 auto;
+    flex: 0 0 30%;
     max-height: 30vh;
   }
 
   .chapter-section2-text-column {
     order: 1;
-    flex: 1 1 auto;
+    flex: 0 0 70%;
     min-height: 0;
     height: auto;
   }
