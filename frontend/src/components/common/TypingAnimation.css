@@ -17,6 +17,7 @@
   justify-content: flex-start;
   overflow-y: auto;
   overflow-x: hidden;
+  touch-action: pan-y;
   cursor: pointer;
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;
