@@ -4,7 +4,6 @@ import { AdminLayout } from '../../components/admin/AdminLayout'
 import { ConfirmModal } from '../../components/admin/ConfirmModal'
 import { ContentBlockPreviewModal } from '../../components/admin/ContentBlockPreviewModal'
 import { courseApiService, type UpsertPagePayload } from '../../services/courseApiService'
-import { invalidateCourseCache } from '../../data/course'
 import { questionSetService } from '../../services/questionSetService'
 import { uploadService } from '../../services/uploadService'
 import { useToast } from '../../hooks/useToast'
@@ -573,7 +572,6 @@ export function AdminChapterEditorPage() {
 
     try {
       await courseApiService.updateChapter(chapter.id, { title })
-      invalidateCourseCache()
       setError('')
       load()
       showToast('Chapter title saved.', 'success')
@@ -610,7 +608,6 @@ export function AdminChapterEditorPage() {
 
     try {
       await courseApiService.createPage(chapter.id, newPageDraft)
-      invalidateCourseCache()
       setError('')
       setNewPageDraft(defaultConfigFor(newPageType, chapter.title))
       load()
@@ -628,7 +625,6 @@ export function AdminChapterEditorPage() {
 
     try {
       await courseApiService.updatePage(page.id, draft)
-      invalidateCourseCache()
       setError('')
       load()
       showToast('Page saved.', 'success')
@@ -644,7 +640,6 @@ export function AdminChapterEditorPage() {
 
     try {
       await courseApiService.deletePage(pendingDeletePageId)
-      invalidateCourseCache()
       setError('')
       load()
     } catch (err) {
@@ -664,7 +659,6 @@ export function AdminChapterEditorPage() {
 
     try {
       await courseApiService.reorderPages(chapter.id, reordered.map((page) => page.id))
-      invalidateCourseCache()
       setError('')
       load()
     } catch (err) {

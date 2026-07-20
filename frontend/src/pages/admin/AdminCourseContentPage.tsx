@@ -4,7 +4,6 @@ import { AdminLayout } from '../../components/admin/AdminLayout'
 import { ConfirmModal } from '../../components/admin/ConfirmModal'
 import { courseApiService } from '../../services/courseApiService'
 import { homeButtonApiService } from '../../services/homeButtonApiService'
-import { invalidateCourseCache } from '../../data/course'
 import { useToast } from '../../hooks/useToast'
 import type { Course, CourseChapter } from '../../types/course'
 
@@ -53,7 +52,6 @@ export function AdminCourseContentPage() {
 
     try {
       await courseApiService.createChapter(title)
-      invalidateCourseCache()
       setNewChapterTitle('')
       setError('')
       load()
@@ -70,7 +68,6 @@ export function AdminCourseContentPage() {
 
     try {
       await courseApiService.deleteChapter(pendingDeleteChapter.id)
-      invalidateCourseCache()
       setError('')
       load()
     } catch (err) {
@@ -90,7 +87,6 @@ export function AdminCourseContentPage() {
 
     try {
       await courseApiService.reorderChapters(reordered.map((chapter) => chapter.id))
-      invalidateCourseCache()
       load()
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Unable to reorder chapters.')
