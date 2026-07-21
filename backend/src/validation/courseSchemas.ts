@@ -9,6 +9,7 @@ const narrationConfigSchema = z.object({
   character: z.string().min(1),
   text: z.string().min(1),
   backgroundImage: z.string().optional(),
+  image: z.string().optional(),
 })
 
 const contentBlockSchema = z

@@ -11,6 +11,7 @@ export interface NarrationPageConfig {
   character: string
   text: string
   backgroundImage?: string
+  image?: string
 }
 
 export type ImagePosition = 'left' | 'right' | 'top' | 'bottom'

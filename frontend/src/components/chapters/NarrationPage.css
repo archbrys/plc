@@ -1,4 +1,5 @@
 .narration-page-content {
+  position: relative;
   flex: 1 1 auto;
   min-height: 0;
   display: flex;
@@ -8,10 +9,23 @@
   gap: clamp(0.75rem, 2vh, 2rem);
   padding: clamp(1rem, 3vh, 2rem) clamp(1rem, 3vw, 2rem);
   overflow: auto;
-  background-image: url('/assets/classroom.jpg');
+  background-image: url("/assets/classroom.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.narration-page-image {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.narration-page-image-img {
+  max-width: 500px;
+  max-height: 500px;
+  object-fit: contain;
 }
 
 .narration-page-actions {

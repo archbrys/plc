@@ -1,4 +1,5 @@
 import type { NarrationPageConfig } from '../../types/course'
+import { resolveAssetSrc } from '../../utils/assets'
 import './NarrationPage.css'
 
 interface NarrationPageProps {
@@ -8,10 +9,15 @@ interface NarrationPageProps {
 }
 
 export function NarrationPage({ config, onNext, onPrevious }: NarrationPageProps) {
-  const { character, text, backgroundImage } = config
+  const { character, text, backgroundImage, image } = config
 
   return (
     <main className="narration-page-content">
+      {image && (
+        <div className="narration-page-image">
+          <img src={resolveAssetSrc(image)} alt="" className="narration-page-image-img" />
+        </div>
+      )}
       <div className="plc-intro-container">
         <div className="plc-intro-logo">
           <img

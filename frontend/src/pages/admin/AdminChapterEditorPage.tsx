@@ -131,6 +131,8 @@ function SlideshowForm({ config, onChange }: { config: SlideshowPageConfig; onCh
 function NarrationForm({ config, onChange }: { config: NarrationPageConfig; onChange: (config: NarrationPageConfig) => void }) {
   const [isUploading, setIsUploading] = useState(false)
   const [uploadError, setUploadError] = useState<string | null>(null)
+  const [isImageUploading, setIsImageUploading] = useState(false)
+  const [imageUploadError, setImageUploadError] = useState<string | null>(null)
 
   const handleFileSelected = async (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0]
@@ -146,6 +148,23 @@ function NarrationForm({ config, onChange }: { config: NarrationPageConfig; onCh
       setUploadError(error instanceof Error ? error.message : 'Upload failed.')
     } finally {
       setIsUploading(false)
+    }
+  }
+
+  const handleImageFileSelected = async (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0]
+    event.target.value = ''
+    if (!file) return
+
+    setIsImageUploading(true)
+    setImageUploadError(null)
+    try {
+      const url = await uploadService.uploadImage(file)
+      onChange({ ...config, image: url })
+    } catch (error) {
+      setImageUploadError(error instanceof Error ? error.message : 'Upload failed.')
+    } finally {
+      setIsImageUploading(false)
     }
   }
 
@@ -173,6 +192,24 @@ function NarrationForm({ config, onChange }: { config: NarrationPageConfig; onCh
           <img
             src={resolveAssetSrc(config.backgroundImage)}
             alt="Narrator preview"
+            style={{ maxWidth: '200px', marginTop: '0.5rem', borderRadius: '8px' }}
+          />
+        )}
+      </label>
+      <label className="field">
+        <span>Top Image (optional)</span>
+        <input
+          value={config.image ?? ''}
+          placeholder="Filename under /assets/, full URL, or upload below"
+          onChange={(event) => onChange({ ...config, image: event.target.value || undefined })}
+        />
+        <input type="file" accept="image/png,image/jpeg,image/webp,image/gif" onChange={handleImageFileSelected} disabled={isImageUploading} />
+        {isImageUploading && <span className="muted">Uploading...</span>}
+        {imageUploadError && <span className="error-message">{imageUploadError}</span>}
+        {config.image && (
+          <img
+            src={resolveAssetSrc(config.image)}
+            alt="Top image preview"
             style={{ maxWidth: '200px', marginTop: '0.5rem', borderRadius: '8px' }}
           />
         )}
