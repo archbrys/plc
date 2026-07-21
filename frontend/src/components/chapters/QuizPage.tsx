@@ -10,9 +10,10 @@ import './QuizPage.css'
 interface QuizPageProps {
   config: QuizPageConfig
   onPrevious?: () => void
+  exitRoute?: string
 }
 
-export function QuizPage({ config, onPrevious }: QuizPageProps) {
+export function QuizPage({ config, onPrevious, exitRoute }: QuizPageProps) {
   const navigate = useNavigate()
   const { user } = useAuth()
 
@@ -97,6 +98,11 @@ export function QuizPage({ config, onPrevious }: QuizPageProps) {
     }
 
     sessionStorage.setItem('quiz_last_result_id', response.result.id)
+    if (exitRoute) {
+      sessionStorage.setItem('quiz_exit_route', exitRoute)
+    } else {
+      sessionStorage.removeItem('quiz_exit_route')
+    }
     navigate('/student/completion')
   }
 

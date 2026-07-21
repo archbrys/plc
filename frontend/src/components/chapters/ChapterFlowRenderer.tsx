@@ -13,6 +13,7 @@ import './ChapterFlowRenderer.css'
 interface ChapterFlowRendererProps {
   chapterTitle: string
   page: ChapterPage
+  exitRoute?: string
   onComplete?: () => void
   onNext?: () => void
   onPrevious?: () => void
@@ -42,7 +43,14 @@ function getSectionTitle(page: ChapterPage): string | undefined {
   }
 }
 
-export function ChapterFlowRenderer({ chapterTitle, page, onComplete, onNext, onPrevious }: ChapterFlowRendererProps) {
+export function ChapterFlowRenderer({
+  chapterTitle,
+  page,
+  exitRoute,
+  onComplete,
+  onNext,
+  onPrevious,
+}: ChapterFlowRendererProps) {
   const navigate = useNavigate()
   let body: ReactNode
 
@@ -85,7 +93,7 @@ export function ChapterFlowRenderer({ chapterTitle, page, onComplete, onNext, on
       body = !page.config.questionSetId ? (
         <MisconfiguredPage type={page.type} />
       ) : (
-        <QuizPage key={page.id} config={page.config} onPrevious={onPrevious} />
+        <QuizPage key={page.id} config={page.config} onPrevious={onPrevious} exitRoute={exitRoute} />
       )
       break
 

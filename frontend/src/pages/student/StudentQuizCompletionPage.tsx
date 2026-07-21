@@ -36,10 +36,10 @@ export function StudentQuizCompletionPage() {
   }, [user, navigate])
 
   const handleContinue = () => {
-    // Clear the session storage
+    const exitRoute = sessionStorage.getItem('quiz_exit_route') || '/student/chapters'
     sessionStorage.removeItem('quiz_last_result_id')
-    // Navigate to chapter selection page
-    navigate('/student/chapters')
+    sessionStorage.removeItem('quiz_exit_route')
+    navigate(exitRoute)
   }
 
   // Mock data for display (or use actual result data when available)

@@ -68,7 +68,7 @@ export function ChaptersPage() {
         <div className="chapters-grid">
           {(() => {
             const visibleChapters = course.chapters
-              .filter((chapter) => !linkedChapterIds.has(chapter.id))
+              .filter((chapter) => !linkedChapterIds.has(chapter.id) && !chapter.group)
               .sort((a, b) => a.orderNumber - b.orderNumber)
               .map((chapter, index) => ({ ...chapter, displayNumber: index + 1 }));
             const half = Math.ceil(visibleChapters.length / 2);

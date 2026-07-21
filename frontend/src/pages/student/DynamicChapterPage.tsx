@@ -96,6 +96,7 @@ export function DynamicChapterPage() {
     <ChapterFlowRenderer
       chapterTitle={chapter.title}
       page={currentPage}
+      exitRoute={exitRoute}
       onComplete={handleComplete}
       onNext={handleNext}
       onPrevious={handlePrevious}
