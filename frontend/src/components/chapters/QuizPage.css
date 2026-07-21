@@ -25,7 +25,6 @@
 .plc-quiz-content .progress-bar-container {
   flex: 0 0 auto;
   width: 100%;
-  max-width: 900px;
   margin-bottom: clamp(0.75rem, 2vh, 2rem);
 }
 
@@ -33,7 +32,6 @@
   flex: 1 1 auto;
   min-height: 0;
   width: 100%;
-  max-width: 900px;
   margin-bottom: clamp(0.75rem, 2vh, 2rem);
   display: flex;
   flex-direction: column;
@@ -47,7 +45,7 @@
 }
 
 .plc-quiz-content .question-number {
-  font-size: clamp(1.05rem, 2.6vh, 1.5rem);
+  font-size: 1.3rem;
   margin: 0 0 clamp(0.75rem, 2vh, 2rem) 0;
 }
 
@@ -57,11 +55,10 @@
 }
 
 .plc-quiz-content .choice-text {
-  font-size: clamp(0.9rem, 1.8vh, 1.1rem);
+  font-size: 1.3rem;
 }
 
 .plc-quiz-content .quiz-navigation {
   flex: 0 0 auto;
   width: 100%;
-  max-width: 900px;
 }

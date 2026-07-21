@@ -568,13 +568,13 @@ select {
 }
 
 .narration-text {
-  font-size: 1rem;
+  font-size: 1.5rem;
   line-height: 1.6;
   margin: 0;
 }
 
 .narration-text strong {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   display: block;
   margin-bottom: 0.5rem;
 }
@@ -736,7 +736,6 @@ select {
 }
 
 .plc-quiz-logo {
-  margin-bottom: 2rem;
   text-align: center;
 }
 
@@ -750,7 +749,6 @@ select {
 /* Progress Bar */
 .progress-bar-container {
   width: 100%;
-  max-width: 900px;
   margin-bottom: 2rem;
 }
 
@@ -773,7 +771,6 @@ select {
 /* Question Container */
 .question-container {
   width: 100%;
-  max-width: 900px;
   flex: 1;
   margin-bottom: 2rem;
 }
@@ -857,7 +854,6 @@ select {
   justify-content: space-between;
   gap: 2rem;
   width: 100%;
-  max-width: 900px;
 }
 
 .btn-nav {
