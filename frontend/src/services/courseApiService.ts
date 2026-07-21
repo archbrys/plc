@@ -20,12 +20,15 @@ export const courseApiService = {
     return response.data
   },
 
-  async createChapter(title: string): Promise<CourseChapter> {
-    const response = await apiClient.post<CourseChapter>(`${API_BASE_URL}/course/chapters`, { title })
+  async createChapter(title: string, group?: string | null): Promise<CourseChapter> {
+    const response = await apiClient.post<CourseChapter>(`${API_BASE_URL}/course/chapters`, { title, group })
     return response.data
   },
 
-  async updateChapter(chapterId: number, payload: { title?: string; orderNumber?: number }): Promise<CourseChapter> {
+  async updateChapter(
+    chapterId: number,
+    payload: { title?: string; orderNumber?: number; group?: string | null },
+  ): Promise<CourseChapter> {
     const response = await apiClient.put<CourseChapter>(`${API_BASE_URL}/course/chapters/${chapterId}`, payload)
     return response.data
   },

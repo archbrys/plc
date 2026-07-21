@@ -1,4 +1,4 @@
-export type HomeButtonTargetType = 'CHAPTER' | 'ROUTE'
+export type HomeButtonTargetType = 'CHAPTER' | 'ROUTE' | 'GROUP'
 
 export interface HomeButton {
   id: number
@@ -7,6 +7,7 @@ export interface HomeButton {
   targetType: HomeButtonTargetType
   chapterId: number | null
   route: string | null
+  chapterGroup: string | null
   isActive: boolean
   requiredQuestionSetIds: string[]
   locked: boolean

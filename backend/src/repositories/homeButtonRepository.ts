@@ -30,6 +30,7 @@ export class HomeButtonRepository {
     targetType: string
     chapterId: number | null
     route: string | null
+    chapterGroup: string | null
     isActive: boolean
     requiredQuestionSetIds: string
   }) {
@@ -44,6 +45,7 @@ export class HomeButtonRepository {
       targetType?: string
       chapterId?: number | null
       route?: string | null
+      chapterGroup?: string | null
       isActive?: boolean
       requiredQuestionSetIds?: string
     },

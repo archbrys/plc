@@ -17,6 +17,7 @@ import { PLCFundamentalsPage } from '../pages/student/PLCFundamentalsPage'
 import { PLCWelcomePage } from '../pages/student/PLCWelcomePage'
 import { PLCChapterSelectPage } from '../pages/student/PLCChapterSelectPage'
 import { ChaptersPage } from '../pages/student/ChaptersPage'
+import { GroupSelectPage } from '../pages/student/GroupSelectPage'
 import { StudentCharactersPage } from '../pages/student/StudentCharactersPage'
 import { StudentQuestionSetsPage } from '../pages/student/StudentQuestionSetsPage'
 import { StudentQuizCompletionPage } from '../pages/student/StudentQuizCompletionPage'
@@ -41,6 +42,7 @@ export function AppRoutes() {
         <Route path="/student/plc-welcome" element={<PLCWelcomePage />} />
         <Route path="/student/plc-chapter-select" element={<PLCChapterSelectPage />} />
         <Route path="/student/chapters" element={<ChaptersPage />} />
+        <Route path="/student/group/:group" element={<GroupSelectPage />} />
         <Route path="/student/chapters/:chapterId/flow" element={<DynamicChapterPage />} />
         <Route path="/student/completion" element={<StudentQuizCompletionPage />} />
         <Route path="/student/result" element={<StudentResultPage />} />

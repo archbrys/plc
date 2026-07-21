@@ -18,7 +18,20 @@ const routeTargetSchema = z.object({
   requiredQuestionSetIds: z.array(z.string()).optional(),
 })
 
-export const upsertHomeButtonSchema = z.discriminatedUnion('targetType', [chapterTargetSchema, routeTargetSchema])
+const groupTargetSchema = z.object({
+  label: z.string().min(1),
+  orderNumber: z.number().int().min(1).optional(),
+  targetType: z.literal('GROUP'),
+  chapterGroup: z.string().min(1),
+  isActive: z.boolean().optional(),
+  requiredQuestionSetIds: z.array(z.string()).optional(),
+})
+
+export const upsertHomeButtonSchema = z.discriminatedUnion('targetType', [
+  chapterTargetSchema,
+  routeTargetSchema,
+  groupTargetSchema,
+])
 
 export const homeButtonIdParamSchema = z.object({
   id: z.string().regex(/^\d+$/, 'Invalid home button ID'),

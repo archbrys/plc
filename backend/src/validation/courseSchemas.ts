@@ -54,6 +54,13 @@ export const upsertPageSchema = z.discriminatedUnion('type', [
 export const upsertChapterSchema = z.object({
   title: z.string().min(1),
   orderNumber: z.number().int().min(1).optional(),
+  group: z.string().min(1).nullable().optional(),
+})
+
+export const updateChapterSchema = z.object({
+  title: z.string().min(1).optional(),
+  orderNumber: z.number().int().min(1).optional(),
+  group: z.string().min(1).nullable().optional(),
 })
 
 export const chapterIdParamSchema = z.object({

@@ -62,6 +62,7 @@ export interface CourseChapter {
   id: number
   title: string
   orderNumber: number
+  group: string | null
   pages: ChapterPage[]
 }
 

@@ -117,6 +117,7 @@ model CourseChapter {
   course      Course        @relation(fields: [courseId], references: [id], onDelete: Cascade)
   title       String
   orderNumber Int
+  group       String?
   pages       ChapterPage[]
   homeButtons HomeButton[]
   createdAt   DateTime      @default(now())
@@ -142,10 +143,11 @@ model HomeButton {
   id          Int            @id @default(autoincrement())
   label       String
   orderNumber Int
-  targetType  String         // 'CHAPTER' | 'ROUTE'
+  targetType  String         // 'CHAPTER' | 'ROUTE' | 'GROUP'
   chapterId   Int?
   chapter     CourseChapter? @relation(fields: [chapterId], references: [id], onDelete: Restrict)
   route       String?
+  chapterGroup String?
   isActive    Boolean        @default(true)
   requiredQuestionSetIds String @default("[]")
   createdAt   DateTime       @default(now())

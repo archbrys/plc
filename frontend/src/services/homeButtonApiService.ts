@@ -20,6 +20,14 @@ export type UpsertHomeButtonPayload =
       isActive?: boolean
       requiredQuestionSetIds?: string[]
     }
+  | {
+      label: string
+      orderNumber?: number
+      targetType: 'GROUP'
+      chapterGroup: string
+      isActive?: boolean
+      requiredQuestionSetIds?: string[]
+    }
 
 export const homeButtonApiService = {
   async getHomeButtons(): Promise<HomeButton[]> {

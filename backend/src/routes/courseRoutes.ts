@@ -8,6 +8,7 @@ import {
   chapterIdParamSchema,
   pageIdParamSchema,
   reorderSchema,
+  updateChapterSchema,
   upsertChapterSchema,
   upsertPageSchema,
 } from '../validation/courseSchemas.js'
@@ -33,7 +34,7 @@ courseRoutes.put(
   authMiddleware,
   roleMiddleware('admin'),
   validateParams(chapterIdParamSchema),
-  validateBody(upsertChapterSchema),
+  validateBody(updateChapterSchema),
   courseController.updateChapter,
 )
 

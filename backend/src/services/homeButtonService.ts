@@ -14,9 +14,10 @@ export interface HomeButtonResponse {
   id: number
   label: string
   orderNumber: number
-  targetType: 'CHAPTER' | 'ROUTE'
+  targetType: 'CHAPTER' | 'ROUTE' | 'GROUP'
   chapterId: number | null
   route: string | null
+  chapterGroup: string | null
   isActive: boolean
   requiredQuestionSetIds: string[]
   locked: boolean
@@ -39,6 +40,14 @@ export type UpsertHomeButtonInput =
       isActive?: boolean
       requiredQuestionSetIds?: string[]
     }
+  | {
+      label: string
+      orderNumber?: number
+      targetType: 'GROUP'
+      chapterGroup: string
+      isActive?: boolean
+      requiredQuestionSetIds?: string[]
+    }
 
 function mapButton(button: HomeButton, submittedQuestionSetIds?: Set<string>): HomeButtonResponse {
   const requiredQuestionSetIds: string[] = JSON.parse(button.requiredQuestionSetIds)
@@ -51,9 +60,10 @@ function mapButton(button: HomeButton, submittedQuestionSetIds?: Set<string>): H
     id: button.id,
     label: button.label,
     orderNumber: button.orderNumber,
-    targetType: button.targetType as 'CHAPTER' | 'ROUTE',
+    targetType: button.targetType as 'CHAPTER' | 'ROUTE' | 'GROUP',
     chapterId: button.chapterId,
     route: button.route,
+    chapterGroup: button.chapterGroup,
     isActive: button.isActive,
     requiredQuestionSetIds,
     locked,
@@ -88,6 +98,7 @@ export const homeButtonService = {
       targetType: input.targetType,
       chapterId: input.targetType === 'CHAPTER' ? input.chapterId : null,
       route: input.targetType === 'ROUTE' ? input.route : null,
+      chapterGroup: input.targetType === 'GROUP' ? input.chapterGroup : null,
       isActive: input.isActive ?? true,
       requiredQuestionSetIds: JSON.stringify(input.requiredQuestionSetIds ?? []),
     })
@@ -108,6 +119,7 @@ export const homeButtonService = {
       targetType: input.targetType,
       chapterId: input.targetType === 'CHAPTER' ? input.chapterId : null,
       route: input.targetType === 'ROUTE' ? input.route : null,
+      chapterGroup: input.targetType === 'GROUP' ? input.chapterGroup : null,
       isActive: input.isActive ?? existing.isActive,
       requiredQuestionSetIds: JSON.stringify(
         input.requiredQuestionSetIds ?? JSON.parse(existing.requiredQuestionSetIds),

@@ -52,12 +52,13 @@ export function DynamicChapterPage() {
 
   const pages = [...chapter.pages].sort((a, b) => a.orderNumber - b.orderNumber)
   const currentPage = pages[currentPageIndex]
+  const exitRoute = chapter.group ? `/student/group/${encodeURIComponent(chapter.group)}` : '/student/chapters'
 
   const handleNext = () => {
     if (currentPageIndex < pages.length - 1) {
       setCurrentPageIndex(currentPageIndex + 1)
     } else {
-      navigate('/student/chapters')
+      navigate(exitRoute)
     }
   }
 
@@ -65,7 +66,7 @@ export function DynamicChapterPage() {
     if (currentPageIndex > 0) {
       setCurrentPageIndex(currentPageIndex - 1)
     } else {
-      navigate('/student/chapters')
+      navigate(exitRoute)
     }
   }
 

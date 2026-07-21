@@ -6,6 +6,7 @@ import { courseApiService } from '../../services/courseApiService'
 import { homeButtonApiService } from '../../services/homeButtonApiService'
 import { useToast } from '../../hooks/useToast'
 import type { Course, CourseChapter } from '../../types/course'
+import { CHAPTER_GROUPS } from '../../constants/chapterGroups'
 
 export function AdminCourseContentPage() {
   const { showToast } = useToast()
@@ -13,6 +14,7 @@ export function AdminCourseContentPage() {
   const [linkedChapterIds, setLinkedChapterIds] = useState<Set<number>>(new Set())
   const [isLoading, setIsLoading] = useState(true)
   const [newChapterTitle, setNewChapterTitle] = useState('')
+  const [newChapterGroup, setNewChapterGroup] = useState('')
   const [error, setError] = useState('')
   const [pendingDeleteChapter, setPendingDeleteChapter] = useState<CourseChapter | null>(null)
 
@@ -51,13 +53,26 @@ export function AdminCourseContentPage() {
     if (!title) return
 
     try {
-      await courseApiService.createChapter(title)
+      await courseApiService.createChapter(title, newChapterGroup || null)
       setNewChapterTitle('')
+      setNewChapterGroup('')
       setError('')
       load()
       showToast('Chapter added.', 'success')
     } catch (err) {
       const message = err instanceof Error ? err.message : 'Unable to create chapter.'
+      setError(message)
+      showToast(message, 'error')
+    }
+  }
+
+  const handleChangeGroup = async (chapter: CourseChapter, group: string) => {
+    try {
+      await courseApiService.updateChapter(chapter.id, { group: group || null })
+      setError('')
+      load()
+    } catch (err) {
+      const message = err instanceof Error ? err.message : 'Unable to update chapter group.'
       setError(message)
       showToast(message, 'error')
     }
@@ -111,6 +126,17 @@ export function AdminCourseContentPage() {
                 placeholder="Enter chapter title"
               />
             </label>
+            <label className="field">
+              <span>Group</span>
+              <select value={newChapterGroup} onChange={(event) => setNewChapterGroup(event.target.value)}>
+                <option value="">None (regular chapter)</option>
+                {CHAPTER_GROUPS.map((group) => (
+                  <option key={group.value} value={group.value}>
+                    {group.label}
+                  </option>
+                ))}
+              </select>
+            </label>
           </div>
 
           <div className="header-actions wrap" style={{ marginTop: '1rem' }}>
@@ -128,6 +154,7 @@ export function AdminCourseContentPage() {
               <tr>
                 <th>#</th>
                 <th>Title</th>
+                <th>Group</th>
                 <th className="col-numeric">Pages</th>
                 <th className="col-actions">Actions</th>
               </tr>
@@ -140,6 +167,19 @@ export function AdminCourseContentPage() {
                   </td>
                   <td>
                     <div className="admin-table-title">{chapter.title}</div>
+                  </td>
+                  <td>
+                    <select
+                      value={chapter.group ?? ''}
+                      onChange={(event) => handleChangeGroup(chapter, event.target.value)}
+                    >
+                      <option value="">None</option>
+                      {CHAPTER_GROUPS.map((group) => (
+                        <option key={group.value} value={group.value}>
+                          {group.label}
+                        </option>
+                      ))}
+                    </select>
                   </td>
                   <td className="col-numeric">{chapter.pages.length}</td>
                   <td className="col-actions">

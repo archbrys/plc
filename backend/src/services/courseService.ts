@@ -20,6 +20,7 @@ export interface CourseChapterResponse {
   id: number
   title: string
   orderNumber: number
+  group: string | null
   pages: ChapterPageResponse[]
 }
 
@@ -41,6 +42,7 @@ function mapChapter(chapter: CourseChapter & { pages: ChapterPage[] }): CourseCh
     id: chapter.id,
     title: chapter.title,
     orderNumber: chapter.orderNumber,
+    group: chapter.group,
     pages: chapter.pages.map(mapPage),
   }
 }
@@ -68,20 +70,28 @@ export const courseService = {
     return chapter ? mapChapter(chapter) : null
   },
 
-  async createChapter(payload: { title: string; orderNumber?: number }): Promise<CourseChapterResponse> {
+  async createChapter(payload: {
+    title: string
+    orderNumber?: number
+    group?: string | null
+  }): Promise<CourseChapterResponse> {
     const course = await repository.getCourseWithChapters()
     if (!course) {
       throw new HttpError(404, 'No course found')
     }
 
     const orderNumber = payload.orderNumber ?? course.chapters.length + 1
-    const chapter = await repository.createChapter(course.id, { title: payload.title, orderNumber })
+    const chapter = await repository.createChapter(course.id, {
+      title: payload.title,
+      orderNumber,
+      group: payload.group ?? null,
+    })
     return mapChapter(chapter)
   },
 
   async updateChapter(
     chapterId: number,
-    payload: { title?: string; orderNumber?: number },
+    payload: { title?: string; orderNumber?: number; group?: string | null },
   ): Promise<CourseChapterResponse> {
     const existing = await repository.getChapterById(chapterId)
     if (!existing) {

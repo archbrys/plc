@@ -8,12 +8,15 @@ import { useToast } from '../../hooks/useToast'
 import type { CourseChapter } from '../../types/course'
 import type { HomeButton, HomeButtonTargetType } from '../../types/homeButton'
 import type { QuestionSet } from '../../types/quiz'
+import { CHAPTER_GROUPS, chapterGroupLabel } from '../../constants/chapterGroups'
 
 interface FormState {
   label: string
   targetType: HomeButtonTargetType
   chapterId: string
   route: string
+  isGroupSelection: boolean
+  chapterGroup: string
   isActive: boolean
   requiredQuestionSetIds: string[]
 }
@@ -23,6 +26,8 @@ const EMPTY_FORM: FormState = {
   targetType: 'CHAPTER',
   chapterId: '',
   route: '',
+  isGroupSelection: false,
+  chapterGroup: '',
   isActive: true,
   requiredQuestionSetIds: [],
 }
@@ -31,6 +36,9 @@ function targetLabel(button: HomeButton, chapters: CourseChapter[]): string {
   if (button.targetType === 'CHAPTER') {
     const chapter = chapters.find((ch) => ch.id === button.chapterId)
     return chapter ? `Chapter: ${chapter.title}` : `Chapter #${button.chapterId} (missing)`
+  }
+  if (button.targetType === 'GROUP') {
+    return `Group: ${chapterGroupLabel(button.chapterGroup ?? '')}`
   }
   return `Route: ${button.route}`
 }
@@ -70,9 +78,11 @@ export function AdminHomeButtonsPage() {
     setEditingId(button.id)
     setForm({
       label: button.label,
-      targetType: button.targetType,
+      targetType: button.targetType === 'GROUP' ? 'CHAPTER' : button.targetType,
       chapterId: button.chapterId !== null ? String(button.chapterId) : '',
       route: button.route ?? '',
+      isGroupSelection: button.targetType === 'GROUP',
+      chapterGroup: button.chapterGroup ?? '',
       isActive: button.isActive,
       requiredQuestionSetIds: button.requiredQuestionSetIds,
     })
@@ -98,6 +108,17 @@ export function AdminHomeButtonsPage() {
   const buildPayload = (): UpsertHomeButtonPayload | null => {
     const label = form.label.trim()
     if (!label) return null
+
+    if (form.isGroupSelection) {
+      if (!form.chapterGroup) return null
+      return {
+        label,
+        targetType: 'GROUP',
+        chapterGroup: form.chapterGroup,
+        isActive: form.isActive,
+        requiredQuestionSetIds: form.requiredQuestionSetIds,
+      }
+    }
 
     if (form.targetType === 'CHAPTER') {
       const chapterId = Number.parseInt(form.chapterId, 10)
@@ -125,7 +146,7 @@ export function AdminHomeButtonsPage() {
   const handleSubmit = async () => {
     const payload = buildPayload()
     if (!payload) {
-      setError('Select a chapter or enter a route before saving.')
+      setError('Select a chapter, enter a route, or choose a chapter group before saving.')
       return
     }
 
@@ -198,6 +219,7 @@ export function AdminHomeButtonsPage() {
               <span>Target Type</span>
               <select
                 value={form.targetType}
+                disabled={form.isGroupSelection}
                 onChange={(event) => setForm({ ...form, targetType: event.target.value as HomeButtonTargetType })}
               >
                 <option value="CHAPTER">Chapter</option>
@@ -206,7 +228,31 @@ export function AdminHomeButtonsPage() {
             </label>
           </div>
 
-          {form.targetType === 'CHAPTER' ? (
+          <label className={`admin-checkbox-item standalone${form.isGroupSelection ? ' checked' : ''}`}>
+            <input
+              type="checkbox"
+              checked={form.isGroupSelection}
+              onChange={(event) => setForm({ ...form, isGroupSelection: event.target.checked })}
+            />
+            <span>Show a selection list by chapter group (instead of one chapter or route)</span>
+          </label>
+
+          {form.isGroupSelection ? (
+            <label className="field">
+              <span>Chapter Group</span>
+              <select
+                value={form.chapterGroup}
+                onChange={(event) => setForm({ ...form, chapterGroup: event.target.value })}
+              >
+                <option value="">Select a group...</option>
+                {CHAPTER_GROUPS.map((group) => (
+                  <option key={group.value} value={group.value}>
+                    {group.label}
+                  </option>
+                ))}
+              </select>
+            </label>
+          ) : form.targetType === 'CHAPTER' ? (
             <label className="field">
               <span>Chapter</span>
               <select value={form.chapterId} onChange={(event) => setForm({ ...form, chapterId: event.target.value })}>

@@ -21,14 +21,14 @@ export class CourseRepository {
     })
   }
 
-  createChapter(courseId: string, data: { title: string; orderNumber: number }) {
+  createChapter(courseId: string, data: { title: string; orderNumber: number; group?: string | null }) {
     return this.db.courseChapter.create({
-      data: { courseId, title: data.title, orderNumber: data.orderNumber },
+      data: { courseId, title: data.title, orderNumber: data.orderNumber, group: data.group ?? null },
       include: { pages: { orderBy: { orderNumber: 'asc' } } },
     })
   }
 
-  updateChapter(id: number, data: { title?: string; orderNumber?: number }) {
+  updateChapter(id: number, data: { title?: string; orderNumber?: number; group?: string | null }) {
     return this.db.courseChapter.update({
       where: { id },
       data,

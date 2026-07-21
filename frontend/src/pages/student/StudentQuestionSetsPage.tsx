@@ -20,6 +20,10 @@ export function StudentQuestionSetsPage() {
     }
     if (button.targetType === 'ROUTE' && button.route) {
       navigate(button.route)
+      return
+    }
+    if (button.targetType === 'GROUP' && button.chapterGroup) {
+      navigate(`/student/group/${encodeURIComponent(button.chapterGroup)}`)
     }
   }
 
