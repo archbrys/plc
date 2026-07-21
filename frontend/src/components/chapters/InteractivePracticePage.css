@@ -44,7 +44,7 @@
 }
 
 .chapter-practice-simulator .plc-simulator-title {
-  font-size: clamp(1rem, 2.2vh, 1.4rem);
+  font-size: clamp(1.3rem, 2.2vh, 1.4rem);
 }
 
 .chapter-practice-simulator .plc-simulator-body {
@@ -69,11 +69,11 @@
 }
 
 .chapter-practice-simulator .plc-section-label {
-  font-size: clamp(1rem, 2vh, 1.3rem);
+  font-size: clamp(1.2rem, 2vh, 1.3rem);
 }
 
 .chapter-practice-simulator .plc-io-label {
-  font-size: clamp(0.85rem, 1.6vh, 1.05rem);
+  font-size: clamp(1.1rem, 1.6vh, 1.05rem);
 }
 
 .chapter-practice-actions {
