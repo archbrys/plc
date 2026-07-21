@@ -29,6 +29,12 @@ const BAND_MESSAGE: Record<ScoreBand, string> = {
   low: 'Keep practicing!',
 }
 
+const BAND_ICON: Record<ScoreBand, string> = {
+  good: '🏆',
+  mid: '👍',
+  low: '📘',
+}
+
 export function StudentResultPage() {
   const { user } = useAuth()
   const [latest, setLatest] = useState<QuizResult | null>(null)
@@ -64,16 +70,23 @@ export function StudentResultPage() {
             const band = getScoreBand(percentage)
             return (
               <section className={`result-hero band-${band}`}>
-                <p className="result-hero-label muted">Latest Submission</p>
-                <h2 className="result-hero-title">{latest.questionSetTitle}</h2>
+                <div className="result-hero-top">
+                  <div className={`result-hero-icon band-${band}`}>{BAND_ICON[band]}</div>
+                  <div>
+                    <p className="result-hero-label muted">Latest Submission</p>
+                    <h2 className="result-hero-title">{latest.questionSetTitle}</h2>
+                  </div>
+                </div>
                 <div className="result-hero-score">
                   <span className="result-hero-score-value">
                     {latest.earnedPoints} / {latest.totalPoints}
                   </span>
-                  <span className="score-pill">{percentage}%</span>
+                  <span className={`score-pill band-${band}`}>{percentage}%</span>
                 </div>
                 <p className="result-hero-message">{BAND_MESSAGE[band]}</p>
-                <p className="muted">Submitted: {new Date(latest.submittedAt).toLocaleString()}</p>
+                <p className="muted result-hero-date">
+                  Submitted: {new Date(latest.submittedAt).toLocaleString()}
+                </p>
               </section>
             )
           })()
@@ -90,6 +103,7 @@ export function StudentResultPage() {
                 const band = getScoreBand(percentage)
                 return (
                   <div key={result.id} className="history-row">
+                    <div className={`history-row-icon band-${band}`}>{BAND_ICON[band]}</div>
                     <div className="history-row-info">
                       <span className="history-row-title">{result.questionSetTitle}</span>
                       <span className="muted history-row-date">
@@ -97,7 +111,7 @@ export function StudentResultPage() {
                       </span>
                     </div>
                     <div className="history-row-score">
-                      <span>
+                      <span className="muted">
                         {result.earnedPoints}/{result.totalPoints}
                       </span>
                       <span className={`score-pill band-${band}`}>{percentage}%</span>

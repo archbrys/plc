@@ -34,7 +34,7 @@
 
 .chapter-flow-header-chapter {
   margin: 0;
-  font-size: clamp(1.2rem, 2.2vh, 1.35rem);
+  font-size: clamp(1.3rem, 2.2vh, 1.5rem);
   font-weight: 700;
   line-height: 1.2;
   white-space: nowrap;
@@ -44,7 +44,7 @@
 
 .chapter-flow-header-section {
   margin: 0;
-  font-size: clamp(1rem, 1.4vh, 0.95rem);
+  font-size: clamp(1.3rem, 1.4vh, 0.95rem);
   font-weight: 500;
   opacity: 0.85;
   white-space: nowrap;
